@@ -1,0 +1,31 @@
+<view class="pane home-pane">
+  <view class="head">
+    <view>
+      <view class="greet">早上好,阿强</view>
+      <view class="sub">本周第 {{weekCount}} 练</view>
+    </view>
+    <view class="avatar">强</view>
+  </view>
+
+  <view class="banner" wx:if="{{newPr}}" bindtap="goHistory">
+    <view class="banner-top"><view class="badge">新纪录</view><text class="banner-time">{{newPr.time}}</text></view>
+    <view class="banner-hd">{{newPr.text}}</view>
+    <view class="banner-sd">点按查看详情</view>
+  </view>
+
+  <view class="stats3">
+    <view class="stat"><text class="stat-b">{{weekCount}}</text><text class="stat-s">本周训练</text></view>
+    <view class="stat"><text class="stat-b">{{weekDuration}}</text><text class="stat-s">总时长</text></view>
+    <view class="stat"><text class="stat-b">{{weekVolume}}</text><text class="stat-s">总容量</text></view>
+  </view>
+
+  <view class="btn btn-primary btn-block start-btn" bindtap="goWorkout">开始训练</view>
+
+  <view class="list">
+    <view class="lrow" wx:for="{{recent}}" wx:key="id">
+      <text class="lrow-l">{{item.title}}</text>
+      <view class="lrow-r"><text class="lrow-r-b">{{item.detail}}</text></view>
+    </view>
+  </view>
+</view>
+<tab-bar current="home"/>
