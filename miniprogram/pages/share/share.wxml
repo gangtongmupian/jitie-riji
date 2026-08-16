@@ -1,0 +1,36 @@
+<view class="sheet">
+  <view class="bar"></view>
+  <view class="ttl">今日训练完成</view>
+
+  <view class="card sw" bindtap="toggleBg">
+    <text class="sw-txt">使用照片作背景</text>
+    <view class="switch {{usePhoto ? 'on' : ''}}"></view>
+  </view>
+
+  <view class="card preview {{usePhoto ? 'photo' : ''}}" style="{{usePhoto ? 'background-image: url(' + bgPath + ');' : ''}}">
+    <view class="pv-top">
+      <text class="pv-brand">举铁日记</text>
+      <text class="tag">训练打卡</text>
+    </view>
+    <view class="pv-vol">{{totalVolume}}<text class="pv-unit">kg 总容量</text></view>
+    <view class="pv-meta">{{actions}} 个动作 · {{groups}} 组 · {{duration}}</view>
+    <view class="pv-list">
+      <view class="pv-row" wx:for="{{exercises}}" wx:key="exerciseId">
+        <text class="pv-nm">{{item.name}}</text>
+        <text class="pv-set">{{item.setText}}</text>
+      </view>
+    </view>
+    <view class="pv-foot">
+      <text>{{dateText}}</text>
+      <view class="qr">小程序码</view>
+    </view>
+  </view>
+
+  <canvas type="2d" id="shareCanvas" class="hidden-canvas"></canvas>
+
+  <view class="btn-row">
+    <view class="btn btn-ghost flex1" bindtap="save">保存到相册</view>
+    <view class="btn btn-primary flex1" open-type="share" bindtap="share">转发给好友</view>
+  </view>
+  <view class="home-link" bindtap="goHome">回到首页</view>
+</view>
