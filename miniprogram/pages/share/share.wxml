@@ -30,7 +30,7 @@
 
   <view class="btn-row">
     <view class="btn btn-ghost flex1" bindtap="save">保存到相册</view>
-    <view class="btn btn-primary flex1" open-type="share" bindtap="share">转发给好友</view>
+    <view class="btn btn-primary flex1" bindtap="share">转发给好友</view>
   </view>
   <view class="home-link" bindtap="goHome">回到首页</view>
 </view>
