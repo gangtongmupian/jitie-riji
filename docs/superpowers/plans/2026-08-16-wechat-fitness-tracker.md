@@ -63,7 +63,7 @@
 
 ## 测试约定
 
-- 单元测试只覆盖 `utils/` 下的纯函数,命令:`node --test tests/`(期望输出含 `pass`,退出码 0)。
+- 单元测试只覆盖 `utils/` 下的纯函数,命令:`node --test tests/standards.test.js tests/format.test.js tests/stats.test.js`(本机 Windows 环境下 `node --test tests/` 目录形式不可用,须显式列出测试文件;期望输出 `pass 12`、`fail 0`,退出码 0)。
 - 页面与云函数在微信开发者工具中手动验证(每页都有"验证"步骤)。
 - 每次任务最后提交 Git,提交信息见各任务。
 
@@ -3895,10 +3895,10 @@ git commit -m "chore: 隐私标准文案与占位清理"
 - [ ] **Step 2: 跑单元测试**
 
 ```bash
-node --test tests/
+node --test tests/standards.test.js tests/format.test.js tests/stats.test.js
 ```
 
-期望:全部 PASS。
+期望:`pass 12`、`fail 0`。
 
 - [ ] **Step 3: 开发者工具全流程走查**
 
