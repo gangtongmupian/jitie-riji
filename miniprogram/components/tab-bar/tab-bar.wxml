@@ -1,0 +1,6 @@
+<view class="tabbar">
+  <view class="tab {{current === 'home' ? 'active' : ''}}" data-page="home" bindtap="go">首页</view>
+  <view class="tab {{current === 'workout' ? 'active' : ''}}" data-page="workout" bindtap="go">记录</view>
+  <view class="tab {{current === 'history' ? 'active' : ''}}" data-page="history" bindtap="go">历史</view>
+  <view class="tab {{current === 'profile' ? 'active' : ''}}" data-page="profile" bindtap="go">我的</view>
+</view>
