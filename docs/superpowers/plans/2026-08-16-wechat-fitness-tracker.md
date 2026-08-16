@@ -547,7 +547,7 @@ test('validateProfile: 边界与错误信息', () => {
   const bad = validateProfile({ gender: 'x', age: 5, heightCm: 70, weightKg: 10 });
   assert.equal(bad.ok, false);
   assert.equal(bad.errors.length, 6);
-  const good = validateProfile({ gender: 'male', age: 28, heightCm: 175, weightKg: 70 });
+  const good = validateProfile({ gender: 'male', age: 28, heightCm: 175, weightKg: 70, goal: '减脂', frequency: 3 });
   assert.equal(good.ok, true);
 });
 ```
