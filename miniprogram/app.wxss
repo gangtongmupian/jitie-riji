@@ -1,0 +1,296 @@
+page {
+  /* 品牌 */
+  --primary: #5645d4;
+  --primary-pressed: #4534b3;
+  --primary-deep: #3a2a99;
+  --link-blue: #0075de;
+  --navy: #0a1530;
+  --navy-deep: #070f24;
+  --navy-mid: #1a2a52;
+  /* 表面 */
+  --canvas: #ffffff;
+  --surface: #f6f5f4;
+  --surface-soft: #fafaf9;
+  --hairline: #e5e3df;
+  --hairline-soft: #ede9e4;
+  --hairline-strong: #c8c4be;
+  /* 文字 */
+  --ink: #1a1a1a;
+  --charcoal: #37352f;
+  --slate: #5d5b54;
+  --steel: #787671;
+  --stone: #a4a097;
+  --muted: #bbb8b1;
+  --on-dark: #ffffff;
+  --on-dark-muted: #a4a097;
+  /* 语义 */
+  --success: #1aae39;
+  --warning: #dd5b00;
+  --error: #e03131;
+  /* 粉彩 */
+  --tint-lavender: #e6e0f5;
+  --tint-peach: #ffe8d4;
+  --tint-mint: #d9f3e1;
+  --tint-sky: #dcecfa;
+  --tint-rose: #fde0ec;
+  --tint-yellow: #fef7d6;
+  --yellow-bold: #f9e79f;
+  /* 圆角(rpx:1px ≈ 2rpx) */
+  --r-sm: 12rpx;
+  --r-md: 16rpx;
+  --r-lg: 24rpx;
+  --r-full: 9999rpx;
+  /* 其他 */
+  background: var(--surface-soft);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 30rpx;
+  line-height: 1.5;
+}
+
+/* 卡片 */
+.card {
+  background: var(--canvas);
+  border: 1rpx solid var(--hairline);
+  border-radius: var(--r-lg);
+}
+
+/* 按钮 */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-md);
+  font-size: 28rpx;
+  font-weight: 500;
+  min-height: 88rpx;
+  padding: 0 36rpx;
+  line-height: 1;
+}
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+.btn-primary:active {
+  background: var(--primary-pressed);
+}
+.btn-ghost {
+  background: transparent;
+  border: 1rpx solid var(--hairline-strong);
+  color: var(--ink);
+}
+.btn-on-dark {
+  background: #fff;
+  color: var(--ink);
+}
+.btn-on-dark-ghost {
+  background: transparent;
+  border: 1rpx solid var(--on-dark-muted);
+  color: var(--on-dark);
+}
+.btn-block {
+  width: 100%;
+}
+
+/* 胶囊选择(筛选/性别/频率) */
+.pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1rpx solid var(--hairline);
+  border-radius: var(--r-full);
+  padding: 18rpx 32rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: var(--steel);
+  background: var(--canvas);
+  min-height: 80rpx;
+}
+.pill-sel {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+/* 输入框 */
+.input {
+  background: var(--canvas);
+  border: 1rpx solid var(--hairline-strong);
+  border-radius: var(--r-md);
+  height: 88rpx;
+  font-size: 32rpx;
+  color: var(--ink);
+  padding: 0 28rpx;
+  text-align: center;
+}
+.input-focus {
+  border: 2rpx solid var(--primary);
+}
+
+/* 列表 */
+.list {
+  background: var(--canvas);
+  border: 1rpx solid var(--hairline);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.lrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26rpx 32rpx;
+  border-bottom: 1rpx solid var(--hairline-soft);
+  font-size: 30rpx;
+  color: var(--charcoal);
+}
+.lrow:last-child {
+  border-bottom: none;
+}
+.lrow-r {
+  font-size: 28rpx;
+  color: var(--slate);
+  text-align: right;
+}
+.lrow-r-b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* 标签 */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  background: var(--tint-lavender);
+  color: var(--primary-deep);
+  border-radius: var(--r-sm);
+  font-size: 22rpx;
+  font-weight: 600;
+  padding: 4rpx 16rpx;
+  margin-left: 12rpx;
+}
+.tag-green {
+  background: var(--tint-mint);
+  color: var(--success);
+}
+.tag-orange {
+  background: var(--tint-peach);
+  color: var(--warning);
+}
+.tag-gray {
+  background: var(--surface);
+  color: var(--steel);
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  background: var(--primary);
+  color: #fff;
+  border-radius: var(--r-full);
+  font-size: 22rpx;
+  font-weight: 600;
+  padding: 6rpx 20rpx;
+}
+
+/* 指标卡 */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24rpx;
+}
+.metric {
+  background: var(--canvas);
+  border: 1rpx solid var(--hairline);
+  border-radius: var(--r-lg);
+  padding: 28rpx 16rpx;
+  text-align: center;
+}
+.metric-tint-lavender {
+  background: var(--tint-lavender);
+  border-color: transparent;
+}
+.metric-tint-mint {
+  background: var(--tint-mint);
+  border-color: transparent;
+}
+.metric-tint-sky {
+  background: var(--tint-sky);
+  border-color: transparent;
+}
+.metric-b {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 600;
+  letter-spacing: -0.5rpx;
+}
+.metric-s {
+  display: block;
+  font-size: 22rpx;
+  color: var(--slate);
+  margin-top: 4rpx;
+  line-height: 1.35;
+}
+
+/* 深蓝 Hero 与便签圆点 */
+.navy-hero {
+  background: var(--navy);
+  color: var(--on-dark);
+  border-radius: 0 0 40rpx 40rpx;
+  position: relative;
+  overflow: hidden;
+  padding: 80rpx 52rpx 64rpx;
+}
+.hero-dot {
+  position: absolute;
+  border-radius: 50%;
+}
+.hero-title {
+  font-size: 60rpx;
+  font-weight: 600;
+  letter-spacing: -1rpx;
+  line-height: 1.15;
+  color: var(--on-dark);
+}
+.hero-sub {
+  font-size: 30rpx;
+  color: var(--on-dark-muted);
+}
+
+/* 页面内边距 */
+.pane {
+  padding: 32rpx 40rpx 56rpx;
+}
+.mtitle {
+  font-size: 48rpx;
+  font-weight: 600;
+  letter-spacing: -1rpx;
+  line-height: 1.25;
+}
+.msub {
+  font-size: 30rpx;
+  color: var(--slate);
+  line-height: 1.5;
+  margin: 12rpx 0 44rpx;
+}
+.step-row {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  padding: 12rpx 0 36rpx;
+}
+.step-lbl {
+  font-size: 24rpx;
+  color: var(--slate);
+  font-weight: 500;
+}
+.bar-track {
+  flex: 1;
+  height: 8rpx;
+  background: #e8e6e3;
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: var(--r-full);
+}
