@@ -9,8 +9,9 @@ test('formatVolume: 千位分隔与吨缩写', () => {
 });
 
 test('formatDuration: 分钟/小时', () => {
-  assert.equal(formatDuration(90), '90 分钟');
+  assert.equal(formatDuration(90), '1.5h');
   assert.equal(formatDuration(150), '2.5h');
+  assert.equal(formatDuration(45), '45 分钟');
 });
 
 test('formatDate: 中文月日与星期', () => {
