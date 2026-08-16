@@ -1,0 +1,70 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 32rpx;
+}
+.back {
+  width: 88rpx;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  font-size: 48rpx;
+  color: var(--ink);
+}
+.ttl {
+  font-size: 40rpx;
+  font-weight: 600;
+}
+.act {
+  font-size: 28rpx;
+  color: var(--link-blue);
+  width: 88rpx;
+  text-align: right;
+}
+.info-card {
+  padding: 32rpx 36rpx;
+  margin-bottom: 32rpx;
+  background: var(--surface);
+}
+.info-row {
+  font-size: 28rpx;
+  color: var(--slate);
+}
+.info-b {
+  color: var(--ink);
+  font-weight: 600;
+}
+.info-sub {
+  font-size: 26rpx;
+  color: var(--slate);
+  margin-top: 12rpx;
+}
+.ex-card {
+  background: var(--canvas);
+  border: 1rpx solid var(--hairline);
+  border-radius: var(--r-lg);
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+}
+.ex-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.ex-nm {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.ex-tip {
+  font-size: 26rpx;
+  color: var(--slate);
+  margin-bottom: 20rpx;
+}
+.ex-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  color: var(--slate);
+}

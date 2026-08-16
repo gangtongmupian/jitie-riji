@@ -1,0 +1,31 @@
+<view class="pane">
+  <view class="topbar">
+    <view class="ttl">开始训练</view>
+    <view class="date">8月16日 周一</view>
+  </view>
+  <view class="mode-card {{mode === 'template' ? 'mode-sel' : ''}}" data-m="template" bindtap="pickMode">
+    <view class="mode-ic tint-lavender">📋</view>
+    <view>
+      <view class="mode-nm">用模板练</view>
+      <view class="mode-ds">按推荐计划逐动作打卡,附带重量参考</view>
+    </view>
+  </view>
+  <view class="mode-card {{mode === 'free' ? 'mode-sel' : ''}}" data-m="free" bindtap="pickMode">
+    <view class="mode-ic tint-sky">✍️</view>
+    <view>
+      <view class="mode-nm">自由训练</view>
+      <view class="mode-ds">自己加动作,不绑定计划</view>
+    </view>
+  </view>
+  <view class="tmpl-h"><text class="tmpl-l">为你推荐</text><text class="tmpl-r">查看全部</text></view>
+  <view class="tmpl-row" wx:for="{{templates}}" wx:key="id" data-id="{{item.id}}" bindtap="openTemplate">
+    <view class="tmpl-ic tint-lavender">🏋️</view>
+    <view class="tmpl-body">
+      <view class="tmpl-nm">{{item.name}}</view>
+      <view class="tmpl-ds">{{item.sub}}</view>
+    </view>
+    <view class="tmpl-go">›</view>
+  </view>
+  <view class="btn btn-primary btn-block free-btn" wx:if="{{mode === 'free'}}" bindtap="startFree">开始自由训练</view>
+</view>
+<tab-bar current="workout"/>
