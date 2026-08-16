@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>举铁日记 · 全套 UI 原型(Notion 设计语言)</title>
+<style>
+  :root {
+    --purple: #5645d4;
+    --purple-pressed: #4534b3;
+    --purple-deep: #3a2a99;
+    --navy: #0a1530;
+    --navy-deep: #070f24;
+    --navy-mid: #1a2a52;
+    --link: #0075de;
+    --orange: #dd5b00;
+    --pink: #ff64c8;
+    --teal: #2a9d99;
+    --green: #1aae39;
+    --yellow: #f5d75e;
+    --peach: #ffe8d4;
+    --rose: #fde0ec;
+    --mint: #d9f3e1;
+    --lavender: #e6e0f5;
+    --sky: #dcecfa;
+    --tint-yellow: #fef7d6;
+    --yellow-bold: #f9e79f;
+    --cream: #f8f5e8;
+    --tint-gray: #f0eeec;
+    --canvas: #ffffff;
+    --surface: #f6f5f4;
+    --surface-soft: #fafaf9;
+    --hairline: #e5e3df;
+    --hairline-soft: #ede9e4;
+    --hairline-strong: #c8c4be;
+    --ink: #1a1a1a;
+    --charcoal: #37352f;
+    --slate: #5d5b54;
+    --steel: #787671;
+    --stone: #a4a097;
+    --muted: #bbb8b1;
+    --on-dark: #ffffff;
+    --on-dark-muted: #a4a097;
+    --success: #1aae39;
+    --warning: #dd5b00;
+    --error: #e03131;
+    --r-xs: 4px; --r-sm: 6px; --r-md: 8px; --r-lg: 12px; --r-xl: 16px; --r-xxl: 20px; --r-full: 9999px;
+    --font: "Inter", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body { font-family: var(--font); background: #0a0a0b; color: var(--ink); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .page-wrap { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .page-title { color: #fff; font-size: 13px; font-weight: 600; opacity: .92; }
+  .page-sub { color: #fff; font-size: 11px; opacity: .5; margin-top: 3px; }
+
+  .phone { width: 390px; height: 800px; background: var(--surface-soft); border-radius: 46px; border: 10px solid #17171a; box-shadow: 0 0 0 1px rgba(255,255,255,.06), 0 30px 80px rgba(0,0,0,.7); position: relative; overflow: hidden; }
+  .statusbar { position: absolute; top: 0; left: 0; right: 0; height: 42px; z-index: 60; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; font-size: 12px; font-weight: 600; color: var(--ink); }
+  .statusbar.on-dark { color: #fff; }
+  .screen { position: absolute; top: 42px; left: 0; right: 0; bottom: 0; overflow-y: auto; display: none; background: var(--surface-soft); }
+  .screen.active { display: block; }
+  .screen.with-tab { padding-bottom: 84px; }
+
+  .tabbar { position: absolute; bottom: 0; left: 0; right: 0; height: 72px; z-index: 70; background: rgba(255,255,255,.95); border-top: 1px solid var(--hairline); display: none; align-items: flex-start; justify-content: space-around; padding-top: 8px; }
+  .tabbar.show { display: flex; }
+  .tab { display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 10px; color: var(--steel); cursor: pointer; width: 72px; min-height: 44px; justify-content: center; position: relative; }
+  .tab svg { width: 22px; height: 22px; }
+  .tab.active { color: var(--ink); font-weight: 500; }
+  .tab.active::before { content: ""; position: absolute; top: -8px; left: 50%; transform: translateX(-50%); width: 22px; height: 3px; border-radius: 0 0 3px 3px; background: var(--purple); }
+  .tab.active svg { color: var(--ink); }
+
+  .pane { padding: 16px 20px 28px; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; padding: 8px 16px; }
+  .topbar .back { width: 44px; height: 44px; display: flex; align-items: center; color: var(--ink); font-size: 24px; cursor: pointer; }
+  .topbar .ttl { font-size: 20px; font-weight: 600; letter-spacing: -0.2px; }
+  .topbar .act { font-size: 14px; color: var(--link); cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 500; }
+
+  .step-row { display: flex; align-items: center; gap: 12px; padding: 6px 0 18px; }
+  .step-row .lbl { font-size: 12px; color: var(--slate); font-weight: 500; }
+  .bar-track { flex: 1; height: 4px; background: #e8e6e3; border-radius: 99px; overflow: hidden; }
+  .bar-fill { height: 100%; width: 33%; background: var(--purple); border-radius: 99px; transition: width .3s; }
+
+  h1.display { font-size: 30px; font-weight: 600; letter-spacing: -0.5px; line-height: 1.15; }
+  h2.mtitle { font-size: 24px; font-weight: 600; letter-spacing: -0.4px; line-height: 1.25; margin-bottom: 6px; }
+  .msub { font-size: 15px; color: var(--slate); margin-bottom: 22px; line-height: 1.5; }
+  .sub { font-size: 15px; color: var(--slate); line-height: 1.5; }
+
+  .card { background: var(--canvas); border: 1px solid var(--hairline); border-radius: var(--r-lg); }
+  .tint-lavender { background: var(--lavender); border-color: transparent; }
+  .tint-peach { background: var(--peach); border-color: transparent; }
+  .tint-mint { background: var(--mint); border-color: transparent; }
+  .tint-sky { background: var(--sky); border-color: transparent; }
+  .tint-rose { background: var(--rose); border-color: transparent; }
+  .tint-yellow { background: var(--tint-yellow); border-color: transparent; }
+  .tint-yellow-bold { background: var(--yellow-bold); border-color: transparent; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; border: none; cursor: pointer; background: var(--purple); color: #fff; font-family: var(--font); font-size: 14px; font-weight: 500; border-radius: var(--r-md); padding: 10px 18px; min-height: 44px; transition: background .15s; }
+  .btn:active { background: var(--purple-pressed); }
+  .btn.block { width: 100%; }
+  .btn.ghost { background: transparent; border: 1px solid var(--hairline-strong); color: var(--ink); }
+  .btn.dark { background: var(--ink); color: #fff; }
+  .btn.on-dark { background: #fff; color: var(--ink); }
+  .btn.on-dark-ghost { background: transparent; border: 1px solid var(--on-dark-muted); color: var(--on-dark); }
+
+  .pill { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--canvas); color: var(--steel); border: 1px solid var(--hairline); border-radius: var(--r-full); padding: 9px 16px; font-size: 14px; font-weight: 500; min-height: 40px; cursor: pointer; transition: all .15s; }
+  .pill.sel { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .pill .em { font-size: 15px; }
+
+  .input { background: var(--canvas); border: 1px solid var(--hairline-strong); border-radius: var(--r-md); height: 44px; padding: 0 14px; font-size: 16px; font-family: var(--font); color: var(--ink); width: 100%; outline: none; text-align: center; font-weight: 500; }
+  .input:focus { border: 2px solid var(--purple); padding: 0 13px; }
+  .field { display: flex; align-items: center; justify-content: space-between; background: var(--canvas); border: 1px solid var(--hairline); border-radius: var(--r-lg); padding: 8px 16px; min-height: 64px; margin-bottom: 12px; }
+  .field .lbl { font-size: 14px; color: var(--slate); }
+  .field .val { font-size: 18px; font-weight: 600; }
+  .field .unit { font-size: 13px; color: var(--slate); margin-left: 2px; }
+  .stepper { display: flex; align-items: center; gap: 14px; }
+  .stepper button { width: 40px; height: 40px; border-radius: var(--r-md); border: 1px solid var(--hairline); background: var(--canvas); color: var(--purple); font-size: 18px; cursor: pointer; }
+  .stepper button:active { background: var(--surface); }
+
+  .stats3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0; }
+  .stat { background: var(--canvas); border: 1px solid var(--hairline); border-radius: var(--r-lg); padding: 16px 8px 14px; text-align: center; }
+  .stat b { display: block; font-size: 23px; font-weight: 600; letter-spacing: -0.5px; color: var(--ink); }
+  .stat span { font-size: 12px; color: var(--slate); display: block; margin-top: 2px; }
+
+  .banner { background: var(--yellow-bold); border-radius: var(--r-lg); padding: 16px 18px; margin-bottom: 16px; }
+  .banner .hd { font-size: 18px; font-weight: 600; color: var(--charcoal); letter-spacing: -0.2px; }
+  .banner .sd { font-size: 13px; color: #5c4d18; margin-top: 4px; line-height: 1.4; }
+
+  .badge { display: inline-flex; align-items: center; background: var(--purple); color: #fff; border-radius: var(--r-full); font-size: 11px; font-weight: 600; padding: 3px 10px; margin-left: 6px; }
+  .tag { display: inline-flex; align-items: center; background: var(--lavender); color: var(--purple-deep); border-radius: var(--r-sm); font-size: 11px; font-weight: 600; padding: 2px 8px; }
+  .tag.green { background: var(--mint); color: var(--green); }
+  .tag.orange { background: var(--peach); color: var(--orange); }
+  .tag.gray { background: var(--tint-gray); color: var(--steel); }
+
+  .list { background: var(--canvas); border: 1px solid var(--hairline); border-radius: var(--r-lg); overflow: hidden; margin-bottom: 14px; }
+  .lrow { display: flex; align-items: center; justify-content: space-between; padding: 13px 16px; border-bottom: 1px solid var(--hairline-soft); min-height: 48px; }
+  .lrow:last-child { border-bottom: none; }
+  .lrow .l { font-size: 15px; color: var(--charcoal); }
+  .lrow .r { font-size: 14px; color: var(--slate); text-align: right; }
+  .lrow .r b { color: var(--ink); font-weight: 600; }
+  .lrow .r .cap { display: block; font-size: 11px; color: var(--steel); margin-top: 1px; }
+
+  .seg { display: flex; gap: 20px; border-bottom: 1px solid var(--hairline); margin-bottom: 16px; }
+  .seg div { padding: 8px 2px 10px; font-size: 14px; color: var(--steel); cursor: pointer; font-weight: 500; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+  .seg div.on { color: var(--ink); border-bottom-color: var(--ink); }
+
+  .cal { background: var(--canvas); border: 1px solid var(--hairline); border-radius: var(--r-lg); padding: 18px 16px; margin-bottom: 14px; }
+  .cal .mon { display: flex; justify-content: space-between; align-items: center; font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+  .cal .mon span { color: var(--steel); cursor: pointer; font-size: 17px; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; }
+  .cal .dow { display: grid; grid-template-columns: repeat(7,1fr); text-align: center; font-size: 10px; color: var(--stone); margin-bottom: 8px; }
+  .cal .grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 3px; }
+  .cal .day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--steel); border-radius: var(--r-md); position: relative; }
+  .cal .day.work { color: var(--ink); font-weight: 600; }
+  .cal .day.work::after { content: ""; position: absolute; bottom: 2px; width: 4px; height: 4px; border-radius: 50%; background: var(--purple); }
+  .cal .day.today { background: var(--ink); color: #fff; font-weight: 600; }
+  .cal .day.today::after { display: none; }
+
+  .mode-card { display: flex; gap: 14px; align-items: center; background: var(--canvas); border: 1px solid var(--hairline); border-radius: var(--r-lg); padding: 18px 16px; margin-bottom: 12px; cursor: pointer; min-height: 76px; }
+  .mode-card.sel { border: 2px solid var(--purple); padding: 17px 15px; background: var(--surface-soft); }
+  .mode-card .ic { width: 40px; height: 40px; border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .mode-card .ic svg { width: 22px; height: 22px; }
+  .mode-card .nm { font-size: 16px; font-weight: 600; letter-spacing: -0.2px; }
+  .mode-card .ds { font-size: 13px; color: var(--slate); margin-top: 2px; line-height: 1.4; }
+
+  .tmpl-h { display: flex; justify-content: space-between; align-items: center; margin: 4px 2px 12px; }
+  .tmpl-h .l { font-size: 15px; font-weight: 600; }
+  .tmpl-h .r { font-size: 14px; color: var(--link); }
+  .tmpl-row { display: flex; align-items: center; gap: 14px; background: var(--canvas); border: 1px solid var(--hairline); border-radius: var(--r-lg); padding: 14px 16px; margin-bottom: 10px; cursor: pointer; }
+  .tmpl-row .ic { width: 38px; height: 38px; border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .tmpl-row .ic svg { width: 20px; height: 20px; }
+  .tmpl-row .nm { font-size: 15px; font-weight: 600; }
+  .tmpl-row .ds { font-size: 12px; color: var(--slate); margin-top: 2px; }
+  .tmpl-row .go { margin-left: auto; color: var(--stone); font-size: 18px; }
+
+  .ex-card { background: var(--canvas); border: 1px solid var(--hairline); border-radius: var(--r-lg); padding: 16px; margin-bottom: 12px; }
+  .ex-card .hd { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .ex-card .nm { font-size: 16px; font-weight: 600; letter-spacing: -0.2px; }
+  .ex-card .tip { font-size: 13px; color: var(--slate); margin-bottom: 12px; line-height: 1.45; }
+  .ex-card .tip b { color: var(--purple); font-weight: 600; }
+  .ex-card .meta { display: flex; justify-content: space-between; font-size: 13px; color: var(--slate); padding-top: 2px; }
+  .ex-card .meta b { color: var(--ink); font-weight: 600; }
+
+  .set-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .set-row .no { width: 24px; font-size: 13px; color: var(--slate); font-weight: 500; }
+  .set-row .inp { flex: 1; background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--r-md); height: 40px; font-size: 15px; font-weight: 600; text-align: center; outline: none; font-family: var(--font); color: var(--ink); }
+  .set-row .inp:focus { border: 2px solid var(--purple); background: var(--canvas); }
+  .set-row .u { font-size: 11px; color: var(--slate); width: 18px; }
+  .set-row .del { color: var(--stone); font-size: 16px; cursor: pointer; width: 28px; text-align: center; min-height: 40px; display: flex; align-items: center; justify-content: center; }
+  .addset { width: 100%; padding: 11px; border: 1px dashed var(--hairline-strong); border-radius: var(--r-md); background: transparent; color: var(--purple); font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--font); }
+  .float-bar { position: absolute; bottom: 0; left: 0; right: 0; z-index: 50; height: 64px; background: rgba(255,255,255,.95); border-top: 1px solid var(--hairline); padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; }
+  .float-bar .sum b { font-size: 18px; font-weight: 600; letter-spacing: -0.3px; }
+  .float-bar .sum span { font-size: 12px; color: var(--slate); display: block; }
+  .float-bar .btn { min-height: 40px; }
+
+  .avatar-lg { width: 60px; height: 60px; border-radius: var(--r-lg); background: var(--ink); color: #fff; font-size: 24px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+  .metric { background: var(--canvas); border: 1px solid var(--hairline); border-radius: var(--r-lg); padding: 14px 8px; text-align: center; }
+  .metric.tint { border-color: transparent; }
+  .metric b { display: block; font-size: 18px; font-weight: 600; letter-spacing: -0.3px; }
+  .metric b.hl { color: var(--purple); }
+  .metric b.ok { color: var(--success); }
+  .metric span { font-size: 11px; color: var(--slate); display: block; margin-top: 2px; line-height: 1.35; }
+  .menu { background: var(--canvas); border: 1px solid var(--hairline); border-radius: var(--r-lg); overflow: hidden; margin-bottom: 14px; }
+  .menu .mi { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-bottom: 1px solid var(--hairline-soft); font-size: 15px; cursor: pointer; min-height: 48px; }
+  .menu .mi:last-child { border-bottom: none; }
+  .menu .mi .arr { color: var(--stone); font-size: 17px; }
+  .menu .mi.warn { color: var(--error); }
+
+  .modal { position: absolute; inset: 0; z-index: 90; background: rgba(15,15,15,.4); display: none; align-items: flex-end; }
+  .modal.active { display: flex; }
+  .sheet { background: var(--surface-soft); border-radius: var(--r-xxl) var(--r-xxl) 0 0; width: 100%; padding: 10px 20px 28px; max-height: 86%; overflow-y: auto; }
+  .sheet .bar { width: 36px; height: 4px; background: #d9d6d1; border-radius: 99px; margin: 0 auto 16px; }
+  .sheet h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.3px; margin-bottom: 14px; text-align: center; }
+  .share-switch { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--canvas); border: 1px solid var(--hairline); border-radius: var(--r-lg); margin-bottom: 14px; }
+  .share-switch .nm { font-size: 14px; }
+  .switch { width: 48px; height: 30px; border-radius: 99px; background: #e3e1dd; position: relative; cursor: pointer; transition: background .2s; }
+  .switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; border-radius: 50%; background: #fff; transition: left .2s; box-shadow: 0 1px 3px rgba(0,0,0,.2); }
+  .switch.on { background: var(--purple); }
+  .switch.on::after { left: 21px; }
+
+  .toast { position: absolute; top: 58px; left: 50%; transform: translateX(-50%) translateY(-10px); z-index: 200; background: rgba(26,26,26,.94); color: #fff; font-size: 13px; padding: 9px 18px; border-radius: var(--r-md); opacity: 0; transition: all .25s; pointer-events: none; white-space: nowrap; }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  svg.icon { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .navy { background: var(--navy); color: var(--on-dark); }
+  .dot { position: absolute; border-radius: 50%; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+  <div>
+    <div class="page-title">举铁日记 · 全套 UI 原型</div>
+    <div class="page-sub">Notion 设计语言 · 深海军蓝 Hero · 紫色主按钮 · 粉彩卡片 · 11 页可交互</div>
+  </div>
+  <div class="phone" id="phone">
+    <div class="statusbar" id="statusbar"><span>9:41</span><span>▮▮▮▮</span></div>
+
+    <!-- 登录:深海军蓝 Hero -->
+    <div id="sc-login" class="screen active">
+      <div class="navy" style="position:relative;padding:46px 26px 40px;border-radius:0 0 var(--r-xxl) var(--r-xxl);">
+        <div class="dot" style="width:14px;height:14px;background:var(--pink);top:26px;left:34px;"></div>
+        <div class="dot" style="width:9px;height:9px;background:var(--yellow);top:44px;left:84px;"></div>
+        <div class="dot" style="width:12px;height:12px;background:var(--teal);top:32px;right:66px;"></div>
+        <div class="dot" style="width:8px;height:8px;background:var(--orange);top:56px;right:34px;"></div>
+        <div class="dot" style="width:11px;height:11px;background:var(--purple);bottom:34px;right:90px;"></div>
+        <div class="dot" style="width:8px;height:8px;background:var(--sky);bottom:58px;left:120px;"></div>
+        <div style="display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+          <div style="width:52px;height:52px;border-radius:var(--r-lg);background:#fff;display:flex;align-items:center;justify-content:center;">
+            <svg class="icon" width="26" height="26" viewBox="0 0 24 24" style="color:var(--ink);"><path d="M6.5 6.5v11M17.5 6.5v11M3.5 9.5v5M20.5 9.5v5M6.5 12h11"/></svg>
+          </div>
+        </div>
+        <h1 class="display" style="text-align:center;color:#fff;font-size:32px;">记录每一组<br>见证每一次突破</h1>
+        <p style="text-align:center;font-size:16px;font-weight:400;color:var(--on-dark-muted);margin-top:10px;">你的私人健身日志</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:26px;">
+          <button class="btn block" onclick="go('sc-ob1')">微信一键登录</button>
+          <button class="btn block on-dark-ghost" onclick="toast('标准说明页面')">查看标准说明</button>
+        </div>
+      </div>
+      <div class="pane" style="padding-top:22px;">
+        <div class="card" style="padding:14px 16px;display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+          <div style="width:22px;height:22px;border-radius:var(--r-sm);background:var(--purple);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="12" height="12" viewBox="0 0 24 24" style="fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;"><path d="M5 12l5 5 9-10"/></svg>
+          </div>
+          <div style="font-size:13px;color:var(--slate);line-height:1.5;">我已阅读并同意 <span style="color:var(--link);">《用户协议》</span> 与 <span style="color:var(--link);">《隐私政策》</span></div>
+        </div>
+        <p style="text-align:center;font-size:11px;color:var(--stone);">登录即创建账号 · 数据仅本人可见 · 可随时注销</p>
+      </div>
+    </div>
+
+    <!-- 引导 1 -->
+    <div id="sc-ob1" class="screen">
+      <div class="pane">
+        <div class="step-row"><span class="lbl">第 1 步 · 共 3 步</span><div class="bar-track"><div class="bar-fill" style="width:33%;"></div></div></div>
+        <h2 class="mtitle">先认识一下你</h2>
+        <p class="msub">性别用于计算体脂、代谢与力量参考标准</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">
+          <div class="pill sel" onclick="pick(this,'男')"><span class="em">♂</span>男</div>
+          <div class="pill" onclick="pick(this,'女')"><span class="em">♀</span>女</div>
+        </div>
+        <div class="field">
+          <span class="lbl">年龄</span>
+          <div class="stepper"><button onclick="step('age',-1)">−</button><span id="v-age" class="val" style="min-width:40px;text-align:center;">28</span><span class="unit">岁</span><button onclick="step('age',1)">+</button></div>
+        </div>
+        <div class="field"><span class="lbl">身高</span><span><input id="v-height" class="input" style="width:110px;height:40px;border:none;background:transparent;padding:0;text-align:right;font-size:18px;" value="175"><span class="unit">cm</span></span></div>
+        <div class="field"><span class="lbl">体重</span><span><input id="v-weight" class="input" style="width:110px;height:40px;border:none;background:transparent;padding:0;text-align:right;font-size:18px;" value="70"><span class="unit">kg</span></span></div>
+        <button class="btn block" style="margin-top:18px;" onclick="go('sc-ob2')">下一步</button>
+      </div>
+    </div>
+
+    <!-- 引导 2:粉彩目标卡 -->
+    <div id="sc-ob2" class="screen">
+      <div class="pane">
+        <div class="step-row"><span class="lbl">第 2 步 · 共 3 步</span><div class="bar-track"><div class="bar-fill" style="width:66%;"></div></div></div>
+        <h2 class="mtitle">你的健身目标是?</h2>
+        <p class="msub">决定推荐的训练模板与动作</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div class="card tint-lavender goal" style="padding:20px 16px;cursor:pointer;border:2px solid transparent;" onclick="pick(this,'增肌')"><div style="font-size:26px;">💪</div><div style="font-size:16px;font-weight:600;margin-top:8px;">增肌</div><div style="font-size:12px;color:var(--purple-deep);margin-top:3px;">8–12 次/组</div></div>
+          <div class="card tint-peach goal sel" style="padding:20px 16px;cursor:pointer;border:2px solid var(--purple);" onclick="pick(this,'减脂')"><div style="font-size:26px;">🔥</div><div style="font-size:16px;font-weight:600;margin-top:8px;">减脂</div><div style="font-size:12px;color:var(--orange);margin-top:3px;">12–15 次/组</div></div>
+          <div class="card tint-sky goal" style="padding:20px 16px;cursor:pointer;border:2px solid transparent;" onclick="pick(this,'增力')"><div style="font-size:26px;">⚡</div><div style="font-size:16px;font-weight:600;margin-top:8px;">增力</div><div style="font-size:12px;color:#1d5aa8;margin-top:3px;">3–6 次/组</div></div>
+          <div class="card tint-mint goal" style="padding:20px 16px;cursor:pointer;border:2px solid transparent;" onclick="pick(this,'保持')"><div style="font-size:26px;">🧘</div><div style="font-size:16px;font-weight:600;margin-top:8px;">保持健康</div><div style="font-size:12px;color:var(--green);margin-top:3px;">全身均衡</div></div>
+        </div>
+        <button class="btn block" style="margin-top:24px;" onclick="go('sc-ob3')">下一步</button>
+      </div>
+    </div>
+
+    <!-- 引导 3 -->
+    <div id="sc-ob3" class="screen">
+      <div class="pane">
+        <div class="step-row"><span class="lbl">第 3 步 · 共 3 步</span><div class="bar-track"><div class="bar-fill" style="width:100%;"></div></div></div>
+        <h2 class="mtitle">每周能练几次?</h2>
+        <p class="msub">我们会据此推荐合适的分化模板</p>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+          <div class="pill" style="flex-direction:column;padding:12px 4px;gap:2px;min-height:56px;" onclick="pickFreq(this,2)"><b style="font-size:19px;font-weight:600;color:inherit;">2</b><span style="font-size:11px;color:inherit;">次/周</span></div>
+          <div class="pill sel" style="flex-direction:column;padding:12px 4px;gap:2px;min-height:56px;" onclick="pickFreq(this,3)"><b style="font-size:19px;font-weight:600;color:inherit;">3</b><span style="font-size:11px;color:inherit;">次/周</span></div>
+          <div class="pill" style="flex-direction:column;padding:12px 4px;gap:2px;min-height:56px;" onclick="pickFreq(this,4)"><b style="font-size:19px;font-weight:600;color:inherit;">4</b><span style="font-size:11px;color:inherit;">次/周</span></div>
+          <div class="pill" style="flex-direction:column;padding:12px 4px;gap:2px;min-height:56px;" onclick="pickFreq(this,5)"><b style="font-size:19px;font-weight:600;color:inherit;">5</b><span style="font-size:11px;color:inherit;">次/周</span></div>
+        </div>
+        <div class="card" style="padding:18px;margin-top:20px;">
+          <span class="tag" style="margin-bottom:8px;">为你推荐</span>
+          <div style="font-size:18px;font-weight:600;letter-spacing:-0.2px;margin-top:8px;">全身分化 · 男版</div>
+          <div style="font-size:13px;color:var(--slate);margin-top:4px;line-height:1.5;">周一 / 周三 / 周六 · 每次约 60 分钟</div>
+        </div>
+        <button class="btn block" style="margin-top:24px;" onclick="go('sc-result')">查看我的起点</button>
+      </div>
+    </div>
+
+    <!-- 结果页:深海军蓝 + 粉彩指标 -->
+    <div id="sc-result" class="screen">
+      <div class="navy" style="position:relative;padding:36px 26px 32px;border-radius:0 0 var(--r-xxl) var(--r-xxl);">
+        <div class="dot" style="width:10px;height:10px;background:var(--mint);top:26px;left:40px;"></div>
+        <div class="dot" style="width:12px;height:12px;background:var(--rose);top:22px;right:52px;"></div>
+        <div class="dot" style="width:8px;height:8px;background:var(--yellow);bottom:30px;left:100px;"></div>
+        <div class="dot" style="width:9px;height:9px;background:var(--sky);bottom:24px;right:104px;"></div>
+        <div style="font-size:13px;color:var(--on-dark-muted);margin-bottom:6px;">按中国标准为你计算</div>
+        <h1 class="display" style="color:#fff;font-size:30px;">你的起点</h1>
+        <div style="margin-top:20px;">
+          <div style="font-size:13px;color:var(--on-dark-muted);margin-bottom:4px;">BMI · <span style="color:var(--green);font-weight:600;">正常</span></div>
+          <div style="font-size:52px;font-weight:600;letter-spacing:-1.5px;line-height:1;color:#fff;">22.3</div>
+          <div style="height:5px;background:rgba(255,255,255,.16);border-radius:99px;margin-top:16px;position:relative;"><div style="position:absolute;left:0;top:0;bottom:0;width:62%;background:var(--purple);border-radius:99px;"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--on-dark-muted);margin-top:6px;"><span>偏瘦 18.5</span><span>正常 23.9</span><span>超重 27.9</span></div>
+        </div>
+      </div>
+      <div class="pane" style="padding-top:18px;">
+        <div class="metric-grid">
+          <div class="metric tint-lavender"><b class="hl">15–20%</b><span>体脂参考<br>男性</span></div>
+          <div class="metric tint-mint"><b class="ok">1,650</b><span>基础代谢<br>kcal</span></div>
+          <div class="metric tint-sky"><b>0.4–0.6</b><span>卧推<br>参考倍重</span></div>
+        </div>
+        <div class="list">
+          <div class="lrow"><div class="l">力量参考(卧推)</div><div class="r"><b>28–42 kg</b></div></div>
+          <div class="lrow"><div class="l">推荐训练模板</div><div class="r"><b>全身分化</b></div></div>
+          <div class="lrow"><div class="l">每周目标</div><div class="r"><b>3 次</b></div></div>
+        </div>
+        <button class="btn block" onclick="enterApp()">开启健身之旅</button>
+      </div>
+    </div>
+
+    <!-- 首页 -->
+    <div id="sc-home" class="screen with-tab">
+      <div class="pane">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+          <div><h1 class="display" style="font-size:28px;">早上好,阿强</h1><div class="sub" style="font-size:14px;">8月16日 周一 · 本周第 3 练</div></div>
+          <div class="avatar-lg" style="width:44px;height:44px;font-size:18px;border-radius:var(--r-md);">强</div>
+        </div>
+        <div class="banner" onclick="go('sc-history')" style="cursor:pointer;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;"><span class="badge" style="margin:0;background:var(--ink);">新纪录</span><span style="font-size:12px;color:#5c4d18;">今天 15:32</span></div>
+          <div class="hd">卧推 60kg × 10</div>
+          <div class="sd">点按查看详情</div>
+        </div>
+        <div class="stats3">
+          <div class="stat"><b>3</b><span>本周训练</span></div>
+          <div class="stat"><b>2.5h</b><span>总时长</span></div>
+          <div class="stat"><b>12.3t</b><span>总容量</span></div>
+        </div>
+        <button class="btn block" style="margin-bottom:20px;" onclick="go('sc-record')">开始训练</button>
+        <div class="tmpl-h"><span class="l">最近训练</span><span class="r" style="color:var(--link);">全部记录</span></div>
+        <div class="list">
+          <div class="lrow"><div class="l">8月15日 周日 · 全身分化</div><div class="r"><b>90 分钟</b></div></div>
+          <div class="lrow"><div class="l">动作</div><div class="r"><b>5 个 · 23 组</b></div></div>
+          <div class="lrow"><div class="l">总容量</div><div class="r"><b>12,340 kg</b></div></div>
+          <div class="lrow"><div class="l">卧推 <span class="tag">新纪录</span></div><div class="r"><b>60kg × 10</b></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 记录:模式选择 -->
+    <div id="sc-record" class="screen with-tab">
+      <div class="pane">
+        <div class="topbar" style="padding:0 0 10px;"><span style="font-size:24px;font-weight:600;letter-spacing:-0.4px;">开始训练</span><span style="font-size:14px;color:var(--slate);">8月16日 周一</span></div>
+        <div class="mode-card sel" onclick="pickMode(this)">
+          <div class="ic tint-lavender"><svg class="icon" viewBox="0 0 24 24" style="color:var(--purple);"><path d="M6 8h12M6 16h12M9 4v16M15 4v16"/></svg></div>
+          <div><div class="nm">用模板练</div><div class="ds">按推荐计划逐动作打卡,附带重量参考</div></div>
+        </div>
+        <div class="mode-card" onclick="pickMode(this)">
+          <div class="ic tint-sky"><svg class="icon" viewBox="0 0 24 24" style="color:#1d5aa8;"><path d="M12 5v14M5 12h14"/></svg></div>
+          <div><div class="nm">自由训练</div><div class="ds">自己加动作,不绑定计划</div></div>
+        </div>
+        <div class="tmpl-h"><span class="l">为你推荐</span><span class="r">查看全部</span></div>
+        <div class="tmpl-row" onclick="go('sc-template')">
+          <div class="ic tint-lavender"><svg class="icon" viewBox="0 0 24 24" style="color:var(--purple);"><path d="M6 8h12M6 16h12M9 4v16M15 4v16"/></svg></div>
+          <div><div class="nm">全身分化 · 男版</div><div class="ds">3 次/周 · 减脂 · 约 60 分钟</div></div>
+          <div class="go">›</div>
+        </div>
+        <div class="tmpl-row" onclick="go('sc-template')">
+          <div class="ic tint-peach"><svg class="icon" viewBox="0 0 24 24" style="color:var(--orange);"><path d="M4 12h16M4 6h16M4 18h16"/></svg></div>
+          <div><div class="nm">推-拉-腿 PPL</div><div class="ds">5 次/周 · 增肌 · 约 75 分钟</div></div>
+          <div class="go">›</div>
+        </div>
+        <div class="tmpl-row" onclick="go('sc-template')">
+          <div class="ic tint-mint"><svg class="icon" viewBox="0 0 24 24" style="color:var(--green);"><path d="M12 4v16M5 8h7M19 8h-7M5 16h7M19 16h-7"/></svg></div>
+          <div><div class="nm">上下肢分化</div><div class="ds">4 次/周 · 增力 · 约 70 分钟</div></div>
+          <div class="go">›</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 模板详情 -->
+    <div id="sc-template" class="screen">
+      <div class="topbar">
+        <span class="back" onclick="go('sc-record')">‹</span>
+        <span class="ttl">全身分化</span>
+        <span class="act" onclick="toast('已收藏模板')">收藏</span>
+      </div>
+      <div class="pane">
+        <div class="card" style="padding:16px 18px;margin-bottom:16px;background:var(--surface);">
+          <div style="font-size:14px;color:var(--slate);">目标 <b style="color:var(--ink);font-weight:600;">减脂</b> · 频率 <b style="color:var(--ink);font-weight:600;">3 次/周</b> · 约 <b style="color:var(--ink);font-weight:600;">60 分钟</b></div>
+          <div style="font-size:13px;color:var(--slate);margin-top:6px;">动作顺序按模板排列 · 组间休息 90 秒</div>
+        </div>
+        <div class="ex-card">
+          <div class="hd"><span class="nm">杠铃深蹲</span><span class="tag gray">腿 · 杠铃</span></div>
+          <div class="tip">推荐 <b>60–80kg × 8–12</b> · 按 70kg 体重</div>
+          <div class="meta"><span>4 组</span><span>8–12 次/组</span></div>
+        </div>
+        <div class="ex-card">
+          <div class="hd"><span class="nm">杠铃卧推</span><span class="tag gray">胸 · 杠铃</span></div>
+          <div class="tip">推荐 <b>28–42kg × 8–12</b></div>
+          <div class="meta"><span>4 组</span><span>8–12 次/组</span></div>
+        </div>
+        <div class="ex-card">
+          <div class="hd"><span class="nm">坐姿划船</span><span class="tag gray">背 · 器械</span></div>
+          <div class="tip">推荐 <b>35–50kg × 10–12</b></div>
+          <div class="meta"><span>3 组</span><span>10–12 次/组</span></div>
+        </div>
+        <div class="ex-card">
+          <div class="hd"><span class="nm">哑铃推举</span><span class="tag gray">肩 · 哑铃</span></div>
+          <div class="tip">推荐 <b>7.5–12.5kg × 10–12</b></div>
+          <div class="meta"><span>3 组</span><span>10–12 次/组</span></div>
+        </div>
+        <button class="btn block" onclick="go('sc-workout')">开始训练</button>
+      </div>
+    </div>
+
+    <!-- 训练中 -->
+    <div id="sc-workout" class="screen">
+      <div class="topbar">
+        <span class="back" onclick="confirmQuit()">‹</span>
+        <span class="ttl">全身分化</span>
+        <span class="act" id="timer" style="color:var(--slate);">32:14</span>
+      </div>
+      <div class="pane" style="padding-bottom:96px;">
+        <div class="ex-card">
+          <div class="hd"><span class="nm">杠铃卧推</span><span class="tag">胸 · 杠铃</span></div>
+          <div class="tip">推荐 <b>28–42kg × 8–12</b> · 已刷新纪录</div>
+          <div class="set-row"><span class="no">1</span><input class="inp" value="60"><span class="u">kg</span><input class="inp" value="10"><span class="u">次</span><span class="del" onclick="delSet(this)">×</span></div>
+          <div class="set-row"><span class="no">2</span><input class="inp" value="60"><span class="u">kg</span><input class="inp" value="8"><span class="u">次</span><span class="del" onclick="delSet(this)">×</span></div>
+          <div class="set-row"><span class="no">3</span><input class="inp" value="55"><span class="u">kg</span><input class="inp" value="8"><span class="u">次</span><span class="del" onclick="delSet(this)">×</span></div>
+          <button class="addset" onclick="addSet(this)">+ 添加一组</button>
+        </div>
+        <div class="ex-card">
+          <div class="hd"><span class="nm">坐姿划船</span><span class="tag gray">背 · 器械</span></div>
+          <div class="tip">推荐 <b>35–50kg × 10–12</b></div>
+          <div class="set-row"><span class="no">1</span><input class="inp" value="45"><span class="u">kg</span><input class="inp" value="12"><span class="u">次</span><span class="del" onclick="delSet(this)">×</span></div>
+          <div class="set-row"><span class="no">2</span><input class="inp" value="45"><span class="u">kg</span><input class="inp" value="10"><span class="u">次</span><span class="del" onclick="delSet(this)">×</span></div>
+          <button class="addset" onclick="addSet(this)">+ 添加一组</button>
+        </div>
+      </div>
+      <div class="float-bar">
+        <div class="sum"><b>8 组</b><span>总容量 3,450 kg</span></div>
+        <button class="btn" onclick="openShare()">结束训练</button>
+      </div>
+    </div>
+
+    <!-- 历史 -->
+    <div id="sc-history" class="screen with-tab">
+      <div class="pane">
+        <div class="topbar" style="padding:0 0 10px;"><span style="font-size:24px;font-weight:600;letter-spacing:-0.4px;">历史</span><span style="font-size:14px;color:var(--slate);">累计 12 次</span></div>
+        <div class="seg" id="his-seg">
+          <div class="on" onclick="hisTab('cal',this)">日历</div>
+          <div onclick="hisTab('trend',this)">趋势</div>
+          <div onclick="hisTab('pr',this)">成就</div>
+        </div>
+        <div id="his-cal">
+          <div class="cal">
+            <div class="mon"><span>‹</span>2026年8月<span>›</span></div>
+            <div class="dow"><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span><span>日</span></div>
+            <div class="grid">
+              <div class="day"></div><div class="day"></div><div class="day"></div><div class="day"></div><div class="day"></div>
+              <div class="day work">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day work">5</div><div class="day">6</div><div class="day">7</div>
+              <div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day work">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div>
+              <div class="day work">15</div><div class="day today">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div>
+              <div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div>
+              <div class="day">29</div><div class="day">30</div><div class="day">31</div>
+            </div>
+          </div>
+          <div class="list">
+            <div class="lrow"><div class="l">8月16日 · 全身分化</div><div class="r"><b>3,450 kg</b></div></div>
+            <div class="lrow"><div class="l">8月15日 · 全身分化</div><div class="r"><b>2,980 kg</b></div></div>
+            <div class="lrow"><div class="l">8月11日 · 推拉腿</div><div class="r"><b>4,120 kg</b></div></div>
+          </div>
+        </div>
+        <div id="his-trend" style="display:none;">
+          <div class="card" style="padding:18px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;"><b style="font-size:15px;">近 8 周总容量</b><span style="font-size:13px;color:var(--success);font-weight:600;">▲ 24%</span></div>
+            <svg viewBox="0 0 320 110" style="width:100%;height:auto;">
+              <polyline points="10,90 50,82 90,84 130,70 170,72 210,55 250,48 310,26" fill="none" stroke="#5645d4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="310" cy="26" r="5" fill="#5645d4"/>
+              <text x="284" y="16" font-size="10" fill="#5645d4" font-weight="600">12.3t</text>
+            </svg>
+            <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--stone);margin-top:6px;"><span>6/23</span><span>7/1</span><span>7/8</span><span>7/15</span><span>7/22</span><span>7/29</span><span>8/5</span><span>8/12</span><span>8/16</span></div>
+          </div>
+          <div class="stats3" style="margin-top:14px;">
+            <div class="stat"><b>8,520</b><span>周均容量 kg</span></div>
+            <div class="stat"><b>2.1h</b><span>周均时长</span></div>
+            <div class="stat"><b>3.2</b><span>周均次数</span></div>
+          </div>
+        </div>
+        <div id="his-pr" style="display:none;">
+          <div class="list">
+            <div class="lrow"><div class="l">杠铃卧推 <span class="tag">新纪录</span></div><div class="r"><b>60kg × 10</b><span class="cap">8月16日</span></div></div>
+            <div class="lrow"><div class="l">杠铃深蹲</div><div class="r"><b>80kg × 8</b><span class="cap">8月15日</span></div></div>
+            <div class="lrow"><div class="l">硬拉</div><div class="r"><b>100kg × 5</b><span class="cap">8月11日</span></div></div>
+            <div class="lrow"><div class="l">坐姿划船</div><div class="r"><b>45kg × 12</b><span class="cap">8月15日</span></div></div>
+            <div class="lrow"><div class="l">哑铃推举</div><div class="r"><b>15kg × 12</b><span class="cap">8月14日</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 我的 -->
+    <div id="sc-profile" class="screen with-tab">
+      <div class="pane">
+        <div class="topbar" style="padding:0 0 10px;"><span style="font-size:24px;font-weight:600;letter-spacing:-0.4px;">我的</span><span style="font-size:14px;color:var(--link);" onclick="toast('资料可随时修改并重算指标')">编辑资料</span></div>
+        <div class="card" style="padding:18px;display:flex;align-items:center;gap:16px;margin-bottom:18px;">
+          <div class="avatar-lg">强</div>
+          <div>
+            <div style="font-size:19px;font-weight:600;letter-spacing:-0.2px;">阿强</div>
+            <div style="font-size:13px;color:var(--slate);margin-top:3px;">男 · 28岁 · 175cm · 70kg</div>
+            <div style="font-size:13px;color:var(--purple);margin-top:3px;font-weight:500;">目标:减脂 · 每周 3 次</div>
+          </div>
+        </div>
+        <div style="font-size:15px;font-weight:600;margin:2px 2px 12px;">体质指标</div>
+        <div class="metric-grid">
+          <div class="metric tint-lavender"><b class="hl">22.3</b><span>BMI 正常</span></div>
+          <div class="metric tint-mint"><b class="ok">15–20%</b><span>体脂参考</span></div>
+          <div class="metric tint-sky"><b>1,650</b><span>基础代谢</span></div>
+        </div>
+        <div class="card" style="padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--surface);">
+          <span style="font-size:13px;color:var(--slate);line-height:1.4;">资料变化了?修改后重新计算指标</span>
+          <button class="btn ghost" style="flex-shrink:0;min-height:38px;padding:8px 14px;" onclick="toast('已重新计算指标')">重新计算</button>
+        </div>
+        <div class="menu">
+          <div class="mi" onclick="toast('查看用户协议')">用户协议<span class="arr">›</span></div>
+          <div class="mi" onclick="toast('查看隐私政策')">隐私政策<span class="arr">›</span></div>
+          <div class="mi" onclick="toast('关于举铁日记')">关于我们<span class="arr">›</span></div>
+          <div class="mi warn" onclick="toast('注销后数据将不可恢复')">注销账号<span class="arr">›</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 分享卡弹层 -->
+    <div id="sc-share" class="modal">
+      <div class="sheet">
+        <div class="bar"></div>
+        <h3>今日训练完成</h3>
+        <div class="share-switch">
+          <div class="nm">使用照片作背景</div>
+          <div class="switch" id="sw" onclick="toggleBg()"></div>
+        </div>
+        <div id="share-card" class="card" style="padding:20px;margin-bottom:16px;background:#fff;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <b style="color:var(--ink);font-size:15px;letter-spacing:-0.1px;">举铁日记</b><span class="tag" style="margin:0;">训练打卡</span>
+          </div>
+          <div style="font-size:40px;font-weight:600;letter-spacing:-1px;line-height:1;">12,340<span style="font-size:13px;font-weight:400;color:var(--slate);margin-left:5px;">kg 总容量</span></div>
+          <div style="display:flex;gap:8px;margin:14px 0;">
+            <span style="border:1px solid var(--hairline);color:var(--slate);font-size:11px;padding:3px 10px;border-radius:var(--r-full);">5 个动作</span>
+            <span style="border:1px solid var(--hairline);color:var(--slate);font-size:11px;padding:3px 10px;border-radius:var(--r-full);">23 组</span>
+            <span style="border:1px solid var(--hairline);color:var(--slate);font-size:11px;padding:3px 10px;border-radius:var(--r-full);">90 分钟</span>
+          </div>
+          <div style="font-size:13px;line-height:2;">
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--hairline-soft);"><span style="color:var(--slate);">卧推</span><b style="font-weight:600;">60kg×10 / 60kg×8</b></div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--hairline-soft);"><span style="color:var(--slate);">深蹲</span><b style="font-weight:600;">80kg×8 / 80kg×8</b></div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--hairline-soft);"><span style="color:var(--slate);">硬拉</span><b style="font-weight:600;">100kg×5 / 100kg×5</b></div>
+            <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--hairline-soft);"><span style="color:var(--slate);">坐姿划船</span><b style="font-weight:600;">45kg×12</b></div>
+            <div style="display:flex;justify-content:space-between;"><span style="color:var(--slate);">哑铃推举</span><b style="font-weight:600;">15kg×12</b></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px;font-size:11px;color:var(--slate);">
+            <span>8月16日 · 周一</span>
+            <span style="width:36px;height:36px;background:var(--ink);color:#fff;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:7px;">小程序码</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button class="btn ghost" style="flex:1;" onclick="toast('已保存到相册,可以发朋友圈了')">保存到相册</button>
+          <button class="btn" style="flex:1;" onclick="finishShare()">转发给好友</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabbar" id="tabbar">
+      <div class="tab active" data-tab="home" onclick="setTab('home')"><svg class="icon" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg>首页</div>
+      <div class="tab" data-tab="record" onclick="setTab('record')"><svg class="icon" viewBox="0 0 24 24"><path d="M6.5 6.5v11M17.5 6.5v11M3.5 9.5v5M20.5 9.5v5M6.5 12h11"/></svg>记录</div>
+      <div class="tab" data-tab="history" onclick="setTab('history')"><svg class="icon" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>历史</div>
+      <div class="tab" data-tab="profile" onclick="setTab('profile')"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.2-4 4.4-6 8-6s6.8 2 8 6"/></svg>我的</div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+  </div>
+</div>
+
+<script>
+  var TABS = { home:'sc-home', record:'sc-record', history:'sc-history', profile:'sc-profile' };
+  var DARK = ['sc-login','sc-result'];
+  function go(id) {
+    document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
+    var el = document.getElementById(id);
+    if (el) el.classList.add('active');
+    var tabbar = document.getElementById('tabbar');
+    var isMain = id === TABS.home || id === TABS.record || id === TABS.history || id === TABS.profile;
+    tabbar.classList.toggle('show', isMain);
+    document.getElementById('statusbar').classList.toggle('on-dark', DARK.indexOf(id) !== -1);
+  }
+  function setTab(name) {
+    go(TABS[name]);
+    document.querySelectorAll('.tab').forEach(function(t){ t.classList.toggle('active', t.dataset.tab === name); });
+  }
+  function enterApp() { setTab('home'); toast('欢迎加入,开始你的第一练'); }
+
+  function pick(el, v) {
+    if (el.classList.contains('pill')) {
+      var box = el.parentElement;
+      box.querySelectorAll('.pill').forEach(function(c){ c.classList.remove('sel'); });
+    } else if (el.classList.contains('goal')) {
+      var box2 = el.parentElement;
+      box2.querySelectorAll('.goal').forEach(function(c){ c.style.border = '2px solid transparent'; });
+    }
+    el.classList.add('sel');
+    el.style.border = '2px solid var(--purple)';
+    toast('已选择:' + v);
+  }
+  function pickFreq(el, n) {
+    var box = el.parentElement;
+    box.querySelectorAll('.pill').forEach(function(c){ c.classList.remove('sel'); });
+    el.classList.add('sel');
+    toast('每周 ' + n + ' 次');
+  }
+  var age = 28;
+  function step(k, d) { age = Math.min(100, Math.max(6, age + d)); document.getElementById('v-age').textContent = age; }
+
+  var timerSec = 32 * 60 + 14;
+  setInterval(function(){
+    if (document.getElementById('sc-workout').classList.contains('active')) {
+      timerSec++;
+      var m = String(Math.floor(timerSec / 60)).padStart(2,'0');
+      var s = String(timerSec % 60).padStart(2,'0');
+      document.getElementById('timer').textContent = m + ':' + s;
+    }
+  }, 1000);
+
+  function addSet(btn) {
+    var wrap = btn.parentElement;
+    var n = wrap.querySelectorAll('.set-row').length + 1;
+    var row = document.createElement('div');
+    row.className = 'set-row';
+    row.innerHTML = '<span class="no">' + n + '</span><input class="inp" value="0"><span class="u">kg</span><input class="inp" value="0"><span class="u">次</span><span class="del" onclick="delSet(this)">×</span>';
+    btn.insertAdjacentElement('beforebegin', row);
+    toast('已添加一组');
+  }
+  function delSet(el) {
+    var wrap = el.closest('.set-row').parentElement;
+    el.closest('.set-row').remove();
+    var rows = wrap.querySelectorAll('.set-row');
+    rows.forEach(function(r, i){ r.querySelector('.no').textContent = i + 1; });
+    toast('已删除');
+  }
+  function confirmQuit() {
+    if (confirm('训练还没保存,确定要退出吗?')) { go('sc-record'); }
+  }
+
+  function hisTab(name, el) {
+    document.querySelectorAll('#his-seg div').forEach(function(d){ d.classList.remove('on'); });
+    el.classList.add('on');
+    document.getElementById('his-cal').style.display = name === 'cal' ? '' : 'none';
+    document.getElementById('his-trend').style.display = name === 'trend' ? '' : 'none';
+    document.getElementById('his-pr').style.display = name === 'pr' ? '' : 'none';
+  }
+
+  function pickMode(el) {
+    var box = el.parentElement;
+    box.querySelectorAll('.mode-card').forEach(function(c){ c.classList.remove('sel'); c.style.border = '1px solid var(--hairline)'; });
+    el.classList.add('sel');
+    el.style.border = '2px solid var(--purple)';
+  }
+
+  function openShare() {
+    document.getElementById('sc-share').classList.add('active');
+    document.getElementById('sw').classList.remove('on');
+    var card = document.getElementById('share-card');
+    card.style.background = '#fff'; card.style.color = 'var(--ink)';
+    card.querySelectorAll('*').forEach(function(e){ e.style.color = ''; });
+  }
+  function toggleBg() {
+    var sw = document.getElementById('sw');
+    sw.classList.toggle('on');
+    var card = document.getElementById('share-card');
+    if (sw.classList.contains('on')) {
+      card.style.background = 'linear-gradient(rgba(10,10,12,.62), rgba(10,10,12,.62)), url(https://picsum.photos/420/560) center/cover no-repeat';
+      card.style.borderColor = 'transparent';
+      card.style.color = '#fff';
+      card.querySelectorAll('span, b, div').forEach(function(e){ e.style.color = '#fff'; });
+    } else {
+      card.style.background = '#fff'; card.style.borderColor = 'var(--hairline)'; card.style.color = 'var(--ink)';
+      card.querySelectorAll('*').forEach(function(e){ e.style.color = ''; });
+    }
+  }
+  function finishShare() {
+    document.getElementById('sc-share').classList.remove('active');
+    setTab('home');
+    toast('已分享训练卡');
+  }
+
+  var toastTimer;
+  function toast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 1600);
+  }
+</script>
+</body>
+</html>
