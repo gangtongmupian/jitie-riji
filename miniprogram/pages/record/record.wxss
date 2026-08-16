@@ -1,0 +1,124 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 32rpx;
+}
+.back {
+  width: 88rpx;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  font-size: 48rpx;
+  color: var(--ink);
+}
+.ttl {
+  font-size: 40rpx;
+  font-weight: 600;
+}
+.timer {
+  width: 88rpx;
+  text-align: right;
+  font-size: 28rpx;
+  color: var(--slate);
+  font-variant-numeric: tabular-nums;
+}
+.rec-pane {
+  padding-bottom: 200rpx;
+}
+.ex-card {
+  background: var(--canvas);
+  border: 1rpx solid var(--hairline);
+  border-radius: var(--r-lg);
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+}
+.ex-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.ex-nm {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.set-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-bottom: 16rpx;
+}
+.set-no {
+  width: 48rpx;
+  font-size: 26rpx;
+  color: var(--slate);
+  font-weight: 500;
+}
+.set-inp {
+  flex: 1;
+  background: var(--surface);
+  border: 1rpx solid var(--hairline);
+  border-radius: var(--r-md);
+  height: 80rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  text-align: center;
+}
+.set-u {
+  font-size: 22rpx;
+  color: var(--slate);
+}
+.set-del {
+  width: 56rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  color: var(--stone);
+}
+.addset {
+  padding: 20rpx;
+  border: 1rpx dashed var(--hairline-strong);
+  border-radius: var(--r-md);
+  color: var(--primary);
+  font-size: 28rpx;
+  font-weight: 500;
+  text-align: center;
+}
+.add-ex {
+  padding: 28rpx;
+  border: 1rpx dashed var(--hairline-strong);
+  border-radius: var(--r-md);
+  color: var(--primary);
+  font-size: 28rpx;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 24rpx;
+}
+.float-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 128rpx;
+  background: rgba(255, 255, 255, 0.96);
+  border-top: 1rpx solid var(--hairline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 40rpx;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+  z-index: 100;
+}
+.sum-b {
+  display: block;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+.sum-s {
+  display: block;
+  font-size: 24rpx;
+  color: var(--slate);
+}

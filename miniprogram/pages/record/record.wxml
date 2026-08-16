@@ -1,0 +1,30 @@
+<view class="topbar">
+  <view class="back" bindtap="quit">‹</view>
+  <view class="ttl">{{title}}</view>
+  <view class="timer">{{timerText}}</view>
+</view>
+<view class="pane rec-pane">
+  <view class="ex-card" wx:for="{{exercises}}" wx:for-item="ex" wx:for-index="ei" wx:key="exerciseId">
+    <view class="ex-hd">
+      <text class="ex-nm">{{ex.name}}</text>
+      <text class="tag tag-gray">{{ex.bodyPart}} · {{ex.equipment}}</text>
+    </view>
+    <view class="set-row" wx:for="{{ex.sets}}" wx:for-item="set" wx:for-index="si" wx:key="*this">
+      <text class="set-no">{{si + 1}}</text>
+      <input class="set-inp" type="digit" value="{{set.weightKg}}" data-ei="{{ei}}" data-si="{{si}}" data-f="w" bindinput="inputSet"/>
+      <text class="set-u">kg</text>
+      <input class="set-inp" type="number" value="{{set.reps}}" data-ei="{{ei}}" data-si="{{si}}" data-f="r" bindinput="inputSet"/>
+      <text class="set-u">次</text>
+      <view class="set-del" data-ei="{{ei}}" data-si="{{si}}" bindtap="delSet">×</view>
+    </view>
+    <view class="addset" data-ei="{{ei}}" bindtap="addSet">+ 添加一组</view>
+  </view>
+  <view class="add-ex" wx:if="{{mode === 'free'}}" bindtap="addExercise">+ 添加动作</view>
+</view>
+<view class="float-bar">
+  <view class="sum">
+    <text class="sum-b">{{totalSets}} 组</text>
+    <text class="sum-s">总容量 {{totalVolume}}</text>
+  </view>
+  <view class="btn btn-primary" bindtap="finish">结束训练</view>
+</view>
