@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/onboarding/onboarding",
+    "pages/home/home",
+    "pages/workout/workout",
+    "pages/template/template",
+    "pages/record/record",
+    "pages/history/history",
+    "pages/profile/profile",
+    "pages/share/share"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fafaf9",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "举铁日记",
+    "backgroundColor": "#fafaf9",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
