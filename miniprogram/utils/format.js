@@ -5,7 +5,7 @@ function thousand(n) {
 }
 
 function formatVolume(kg) {
-  if (kg >= 1000) return (kg / 1000).toFixed(1) + 't';
+  if (kg >= 10000) return (kg / 1000).toFixed(1) + 't';
   return thousand(kg) + 'kg';
 }
 
