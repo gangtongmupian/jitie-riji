@@ -269,7 +269,7 @@ scroll-view {
 
 /* 页面内边距 */
 .pane {
-  padding: 32rpx 40rpx 56rpx;
+  padding: 32rpx 40rpx calc(56rpx + env(safe-area-inset-bottom));
 }
 .mtitle {
   font-size: 48rpx;
@@ -305,4 +305,55 @@ scroll-view {
   height: 100%;
   background: var(--primary);
   border-radius: var(--r-full);
+}
+
+/* 文字链接(次要操作,与主紫色区分) */
+.btn-link {
+  color: var(--link-blue);
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+/* 底部固定操作条 */
+.sticky-bar {
+  position: sticky;
+  bottom: 0;
+  background: var(--canvas);
+  border-top: 1rpx solid var(--hairline);
+  padding: 20rpx 40rpx calc(20rpx + env(safe-area-inset-bottom));
+  display: flex;
+  gap: 20rpx;
+  align-items: center;
+}
+
+/* 分组标题 */
+.section {
+  font-size: 26rpx;
+  color: var(--steel);
+  font-weight: 600;
+  margin: 40rpx 0 20rpx;
+}
+
+/* 空态 */
+.empty {
+  padding: 96rpx 40rpx;
+  text-align: center;
+  color: var(--stone);
+  font-size: 28rpx;
+}
+.empty-title {
+  font-size: 32rpx;
+  color: var(--slate);
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+
+/* 动作/组录入卡片 */
+.set-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+.set-input {
+  flex: 1;
 }
