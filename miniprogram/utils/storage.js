@@ -1,6 +1,7 @@
 const PROFILE_KEY = 'jitie.profile';
 const DRAFT_KEY = 'jitie.draft';
-const CATALOG_KEY = 'jitie.catalog';
+const CATALOG_KEY = 'jitie.catalog.v2';
+const CATALOG_TTL = 24 * 60 * 60 * 1000;
 const CUSTOM_KEY = 'jitie.customExercises';
 
 function getProfile() {
@@ -28,11 +29,18 @@ function clearDraft() {
 }
 
 function cacheCatalog(catalog) {
-  wx.setStorageSync(CATALOG_KEY, catalog);
+  wx.setStorageSync(CATALOG_KEY, {
+    savedAt: Date.now(),
+    exercises: catalog.exercises,
+    templates: catalog.templates
+  });
 }
 
 function loadCatalogCache() {
-  return wx.getStorageSync(CATALOG_KEY) || null;
+  const c = wx.getStorageSync(CATALOG_KEY);
+  if (!c || !c.exercises || !c.exercises.length) return null;
+  if (Date.now() - (c.savedAt || 0) > CATALOG_TTL) return null;
+  return { exercises: c.exercises, templates: c.templates };
 }
 
 function getCustomExercises() {
