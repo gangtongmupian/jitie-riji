@@ -3,6 +3,7 @@
   "cloudfunctionRoot": "cloudfunctions/",
   "compileType": "miniprogram",
   "appid": "wx2a14c212978a5374",
+  "libVersion": "3.17.1",
   "projectname": "jitie-riji",
   "setting": {
     "urlCheck": false,

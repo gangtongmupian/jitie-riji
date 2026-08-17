@@ -1,3 +1,4 @@
 .superpowers/
 work/
 deploy/node_modules/
+project.private.config.json
