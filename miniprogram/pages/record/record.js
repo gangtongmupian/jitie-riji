@@ -45,7 +45,15 @@ Page({
   },
   buildFromTemplate(templateId) {
     const cat = getApp().globalData.catalog;
+    if (!cat || !cat.templates) {
+      wx.showToast({ title: '动作库加载中,请稍后', icon: 'none' });
+      return;
+    }
     const tpl = cat.templates.find((t) => t.id === templateId);
+    if (!tpl) {
+      wx.showToast({ title: '模板不存在或已失效', icon: 'none' });
+      return;
+    }
     const exercises = tpl.exercises.map((item) => {
       const ex = cat.exercises.find((x) => x.id === item.exerciseId);
       const sets = [];

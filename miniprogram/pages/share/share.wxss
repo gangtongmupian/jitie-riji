@@ -143,8 +143,8 @@
 }
 .hidden-canvas {
   position: fixed;
-  left: -9999rpx;
-  top: 0;
+  left: 0;
+  top: -9999rpx;
   width: 750rpx;
   height: 1000rpx;
 }

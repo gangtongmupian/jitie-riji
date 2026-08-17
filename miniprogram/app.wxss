@@ -46,6 +46,18 @@ page {
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 30rpx;
   line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* 统一盒子模型:避免 width:100% + padding 造成横向溢出 */
+view,
+text,
+input,
+button,
+canvas,
+image,
+scroll-view {
+  box-sizing: border-box;
 }
 
 /* 卡片 */

@@ -62,6 +62,10 @@ Page({
   drawCard(cb) {
     const query = wx.createSelectorQuery();
     query.select('#shareCanvas').fields({ node: true, size: true }).exec((res) => {
+      if (!res || !res[0] || !res[0].node) {
+        wx.showToast({ title: '画布初始化失败,请重试', icon: 'none' });
+        return;
+      }
       const canvas = res[0].node;
       const ctx = canvas.getContext('2d');
       const W = res[0].width;
@@ -123,31 +127,43 @@ Page({
     ctx.fillText('坚持训练,见证改变', pad, H - 90);
   },
   save() {
+    wx.showLoading({ title: '生成中' });
     this.drawCard((canvas) => {
       wx.canvasToTempFilePath({
         canvas,
         success: (res) => {
+          wx.hideLoading();
           wx.saveImageToPhotosAlbum({
             filePath: res.tempFilePath,
             success: () => wx.showToast({ title: '已保存到相册', icon: 'success' }),
             fail: () => wx.showToast({ title: '保存失败,请检查相册权限', icon: 'none' })
           });
-        }
+        },
+        fail: () => { wx.hideLoading(); wx.showToast({ title: '生成图片失败', icon: 'none' }); }
       });
     });
   },
   share() {
+    wx.showLoading({ title: '生成中' });
     this.drawCard((canvas) => {
       wx.canvasToTempFilePath({
         canvas,
         success: (res) => {
+          wx.hideLoading();
           wx.shareAppMessage({
             title: '今日训练完成,总容量 ' + this.data.totalVolume,
             imageUrl: res.tempFilePath
           });
-        }
+        },
+        fail: () => { wx.hideLoading(); wx.showToast({ title: '生成图片失败', icon: 'none' }); }
       });
     });
+  },
+  onShareAppMessage() {
+    return {
+      title: '今日训练完成,总容量 ' + this.data.totalVolume,
+      path: '/pages/home/home'
+    };
   },
   goHome() {
     wx.reLaunch({ url: '/pages/home/home' });
