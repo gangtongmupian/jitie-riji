@@ -65,14 +65,43 @@
           </view>
         </view>
         <view wx:else>
+          <view class="custom-entry" bindtap="openCustomForm">＋ 自定义动作</view>
           <block wx:for="{{groupedExercises}}" wx:for-item="g" wx:key="bodyPart">
             <view class="group-title">{{g.bodyPart}}</view>
             <view class="ex-item" wx:for="{{g.items}}" wx:for-item="e" wx:key="id" data-id="{{e.id}}" bindtap="pickExercise">
-              <view class="ex-item-name">{{e.name}}</view>
+              <view class="ex-item-info">
+                <view class="ex-item-name">{{e.name}}</view>
+                <view class="ex-item-en">{{e.enName}}</view>
+              </view>
               <view class="ex-item-range">{{e.rangeText}}</view>
             </view>
           </block>
         </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view wx:if="{{showCustomForm}}" class="mask" bindtap="closeCustomForm">
+    <view class="sheet" catchtap="noop">
+      <view class="sheet-head">
+        <text class="sheet-title">自定义动作</text>
+        <text class="sheet-close" bindtap="closeCustomForm">关闭</text>
+      </view>
+      <scroll-view scroll-y class="sheet-body">
+        <view class="section">动作名称</view>
+        <input class="input" data-field="name" value="{{customForm.name}}" bindinput="onCustomInput" placeholder="如：早安体前屈" />
+        <view class="section">训练部位</view>
+        <view class="pill-row">
+          <view wx:for="{{bodyParts}}" wx:key="*this" class="pill {{customForm.bodyPart === item ? 'pill-sel' : ''}}" data-value="{{item}}" bindtap="pickCustomBodyPart">{{item}}</view>
+        </view>
+        <view class="section">器械类型</view>
+        <input class="input" data-field="equipment" value="{{customForm.equipment}}" bindinput="onCustomInput" placeholder="如：哑铃 / 器械 / 绳索" />
+        <view class="section">类型</view>
+        <view class="pill-row">
+          <view class="pill {{customForm.weighted ? 'pill-sel' : ''}}" data-value="true" bindtap="toggleCustomWeighted">负重</view>
+          <view class="pill {{!customForm.weighted ? 'pill-sel' : ''}}" data-value="false" bindtap="toggleCustomWeighted">自重</view>
+        </view>
+        <view class="btn btn-primary btn-block form-save" bindtap="saveCustomExercise">保存自定义动作</view>
       </scroll-view>
     </view>
   </view>

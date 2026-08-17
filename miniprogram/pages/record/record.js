@@ -18,7 +18,10 @@ Page({
     exercises: [],
     totals: { sets: 0, volume: 0 },
     totalsText: { volume: '0kg' },
-    saving: false
+    saving: false,
+    showCustomForm: false,
+    customForm: { name: '', bodyPart: '胸', equipment: '哑铃', weighted: true },
+    bodyParts: ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿']
   },
   onLoad() {
     this.startedAt = Date.now();
@@ -42,35 +45,83 @@ Page({
     cloud.getCatalog().then((catalog) => {
       const profile = storage.getProfile();
       const gender = profile && profile.gender;
-      const exercises = (catalog.exercises || []).map((e) => {
-        let rangeText = e.equipment || '';
-        if (e.weighted && gender) {
-          const rec = standards.recommendedWeight(gender, profile.weightKg, e);
-          if (rec) rangeText = `推荐 ${rec.novice[0]}–${rec.novice[1]}kg`;
-        }
-        return Object.assign({}, e, { rangeText });
-      });
+      const exercises = this.enrich(catalog.exercises || []);
       const templates = (catalog.templates || []).slice().sort((a, b) => {
         const ga = a.genderHint === gender ? 0 : (a.genderHint === 'all' ? 1 : 2);
         const gb = b.genderHint === gender ? 0 : (b.genderHint === 'all' ? 1 : 2);
         return ga - gb;
       });
-      const grouped = [];
-      BODY_ORDER.forEach((bp) => {
-        const items = exercises.filter((e) => e.bodyPart === bp);
-        if (items.length) grouped.push({ bodyPart: bp, items });
-      });
-      exercises.forEach((e) => {
-        if (!BODY_ORDER.includes(e.bodyPart)) {
-          const g = grouped.find((x) => x.bodyPart === e.bodyPart);
-          if (g) g.items.push(e); else grouped.push({ bodyPart: e.bodyPart, items: [e] });
-        }
-      });
-      this.setData({ loading: false, allExercises: exercises, templates, groupedExercises: grouped });
+      this.setData({ loading: false, allExercises: exercises, templates, groupedExercises: this.buildGroups(exercises) });
     }).catch(() => {
       this.setData({ loading: false });
       this.toast('动作库加载失败，请稍后重试');
     });
+  },
+  enrichOne(e) {
+    const profile = storage.getProfile();
+    const gender = profile && profile.gender;
+    let rangeText = e.equipment || '';
+    if (e.enName) rangeText = e.enName + (e.equipment ? ' · ' + e.equipment : '');
+    if (e.weighted && gender && e.pcts) {
+      const rec = standards.recommendedWeight(gender, profile.weightKg, e);
+      if (rec) rangeText += ' · 推荐 ' + rec.novice[0] + '–' + rec.novice[1] + 'kg';
+    }
+    return Object.assign({}, e, { rangeText });
+  },
+  enrich(exercises) {
+    return exercises.map((e) => this.enrichOne(e));
+  },
+  buildGroups(exercises) {
+    const grouped = [];
+    BODY_ORDER.forEach((bp) => {
+      const items = exercises.filter((e) => e.bodyPart === bp);
+      if (items.length) grouped.push({ bodyPart: bp, items });
+    });
+    exercises.forEach((e) => {
+      if (!BODY_ORDER.includes(e.bodyPart)) {
+        const g = grouped.find((x) => x.bodyPart === e.bodyPart);
+        if (g) g.items.push(e); else grouped.push({ bodyPart: e.bodyPart, items: [e] });
+      }
+    });
+    return grouped;
+  },
+  openCustomForm() {
+    this.setData({ showExercisePicker: false, showCustomForm: true });
+  },
+  closeCustomForm() {
+    this.setData({ showCustomForm: false });
+  },
+  onCustomInput(e) {
+    this.setData({ ['customForm.' + e.currentTarget.dataset.field]: e.detail.value });
+  },
+  pickCustomBodyPart(e) {
+    this.setData({ 'customForm.bodyPart': e.currentTarget.dataset.value });
+  },
+  toggleCustomWeighted(e) {
+    this.setData({ 'customForm.weighted': e.currentTarget.dataset.value === 'true' });
+  },
+  saveCustomExercise() {
+    const f = this.data.customForm;
+    const name = (f.name || '').trim();
+    if (!name) return this.toast('请填写动作名称');
+    const ex = {
+      id: 'custom_' + Date.now(),
+      name,
+      bodyPart: f.bodyPart || '胸',
+      equipment: (f.equipment || '').trim() || '器械',
+      weighted: !!f.weighted,
+      custom: true
+    };
+    storage.addCustomExercise(ex);
+    const allExercises = this.data.allExercises.slice();
+    allExercises.unshift(this.enrichOne(ex));
+    this.setData({
+      customForm: { name: '', bodyPart: '胸', equipment: '哑铃', weighted: true },
+      showCustomForm: false,
+      allExercises,
+      groupedExercises: this.buildGroups(allExercises)
+    });
+    this.toast('已添加自定义动作');
   },
   switchMode(e) {
     this.setData({ mode: e.currentTarget.dataset.mode });

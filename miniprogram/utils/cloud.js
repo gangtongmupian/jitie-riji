@@ -30,16 +30,22 @@ function normalizeCatalog(catalog) {
   };
 }
 
+function mergeCustoms(catalog) {
+  const customs = (storage.getCustomExercises() || []).map((e) => Object.assign({}, e, { id: e.id || e._id, custom: true }));
+  if (!customs.length) return catalog;
+  return { exercises: customs.concat(catalog.exercises), templates: catalog.templates };
+}
+
 function getCatalog() {
   const cached = storage.loadCatalogCache();
   if (cached && cached.exercises && cached.exercises.length) {
-    return Promise.resolve(normalizeCatalog(cached));
+    return Promise.resolve(mergeCustoms(normalizeCatalog(cached)));
   }
   return call('catalog').then((data) => {
     const catalog = normalizeCatalog({ exercises: data.exercises || [], templates: data.templates || [] });
     if (catalog.exercises.length || catalog.templates.length) storage.cacheCatalog(catalog);
-    return catalog;
-  }).catch(() => normalizeCatalog({ exercises: bundledExercises, templates: bundledTemplates }));
+    return mergeCustoms(catalog);
+  }).catch(() => mergeCustoms(normalizeCatalog({ exercises: bundledExercises, templates: bundledTemplates })));
 }
 
 function saveProfile(profile) {

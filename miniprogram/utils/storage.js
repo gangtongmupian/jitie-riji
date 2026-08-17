@@ -1,6 +1,7 @@
 const PROFILE_KEY = 'jitie.profile';
 const DRAFT_KEY = 'jitie.draft';
 const CATALOG_KEY = 'jitie.catalog';
+const CUSTOM_KEY = 'jitie.customExercises';
 
 function getProfile() {
   return wx.getStorageSync(PROFILE_KEY) || null;
@@ -34,8 +35,20 @@ function loadCatalogCache() {
   return wx.getStorageSync(CATALOG_KEY) || null;
 }
 
+function getCustomExercises() {
+  return wx.getStorageSync(CUSTOM_KEY) || [];
+}
+
+function addCustomExercise(exercise) {
+  const list = getCustomExercises();
+  list.push(exercise);
+  wx.setStorageSync(CUSTOM_KEY, list);
+  return list;
+}
+
 module.exports = {
   getProfile, setProfile, clearProfile,
   saveDraft, loadDraft, clearDraft,
-  cacheCatalog, loadCatalogCache
+  cacheCatalog, loadCatalogCache,
+  getCustomExercises, addCustomExercise
 };

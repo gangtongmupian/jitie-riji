@@ -2,10 +2,11 @@
   "envId": "cloudbase-d9gyqv3ea400083a0",
   "functionRoot": "cloudfunctions",
   "functions": [
-    { "name": "login" },
-    { "name": "saveProfile" },
-    { "name": "catalog" },
-    { "name": "saveWorkout" },
-    { "name": "stats" }
+    { "name": "login", "timeout": 5 },
+    { "name": "saveProfile", "timeout": 10 },
+    { "name": "catalog", "timeout": 10 },
+    { "name": "saveWorkout", "timeout": 10 },
+    { "name": "stats", "timeout": 15 },
+    { "name": "initDb", "timeout": 60 }
   ]
 }
