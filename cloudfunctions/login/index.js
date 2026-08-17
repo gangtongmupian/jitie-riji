@@ -1,25 +1,17 @@
 const cloud = require('wx-server-sdk');
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 const db = cloud.database();
+const users = db.collection('users');
 
 exports.main = async () => {
   const { OPENID } = cloud.getWXContext();
-  const col = db.collection('users');
-  const found = await col.where({ openid: OPENID }).limit(1).get();
-  if (found.data.length > 0) {
-    return { ok: true, data: { isNew: false, profile: found.data[0] } };
+  const found = await users.where({ openid: OPENID }).limit(1).get();
+  let user = found.data[0] || null;
+  if (!user) {
+    const now = db.serverDate();
+    const doc = { openid: OPENID, createdAt: now, updatedAt: now };
+    const res = await users.add({ data: doc });
+    user = { _id: res._id, ...doc };
   }
-  const profile = {
-    openid: OPENID,
-    gender: null,
-    age: null,
-    heightCm: null,
-    weightKg: null,
-    goal: null,
-    frequency: null,
-    metrics: null,
-    createdAt: db.serverDate()
-  };
-  const res = await col.add({ data: profile });
-  return { ok: true, data: { isNew: true, profile: Object.assign({ _id: res._id }, profile) } };
+  return { ok: true, data: { openid: OPENID, user } };
 };

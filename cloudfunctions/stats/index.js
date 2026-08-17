@@ -1,64 +1,60 @@
 const cloud = require('wx-server-sdk');
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 const db = cloud.database();
-const _ = db.command;
+const workouts = db.collection('workouts');
 
-function startOfWeek(d) {
-  const day = (d.getDay() + 6) % 7; // 周一为 0
-  return new Date(d.getFullYear(), d.getMonth(), d.getDate() - day);
+function weekStart(date) {
+  const d = new Date(date);
+  const day = (d.getDay() + 6) % 7;
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() - day);
+  return d;
+}
+function isoDate(d) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
-exports.main = async (event) => {
+exports.main = async () => {
   const { OPENID } = cloud.getWXContext();
-  const scope = (event && event.scope) || 'home';
-  const workouts = db.collection('workouts');
-  const prs = db.collection('prs');
-  const out = {};
+  const res = await workouts.where({ openid: OPENID }).limit(1000).get();
+  const list = res.data.slice().sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
 
-  if (scope === 'home' || scope === 'all') {
-    const weekStart = startOfWeek(new Date());
-    const week = await workouts.where({ openid: OPENID, createdAt: _.gte(weekStart) }).limit(1000).get();
-    let weekCount = 0, weekMinutes = 0, weekVolume = 0;
-    week.data.forEach((w) => {
-      weekCount += 1;
-      weekMinutes += w.durationMin || 0;
-      weekVolume += w.totalVolumeKg || 0;
-    });
-    const recent = await workouts.where({ openid: OPENID }).orderBy('createdAt', 'desc').limit(3).get();
-    out.home = {
-      weekCount, weekMinutes, weekVolume,
-      recent: recent.data.map((w) => ({
-        id: w._id, templateName: w.templateName, durationMin: w.durationMin,
-        totalSets: w.totalSets, totalVolumeKg: w.totalVolumeKg, createdAt: w.createdAt
-      }))
-    };
+  const now = new Date();
+  const ws = weekStart(now);
+  const we = new Date(ws.getTime() + 7 * 86400000);
+  const inWeek = list.filter((w) => {
+    const t = new Date(w.date + 'T00:00:00');
+    return t >= ws && t < we;
+  });
+  const week = {
+    count: inWeek.length,
+    durationSec: inWeek.reduce((s, w) => s + (w.durationSec || 0), 0),
+    volume: inWeek.reduce((s, w) => s + (w.totalVolume || 0), 0)
+  };
+
+  const buckets = [];
+  for (let i = 7; i >= 0; i--) {
+    buckets.push({ weekStart: isoDate(new Date(ws.getTime() - i * 7 * 86400000)), count: 0, volume: 0 });
   }
+  list.forEach((w) => {
+    const k = isoDate(weekStart(new Date(w.date + 'T00:00:00')));
+    const b = buckets.find((x) => x.weekStart === k);
+    if (b) { b.count += 1; b.volume += (w.totalVolume || 0); }
+  });
 
-  if (scope === 'history' || scope === 'all') {
-    const year = (event && event.year) || new Date().getFullYear();
-    const month = (event && event.month) || new Date().getMonth() + 1;
-    const from = new Date(year, month - 1, 1);
-    const to = new Date(year, month, 1);
-    const monthWorkouts = await workouts.where({ openid: OPENID, createdAt: _.gte(from).and(_.lt(to)) }).limit(1000).get();
-    const daySet = {};
-    monthWorkouts.data.forEach((w) => {
-      const d = new Date(w.createdAt);
-      const key = d.getDate();
-      daySet[key] = true;
-    });
-    // 近 8 周容量
-    const weeks = [];
-    const now = new Date();
-    for (let i = 7; i >= 0; i--) {
-      const ws = startOfWeek(now);
-      const a = new Date(ws.getFullYear(), ws.getMonth(), ws.getDate() - i * 7);
-      const b = new Date(a.getFullYear(), a.getMonth(), a.getDate() + 7);
-      const got = await workouts.where({ openid: OPENID, createdAt: _.gte(a).and(_.lt(b)) }).limit(1000).get();
-      weeks.push({ weekStart: a.getTime(), volumeKg: got.data.reduce((s, x) => s + (x.totalVolumeKg || 0), 0) });
+  const prMap = {};
+  list.forEach((w) => (w.exercises || []).forEach((ex) => {
+    if (!prMap[ex.exerciseId]) {
+      prMap[ex.exerciseId] = { name: ex.name, bestWeight: 0, bestWeightDate: '', bestVolume: 0, bestVolumeDate: '' };
     }
-    const prList = await prs.where({ openid: OPENID }).orderBy('updatedAt', 'desc').limit(50).get();
-    out.history = { days: daySet, weeks, prs: prList.data };
-  }
+    const rec = prMap[ex.exerciseId];
+    (ex.sets || []).forEach((s) => {
+      const wt = Number(s.weight) || 0;
+      const vol = wt * (Number(s.reps) || 0);
+      if (wt > rec.bestWeight) { rec.bestWeight = wt; rec.bestWeightDate = w.date; }
+      if (vol > rec.bestVolume) { rec.bestVolume = vol; rec.bestVolumeDate = w.date; }
+    });
+  }));
 
-  return { ok: true, data: out };
+  return { ok: true, data: { week, trend: buckets, prs: prMap, recent: list.slice(0, 5) } };
 };

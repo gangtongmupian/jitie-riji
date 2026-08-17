@@ -1,70 +1,43 @@
 const cloud = require('wx-server-sdk');
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 const db = cloud.database();
+const workouts = db.collection('workouts');
+
+function totalSets(exercises) {
+  return exercises.reduce((n, ex) => n + (ex.sets ? ex.sets.length : 0), 0);
+}
+function totalVolume(exercises) {
+  return exercises.reduce((sum, ex) =>
+    sum + (ex.sets || []).reduce((s, set) => s + (Number(set.weight) || 0) * (Number(set.reps) || 0), 0), 0);
+}
 
 exports.main = async (event) => {
   const { OPENID } = cloud.getWXContext();
-  const exs = event.exercises || [];
-  if (!exs.length) return { ok: false, error: '没有可保存的训练组' };
+  const { date, startedAt, endedAt, mode, templateId, templateName, exercises } = event;
+  if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return { ok: false, error: '日期无效' };
+  if (!Array.isArray(exercises) || exercises.length === 0) return { ok: false, error: '请至少记录一个动作' };
+  if (mode !== 'free' && mode !== 'template') return { ok: false, error: '训练模式无效' };
 
-  let totalSets = 0;
-  let totalVolumeKg = 0;
-  exs.forEach((ex) => {
-    (ex.sets || []).forEach((s) => {
-      totalSets += 1;
-      totalVolumeKg += s.weightKg * s.reps;
-    });
-  });
+  const now = Date.now();
+  const started = Number(startedAt) || now;
+  const ended = Number(endedAt) || now;
+  const durationSec = Math.max(0, Math.round((ended - started) / 1000));
 
-  const res = await db.collection('workouts').add({
-    data: {
-      openid: OPENID,
-      mode: event.mode || 'template',
-      templateId: event.templateId || null,
-      templateName: event.templateName || '自由训练',
-      durationMin: event.durationMin || 0,
-      exercises: exs,
-      totalSets,
-      totalVolumeKg,
-      createdAt: db.serverDate()
-    }
-  });
+  const doc = {
+    openid: OPENID,
+    date,
+    startedAt: started,
+    endedAt: ended,
+    durationSec,
+    mode,
+    exercises,
+    totalSets: totalSets(exercises),
+    totalVolume: totalVolume(exercises),
+    createdAt: db.serverDate()
+  };
+  if (templateId) doc.templateId = templateId;
+  if (templateName) doc.templateName = templateName;
 
-  // 更新 PR:每动作历史最大重量与最重单次容量;记录本次新纪录
-  const newPrs = [];
-  for (const ex of exs) {
-    let bestW = 0;
-    let bestV = 0;
-    (ex.sets || []).forEach((s) => {
-      if (s.weightKg > bestW) bestW = s.weightKg;
-      if (s.weightKg * s.reps > bestV) bestV = s.weightKg * s.reps;
-    });
-    const prs = db.collection('prs');
-    const found = await prs.where({ openid: OPENID, exerciseId: ex.exerciseId }).limit(1).get();
-    if (!found.data.length) {
-      newPrs.push({ name: ex.name || ex.exerciseId, weightKg: bestW });
-      await prs.add({
-        data: {
-          openid: OPENID,
-          exerciseId: ex.exerciseId,
-          exerciseName: ex.name || '',
-          bestWeightKg: bestW,
-          bestVolumeKg: bestV,
-          updatedAt: db.serverDate()
-        }
-      });
-    } else {
-      const pr = found.data[0];
-      const upd = {};
-      if (bestW > pr.bestWeightKg) upd.bestWeightKg = bestW;
-      if (bestV > pr.bestVolumeKg) upd.bestVolumeKg = bestV;
-      if (Object.keys(upd).length) {
-        if (upd.bestWeightKg) newPrs.push({ name: ex.name || ex.exerciseId, weightKg: bestW });
-        upd.updatedAt = db.serverDate();
-        await prs.doc(pr._id).update({ data: upd });
-      }
-    }
-  }
-
-  return { ok: true, data: { workoutId: res._id, totalSets, totalVolumeKg, newPrs } };
+  const res = await workouts.add({ data: doc });
+  return { ok: true, data: { _id: res._id, totalSets: doc.totalSets, totalVolume: doc.totalVolume } };
 };
