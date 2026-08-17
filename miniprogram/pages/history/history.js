@@ -1,78 +1,71 @@
-const { call } = require('../../utils/cloud');
-const { formatVolume } = require('../../utils/format');
+const cloud = require('../../utils/cloud');
 
 Page({
   data: {
-    tab: 'cal',
-    year: 2026,
-    month: 8,
-    days: {},
+    loading: true,
+    trend: [],
+    prsList: [],
     calendar: [],
-    weeks: [],
-    prs: [],
-    monthCount: 0,
-    trendText: '',
-    today: new Date().getDate()
+    monthLabel: '',
+    hasData: false
+  },
+  onLoad() {
+    const now = new Date();
+    this.year = now.getFullYear();
+    this.month = now.getMonth();
   },
   onShow() {
-    this.load();
+    this.refresh();
   },
-  switchTab(e) {
-    this.setData({ tab: e.currentTarget.dataset.t });
-  },
-  async load() {
-    try {
-      const d = await call('stats', { scope: 'history', year: this.data.year, month: this.data.month });
-      const h = d.history;
-      const daysInMonth = new Date(this.data.year, this.data.month, 0).getDate();
-      const calendar = [];
-      for (let i = 1; i <= daysInMonth; i++) calendar.push(i);
-      const maxVol = Math.max.apply(null, h.weeks.map((w) => w.volumeKg).concat([1]));
-      const weeks = h.weeks.map((w, i) => ({
-        id: i,
-        vol: w.volumeKg,
-        label: formatVolume(w.volumeKg),
-        h: Math.max(8, Math.round((w.volumeKg / maxVol) * 100))
+  refresh() {
+    cloud.getStats().then((data) => {
+      this.allDates = new Set(data.dates || []);
+      const trend = (data.trend || []).map((b) => ({
+        weekStart: b.weekStart,
+        count: b.count,
+        volume: b.volume,
+        label: b.weekStart.slice(5).replace('-', '/')
       }));
-      let trendText = '—';
-      if (weeks.length >= 2) {
-        const first = weeks[0].vol;
-        const last = weeks[weeks.length - 1].vol;
-        if (last > 0) {
-          const pct = first > 0 ? Math.round(((last - first) / first) * 100) : 100;
-          trendText = (pct >= 0 ? '▲ ' : '▼ ') + Math.abs(pct) + '%';
-        }
-      }
-      const prs = h.prs.map((p) => ({
-        id: p._id,
-        name: p.exerciseName,
-        best: p.bestWeightKg + 'kg',
-        isNew: false
-      }));
+      const max = Math.max(1, ...trend.map((b) => b.volume));
+      trend.forEach((b) => { b.h = Math.round((b.volume / max) * 100); });
+      const prsList = Object.keys(data.prs || {})
+        .map((k) => data.prs[k])
+        .filter((p) => p.bestWeight > 0)
+        .sort((a, b) => b.bestWeight - a.bestWeight);
       this.setData({
-        days: h.days,
-        calendar,
-        weeks,
-        prs,
-        monthCount: Object.keys(h.days).length,
-        trendText
+        loading: false,
+        trend,
+        prsList,
+        hasData: prsList.length > 0 || (data.dates || []).length > 0
       });
-    } catch (e) {
-      wx.showToast({ title: e.message, icon: 'none' });
+      this.buildCalendar();
+    }).catch(() => {
+      this.setData({ loading: false });
+    });
+  },
+  buildCalendar() {
+    const year = this.year;
+    const month = this.month;
+    const first = new Date(year, month, 1);
+    const startWeekday = (first.getDay() + 6) % 7;
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const cells = [];
+    for (let i = 0; i < startWeekday; i++) cells.push({ key: 'b' + i, day: '', date: '', active: false });
+    for (let d = 1; d <= daysInMonth; d++) {
+      const date = `${year}-${String(month + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+      cells.push({ key: date, day: d, date, active: this.allDates.has(date) });
     }
+    while (cells.length % 7 !== 0) cells.push({ key: 'a' + cells.length, day: '', date: '', active: false });
+    this.setData({ calendar: cells, monthLabel: `${year}年${month + 1}月` });
   },
   prevMonth() {
-    let m = this.data.month - 1;
-    let y = this.data.year;
-    if (m < 1) { m = 12; y -= 1; }
-    this.setData({ month: m, year: y });
-    this.load();
+    this.month -= 1;
+    if (this.month < 0) { this.month = 11; this.year -= 1; }
+    this.buildCalendar();
   },
   nextMonth() {
-    let m = this.data.month + 1;
-    let y = this.data.year;
-    if (m > 12) { m = 1; y += 1; }
-    this.setData({ month: m, year: y });
-    this.load();
+    this.month += 1;
+    if (this.month > 11) { this.month = 0; this.year += 1; }
+    this.buildCalendar();
   }
 });

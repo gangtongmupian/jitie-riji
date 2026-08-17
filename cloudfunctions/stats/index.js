@@ -17,7 +17,9 @@ function isoDate(d) {
 exports.main = async () => {
   const { OPENID } = cloud.getWXContext();
   const res = await workouts.where({ openid: OPENID }).limit(1000).get();
-  const list = res.data.slice().sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+  const list = res.data
+    .filter((w) => /^\d{4}-\d{2}-\d{2}$/.test(w.date || ''))
+    .sort((a, b) => String(b.date).localeCompare(String(a.date)));
 
   const now = new Date();
   const ws = weekStart(now);
@@ -56,5 +58,6 @@ exports.main = async () => {
     });
   }));
 
-  return { ok: true, data: { week, trend: buckets, prs: prMap, recent: list.slice(0, 5) } };
+  const dates = Array.from(new Set(list.map((w) => w.date).filter(Boolean)));
+  return { ok: true, data: { week, trend: buckets, prs: prMap, recent: list.slice(0, 5), dates } };
 };

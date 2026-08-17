@@ -1,36 +1,36 @@
-<view class="sheet">
-  <view class="bar"></view>
-  <view class="ttl">今日训练完成</view>
+<view class="page">
+  <view class="pane" wx:if="{{workout}}">
+    <view class="mtitle">训练打卡</view>
+    <view class="msub">保存到相册发朋友圈，或转发给好友。</view>
 
-  <view class="card sw" bindtap="toggleBg">
-    <text class="sw-txt">使用照片作背景</text>
-    <view class="switch {{usePhoto ? 'on' : ''}}"></view>
-  </view>
-
-  <view class="card preview {{usePhoto ? 'photo' : ''}}" style="{{usePhoto ? 'background-image: url(' + bgPath + ');' : ''}}">
-    <view class="pv-top">
-      <text class="pv-brand">牛来举铁</text>
-      <text class="tag">训练打卡</text>
-    </view>
-    <view class="pv-vol">{{totalVolume}}<text class="pv-unit">kg 总容量</text></view>
-    <view class="pv-meta">{{actions}} 个动作 · {{groups}} 组 · {{duration}}</view>
-    <view class="pv-list">
-      <view class="pv-row" wx:for="{{exercises}}" wx:key="exerciseId">
-        <text class="pv-nm">{{item.name}}</text>
-        <text class="pv-set">{{item.setText}}</text>
+    <view class="preview-card">
+      <image wx:if="{{bg === 'photo'}}" class="pv-bg" src="{{photoPath}}" mode="aspectFill"></image>
+      <view wx:if="{{bg === 'photo'}}" class="pv-mask"></view>
+      <view class="pv-content {{bg === 'photo' ? 'pv-dark' : ''}}">
+        <view class="pv-brand">牛来举铁</view>
+        <view class="pv-tag">训练打卡</view>
+        <view class="pv-label">本次训练总容量</view>
+        <view class="pv-volume">{{volumeText}}</view>
+        <view class="pv-divider {{bg === 'photo' ? 'pv-divider-dark' : ''}}"></view>
+        <view class="pv-ex" wx:for="{{summaries}}" wx:key="name">
+          <view class="pv-ex-name">{{item.name}}</view>
+          <view class="pv-ex-meta">{{item.count}} 组 · {{item.label}}</view>
+        </view>
+        <view class="pv-date">{{dateLabel}}</view>
       </view>
     </view>
-    <view class="pv-foot">
-      <text>{{dateText}}</text>
-      <view class="qr">小程序码</view>
+
+    <view class="actions">
+      <view class="btn btn-ghost action-btn" bindtap="{{bg === 'photo' ? 'resetBg' : 'chooseBg'}}">{{bg === 'photo' ? '换回白卡' : '换背景'}}</view>
+      <view class="btn btn-primary action-btn" bindtap="save">{{saved ? '已保存' : '保存到相册'}}</view>
     </view>
+    <view class="btn-link done" bindtap="done">完成，返回首页</view>
   </view>
 
-  <canvas type="2d" id="shareCanvas" class="hidden-canvas"></canvas>
-
-  <view class="btn-row">
-    <view class="btn btn-ghost flex1" bindtap="save">保存到相册</view>
-    <view class="btn btn-primary flex1" bindtap="share">转发给好友</view>
+  <view wx:else class="empty">
+    <view class="empty-title">没有可分享的训练</view>
+    <view class="btn btn-primary empty-btn" bindtap="done">返回首页</view>
   </view>
-  <view class="home-link" bindtap="goHome">回到首页</view>
+
+  <canvas canvas-id="shareCanvas" class="hidden-canvas"></canvas>
 </view>

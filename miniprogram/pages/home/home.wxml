@@ -1,32 +1,38 @@
-<view class="pane home-pane">
-  <view class="head">
-    <view>
-      <view class="greet">{{greeting}}</view>
-      <view class="sub">本周第 {{weekCount}} 练</view>
+<view class="page">
+  <view class="navy-hero">
+    <view class="hero-title">牛来举铁</view>
+    <view class="hero-sub">你好，今天也要坚持</view>
+    <view class="hero-week">
+      <view class="hw">
+        <text class="hw-b">{{week.count}}</text>
+        <text class="hw-s">本周训练</text>
+      </view>
+      <view class="hw">
+        <text class="hw-b">{{weekText.duration}}</text>
+        <text class="hw-s">本周时长</text>
+      </view>
+      <view class="hw">
+        <text class="hw-b">{{weekText.volume}}</text>
+        <text class="hw-s">本周容量</text>
+      </view>
     </view>
-    <view class="avatar">练</view>
   </view>
 
-  <view class="banner" wx:if="{{newPr}}" bindtap="goHistory">
-    <view class="banner-top"><view class="badge">新纪录</view><text class="banner-time">{{newPr.time}}</text></view>
-    <view class="banner-hd">{{newPr.text}}</view>
-    <view class="banner-sd">点按查看详情</view>
-  </view>
+  <view class="pane">
+    <view class="btn btn-primary btn-block" bindtap="start">开始训练</view>
 
-  <view class="stats3">
-    <view class="stat"><text class="stat-b">{{weekCount}}</text><text class="stat-s">本周训练</text></view>
-    <view class="stat"><text class="stat-b">{{weekDuration}}</text><text class="stat-s">总时长</text></view>
-    <view class="stat"><text class="stat-b">{{weekVolume}}</text><text class="stat-s">总容量</text></view>
-  </view>
-
-  <view class="btn btn-primary btn-block start-btn" bindtap="goWorkout">开始训练</view>
-
-  <view class="list">
-    <view class="lrow" wx:for="{{recent}}" wx:key="id">
-      <text class="lrow-l">{{item.title}}</text>
-      <view class="lrow-r"><text class="lrow-r-b">{{item.detail}}</text></view>
+    <view class="section">最近一次训练</view>
+    <view wx:if="{{recent}}" class="card recent">
+      <view class="recent-head">
+        <text class="recent-date">{{recent.dateLabel}}</text>
+        <text class="tag">{{recent.mode === 'template' ? '模板训练' : '自由训练'}}</text>
+      </view>
+      <view class="recent-vol">{{recent.volumeText}}</view>
+      <view class="recent-meta">{{recent.exerciseCount}} 个动作 · {{recent.totalSets}} 组</view>
     </view>
-    <view class="empty" wx:if="{{!recent.length}}">还没有训练记录,点上方按钮开始第一次训练</view>
+    <view wx:else class="empty">
+      <view class="empty-title">还没有训练记录</view>
+      <view>点击上方「开始训练」记录第一次</view>
+    </view>
   </view>
 </view>
-<tab-bar current="home"/>

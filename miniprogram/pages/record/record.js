@@ -1,197 +1,210 @@
-const { call } = require('../../utils/cloud');
-const { summarizeWorkout } = require('../../utils/stats');
+const cloud = require('../../utils/cloud');
+const storage = require('../../utils/storage');
+const standards = require('../../utils/standards');
+const stats = require('../../utils/stats');
+const format = require('../../utils/format');
+
+const BODY_ORDER = ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'];
 
 Page({
   data: {
+    loading: true,
     mode: 'free',
-    title: '自由训练',
+    templates: [],
+    allExercises: [],
+    groupedExercises: [],
+    showTemplatePicker: false,
+    showExercisePicker: false,
     exercises: [],
-    totalSets: 0,
-    totalVolume: '0kg',
-    seconds: 0,
-    timerText: '00:00'
+    totals: { sets: 0, volume: 0 },
+    totalsText: { volume: '0kg' },
+    saving: false
   },
-  async onLoad(query) {
-    this.mode = query.mode || 'free';
-    this.tplId = query.templateId || null;
-    const title = query.templateName ? decodeURIComponent(query.templateName) : '自由训练';
-    this.setData({ title, mode: this.mode });
-    try {
-      if (!getApp().globalData.catalog) {
-        getApp().globalData.catalog = await call('catalog');
-      }
-      if (this.mode === 'template' && query.templateId) {
-        this.buildFromTemplate(query.templateId);
-      } else {
-        this.setData({ exercises: this.buildFreeExercises() });
-      }
-    } catch (e) {
-      wx.showToast({ title: e.message || '动作库加载失败', icon: 'none' });
+  onLoad() {
+    this.startedAt = Date.now();
+    this.saved = false;
+    if (wx.enableAlertBeforeUnload) {
+      wx.enableAlertBeforeUnload({ message: '训练尚未完成，确定退出吗？' });
     }
-    this.restoreDraft();
-    this.startTimer();
+    this.loadCatalog();
   },
-  buildFreeExercises() {
-    const cat = getApp().globalData.catalog;
-    if (!cat || !cat.exercises.length) return [];
-    const ex = cat.exercises[0];
-    return [{
-      exerciseId: ex.id,
-      name: ex.name,
-      bodyPart: ex.bodyPart,
-      equipment: ex.equipment,
-      sets: [{ weightKg: 0, reps: 0 }]
-    }];
+  onUnload() {
+    if (!this.saved && this.data.exercises && this.data.exercises.length) {
+      storage.saveDraft(this.buildWorkout());
+    }
   },
-  buildFromTemplate(templateId) {
-    const cat = getApp().globalData.catalog;
-    if (!cat || !cat.templates) {
-      wx.showToast({ title: '动作库加载中,请稍后', icon: 'none' });
-      return;
-    }
-    const tpl = cat.templates.find((t) => t.id === templateId);
-    if (!tpl) {
-      wx.showToast({ title: '模板不存在或已失效', icon: 'none' });
-      return;
-    }
-    const exercises = tpl.exercises.map((item) => {
-      const ex = cat.exercises.find((x) => x.id === item.exerciseId);
-      const sets = [];
-      for (let i = 0; i < item.sets; i++) sets.push({ weightKg: 0, reps: 0 });
+  noop() {},
+  genId() {
+    this._seq = (this._seq || 0) + 1;
+    return 's' + this._seq;
+  },
+  loadCatalog() {
+    cloud.getCatalog().then((catalog) => {
+      const profile = storage.getProfile();
+      const gender = profile && profile.gender;
+      const exercises = (catalog.exercises || []).map((e) => {
+        let rangeText = e.equipment || '';
+        if (e.weighted && gender) {
+          const rec = standards.recommendedWeight(gender, profile.weightKg, e);
+          if (rec) rangeText = `推荐 ${rec.novice[0]}–${rec.novice[1]}kg`;
+        }
+        return Object.assign({}, e, { rangeText });
+      });
+      const templates = (catalog.templates || []).slice().sort((a, b) => {
+        const ga = a.genderHint === gender ? 0 : (a.genderHint === 'all' ? 1 : 2);
+        const gb = b.genderHint === gender ? 0 : (b.genderHint === 'all' ? 1 : 2);
+        return ga - gb;
+      });
+      const grouped = [];
+      BODY_ORDER.forEach((bp) => {
+        const items = exercises.filter((e) => e.bodyPart === bp);
+        if (items.length) grouped.push({ bodyPart: bp, items });
+      });
+      exercises.forEach((e) => {
+        if (!BODY_ORDER.includes(e.bodyPart)) {
+          const g = grouped.find((x) => x.bodyPart === e.bodyPart);
+          if (g) g.items.push(e); else grouped.push({ bodyPart: e.bodyPart, items: [e] });
+        }
+      });
+      this.setData({ loading: false, allExercises: exercises, templates, groupedExercises: grouped });
+    }).catch(() => {
+      this.setData({ loading: false });
+      this.toast('动作库加载失败，请稍后重试');
+    });
+  },
+  switchMode(e) {
+    this.setData({ mode: e.currentTarget.dataset.mode });
+  },
+  openTemplates() {
+    this.setData({ showTemplatePicker: true });
+  },
+  closePickers() {
+    this.setData({ showTemplatePicker: false, showExercisePicker: false });
+  },
+  openExercises() {
+    this.setData({ showExercisePicker: true });
+  },
+  pickTemplate(e) {
+    const t = this.data.templates.find((x) => x.id === e.currentTarget.dataset.id);
+    if (!t) return this.toast('模板不存在或未加载');
+    const exercises = (t.exercises || []).map((item) => {
+      const ex = this.data.allExercises.find((x) => x.id === item.exerciseId);
+      const reps = Math.round(((item.repRange && item.repRange[0] + item.repRange[1]) / 2) || 10);
       return {
         exerciseId: item.exerciseId,
         name: ex ? ex.name : item.exerciseId,
         bodyPart: ex ? ex.bodyPart : '',
         equipment: ex ? ex.equipment : '',
-        sets
+        weighted: ex ? !!ex.weighted : false,
+        sets: Array.from({ length: item.sets || 3 }, () => ({ reps: String(reps), weight: '', _key: this.genId() }))
       };
     });
-    this.setData({ exercises });
+    this.setData({ exercises, showTemplatePicker: false, templateId: t.id, templateName: t.name, mode: 'template' });
+    this.recalc();
   },
-  startTimer() {
-    this.timer = setInterval(() => {
-      const seconds = this.data.seconds + 1;
-      const m = String(Math.floor(seconds / 60)).padStart(2, '0');
-      const s = String(seconds % 60).padStart(2, '0');
-      this.setData({ seconds, timerText: m + ':' + s });
-    }, 1000);
+  pickExercise(e) {
+    const id = e.currentTarget.dataset.id;
+    if (this.data.exercises.some((x) => x.exerciseId === id)) {
+      this.setData({ showExercisePicker: false });
+      return this.toast('该动作已添加');
+    }
+    const ex = this.data.allExercises.find((x) => x.id === id);
+    if (!ex) return this.toast('动作不存在');
+    const item = {
+      exerciseId: ex.id,
+      name: ex.name,
+      bodyPart: ex.bodyPart,
+      equipment: ex.equipment,
+      weighted: !!ex.weighted,
+      sets: [{ reps: '', weight: '', _key: this.genId() }]
+    };
+    this.setData({ exercises: this.data.exercises.concat([item]), showExercisePicker: false });
+    this.recalc();
   },
-  onUnload() {
-    if (this.timer) clearInterval(this.timer);
-  },
-  inputSet(e) {
-    const { ei, si, f } = e.currentTarget.dataset;
-    const key = f === 'w' ? 'weightKg' : 'reps';
-    this.setData({ [`exercises[${ei}].sets[${si}].${key}`]: Number(e.detail.value) });
-    this.updateTotals();
+  onSetInput(e) {
+    const { ei, si, field } = e.currentTarget.dataset;
+    this.setData({ [`exercises[${ei}].sets[${si}].${field}`]: e.detail.value });
+    this.recalc();
   },
   addSet(e) {
-    const ei = Number(e.currentTarget.dataset.ei);
-    this.setData({ [`exercises[${ei}].sets`]: this.data.exercises[ei].sets.concat([{ weightKg: 0, reps: 0 }]) });
-    this.updateTotals();
+    const ei = e.currentTarget.dataset.ei;
+    const exercises = this.data.exercises.slice();
+    const ex = exercises[ei];
+    const last = ex.sets[ex.sets.length - 1] || { reps: '', weight: '' };
+    exercises[ei] = Object.assign({}, ex, { sets: ex.sets.concat([{ reps: last.reps, weight: last.weight, _key: this.genId() }]) });
+    this.setData({ exercises });
+    this.recalc();
   },
-  delSet(e) {
+  removeSet(e) {
     const { ei, si } = e.currentTarget.dataset;
-    const sets = this.data.exercises[ei].sets.slice();
+    const exercises = this.data.exercises.slice();
+    const ex = exercises[ei];
+    const sets = ex.sets.slice();
     sets.splice(si, 1);
-    this.setData({ [`exercises[${ei}].sets`]: sets });
-    this.updateTotals();
-  },
-  updateTotals() {
-    const sum = summarizeWorkout(this.data.exercises);
-    this.setData({
-      totalSets: sum.sets,
-      totalVolume: sum.volumeKg >= 10000 ? (sum.volumeKg / 1000).toFixed(1) + 't' : sum.volumeKg + 'kg'
-    });
-  },
-  saveDraft() {
-    wx.setStorageSync('workout_draft', {
-      mode: this.mode,
-      tplId: this.tplId,
-      title: this.data.title,
-      exercises: this.data.exercises,
-      seconds: this.data.seconds
-    });
-  },
-  restoreDraft() {
-    const draft = wx.getStorageSync('workout_draft');
-    if (!draft) return;
-    wx.showModal({
-      title: '发现未完成的训练',
-      content: '是否继续上次的记录?',
-      success: (res) => {
-        if (res.confirm) {
-          this.mode = draft.mode;
-          this.tplId = draft.tplId;
-          this.setData({
-            mode: draft.mode,
-            title: draft.title,
-            exercises: draft.exercises,
-            seconds: draft.seconds
-          });
-          this.updateTotals();
-        }
-        wx.removeStorageSync('workout_draft');
-      }
-    });
-  },
-  addExercise() {
-    const cat = getApp().globalData.catalog;
-    if (!cat || !cat.exercises.length) {
-      wx.showToast({ title: '动作库加载中,请稍后', icon: 'none' });
-      return;
+    if (sets.length === 0) {
+      exercises.splice(ei, 1);
+    } else {
+      exercises[ei] = Object.assign({}, ex, { sets });
     }
-    wx.showActionSheet({
-      itemList: cat.exercises.map((ex) => ex.name + ' · ' + ex.bodyPart),
-      success: (res) => {
-        const ex = cat.exercises[res.tapIndex];
-        const exercises = this.data.exercises.concat([{
-          exerciseId: ex.id,
-          name: ex.name,
-          bodyPart: ex.bodyPart,
-          equipment: ex.equipment,
-          sets: [{ weightKg: 0, reps: 0 }]
-        }]);
-        this.setData({ exercises });
-        this.updateTotals();
-      }
-    });
+    this.setData({ exercises });
+    this.recalc();
   },
-  quit() {
-    wx.showModal({
-      title: '退出训练',
-      content: '训练还没保存,确定要退出吗?',
-      success: (res) => {
-        if (res.confirm) wx.navigateBack();
-      }
-    });
+  removeExercise(e) {
+    const ei = e.currentTarget.dataset.ei;
+    const exercises = this.data.exercises.slice();
+    exercises.splice(ei, 1);
+    this.setData({ exercises });
+    this.recalc();
   },
-  async finish() {
-    // 允许 0kg(自重动作),但每组必须填次数
-    const empty = this.data.exercises.some((ex) => ex.sets.some((s) => !s.reps));
-    if (empty) {
-      wx.showToast({ title: '还有未填完的组', icon: 'none' });
-      return;
+  recalc() {
+    const sets = stats.totalSets(this.data.exercises);
+    const volume = stats.totalVolume(this.data.exercises);
+    this.setData({ totals: { sets, volume }, totalsText: { volume: format.formatVolume(volume) } });
+  },
+  buildWorkout() {
+    return {
+      date: format.today(),
+      startedAt: this.startedAt,
+      endedAt: Date.now(),
+      mode: this.data.mode,
+      templateId: this.data.templateId || null,
+      templateName: this.data.templateName || null,
+      exercises: this.data.exercises.map((ex) => ({
+        exerciseId: ex.exerciseId,
+        name: ex.name,
+        bodyPart: ex.bodyPart,
+        equipment: ex.equipment,
+        weighted: ex.weighted,
+        sets: ex.sets.map((s) => ({ reps: Number(s.reps) || 0, weight: Number(s.weight) || 0 }))
+      }))
+    };
+  },
+  finish() {
+    if (!this.data.exercises.length) return this.toast('请至少添加一个动作');
+    for (const ex of this.data.exercises) {
+      if (!ex.sets.length) return this.toast(`「${ex.name}」至少需要一组`);
+      if (ex.sets.some((s) => !(Number(s.reps) > 0))) return this.toast(`「${ex.name}」请填写每组次数`);
     }
-    wx.showLoading({ title: '保存中' });
-    try {
-      const payload = {
-        mode: this.mode,
-        templateId: this.mode === 'template' ? this.tplId : null,
-        templateName: this.data.title,
-        durationMin: Math.round(this.data.seconds / 60),
-        exercises: this.data.exercises
-      };
-      const data = await call('saveWorkout', payload);
-      wx.hideLoading();
-      wx.removeStorageSync('workout_draft');
-      getApp().globalData.lastWorkout = data;
-      getApp().globalData.lastWorkoutDetail = payload;
+    const workout = this.buildWorkout();
+    this.setData({ saving: true });
+    storage.saveDraft(workout);
+    cloud.saveWorkout(workout).then((saved) => {
+      storage.clearDraft();
+      const shareData = Object.assign({}, workout, saved, {
+        totalSets: stats.totalSets(this.data.exercises),
+        totalVolume: stats.totalVolume(this.data.exercises)
+      });
+      wx.setStorageSync('jitie.lastWorkout', shareData);
+      this.saved = true;
+      if (wx.disableAlertBeforeUnload) wx.disableAlertBeforeUnload();
+      this.setData({ saving: false });
       wx.redirectTo({ url: '/pages/share/share' });
-    } catch (e) {
-      wx.hideLoading();
-      this.saveDraft();
-      wx.showToast({ title: '保存失败,已存为草稿', icon: 'none' });
-    }
+    }).catch(() => {
+      this.setData({ saving: false });
+      this.toast('保存失败，已存草稿，稍后自动重试');
+    });
+  },
+  toast(title) {
+    wx.showToast({ title, icon: 'none' });
   }
 });

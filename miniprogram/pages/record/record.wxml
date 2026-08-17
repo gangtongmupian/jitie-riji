@@ -1,30 +1,79 @@
-<view class="topbar">
-  <view class="back" bindtap="quit">‹</view>
-  <view class="ttl">{{title}}</view>
-  <view class="timer">{{timerText}}</view>
-</view>
-<view class="pane rec-pane">
-  <view class="ex-card" wx:for="{{exercises}}" wx:for-item="ex" wx:for-index="ei" wx:key="exerciseId">
-    <view class="ex-hd">
-      <text class="ex-nm">{{ex.name}}</text>
-      <text class="tag tag-gray">{{ex.bodyPart}} · {{ex.equipment}}</text>
+<view class="page">
+  <view class="pane record-pane">
+    <view class="mode-tabs">
+      <view class="mode-tab {{mode === 'free' ? 'mode-on' : ''}}" data-mode="free" bindtap="switchMode">自由训练</view>
+      <view class="mode-tab {{mode === 'template' ? 'mode-on' : ''}}" data-mode="template" bindtap="switchMode">模板训练</view>
     </view>
-    <view class="set-row" wx:for="{{ex.sets}}" wx:for-item="set" wx:for-index="si" wx:key="index">
-      <text class="set-no">{{si + 1}}</text>
-      <input class="set-inp" type="digit" value="{{set.weightKg}}" data-ei="{{ei}}" data-si="{{si}}" data-f="w" bindinput="inputSet"/>
-      <text class="set-u">kg</text>
-      <input class="set-inp" type="number" value="{{set.reps}}" data-ei="{{ei}}" data-si="{{si}}" data-f="r" bindinput="inputSet"/>
-      <text class="set-u">次</text>
-      <view class="set-del" data-ei="{{ei}}" data-si="{{si}}" bindtap="delSet">×</view>
+
+    <view wx:if="{{loading}}" class="loading">加载动作库中…</view>
+
+    <block wx:else>
+      <view wx:if="{{!exercises.length}}" class="empty">
+        <view class="empty-title">{{mode === 'template' ? '选择一个训练模板开始' : '添加动作开始训练'}}</view>
+        <view class="btn btn-primary empty-btn" bindtap="{{mode === 'template' ? 'openTemplates' : 'openExercises'}}">
+          {{mode === 'template' ? '选择模板' : '添加动作'}}
+        </view>
+      </view>
+
+      <view wx:else>
+        <view class="exercise-card card" wx:for="{{exercises}}" wx:for-item="ex" wx:for-index="ei" wx:key="exerciseId">
+          <view class="ex-head">
+            <view>
+              <text class="ex-name">{{ex.name}}</text>
+              <text class="tag">{{ex.equipment}}</text>
+            </view>
+            <text class="ex-del" data-ei="{{ei}}" bindtap="removeExercise">删除</text>
+          </view>
+          <view class="set-labels">
+            <text class="set-label">重量 (kg)</text>
+            <text class="set-label">次数</text>
+            <text class="set-label set-label-op"></text>
+          </view>
+          <view class="set-row" wx:for="{{ex.sets}}" wx:for-item="s" wx:for-index="si" wx:key="_key">
+            <input wx:if="{{ex.weighted}}" class="input set-input" type="digit" data-ei="{{ei}}" data-si="{{si}}" data-field="weight" value="{{s.weight}}" bindinput="onSetInput" placeholder="重量" />
+            <view wx:else class="set-bw">自重</view>
+            <input class="input set-input" type="number" data-ei="{{ei}}" data-si="{{si}}" data-field="reps" value="{{s.reps}}" bindinput="onSetInput" placeholder="次数" />
+            <text class="set-op" data-ei="{{ei}}" data-si="{{si}}" bindtap="removeSet">−</text>
+          </view>
+          <view class="add-set" data-ei="{{ei}}" bindtap="addSet">+ 加一组</view>
+        </view>
+
+        <view class="add-more" bindtap="openExercises">+ 添加动作</view>
+      </view>
+    </block>
+  </view>
+
+  <view class="sticky-bar">
+    <view class="totals">
+      <text class="totals-b">{{totals.sets}} 组</text>
+      <text class="totals-s">{{totalsText.volume}}</text>
     </view>
-    <view class="addset" data-ei="{{ei}}" bindtap="addSet">+ 添加一组</view>
+    <view class="btn btn-primary finish-btn {{saving ? 'disabled' : ''}}" bindtap="finish">{{saving ? '保存中…' : '完成训练'}}</view>
   </view>
-  <view class="add-ex" wx:if="{{mode === 'free'}}" bindtap="addExercise">+ 添加动作</view>
-</view>
-<view class="float-bar">
-  <view class="sum">
-    <text class="sum-b">{{totalSets}} 组</text>
-    <text class="sum-s">总容量 {{totalVolume}}</text>
+
+  <view wx:if="{{showTemplatePicker || showExercisePicker}}" class="mask" bindtap="closePickers">
+    <view class="sheet" catchtap="noop">
+      <view class="sheet-head">
+        <text class="sheet-title">{{showTemplatePicker ? '选择模板' : '添加动作'}}</text>
+        <text class="sheet-close" bindtap="closePickers">关闭</text>
+      </view>
+      <scroll-view scroll-y class="sheet-body">
+        <view wx:if="{{showTemplatePicker}}">
+          <view class="tpl card" wx:for="{{templates}}" wx:key="id" data-id="{{item.id}}" bindtap="pickTemplate">
+            <view class="tpl-name">{{item.name}}</view>
+            <view class="tpl-meta">{{item.goal}} · 每周 {{item.frequency}} 次 · {{item.exercises.length}} 个动作</view>
+          </view>
+        </view>
+        <view wx:else>
+          <block wx:for="{{groupedExercises}}" wx:for-item="g" wx:key="bodyPart">
+            <view class="group-title">{{g.bodyPart}}</view>
+            <view class="ex-item" wx:for="{{g.items}}" wx:for-item="e" wx:key="id" data-id="{{e.id}}" bindtap="pickExercise">
+              <view class="ex-item-name">{{e.name}}</view>
+              <view class="ex-item-range">{{e.rangeText}}</view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
   </view>
-  <view class="btn btn-primary" bindtap="finish">结束训练</view>
 </view>

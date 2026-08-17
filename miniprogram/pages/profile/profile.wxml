@@ -1,36 +1,36 @@
-<view class="pane">
-  <view class="topbar">
-    <view class="ttl">我的</view>
-    <view class="act" bindtap="edit">编辑资料</view>
-  </view>
-  <view class="card info">
-    <view class="avatar">练</view>
-    <view class="info-body">
-      <view class="name">健身者</view>
-      <view class="desc" wx:if="{{profile}}">
-        {{profile.gender === 'male' ? '男' : '女'}} · {{profile.age}}岁 · {{profile.heightCm}}cm · {{profile.weightKg}}kg
+<view class="page">
+  <view class="pane">
+    <view wx:if="{{profile && metrics}}" class="card profile-card">
+      <view class="profile-head">
+        <view class="avatar">{{profile.gender === 'male' ? '男' : '女'}}</view>
+        <view class="profile-info">
+          <view class="profile-name">{{profile.gender === 'male' ? '男' : '女'}} · {{profile.age}} 岁</view>
+          <view class="profile-sub">{{profile.heightCm}}cm · {{profile.weightKg}}kg · 目标 {{profile.goal}}</view>
+        </view>
       </view>
-      <view class="goal" wx:if="{{profile}}">目标:{{profile.goal}} · 每周 {{profile.frequency}} 次</view>
+      <view class="metric-grid">
+        <view class="metric metric-tint-lavender">
+          <text class="metric-b">{{metrics.bmi}}</text>
+          <text class="metric-s">BMI · {{metrics.bmiLevelLabel}}</text>
+        </view>
+        <view class="metric metric-tint-mint">
+          <text class="metric-b">{{metrics.bodyFatRef}}</text>
+          <text class="metric-s">体脂参考</text>
+        </view>
+        <view class="metric metric-tint-sky">
+          <text class="metric-b">{{metrics.bmr}}</text>
+          <text class="metric-s">基础代谢 kcal</text>
+        </view>
+      </view>
+      <view class="btn btn-ghost btn-block edit-btn" bindtap="edit">编辑资料</view>
+    </view>
+
+    <view class="section">设置</view>
+    <view class="list">
+      <view class="lrow" bindtap="edit"><text>编辑资料</text><text class="lrow-r">›</text></view>
+      <view class="lrow" bindtap="privacy"><text>隐私政策</text><text class="lrow-r">›</text></view>
+      <view class="lrow" bindtap="about"><text>关于牛来举铁</text><text class="lrow-r">›</text></view>
+      <view class="lrow" bindtap="logout"><text class="danger">注销账号</text><text class="lrow-r">›</text></view>
     </view>
   </view>
-
-  <view class="sec-ttl">体质指标</view>
-  <view class="metric-grid" wx:if="{{metrics}}">
-    <view class="metric metric-tint-lavender"><text class="metric-b">{{metrics.bmi}}</text><text class="metric-s">BMI {{metrics.bmiLabel}}</text></view>
-    <view class="metric metric-tint-mint"><text class="metric-b">{{metrics.bodyFatMin}}–{{metrics.bodyFatMax}}%</text><text class="metric-s">体脂参考</text></view>
-    <view class="metric metric-tint-sky"><text class="metric-b">{{metrics.bmr}}</text><text class="metric-s">基础代谢</text></view>
-  </view>
-
-  <view class="card recalc">
-    <text class="recalc-txt">资料变化了?修改后重新计算指标</text>
-    <view class="btn btn-ghost recalc-btn" bindtap="recalc">重新计算</view>
-  </view>
-
-  <view class="list menu">
-    <view class="lrow" data-msg="查看用户协议" bindtap="show"><text>用户协议</text><text class="arr">›</text></view>
-    <view class="lrow" data-msg="查看隐私政策" bindtap="show"><text>隐私政策</text><text class="arr">›</text></view>
-    <view class="lrow" data-msg="关于牛来举铁" bindtap="show"><text>关于我们</text><text class="arr">›</text></view>
-    <view class="lrow warn" data-msg="注销后数据将不可恢复" bindtap="show"><text>注销账号</text><text class="arr">›</text></view>
-  </view>
 </view>
-<tab-bar current="profile"/>

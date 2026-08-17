@@ -1,171 +1,157 @@
-const { formatVolume, formatDuration, formatDate } = require('../../utils/format');
+const format = require('../../utils/format');
 
 Page({
   data: {
-    detail: null,
-    totalVolume: '0kg',
-    duration: '0 分钟',
-    dateText: '',
-    bgPath: '',
-    usePhoto: false,
-    actions: 0,
-    groups: 0,
-    exercises: [],
-    qrPath: ''
+    workout: null,
+    summaries: [],
+    volumeText: '0kg',
+    dateLabel: '',
+    bg: 'white',
+    photoPath: '',
+    generating: false,
+    saved: false
   },
   onLoad() {
-    const detail = getApp().globalData.lastWorkoutDetail;
-    if (!detail) {
-      wx.redirectTo({ url: '/pages/home/home' });
+    const workout = wx.getStorageSync('jitie.lastWorkout');
+    if (!workout) {
+      this.setData({ workout: null });
       return;
     }
-    const sum = getApp().globalData.lastWorkout || {};
-    const actions = detail.exercises.length;
-    const groups = detail.exercises.reduce((s, e) => s + e.sets.length, 0);
-    const exercises = detail.exercises.map((ex) => ({
-      exerciseId: ex.exerciseId,
-      name: ex.name,
-      setText: ex.sets.map((s) => s.weightKg + 'kg×' + s.reps).join(' / ')
-    }));
-    this.setData({
-      detail,
-      totalVolume: formatVolume(sum.totalVolumeKg || 0),
-      duration: formatDuration(detail.durationMin || 0),
-      dateText: formatDate(Date.now()),
-      actions,
-      groups,
-      exercises
+    const summaries = (workout.exercises || []).map((ex) => {
+      const sets = ex.sets || [];
+      const best = sets.reduce((a, b) => ((Number(b.weight) > Number(a.weight)) ? b : a), sets[0]);
+      const label = ex.weighted
+        ? `${best ? best.weight : 0}kg×${best ? best.reps : 0}`
+        : `自重×${best ? best.reps : 0}`;
+      return { name: ex.name, count: sets.length, label };
     });
-    this.loadQr();
+    this.setData({
+      workout,
+      summaries,
+      volumeText: format.formatVolume(workout.totalVolume || 0),
+      dateLabel: format.formatDate(workout.date)
+    });
+    this.drawCard();
   },
-  loadQr() {
-    const { call } = require('../../utils/cloud');
-    call('qrcode')
-      .then((data) => wx.cloud.getTempFileURL({ fileList: [data.fileID] }))
-      .then((res) => this.setData({ qrPath: res.fileList[0].tempFileURL }))
-      .catch(() => { /* 小程序未发布时无码,不影响分享卡 */ });
-  },
-  toggleBg() {
-    if (this.data.usePhoto) {
-      this.setData({ usePhoto: false, bgPath: '' });
-      return;
+  drawCard(cb) {
+    const workout = this.data.workout;
+    if (!workout) return;
+    const w = 750;
+    const h = 1000;
+    const ctx = wx.createCanvasContext('shareCanvas', this);
+    const dark = this.data.bg === 'photo' && this.data.photoPath;
+
+    if (dark) {
+      ctx.drawImage(this.data.photoPath, 0, 0, w, h);
+      ctx.setFillStyle('rgba(0,0,0,0.5)');
+      ctx.fillRect(0, 0, w, h);
+    } else {
+      ctx.setFillStyle('#ffffff');
+      ctx.fillRect(0, 0, w, h);
     }
+    const ink = dark ? '#ffffff' : '#1a1a1a';
+    const muted = dark ? 'rgba(255,255,255,0.72)' : '#787671';
+
+    ctx.setFillStyle(ink);
+    ctx.setFontSize(34);
+    ctx.fillText('牛来举铁', 48, 84);
+
+    ctx.setFillStyle('#5645d4');
+    ctx.fillRect(48, 116, 132, 46);
+    ctx.setFillStyle('#ffffff');
+    ctx.setFontSize(24);
+    ctx.fillText('训练打卡', 62, 148);
+
+    ctx.setFillStyle(muted);
+    ctx.setFontSize(26);
+    ctx.fillText('本次训练总容量', 48, 300);
+
+    ctx.setFillStyle(ink);
+    ctx.setFontSize(96);
+    ctx.fillText(format.formatVolume(workout.totalVolume || 0), 48, 400);
+
+    ctx.setFillStyle(dark ? 'rgba(255,255,255,0.35)' : '#e5e3df');
+    ctx.fillRect(48, 452, w - 96, 2);
+
+    let y = 520;
+    ctx.setFontSize(28);
+    this.data.summaries.slice(0, 8).forEach((s) => {
+      ctx.setFillStyle(ink);
+      ctx.fillText(s.name, 48, y);
+      ctx.setFillStyle(muted);
+      ctx.fillText(`${s.count} 组 · ${s.label}`, 48, y + 34);
+      y += 78;
+    });
+
+    ctx.setFillStyle(muted);
+    ctx.setFontSize(24);
+    ctx.fillText(format.formatDate(workout.date), 48, 920);
+
+    ctx.draw(false, () => {
+      this.setData({ generating: false });
+      if (cb) cb();
+    });
+  },
+  chooseBg() {
     wx.chooseMedia({
       count: 1,
       mediaType: ['image'],
-      sourceType: ['album'],
       success: (res) => {
-        this.setData({ usePhoto: true, bgPath: res.tempFiles[0].tempFilePath });
+        const file = res.tempFiles && res.tempFiles[0];
+        if (!file) return;
+        this.setData({ bg: 'photo', photoPath: file.tempFilePath, generating: true });
+        this.drawCard();
       }
     });
   },
-  drawCard(cb) {
-    const query = wx.createSelectorQuery();
-    query.select('#shareCanvas').fields({ node: true, size: true }).exec((res) => {
-      if (!res || !res[0] || !res[0].node) {
-        wx.showToast({ title: '画布初始化失败,请重试', icon: 'none' });
-        return;
-      }
-      const canvas = res[0].node;
-      const ctx = canvas.getContext('2d');
-      const W = res[0].width;
-      const H = res[0].height;
-      ctx.clearRect(0, 0, W, H);
-      const paint = (img) => {
-        if (img) {
-          ctx.drawImage(img, 0, 0, W, H);
-          ctx.fillStyle = 'rgba(10,10,12,0.62)';
-          ctx.fillRect(0, 0, W, H);
-        } else {
-          ctx.fillStyle = '#ffffff';
-          ctx.fillRect(0, 0, W, H);
-        }
-        this.drawContent(ctx, W, H);
-        if (this.data.qrPath) {
-          const qr = canvas.createImage();
-          qr.onload = () => { ctx.drawImage(qr, W - 170, H - 190, 120, 120); cb(canvas); };
-          qr.onerror = () => cb(canvas);
-          qr.src = this.data.qrPath;
-        } else {
-          cb(canvas);
-        }
-      };
-      if (this.data.bgPath) {
-        const img = canvas.createImage();
-        img.onload = () => paint(img);
-        img.src = this.data.bgPath;
-      } else {
-        paint(null);
-      }
-    });
-  },
-  drawContent(ctx, W, H) {
-    const pad = 40;
-    ctx.fillStyle = this.data.bgPath ? '#ffffff' : '#1a1a1a';
-    ctx.font = 'bold 36px sans-serif';
-    ctx.fillText('牛来举铁', pad, 80);
-    ctx.fillStyle = this.data.bgPath ? '#ffffff' : '#5d5b54';
-    ctx.font = '24px sans-serif';
-    ctx.fillText(this.data.dateText, W - pad, 80);
-    ctx.fillStyle = this.data.bgPath ? '#ffffff' : '#1a1a1a';
-    ctx.font = 'bold 80px sans-serif';
-    ctx.fillText(this.data.totalVolume, pad, 190);
-    ctx.font = '28px sans-serif';
-    ctx.fillText(this.data.actions + ' 个动作 · ' + this.data.groups + ' 组 · ' + this.data.duration, pad, 250);
-    let y = 300;
-    ctx.font = '28px sans-serif';
-    this.data.exercises.forEach((ex) => {
-      ctx.fillStyle = this.data.bgPath ? 'rgba(255,255,255,0.75)' : '#5d5b54';
-      ctx.fillText(ex.name, pad, y);
-      ctx.fillStyle = this.data.bgPath ? '#ffffff' : '#1a1a1a';
-      ctx.font = 'bold 28px sans-serif';
-      ctx.fillText(ex.setText, pad, y + 40);
-      ctx.font = '28px sans-serif';
-      y += 96;
-    });
-    ctx.fillStyle = this.data.bgPath ? 'rgba(255,255,255,0.75)' : '#5d5b54';
-    ctx.fillText('坚持训练,见证改变', pad, H - 90);
+  resetBg() {
+    this.setData({ bg: 'white', photoPath: '', generating: true });
+    this.drawCard();
   },
   save() {
-    wx.showLoading({ title: '生成中' });
-    this.drawCard((canvas) => {
+    if (this.saving) return;
+    this.saving = true;
+    this.setData({ generating: true });
+    this.drawCard(() => {
       wx.canvasToTempFilePath({
-        canvas,
+        canvasId: 'shareCanvas',
         success: (res) => {
-          wx.hideLoading();
           wx.saveImageToPhotosAlbum({
             filePath: res.tempFilePath,
-            success: () => wx.showToast({ title: '已保存到相册', icon: 'success' }),
-            fail: () => wx.showToast({ title: '保存失败,请检查相册权限', icon: 'none' })
+            success: () => {
+              this.saving = false;
+              this.setData({ saved: true });
+              wx.showToast({ title: '已保存到相册' });
+            },
+            fail: (err) => {
+              this.saving = false;
+              this.handleAlbumError(err);
+            }
           });
         },
-        fail: () => { wx.hideLoading(); wx.showToast({ title: '生成图片失败', icon: 'none' }); }
+        fail: () => {
+          this.saving = false;
+          wx.showToast({ title: '生成图片失败，请重试', icon: 'none' });
+        }
       });
     });
   },
-  share() {
-    wx.showLoading({ title: '生成中' });
-    this.drawCard((canvas) => {
-      wx.canvasToTempFilePath({
-        canvas,
-        success: (res) => {
-          wx.hideLoading();
-          wx.shareAppMessage({
-            title: '今日训练完成,总容量 ' + this.data.totalVolume,
-            imageUrl: res.tempFilePath
-          });
-        },
-        fail: () => { wx.hideLoading(); wx.showToast({ title: '生成图片失败', icon: 'none' }); }
+  handleAlbumError(err) {
+    if (err && err.errMsg && err.errMsg.indexOf('auth') >= 0) {
+      wx.showModal({
+        title: '需要相册权限',
+        content: '请在设置中允许保存到相册后重试。',
+        confirmText: '去设置',
+        success: (r) => { if (r.confirm) wx.openSetting(); }
       });
-    });
+    } else {
+      wx.showToast({ title: '保存失败，请重试', icon: 'none' });
+    }
+  },
+  done() {
+    wx.switchTab({ url: '/pages/home/home' });
   },
   onShareAppMessage() {
-    return {
-      title: '今日训练完成,总容量 ' + this.data.totalVolume,
-      path: '/pages/home/home'
-    };
-  },
-  goHome() {
-    wx.reLaunch({ url: '/pages/home/home' });
+    return { title: '我的训练打卡', path: '/pages/home/home' };
   }
 });
