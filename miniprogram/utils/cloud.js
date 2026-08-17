@@ -23,16 +23,23 @@ function ensureLogin() {
   });
 }
 
+function normalizeCatalog(catalog) {
+  return {
+    exercises: (catalog.exercises || []).map((e) => Object.assign({}, e, { id: e.id || e._id })),
+    templates: (catalog.templates || []).map((t) => Object.assign({}, t, { id: t.id || t._id }))
+  };
+}
+
 function getCatalog() {
   const cached = storage.loadCatalogCache();
   if (cached && cached.exercises && cached.exercises.length) {
-    return Promise.resolve(cached);
+    return Promise.resolve(normalizeCatalog(cached));
   }
   return call('catalog').then((data) => {
-    const catalog = { exercises: data.exercises || [], templates: data.templates || [] };
+    const catalog = normalizeCatalog({ exercises: data.exercises || [], templates: data.templates || [] });
     if (catalog.exercises.length || catalog.templates.length) storage.cacheCatalog(catalog);
     return catalog;
-  }).catch(() => ({ exercises: bundledExercises, templates: bundledTemplates }));
+  }).catch(() => normalizeCatalog({ exercises: bundledExercises, templates: bundledTemplates }));
 }
 
 function saveProfile(profile) {

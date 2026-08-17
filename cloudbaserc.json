@@ -1,0 +1,11 @@
+{
+  "envId": "cloudbase-d9gyqv3ea400083a0",
+  "functionRoot": "cloudfunctions",
+  "functions": [
+    { "name": "login" },
+    { "name": "saveProfile" },
+    { "name": "catalog" },
+    { "name": "saveWorkout" },
+    { "name": "stats" }
+  ]
+}
