@@ -17,7 +17,7 @@
 
 1. 打开 [mp.weixin.qq.com](https://mp.weixin.qq.com) → 左侧"开发 → 开发管理"→ 找到"云开发"入口开通
 2. 创建环境(如 `jitie-prod`),记下**环境 ID**
-3. 把 [miniprogram/app.js](../miniprogram/app.js) 中 `wx.cloud.init({ env: 'YOUR_CLOUD_ENV_ID' })` 替换成你的环境 ID
+3. 代码已配置为**自动使用默认环境**(见 [miniprogram/app.js](../miniprogram/app.js));如果你的账号下有多个云环境,再把 `env` 设为对应环境 ID
 
 ## 第 3 步:安装微信开发者工具 ⚠️
 
