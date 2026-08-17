@@ -4,9 +4,12 @@
 
 - 代码开发完成：9 个页面、7 个云函数、12 个动作 + 4 套模板种子数据
 - 单元测试 12/12 通过
-- AppID `wxb19de0cfbfef1a9d` 已填入 project.config.json
+- AppID `wx2a14c212978a5374` 已填入 project.config.json
 - 云环境：miniprogram/app.js 使用**默认环境**（省略 env）；若你的账号下有多个云环境，需把 `env` 设为你的环境 ID
 - 微信开发者工具安装包已下载到本机：`work/installer/wechat_devtools_setup.exe`，不需要再下载
+- 7 个云函数已部署到环境 `cloudbase-d9gyqv3ea400083a0`
+- 数据库已初始化并验证：`users/exercises/templates/workouts/prs` 5 个集合已建，`exercises` 12 条、`templates` 4 条
+- 小程序代码已上传（版本 1.0.0）
 
 剩下的步骤都需要你的微信身份（扫码 / 后台操作），无法代劳，按顺序做完约 20 分钟。
 
