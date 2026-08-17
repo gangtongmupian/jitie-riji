@@ -1,7 +1,7 @@
 <view class="pane">
   <view class="topbar">
     <view class="ttl">历史</view>
-    <view class="count">累计 12 次</view>
+    <view class="count">本月 {{monthCount}} 练</view>
   </view>
   <view class="seg">
     <view class="{{tab === 'cal' ? 'on' : ''}}" data-t="cal" bindtap="switchTab">日历</view>
@@ -20,9 +20,9 @@
         <text>一</text><text>二</text><text>三</text><text>四</text><text>五</text><text>六</text><text>日</text>
       </view>
       <view class="grid">
-        <view wx:for="{{31}}" wx:key="*this"
-          class="day {{days[index + 1] ? 'work' : ''}} {{index + 1 === today ? 'today' : ''}}">
-          {{index + 1}}
+        <view wx:for="{{calendar}}" wx:for-item="day" wx:key="*this"
+          class="day {{days[day] ? 'work' : ''}} {{day === today ? 'today' : ''}}">
+          {{day}}
         </view>
       </view>
     </view>
@@ -32,10 +32,10 @@
     <view class="card trend">
       <view class="trend-hd">
         <text class="trend-ttl">近 8 周总容量</text>
-        <text class="trend-up">▲ 24%</text>
+        <text class="trend-up">{{trendText}}</text>
       </view>
       <view class="bars">
-        <view class="bar-col" wx:for="{{weeks}}" wx:key="index">
+        <view class="bar-col" wx:for="{{weeks}}" wx:key="id">
           <view class="bar-val">{{item.label}}</view>
           <view class="bar" style="height: {{item.h}}rpx;"></view>
         </view>

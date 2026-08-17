@@ -4,9 +4,9 @@
     <view class="act" bindtap="edit">编辑资料</view>
   </view>
   <view class="card info">
-    <view class="avatar">强</view>
+    <view class="avatar">练</view>
     <view class="info-body">
-      <view class="name">阿强</view>
+      <view class="name">健身者</view>
       <view class="desc" wx:if="{{profile}}">
         {{profile.gender === 'male' ? '男' : '女'}} · {{profile.age}}岁 · {{profile.heightCm}}cm · {{profile.weightKg}}kg
       </view>
@@ -29,7 +29,7 @@
   <view class="list menu">
     <view class="lrow" data-msg="查看用户协议" bindtap="show"><text>用户协议</text><text class="arr">›</text></view>
     <view class="lrow" data-msg="查看隐私政策" bindtap="show"><text>隐私政策</text><text class="arr">›</text></view>
-    <view class="lrow" data-msg="关于举铁日记" bindtap="show"><text>关于我们</text><text class="arr">›</text></view>
+    <view class="lrow" data-msg="关于牛来举铁" bindtap="show"><text>关于我们</text><text class="arr">›</text></view>
     <view class="lrow warn" data-msg="注销后数据将不可恢复" bindtap="show"><text>注销账号</text><text class="arr">›</text></view>
   </view>
 </view>

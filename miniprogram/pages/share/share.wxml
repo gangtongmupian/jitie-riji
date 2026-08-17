@@ -9,7 +9,7 @@
 
   <view class="card preview {{usePhoto ? 'photo' : ''}}" style="{{usePhoto ? 'background-image: url(' + bgPath + ');' : ''}}">
     <view class="pv-top">
-      <text class="pv-brand">举铁日记</text>
+      <text class="pv-brand">牛来举铁</text>
       <text class="tag">训练打卡</text>
     </view>
     <view class="pv-vol">{{totalVolume}}<text class="pv-unit">kg 总容量</text></view>

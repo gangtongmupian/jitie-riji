@@ -17,7 +17,7 @@ exports.main = async (event) => {
 
   if (scope === 'home' || scope === 'all') {
     const weekStart = startOfWeek(new Date());
-    const week = await workouts.where({ openid: OPENID, createdAt: _.gte(weekStart) }).get();
+    const week = await workouts.where({ openid: OPENID, createdAt: _.gte(weekStart) }).limit(1000).get();
     let weekCount = 0, weekMinutes = 0, weekVolume = 0;
     week.data.forEach((w) => {
       weekCount += 1;
@@ -39,7 +39,7 @@ exports.main = async (event) => {
     const month = (event && event.month) || new Date().getMonth() + 1;
     const from = new Date(year, month - 1, 1);
     const to = new Date(year, month, 1);
-    const monthWorkouts = await workouts.where({ openid: OPENID, createdAt: _.gte(from).and(_.lt(to)) }).get();
+    const monthWorkouts = await workouts.where({ openid: OPENID, createdAt: _.gte(from).and(_.lt(to)) }).limit(1000).get();
     const daySet = {};
     monthWorkouts.data.forEach((w) => {
       const d = new Date(w.createdAt);
@@ -53,7 +53,7 @@ exports.main = async (event) => {
       const ws = startOfWeek(now);
       const a = new Date(ws.getFullYear(), ws.getMonth(), ws.getDate() - i * 7);
       const b = new Date(a.getFullYear(), a.getMonth(), a.getDate() + 7);
-      const got = await workouts.where({ openid: OPENID, createdAt: _.gte(a).and(_.lt(b)) }).get();
+      const got = await workouts.where({ openid: OPENID, createdAt: _.gte(a).and(_.lt(b)) }).limit(1000).get();
       weeks.push({ weekStart: a.getTime(), volumeKg: got.data.reduce((s, x) => s + (x.totalVolumeKg || 0), 0) });
     }
     const prList = await prs.where({ openid: OPENID }).orderBy('updatedAt', 'desc').limit(50).get();

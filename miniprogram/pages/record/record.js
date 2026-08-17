@@ -11,15 +11,22 @@ Page({
     seconds: 0,
     timerText: '00:00'
   },
-  onLoad(query) {
+  async onLoad(query) {
     this.mode = query.mode || 'free';
     this.tplId = query.templateId || null;
     const title = query.templateName ? decodeURIComponent(query.templateName) : '自由训练';
     this.setData({ title, mode: this.mode });
-    if (this.mode === 'template' && query.templateId) {
-      this.buildFromTemplate(query.templateId);
-    } else {
-      this.setData({ exercises: this.buildFreeExercises() });
+    try {
+      if (!getApp().globalData.catalog) {
+        getApp().globalData.catalog = await call('catalog');
+      }
+      if (this.mode === 'template' && query.templateId) {
+        this.buildFromTemplate(query.templateId);
+      } else {
+        this.setData({ exercises: this.buildFreeExercises() });
+      }
+    } catch (e) {
+      wx.showToast({ title: e.message || '动作库加载失败', icon: 'none' });
     }
     this.restoreDraft();
     this.startTimer();
@@ -152,7 +159,8 @@ Page({
     });
   },
   async finish() {
-    const empty = this.data.exercises.some((ex) => ex.sets.some((s) => !s.weightKg || !s.reps));
+    // 允许 0kg(自重动作),但每组必须填次数
+    const empty = this.data.exercises.some((ex) => ex.sets.some((s) => !s.reps));
     if (empty) {
       wx.showToast({ title: '还有未填完的组', icon: 'none' });
       return;

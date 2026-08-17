@@ -22,11 +22,11 @@
     </view>
     <view class="field">
       <text class="flbl">身高</text>
-      <view><input class="mini-input" type="number" data-k="heightCm" value="{{heightCm}}" bindinput="onInput"/><text class="funit">cm</text></view>
+      <view><input class="mini-input" type="digit" data-k="heightCm" value="{{heightCm}}" bindinput="onInput"/><text class="funit">cm</text></view>
     </view>
     <view class="field">
       <text class="flbl">体重</text>
-      <view><input class="mini-input" type="number" data-k="weightKg" value="{{weightKg}}" bindinput="onInput"/><text class="funit">kg</text></view>
+      <view><input class="mini-input" type="digit" data-k="weightKg" value="{{weightKg}}" bindinput="onInput"/><text class="funit">kg</text></view>
     </view>
   </block>
 

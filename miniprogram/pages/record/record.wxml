@@ -9,7 +9,7 @@
       <text class="ex-nm">{{ex.name}}</text>
       <text class="tag tag-gray">{{ex.bodyPart}} · {{ex.equipment}}</text>
     </view>
-    <view class="set-row" wx:for="{{ex.sets}}" wx:for-item="set" wx:for-index="si" wx:key="*this">
+    <view class="set-row" wx:for="{{ex.sets}}" wx:for-item="set" wx:for-index="si" wx:key="index">
       <text class="set-no">{{si + 1}}</text>
       <input class="set-inp" type="digit" value="{{set.weightKg}}" data-ei="{{ei}}" data-si="{{si}}" data-f="w" bindinput="inputSet"/>
       <text class="set-u">kg</text>

@@ -99,7 +99,7 @@ Page({
     const pad = 40;
     ctx.fillStyle = this.data.bgPath ? '#ffffff' : '#1a1a1a';
     ctx.font = 'bold 36px sans-serif';
-    ctx.fillText('举铁日记', pad, 80);
+    ctx.fillText('牛来举铁', pad, 80);
     ctx.fillStyle = this.data.bgPath ? '#ffffff' : '#5d5b54';
     ctx.font = '24px sans-serif';
     ctx.fillText(this.data.dateText, W - pad, 80);
@@ -108,7 +108,7 @@ Page({
     ctx.fillText(this.data.totalVolume, pad, 190);
     ctx.font = '28px sans-serif';
     ctx.fillText(this.data.actions + ' 个动作 · ' + this.data.groups + ' 组 · ' + this.data.duration, pad, 250);
-    let y = 330;
+    let y = 300;
     ctx.font = '28px sans-serif';
     this.data.exercises.forEach((ex) => {
       ctx.fillStyle = this.data.bgPath ? 'rgba(255,255,255,0.75)' : '#5d5b54';
@@ -117,10 +117,10 @@ Page({
       ctx.font = 'bold 28px sans-serif';
       ctx.fillText(ex.setText, pad, y + 40);
       ctx.font = '28px sans-serif';
-      y += 110;
+      y += 96;
     });
     ctx.fillStyle = this.data.bgPath ? 'rgba(255,255,255,0.75)' : '#5d5b54';
-    ctx.fillText('坚持训练,见证改变', pad, H - 100);
+    ctx.fillText('坚持训练,见证改变', pad, H - 90);
   },
   save() {
     this.drawCard((canvas) => {

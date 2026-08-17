@@ -1,7 +1,7 @@
 <view class="pane">
   <view class="topbar">
     <view class="ttl">开始训练</view>
-    <view class="date">8月16日 周一</view>
+    <view class="date">{{dateText}}</view>
   </view>
   <view class="mode-card {{mode === 'template' ? 'mode-sel' : ''}}" data-m="template" bindtap="pickMode">
     <view class="mode-ic tint-lavender">📋</view>

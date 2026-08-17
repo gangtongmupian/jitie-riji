@@ -1,10 +1,10 @@
 <view class="pane home-pane">
   <view class="head">
     <view>
-      <view class="greet">早上好,阿强</view>
+      <view class="greet">{{greeting}}</view>
       <view class="sub">本周第 {{weekCount}} 练</view>
     </view>
-    <view class="avatar">强</view>
+    <view class="avatar">练</view>
   </view>
 
   <view class="banner" wx:if="{{newPr}}" bindtap="goHistory">
@@ -26,6 +26,7 @@
       <text class="lrow-l">{{item.title}}</text>
       <view class="lrow-r"><text class="lrow-r-b">{{item.detail}}</text></view>
     </view>
+    <view class="empty" wx:if="{{!recent.length}}">还没有训练记录,点上方按钮开始第一次训练</view>
   </view>
 </view>
 <tab-bar current="home"/>

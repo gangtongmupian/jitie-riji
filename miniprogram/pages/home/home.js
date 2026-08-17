@@ -3,6 +3,7 @@ const { formatVolume, formatDuration, formatDate } = require('../../utils/format
 
 Page({
   data: {
+    greeting: '你好',
     weekCount: 0,
     weekDuration: '0 分钟',
     weekVolume: '0kg',
@@ -10,6 +11,10 @@ Page({
     newPr: null
   },
   onShow() {
+    const hour = new Date().getHours();
+    this.setData({
+      greeting: hour < 6 ? '夜深了' : hour < 12 ? '早上好' : hour < 18 ? '下午好' : '晚上好'
+    });
     this.loadHome();
   },
   async loadHome() {

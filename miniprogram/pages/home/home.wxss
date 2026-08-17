@@ -86,3 +86,9 @@
   font-size: 28rpx;
   color: var(--charcoal);
 }
+.empty {
+  padding: 48rpx 32rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: var(--stone);
+}

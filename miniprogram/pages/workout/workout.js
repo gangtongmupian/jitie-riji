@@ -1,11 +1,14 @@
 const { call } = require('../../utils/cloud');
+const { formatDate } = require('../../utils/format');
 
 Page({
   data: {
     mode: 'template',
-    templates: []
+    templates: [],
+    dateText: ''
   },
   onShow() {
+    this.setData({ dateText: formatDate(Date.now()) });
     this.loadCatalog();
   },
   async loadCatalog() {

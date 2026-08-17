@@ -9,8 +9,7 @@ App({
       return;
     }
     wx.cloud.init({
-      // 若账号下有多个云环境,请把 env 设为你的环境 ID,例如 env: 'jitie-prod';
-      // 省略 env 时自动使用默认环境
+      env: 'cloudbase-d9gyqv3ea400083a0',
       traceUser: true
     });
   }

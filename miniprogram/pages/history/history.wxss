@@ -68,6 +68,7 @@
 }
 .day {
   aspect-ratio: 1;
+  height: 76rpx;
   display: flex;
   align-items: center;
   justify-content: center;
