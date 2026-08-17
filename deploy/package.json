@@ -1,0 +1,8 @@
+{
+  "name": "jitie-riji-deploy",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "miniprogram-ci": "^1.9.14"
+  }
+}
