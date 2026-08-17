@@ -42,7 +42,7 @@
 2. 在 `deploy/` 目录执行（Node 用项目自带的 `work/node/node-v24.19.0-win-x64/node.exe` 即可，依赖已装好）：
 
    ```powershell
-   $env:WX_APPID = "wxb19de0cfbfef1a9d"
+   $env:WX_APPID = "wx2a14c212978a5374"
    $env:WX_PRIVATE_KEY_PATH = "密钥文件完整路径"
    $env:WX_VERSION = "1.0.0"
    node upload.js
