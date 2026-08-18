@@ -23,6 +23,26 @@
   border-color: var(--ink);
 }
 
+.template-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 20rpx;
+  margin-bottom: 24rpx;
+  background: var(--tint-lavender);
+  border-radius: var(--r-md);
+}
+.template-name {
+  font-size: 26rpx;
+  color: var(--primary-deep);
+  font-weight: 500;
+}
+.template-change {
+  font-size: 26rpx;
+  color: var(--link-blue);
+  font-weight: 600;
+}
+
 .loading {
   padding: 120rpx 0;
   text-align: center;

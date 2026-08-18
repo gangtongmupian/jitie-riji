@@ -5,6 +5,11 @@
       <view class="mode-tab {{mode === 'template' ? 'mode-on' : ''}}" data-mode="template" bindtap="switchMode">模板训练</view>
     </view>
 
+    <view wx:if="{{mode === 'template' && exercises.length}}" class="template-bar">
+      <text class="template-name">当前模板：{{templateName}}</text>
+      <text class="template-change" bindtap="openTemplates">换模板</text>
+    </view>
+
     <view wx:if="{{loading}}" class="loading">加载动作库中…</view>
 
     <block wx:else>
