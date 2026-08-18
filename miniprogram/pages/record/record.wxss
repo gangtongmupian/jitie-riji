@@ -153,31 +153,6 @@
   color: var(--link-blue);
   font-size: 28rpx;
 }
-.calories-row {
-  display: flex;
-  align-items: center;
-  gap: 16rpx;
-  margin-top: 24rpx;
-  padding: 20rpx 24rpx;
-  background: var(--canvas);
-  border: 1rpx solid var(--hairline);
-  border-radius: var(--r-lg);
-}
-.calories-label {
-  flex: 1;
-  font-size: 26rpx;
-  color: var(--charcoal);
-}
-.calories-input {
-  width: 180rpx;
-  height: 72rpx;
-  font-size: 30rpx;
-}
-.calories-unit {
-  font-size: 26rpx;
-  color: var(--steel);
-}
-
 .sticky-bar {
   z-index: 10;
 }

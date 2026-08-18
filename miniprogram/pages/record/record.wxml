@@ -48,11 +48,6 @@
         </view>
 
         <view class="add-more" bindtap="openExercises">+ 添加动作</view>
-        <view class="calories-row">
-          <text class="calories-label">本次消耗热量（可选）</text>
-          <input class="input calories-input" type="number" value="{{calories}}" bindinput="onCaloriesInput" placeholder="0" />
-          <text class="calories-unit">kcal</text>
-        </view>
       </view>
     </block>
   </view>

@@ -18,7 +18,6 @@ Page({
     exercises: [],
     totals: { sets: 0, volume: 0 },
     totalsText: { volume: '0kg' },
-    calories: '',
     activeRest: null,
     saving: false,
     showCustomForm: false,
@@ -249,9 +248,6 @@ Page({
       totalsText: { volume: format.formatVolume(volume) }
     });
   },
-  onCaloriesInput(e) {
-    this.setData({ calories: e.detail.value });
-  },
   incRest(e) {
     this.changeRest(e, 1);
   },
@@ -353,7 +349,6 @@ Page({
       date: format.today(),
       startedAt: this.startedAt,
       endedAt: Date.now(),
-      calories: Number(this.data.calories) || 0,
       mode: this.data.mode,
       templateId: this.data.templateId || null,
       templateName: this.data.templateName || null,
