@@ -6,7 +6,7 @@ Page({
   data: {
     loading: true,
     week: { count: 0, durationSec: 0, volume: 0 },
-    weekText: { duration: '0 分钟', volume: '0kg' },
+    weekText: { duration: '0 分钟', calories: '0 kcal' },
     recent: null
   },
   onShow() {
@@ -23,14 +23,17 @@ Page({
       const r = data.recent && data.recent[0];
       let recent = null;
       if (r) {
+        const calories = Number(r.calories) || 0;
         recent = {
           date: r.date,
           mode: r.mode,
           totalSets: r.totalSets,
-          totalVolume: r.totalVolume,
+          exerciseCount: (r.exercises || []).length,
+          calories,
           dateLabel: format.formatDate(r.date),
-          volumeText: format.formatVolume(r.totalVolume || 0),
-          exerciseCount: (r.exercises || []).length
+          displayText: calories > 0
+            ? calories + ' kcal'
+            : ((r.exercises || []).length) + ' 个动作 · ' + (r.totalSets || 0) + ' 组'
         };
       }
       this.setData({
@@ -39,7 +42,7 @@ Page({
         recent,
         weekText: {
           duration: format.formatDuration(week.durationSec),
-          volume: format.formatVolume(week.volume)
+          calories: (week.calories || 0) + ' kcal'
         }
       });
     }).catch(() => {

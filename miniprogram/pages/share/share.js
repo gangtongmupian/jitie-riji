@@ -5,6 +5,8 @@ Page({
     workout: null,
     summaries: [],
     volumeText: '0kg',
+    calories: 0,
+    headline: { label: '训练完成', value: '' },
     dateLabel: '',
     bg: 'white',
     photoPath: '',
@@ -25,10 +27,17 @@ Page({
         : `自重×${best ? best.reps : 0}`;
       return { name: ex.name, count: sets.length, label };
     });
+    const calories = Number(workout.calories) || 0;
+    const totalSets = workout.totalSets || 0;
+    const exCount = (workout.exercises || []).length;
+    const headline = calories > 0
+      ? { label: '本次消耗热量', value: calories + ' kcal' }
+      : { label: '训练完成', value: exCount + ' 个动作 · ' + totalSets + ' 组' };
     this.setData({
       workout,
       summaries,
-      volumeText: format.formatVolume(workout.totalVolume || 0),
+      calories,
+      headline,
       dateLabel: format.formatDate(workout.date)
     });
     this.drawCard();
@@ -64,11 +73,16 @@ Page({
 
     ctx.setFillStyle(muted);
     ctx.setFontSize(26);
-    ctx.fillText('本次训练总容量', 48, 300);
+    ctx.fillText(this.data.headline.label, 48, 300);
 
     ctx.setFillStyle(ink);
-    ctx.setFontSize(96);
-    ctx.fillText(format.formatVolume(workout.totalVolume || 0), 48, 400);
+    if (this.data.calories > 0) {
+      ctx.setFontSize(96);
+      ctx.fillText(this.data.headline.value, 48, 400);
+    } else {
+      ctx.setFontSize(52);
+      ctx.fillText(this.data.headline.value, 48, 400);
+    }
 
     ctx.setFillStyle(dark ? 'rgba(255,255,255,0.35)' : '#e5e3df');
     ctx.fillRect(48, 452, w - 96, 2);

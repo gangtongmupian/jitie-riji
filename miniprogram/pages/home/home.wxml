@@ -12,8 +12,8 @@
         <text class="hw-s">本周时长</text>
       </view>
       <view class="hw">
-        <text class="hw-b">{{weekText.volume}}</text>
-        <text class="hw-s">本周容量</text>
+        <text class="hw-b">{{weekText.calories}}</text>
+        <text class="hw-s">本周消耗</text>
       </view>
     </view>
   </view>
@@ -27,8 +27,8 @@
         <text class="recent-date">{{recent.dateLabel}}</text>
         <text class="tag">{{recent.mode === 'template' ? '模板训练' : '自由训练'}}</text>
       </view>
-      <view class="recent-vol">{{recent.volumeText}}</view>
-      <view class="recent-meta">{{recent.exerciseCount}} 个动作 · {{recent.totalSets}} 组</view>
+      <view class="recent-vol">{{recent.displayText}}</view>
+      <view class="recent-meta">{{recent.date}} · {{recent.exerciseCount}} 个动作 · {{recent.totalSets}} 组</view>
     </view>
     <view wx:else class="empty">
       <view class="empty-title">还没有训练记录</view>

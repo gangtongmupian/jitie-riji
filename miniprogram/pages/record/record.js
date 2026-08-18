@@ -18,6 +18,8 @@ Page({
     exercises: [],
     totals: { sets: 0, volume: 0 },
     totalsText: { volume: '0kg' },
+    calories: '',
+    activeRest: null,
     saving: false,
     showCustomForm: false,
     customForm: { name: '', bodyPart: '胸', equipment: '哑铃', weighted: true },
@@ -29,12 +31,14 @@ Page({
   onLoad() {
     this.startedAt = Date.now();
     this.saved = false;
+    this._restTimers = {};
     if (wx.enableAlertBeforeUnload) {
       wx.enableAlertBeforeUnload({ message: '训练尚未完成，确定退出吗？' });
     }
     this.loadCatalog();
   },
   onUnload() {
+    this.clearRestTimers();
     if (!this.saved && this.data.exercises && this.data.exercises.length) {
       storage.saveDraft(this.buildWorkout());
     }
@@ -167,6 +171,10 @@ Page({
         bodyPart: ex ? ex.bodyPart : '',
         equipment: ex ? ex.equipment : '',
         weighted: ex ? !!ex.weighted : false,
+        restMinutes: 3,
+        restRunning: false,
+        restRemaining: 0,
+        restText: '',
         sets: Array.from({ length: item.sets || 3 }, () => ({ reps: String(reps), weight: '', _key: this.genId() }))
       };
     });
@@ -187,6 +195,10 @@ Page({
       bodyPart: ex.bodyPart,
       equipment: ex.equipment,
       weighted: !!ex.weighted,
+      restMinutes: 3,
+      restRunning: false,
+      restRemaining: 0,
+      restText: '',
       sets: [{ reps: '', weight: '', _key: this.genId() }]
     };
     this.setData({ exercises: this.data.exercises.concat([item]), showExercisePicker: false });
@@ -210,6 +222,7 @@ Page({
     const { ei, si } = e.currentTarget.dataset;
     const exercises = this.data.exercises.slice();
     const ex = exercises[ei];
+    this.stopRest(ex);
     const sets = ex.sets.slice();
     sets.splice(si, 1);
     if (sets.length === 0) {
@@ -223,6 +236,7 @@ Page({
   removeExercise(e) {
     const ei = e.currentTarget.dataset.ei;
     const exercises = this.data.exercises.slice();
+    this.stopRest(exercises[ei]);
     exercises.splice(ei, 1);
     this.setData({ exercises });
     this.recalc();
@@ -230,13 +244,116 @@ Page({
   recalc() {
     const sets = stats.totalSets(this.data.exercises);
     const volume = stats.totalVolume(this.data.exercises);
-    this.setData({ totals: { sets, volume }, totalsText: { volume: format.formatVolume(volume) } });
+    this.setData({
+      totals: { sets, volume, exercises: this.data.exercises.length },
+      totalsText: { volume: format.formatVolume(volume) }
+    });
+  },
+  onCaloriesInput(e) {
+    this.setData({ calories: e.detail.value });
+  },
+  incRest(e) {
+    this.changeRest(e, 1);
+  },
+  decRest(e) {
+    this.changeRest(e, -1);
+  },
+  changeRest(e, delta) {
+    const ei = e.currentTarget.dataset.ei;
+    const exercises = this.data.exercises.slice();
+    const ex = Object.assign({}, exercises[ei]);
+    ex.restMinutes = Math.max(1, Math.min(30, (ex.restMinutes || 3) + delta));
+    exercises[ei] = ex;
+    this.setData({ exercises });
+  },
+  toggleRest(e) {
+    const ei = e.currentTarget.dataset.ei;
+    const ex = this.data.exercises[ei];
+    if (!ex) return;
+    if (ex.restRunning) this.stopRest(ex);
+    else this.startRest(ex);
+  },
+  startRest(ex) {
+    const exercises = this.data.exercises.map((x) => Object.assign({}, x));
+    const idx = exercises.findIndex((x) => x.exerciseId === ex.exerciseId);
+    if (idx < 0) return;
+    const item = exercises[idx];
+    item.restRunning = true;
+    item.restRemaining = (item.restMinutes || 3) * 60;
+    item.restText = this.fmtTime(item.restRemaining);
+    exercises[idx] = item;
+    this.startRestTimer(item.exerciseId);
+    this.setData({ exercises, activeRest: { exerciseId: item.exerciseId, name: item.name, text: item.restText } });
+  },
+  stopRest(ex) {
+    this.stopRestTimer(ex.exerciseId);
+    const exercises = this.data.exercises.map((x) => Object.assign({}, x));
+    const idx = exercises.findIndex((x) => x.exerciseId === ex.exerciseId);
+    if (idx >= 0) {
+      exercises[idx].restRunning = false;
+      exercises[idx].restRemaining = 0;
+      exercises[idx].restText = '';
+    }
+    const activeRest = this.data.activeRest && this.data.activeRest.exerciseId === ex.exerciseId ? null : this.data.activeRest;
+    this.setData({ exercises, activeRest });
+  },
+  stopRestActive() {
+    const active = this.data.activeRest;
+    if (!active) return;
+    const ex = this.data.exercises.find((x) => x.exerciseId === active.exerciseId);
+    if (ex) this.stopRest(ex);
+  },
+  startRestTimer(exerciseId) {
+    this.stopRestTimer(exerciseId);
+    this._restTimers[exerciseId] = setInterval(() => this.tickRest(exerciseId), 1000);
+  },
+  stopRestTimer(exerciseId) {
+    if (this._restTimers && this._restTimers[exerciseId]) {
+      clearInterval(this._restTimers[exerciseId]);
+      delete this._restTimers[exerciseId];
+    }
+  },
+  clearRestTimers() {
+    if (!this._restTimers) return;
+    Object.keys(this._restTimers).forEach((id) => clearInterval(this._restTimers[id]));
+    this._restTimers = {};
+  },
+  tickRest(exerciseId) {
+    const idx = this.data.exercises.findIndex((x) => x.exerciseId === exerciseId);
+    if (idx < 0) { this.stopRestTimer(exerciseId); return; }
+    const exercises = this.data.exercises.slice();
+    const ex = Object.assign({}, exercises[idx]);
+    const remaining = (ex.restRemaining || 0) - 1;
+    if (remaining <= 0) {
+      this.stopRestTimer(exerciseId);
+      ex.restRunning = false;
+      ex.restRemaining = 0;
+      ex.restText = '';
+      exercises[idx] = ex;
+      this.setData({ exercises, activeRest: null });
+      if (wx.vibrateLong) wx.vibrateLong();
+      wx.showToast({ title: '休息结束，开始下一组！', icon: 'none' });
+      return;
+    }
+    ex.restRemaining = remaining;
+    ex.restText = this.fmtTime(remaining);
+    exercises[idx] = ex;
+    const activeRest = this.data.activeRest && this.data.activeRest.exerciseId === exerciseId
+      ? Object.assign({}, this.data.activeRest, { text: ex.restText })
+      : this.data.activeRest;
+    this.setData({ exercises, activeRest });
+  },
+  fmtTime(sec) {
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return (m < 10 ? '0' + m : '' + m) + ':' + (s < 10 ? '0' + s : '' + s);
   },
   buildWorkout() {
     return {
       date: format.today(),
       startedAt: this.startedAt,
       endedAt: Date.now(),
+      calories: Number(this.data.calories) || 0,
       mode: this.data.mode,
       templateId: this.data.templateId || null,
       templateName: this.data.templateName || null,
@@ -257,6 +374,8 @@ Page({
       if (ex.sets.some((s) => !(Number(s.reps) > 0))) return this.toast(`「${ex.name}」请填写每组次数`);
     }
     const workout = this.buildWorkout();
+    this.clearRestTimers();
+    this.setData({ activeRest: null });
     this.setData({ saving: true });
     storage.saveDraft(workout);
     cloud.saveWorkout(workout).then((saved) => {

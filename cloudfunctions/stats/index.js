@@ -31,7 +31,8 @@ exports.main = async () => {
   const week = {
     count: inWeek.length,
     durationSec: inWeek.reduce((s, w) => s + (w.durationSec || 0), 0),
-    volume: inWeek.reduce((s, w) => s + (w.totalVolume || 0), 0)
+    volume: inWeek.reduce((s, w) => s + (w.totalVolume || 0), 0),
+    calories: inWeek.reduce((s, w) => s + (w.calories || 0), 0)
   };
 
   const buckets = [];

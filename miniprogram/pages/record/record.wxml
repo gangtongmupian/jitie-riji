@@ -35,20 +35,43 @@
             <input class="input set-input" type="number" data-ei="{{ei}}" data-si="{{si}}" data-field="reps" value="{{s.reps}}" bindinput="onSetInput" placeholder="次数" />
             <text class="set-op" data-ei="{{ei}}" data-si="{{si}}" bindtap="removeSet">−</text>
           </view>
+          <view class="rest-row">
+            <text class="rest-label">间歇</text>
+            <view class="rest-stepper">
+              <text class="rest-btn" data-ei="{{ei}}" bindtap="decRest">−</text>
+              <text class="rest-val">{{ex.restMinutes}}分</text>
+              <text class="rest-btn" data-ei="{{ei}}" bindtap="incRest">＋</text>
+            </view>
+            <view class="rest-go {{ex.restRunning ? 'rest-going' : ''}}" data-ei="{{ei}}" bindtap="toggleRest">{{ex.restRunning ? ex.restText : '开始休息'}}</view>
+          </view>
           <view class="add-set" data-ei="{{ei}}" bindtap="addSet">+ 加一组</view>
         </view>
 
         <view class="add-more" bindtap="openExercises">+ 添加动作</view>
+        <view class="calories-row">
+          <text class="calories-label">本次消耗热量（可选）</text>
+          <input class="input calories-input" type="number" value="{{calories}}" bindinput="onCaloriesInput" placeholder="0" />
+          <text class="calories-unit">kcal</text>
+        </view>
       </view>
     </block>
   </view>
 
   <view class="sticky-bar">
-    <view class="totals">
-      <text class="totals-b">{{totals.sets}} 组</text>
-      <text class="totals-s">{{totalsText.volume}}</text>
+    <view wx:if="{{activeRest}}" class="rest-active">
+      <view class="rest-active-info">
+        <text class="rest-active-name">{{activeRest.name}}</text>
+        <text class="rest-active-time">{{activeRest.text}}</text>
+      </view>
+      <view class="btn btn-ghost rest-stop" bindtap="stopRestActive">停止</view>
     </view>
-    <view class="btn btn-primary finish-btn {{saving ? 'disabled' : ''}}" bindtap="finish">{{saving ? '保存中…' : '完成训练'}}</view>
+    <block wx:else>
+      <view class="totals">
+        <text class="totals-b">{{totals.sets}} 组</text>
+        <text class="totals-s">{{totals.exercises}} 个动作</text>
+      </view>
+      <view class="btn btn-primary finish-btn {{saving ? 'disabled' : ''}}" bindtap="finish">{{saving ? '保存中…' : '完成训练'}}</view>
+    </block>
   </view>
 
   <view wx:if="{{showTemplatePicker || showExercisePicker}}" class="mask" bindtap="closePickers">

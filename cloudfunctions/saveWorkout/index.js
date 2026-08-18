@@ -13,10 +13,12 @@ function totalVolume(exercises) {
 
 exports.main = async (event) => {
   const { OPENID } = cloud.getWXContext();
-  const { date, startedAt, endedAt, mode, templateId, templateName, exercises } = event;
+  const { date, startedAt, endedAt, mode, templateId, templateName, exercises, calories } = event;
   if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return { ok: false, error: '日期无效' };
   if (!Array.isArray(exercises) || exercises.length === 0) return { ok: false, error: '请至少记录一个动作' };
   if (mode !== 'free' && mode !== 'template') return { ok: false, error: '训练模式无效' };
+  const caloriesNum = Number(calories) || 0;
+  if (caloriesNum < 0 || caloriesNum > 10000) return { ok: false, error: '热量数值无效' };
 
   const now = Date.now();
   const started = Number(startedAt) || now;
@@ -29,6 +31,7 @@ exports.main = async (event) => {
     startedAt: started,
     endedAt: ended,
     durationSec,
+    calories: caloriesNum,
     mode,
     exercises,
     totalSets: totalSets(exercises),

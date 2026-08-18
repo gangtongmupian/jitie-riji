@@ -66,6 +66,9 @@
   font-weight: 600;
   letter-spacing: -2rpx;
 }
+.pv-volume-sm {
+  font-size: 52rpx;
+}
 .pv-divider {
   height: 2rpx;
   background: var(--hairline);

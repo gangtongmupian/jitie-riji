@@ -9,8 +9,8 @@
       <view class="pv-content {{bg === 'photo' ? 'pv-dark' : ''}}">
         <view class="pv-brand">牛来举铁</view>
         <view class="pv-tag">训练打卡</view>
-        <view class="pv-label">本次训练总容量</view>
-        <view class="pv-volume">{{volumeText}}</view>
+        <view class="pv-label">{{headline.label}}</view>
+        <view class="pv-volume {{calories > 0 ? '' : 'pv-volume-sm'}}">{{headline.value}}</view>
         <view class="pv-divider {{bg === 'photo' ? 'pv-divider-dark' : ''}}"></view>
         <view class="pv-ex" wx:for="{{summaries}}" wx:key="name">
           <view class="pv-ex-name">{{item.name}}</view>

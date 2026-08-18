@@ -103,11 +103,79 @@
   color: var(--link-blue);
   padding: 4rpx 0;
 }
+.rest-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin: 16rpx 0 4rpx;
+}
+.rest-label {
+  font-size: 24rpx;
+  color: var(--steel);
+}
+.rest-stepper {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+.rest-btn {
+  width: 52rpx;
+  height: 52rpx;
+  line-height: 48rpx;
+  text-align: center;
+  border: 1rpx solid var(--hairline-strong);
+  border-radius: 50%;
+  color: var(--slate);
+  font-size: 30rpx;
+}
+.rest-val {
+  font-size: 26rpx;
+  color: var(--ink);
+  min-width: 72rpx;
+  text-align: center;
+}
+.rest-go {
+  margin-left: auto;
+  padding: 10rpx 28rpx;
+  border-radius: var(--r-md);
+  background: var(--tint-mint);
+  color: var(--success);
+  font-size: 26rpx;
+  font-weight: 600;
+}
+.rest-going {
+  background: var(--tint-peach);
+  color: var(--warning);
+}
 .add-more {
   text-align: center;
   padding: 20rpx;
   color: var(--link-blue);
   font-size: 28rpx;
+}
+.calories-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-top: 24rpx;
+  padding: 20rpx 24rpx;
+  background: var(--canvas);
+  border: 1rpx solid var(--hairline);
+  border-radius: var(--r-lg);
+}
+.calories-label {
+  flex: 1;
+  font-size: 26rpx;
+  color: var(--charcoal);
+}
+.calories-input {
+  width: 180rpx;
+  height: 72rpx;
+  font-size: 30rpx;
+}
+.calories-unit {
+  font-size: 26rpx;
+  color: var(--steel);
 }
 
 .sticky-bar {
@@ -125,6 +193,30 @@
 .totals-s {
   font-size: 24rpx;
   color: var(--steel);
+}
+.rest-active {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+.rest-active-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.rest-active-name {
+  font-size: 24rpx;
+  color: var(--steel);
+}
+.rest-active-time {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: var(--warning);
+}
+.rest-stop {
+  min-height: 72rpx;
+  padding: 0 32rpx;
 }
 .finish-btn {
   width: 320rpx;
