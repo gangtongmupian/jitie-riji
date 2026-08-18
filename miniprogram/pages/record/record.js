@@ -21,7 +21,10 @@ Page({
     saving: false,
     showCustomForm: false,
     customForm: { name: '', bodyPart: '胸', equipment: '哑铃', weighted: true },
-    bodyParts: ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿']
+    bodyParts: ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'],
+    bodyPartTabs: ['全部', '胸', '背', '腿', '肩', '手臂', '核心', '臀腿'],
+    activeBodyPart: '全部',
+    filteredGroups: []
   },
   onLoad() {
     this.startedAt = Date.now();
@@ -52,6 +55,7 @@ Page({
         return ga - gb;
       });
       this.setData({ loading: false, allExercises: exercises, templates, groupedExercises: this.buildGroups(exercises) });
+      this.applyFilter();
     }).catch(() => {
       this.setData({ loading: false });
       this.toast('动作库加载失败，请稍后重试');
@@ -84,6 +88,21 @@ Page({
       }
     });
     return grouped;
+  },
+  applyFilter() {
+    const active = this.data.activeBodyPart;
+    const all = this.data.groupedExercises;
+    this.setData({
+      filteredGroups: active === '全部' ? all : all.filter((g) => g.bodyPart === active)
+    });
+  },
+  selectBodyPart(e) {
+    const active = e.currentTarget.dataset.value;
+    const all = this.data.groupedExercises;
+    this.setData({
+      activeBodyPart: active,
+      filteredGroups: active === '全部' ? all : all.filter((g) => g.bodyPart === active)
+    });
   },
   openCustomForm() {
     this.setData({ showExercisePicker: false, showCustomForm: true });
@@ -121,6 +140,7 @@ Page({
       allExercises,
       groupedExercises: this.buildGroups(allExercises)
     });
+    this.applyFilter();
     this.toast('已添加自定义动作');
   },
   switchMode(e) {

@@ -66,7 +66,10 @@
         </view>
         <view wx:else>
           <view class="custom-entry" bindtap="openCustomForm">＋ 自定义动作</view>
-          <block wx:for="{{groupedExercises}}" wx:for-item="g" wx:key="bodyPart">
+          <scroll-view scroll-x class="part-tabs">
+            <view wx:for="{{bodyPartTabs}}" wx:key="*this" class="part-tab {{activeBodyPart === item ? 'part-tab-on' : ''}}" data-value="{{item}}" bindtap="selectBodyPart">{{item}}</view>
+          </scroll-view>
+          <block wx:for="{{filteredGroups}}" wx:for-item="g" wx:key="bodyPart">
             <view class="group-title">{{g.bodyPart}}</view>
             <view class="ex-item" wx:for="{{g.items}}" wx:for-item="e" wx:key="id" data-id="{{e.id}}" bindtap="pickExercise">
               <view class="ex-item-info">
