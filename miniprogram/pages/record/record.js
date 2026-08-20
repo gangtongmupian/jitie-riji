@@ -3,6 +3,7 @@ const storage = require('../../utils/storage');
 const standards = require('../../utils/standards');
 const stats = require('../../utils/stats');
 const format = require('../../utils/format');
+const share = require('../../utils/share');
 
 const BODY_ORDER = ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'];
 
@@ -28,6 +29,7 @@ Page({
     filteredGroups: []
   },
   onLoad() {
+    share.enableShareMenu();
     this.startedAt = Date.now();
     this.saved = false;
     this._restTimers = {};
@@ -391,5 +393,11 @@ Page({
   },
   toast(title) {
     wx.showToast({ title, icon: 'none' });
+  },
+  onShareAppMessage() {
+    return share.appMessage('我在牛来举铁记录训练，一起打卡！', '/pages/record/record');
+  },
+  onShareTimeline() {
+    return share.timeline('我在牛来举铁记录训练，一起打卡！');
   }
 });

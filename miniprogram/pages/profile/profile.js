@@ -1,6 +1,7 @@
 const cloud = require('../../utils/cloud');
 const storage = require('../../utils/storage');
 const standards = require('../../utils/standards');
+const share = require('../../utils/share');
 
 Page({
   data: {
@@ -8,6 +9,7 @@ Page({
     metrics: null
   },
   onShow() {
+    share.enableShareMenu();
     const profile = storage.getProfile();
     if (!profile || !profile.gender) {
       wx.reLaunch({ url: '/pages/onboarding/onboarding' });
@@ -61,5 +63,11 @@ Page({
         }
       }
     });
+  },
+  onShareAppMessage() {
+    return share.appMessage('牛来举铁 · 科学健身记录', '/pages/profile/profile');
+  },
+  onShareTimeline() {
+    return share.timeline('牛来举铁 · 科学健身记录');
   }
 });

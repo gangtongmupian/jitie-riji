@@ -1,6 +1,7 @@
 const cloud = require('../../utils/cloud');
 const storage = require('../../utils/storage');
 const format = require('../../utils/format');
+const share = require('../../utils/share');
 
 Page({
   data: {
@@ -10,6 +11,7 @@ Page({
     recent: null
   },
   onShow() {
+    share.enableShareMenu();
     const profile = storage.getProfile();
     if (!profile || !profile.gender) {
       wx.reLaunch({ url: '/pages/onboarding/onboarding' });
@@ -51,5 +53,14 @@ Page({
   },
   start() {
     wx.switchTab({ url: '/pages/record/record' });
+  },
+  onShareAppMessage() {
+    const count = (this.data.week && this.data.week.count) || 0;
+    const title = count > 0 ? ('牛来举铁 · 本周训练 ' + count + ' 次，一起变强！') : '牛来举铁 · 科学健身记录';
+    return share.appMessage(title, '/pages/home/home');
+  },
+  onShareTimeline() {
+    const count = (this.data.week && this.data.week.count) || 0;
+    return share.timeline(count > 0 ? ('牛来举铁 · 本周训练 ' + count + ' 次，一起变强！') : '牛来举铁 · 科学健身记录');
   }
 });

@@ -1,6 +1,7 @@
 const storage = require('../../utils/storage');
 const cloud = require('../../utils/cloud');
 const standards = require('../../utils/standards');
+const share = require('../../utils/share');
 
 const GOALS = ['增肌', '减脂', '增力', '保持'];
 const FREQS = [1, 2, 3, 4, 5, 6, 7];
@@ -18,6 +19,7 @@ Page({
     result: null
   },
   onLoad(options) {
+    share.enableShareMenu();
     this.edit = options && options.edit === '1';
     const cached = storage.getProfile();
     if (this.edit) {
@@ -106,5 +108,11 @@ Page({
   },
   toast(title) {
     wx.showToast({ title, icon: 'none' });
+  },
+  onShareAppMessage() {
+    return share.appMessage('牛来举铁 · 科学健身记录', '/pages/onboarding/onboarding');
+  },
+  onShareTimeline() {
+    return share.timeline('牛来举铁 · 科学健身记录');
   }
 });

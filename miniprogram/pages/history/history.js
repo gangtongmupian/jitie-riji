@@ -1,4 +1,5 @@
 const cloud = require('../../utils/cloud');
+const share = require('../../utils/share');
 
 Page({
   data: {
@@ -10,6 +11,7 @@ Page({
     hasData: false
   },
   onLoad() {
+    share.enableShareMenu();
     const now = new Date();
     this.year = now.getFullYear();
     this.month = now.getMonth();
@@ -67,5 +69,11 @@ Page({
     this.month += 1;
     if (this.month > 11) { this.month = 0; this.year += 1; }
     this.buildCalendar();
+  },
+  onShareAppMessage() {
+    return share.appMessage('我的训练数据：趋势与 PR 都在牛来举铁', '/pages/history/history');
+  },
+  onShareTimeline() {
+    return share.timeline('我的训练数据：趋势与 PR 都在牛来举铁');
   }
 });

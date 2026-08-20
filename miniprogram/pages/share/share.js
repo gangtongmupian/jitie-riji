@@ -1,4 +1,5 @@
 const format = require('../../utils/format');
+const share = require('../../utils/share');
 
 Page({
   data: {
@@ -14,6 +15,7 @@ Page({
     saved: false
   },
   onLoad() {
+    share.enableShareMenu();
     const workout = wx.getStorageSync('jitie.lastWorkout');
     if (!workout) {
       this.setData({ workout: null });
@@ -166,6 +168,11 @@ Page({
     wx.switchTab({ url: '/pages/home/home' });
   },
   onShareAppMessage() {
-    return { title: '我的训练打卡', path: '/pages/home/home' };
+    const value = this.data.headline && this.data.headline.value;
+    return share.appMessage(value ? ('我的训练打卡 · ' + value) : '我的训练打卡', '/pages/home/home');
+  },
+  onShareTimeline() {
+    const value = this.data.headline && this.data.headline.value;
+    return share.timeline(value ? ('我的训练打卡 · ' + value) : '我的训练打卡');
   }
 });
