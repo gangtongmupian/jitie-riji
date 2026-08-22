@@ -1,19 +1,15 @@
 <view class="page">
   <view class="navy-hero">
-    <view class="hero-title">牛来举铁</view>
+    <view class="hero-title" bindtap="editNickname">{{nickname}} <text class="hero-edit">✎</text></view>
     <view class="hero-sub">你好，今天也要坚持</view>
     <view class="hero-week">
       <view class="hw">
         <text class="hw-b">{{week.count}}</text>
-        <text class="hw-s">本周训练</text>
-      </view>
-      <view class="hw">
-        <text class="hw-b">{{weekText.duration}}</text>
-        <text class="hw-s">本周时长</text>
+        <text class="hw-s">本周训练（次）</text>
       </view>
       <view class="hw">
         <text class="hw-b">{{weekText.calories}}</text>
-        <text class="hw-s">本周消耗</text>
+        <text class="hw-s">本周消耗（kcal）</text>
       </view>
     </view>
   </view>

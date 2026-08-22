@@ -63,7 +63,11 @@ function saveWorkout(workout) {
 }
 
 function getStats() {
-  return call('stats');
+  return call('stats', {});
 }
 
-module.exports = { call, ensureLogin, getCatalog, saveProfile, saveWorkout, getStats };
+function getDayStats(date) {
+  return call('stats', { date });
+}
+
+module.exports = { call, ensureLogin, getCatalog, saveProfile, saveWorkout, getStats, getDayStats };

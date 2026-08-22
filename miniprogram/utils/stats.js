@@ -7,6 +7,19 @@ function totalVolume(exercises) {
     sum + (ex.sets || []).reduce((s, set) => s + (set.weight || 0) * (set.reps || 0), 0), 0);
 }
 
+// 力量训练热量预估：MET × 体重(kg) × 时长(h)，按训练容量微调强度
+function estimateCalories(weightKg, durationSec, totalVolume) {
+  if (!weightKg || !durationSec) return 0;
+  const hours = durationSec / 3600;
+  const volumeT = (totalVolume || 0) / 1000;
+  let met = 4.5;
+  if (volumeT >= 8) met += 1.0;
+  else if (volumeT >= 5) met += 0.5;
+  else if (volumeT < 2) met -= 0.5;
+  met = Math.max(3, Math.min(7, met));
+  return Math.round(weightKg * hours * met);
+}
+
 function weekStart(date) {
   const d = new Date(date);
   const day = (d.getDay() + 6) % 7;
@@ -64,4 +77,4 @@ function prs(workouts) {
   return map;
 }
 
-module.exports = { totalSets, totalVolume, weeklySummary, weeklyTrend, prs };
+module.exports = { totalSets, totalVolume, estimateCalories, weeklySummary, weeklyTrend, prs };

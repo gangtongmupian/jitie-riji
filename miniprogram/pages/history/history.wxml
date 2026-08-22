@@ -3,15 +3,22 @@
     <view wx:if="{{loading}}" class="loading">加载中…</view>
 
     <block wx:else>
-      <view class="section">近 8 周训练容量</view>
-      <view class="card trend-card">
-        <view class="bars">
-          <view class="bar-col" wx:for="{{trend}}" wx:key="weekStart">
-            <view class="bar-fill" style="height: {{item.h}}%"></view>
-          </view>
+      <view class="section">训练统计</view>
+      <view class="period-grid">
+        <view class="period-card card">
+          <text class="period-label">本周训练量</text>
+          <text class="period-kcal">{{periods.week.caloriesText}}</text>
+          <text class="period-sub">{{periods.week.count}} 次训练</text>
         </view>
-        <view class="bar-labels">
-          <text class="bar-label" wx:for="{{trend}}" wx:key="weekStart">{{item.label}}</text>
+        <view class="period-card card">
+          <text class="period-label">本月训练量</text>
+          <text class="period-kcal">{{periods.month.caloriesText}}</text>
+          <text class="period-sub">{{periods.month.count}} 次训练</text>
+        </view>
+        <view class="period-card card">
+          <text class="period-label">本年训练量</text>
+          <text class="period-kcal">{{periods.year.caloriesText}}</text>
+          <text class="period-sub">{{periods.year.count}} 次训练</text>
         </view>
       </view>
 
@@ -26,7 +33,7 @@
           <text wx:for="{{['一','二','三','四','五','六','日']}}" wx:key="*this" class="cal-wd">{{item}}</text>
         </view>
         <view class="cal-grid">
-          <view wx:for="{{calendar}}" wx:key="key" class="cal-cell {{item.active ? 'cal-active' : ''}}">
+          <view wx:for="{{calendar}}" wx:key="key" class="cal-cell {{item.active ? 'cal-active' : ''}}" data-date="{{item.date}}" data-active="{{item.active}}" bindtap="tapDay">
             <text>{{item.day}}</text>
           </view>
         </view>
@@ -50,5 +57,35 @@
         <view>完成训练后会在这里生成你的最好成绩</view>
       </view>
     </block>
+  </view>
+
+  <view wx:if="{{showDayDetail}}" class="mask" bindtap="closeDayDetail">
+    <view class="sheet" catchtap="noop">
+      <view class="sheet-head">
+        <text class="sheet-title">{{dayDetail.date}} 训练</text>
+        <text class="sheet-close" bindtap="closeDayDetail">关闭</text>
+      </view>
+      <scroll-view scroll-y class="sheet-body">
+        <view wx:if="{{dayLoading}}" class="loading">加载中…</view>
+        <block wx:elif="{{dayDetail.items.length}}">
+          <view class="day-workout card" wx:for="{{dayDetail.items}}" wx:key="id">
+            <view class="day-head">
+              <text class="day-time">{{item.timeText}}</text>
+              <text class="tag">{{item.mode === 'template' ? '模板训练' : '自由训练'}}</text>
+            </view>
+            <view class="day-stat">{{item.totalSets}} 组 · {{item.calories}} kcal</view>
+            <view class="day-ex" wx:for="{{item.exercises}}" wx:for-item="ex" wx:key="name">
+              <view class="day-ex-name">{{ex.name}}</view>
+              <view class="day-ex-sets">
+                <text class="day-set" wx:for="{{ex.sets}}" wx:for-item="st" wx:key="*this">{{st}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view wx:else class="empty">
+          <view class="empty-title">当天暂无训练记录</view>
+        </view>
+      </scroll-view>
+    </view>
   </view>
 </view>

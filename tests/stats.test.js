@@ -12,6 +12,14 @@ test('totalSets / totalVolume', () => {
   assert.equal(st.totalVolume(exercises), 1620);
 });
 
+test('estimateCalories 按体重/时长/容量预估', () => {
+  assert.equal(st.estimateCalories(70, 2700, 6400), 263);
+  assert.equal(st.estimateCalories(0, 2700, 6400), 0);
+  assert.equal(st.estimateCalories(70, 0, 6400), 0);
+  assert.ok(st.estimateCalories(70, 3600, 20000) > st.estimateCalories(70, 3600, 0));
+  assert.ok(st.estimateCalories(70, 3600, 0) >= 70 * 3);
+});
+
 test('weeklySummary 只统计本周', () => {
   const now = new Date(2026, 7, 16);
   const workouts = [

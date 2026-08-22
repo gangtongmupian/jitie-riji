@@ -439,6 +439,45 @@
   margin: 32rpx 0 8rpx;
 }
 
+/* 完成训练：消耗录入面板 */
+.finish-summary {
+  display: flex;
+  gap: 16rpx;
+  margin: 24rpx 0 8rpx;
+}
+.finish-metric {
+  flex: 1;
+  background: var(--surface);
+  border-radius: var(--r-md);
+  padding: 18rpx 0;
+  text-align: center;
+}
+.finish-metric-b {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--ink);
+}
+.finish-metric-s {
+  display: block;
+  font-size: 22rpx;
+  color: var(--stone);
+  margin-top: 4rpx;
+}
+.finish-input {
+  height: 88rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+.finish-hint {
+  font-size: 24rpx;
+  color: var(--stone);
+  margin-top: 10rpx;
+}
+.finish-save {
+  margin: 36rpx 0 8rpx;
+}
+
 /* 休息结束状态 */
 .rest-done {
   background: var(--tint-mint);

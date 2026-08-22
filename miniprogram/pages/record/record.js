@@ -26,6 +26,9 @@ Page({
     customForm: { name: '', bodyPart: '胸', equipment: '哑铃', weighted: true },
     detail: null,
     showDetail: false,
+    showFinishSheet: false,
+    finishCalories: '',
+    estimatedCalories: 0,
     bodyParts: ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'],
     bodyPartTabs: ['全部', '胸', '背', '腿', '肩', '手臂', '核心', '臀腿'],
     activeBodyPart: '全部',
@@ -475,14 +478,21 @@ Page({
     const s = sec % 60;
     return (m < 10 ? '0' + m : '' + m) + ':' + (s < 10 ? '0' + s : '' + s);
   },
-  buildWorkout() {
+  buildWorkout(caloriesOverride) {
+    const profile = storage.getProfile();
+    const endedAt = Date.now();
+    const totalVolume = stats.totalVolume(this.data.exercises);
+    const durationSec = Math.max(0, Math.round((endedAt - this.startedAt) / 1000));
+    const estimated = stats.estimateCalories(profile && profile.weightKg, durationSec, totalVolume);
     return {
       date: format.today(),
       startedAt: this.startedAt,
-      endedAt: Date.now(),
+      endedAt,
+      durationSec,
       mode: this.data.mode,
       templateId: this.data.templateId || null,
       templateName: this.data.templateName || null,
+      calories: caloriesOverride != null ? caloriesOverride : estimated,
       exercises: this.data.exercises.map((ex) => ({
         exerciseId: ex.exerciseId,
         name: ex.name,
@@ -499,7 +509,27 @@ Page({
       if (!ex.sets.length) return this.toast(`「${ex.name}」至少需要一组`);
       if (ex.sets.some((s) => !(Number(s.reps) > 0))) return this.toast(`「${ex.name}」请填写每组次数`);
     }
-    const workout = this.buildWorkout();
+    const profile = storage.getProfile();
+    const totalVolume = stats.totalVolume(this.data.exercises);
+    const durationSec = Math.max(0, Math.round((Date.now() - this.startedAt) / 1000));
+    const estimated = stats.estimateCalories(profile && profile.weightKg, durationSec, totalVolume);
+    this.setData({
+      showFinishSheet: true,
+      estimatedCalories: estimated,
+      finishCalories: estimated > 0 ? String(estimated) : ''
+    });
+  },
+  onFinishCaloriesInput(e) {
+    this.setData({ finishCalories: e.detail.value });
+  },
+  closeFinishSheet() {
+    this.setData({ showFinishSheet: false });
+  },
+  confirmFinish() {
+    const v = Number(this.data.finishCalories);
+    const calories = v > 0 ? Math.round(v) : this.data.estimatedCalories;
+    this.setData({ showFinishSheet: false });
+    const workout = this.buildWorkout(calories);
     this.clearRestTimers();
     this.setData({ activeRest: null });
     this.setData({ saving: true });

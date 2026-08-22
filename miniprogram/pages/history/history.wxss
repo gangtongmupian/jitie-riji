@@ -4,6 +4,74 @@
   color: var(--steel);
 }
 
+.period-grid {
+  display: flex;
+  gap: 16rpx;
+}
+.period-card {
+  flex: 1;
+  padding: 24rpx 16rpx;
+  text-align: center;
+}
+.period-label {
+  display: block;
+  font-size: 24rpx;
+  color: var(--steel);
+}
+.period-kcal {
+  display: block;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: var(--primary-deep);
+  margin-top: 10rpx;
+}
+.period-sub {
+  display: block;
+  font-size: 22rpx;
+  color: var(--stone);
+  margin-top: 6rpx;
+}
+
+.day-workout {
+  padding: 24rpx 28rpx;
+  margin-bottom: 16rpx;
+}
+.day-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.day-time {
+  font-size: 26rpx;
+  color: var(--steel);
+}
+.day-stat {
+  font-size: 28rpx;
+  font-weight: 600;
+  margin: 12rpx 0;
+}
+.day-ex {
+  padding: 12rpx 0;
+  border-top: 1rpx solid var(--hairline-soft);
+}
+.day-ex-name {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.day-ex-sets {
+  margin-top: 6rpx;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+}
+.day-set {
+  font-size: 22rpx;
+  color: var(--slate);
+  background: var(--surface);
+  border-radius: var(--r-sm);
+  padding: 4rpx 14rpx;
+}
+
 .trend-card {
   padding: 24rpx 20rpx 16rpx;
 }

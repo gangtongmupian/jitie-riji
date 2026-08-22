@@ -4,11 +4,14 @@ const share = require('../../utils/share');
 Page({
   data: {
     loading: true,
-    trend: [],
+    periods: { week: { count: 0, caloriesText: '0 kcal' }, month: { count: 0, caloriesText: '0 kcal' }, year: { count: 0, caloriesText: '0 kcal' } },
     prsList: [],
     calendar: [],
     monthLabel: '',
-    hasData: false
+    hasData: false,
+    dayDetail: null,
+    showDayDetail: false,
+    dayLoading: false
   },
   onLoad() {
     share.enableShareMenu();
@@ -22,21 +25,19 @@ Page({
   refresh() {
     cloud.getStats().then((data) => {
       this.allDates = new Set(data.dates || []);
-      const trend = (data.trend || []).map((b) => ({
-        weekStart: b.weekStart,
-        count: b.count,
-        volume: b.volume,
-        label: b.weekStart.slice(5).replace('-', '/')
-      }));
-      const max = Math.max(1, ...trend.map((b) => b.volume));
-      trend.forEach((b) => { b.h = Math.round((b.volume / max) * 100); });
+      const mk = (p) => ({ count: (p && p.count) || 0, calories: (p && p.calories) || 0, caloriesText: ((p && p.calories) || 0) + ' kcal' });
+      const periods = {
+        week: mk(data.week),
+        month: mk(data.month),
+        year: mk(data.year)
+      };
       const prsList = Object.keys(data.prs || {})
         .map((k) => data.prs[k])
         .filter((p) => p.bestWeight > 0)
         .sort((a, b) => b.bestWeight - a.bestWeight);
       this.setData({
         loading: false,
-        trend,
+        periods,
         prsList,
         hasData: prsList.length > 0 || (data.dates || []).length > 0
       });
@@ -69,6 +70,45 @@ Page({
     this.month += 1;
     if (this.month > 11) { this.month = 0; this.year += 1; }
     this.buildCalendar();
+  },
+  tapDay(e) {
+    const { date, active } = e.currentTarget.dataset;
+    if (!active || !date) return;
+    this.setData({ showDayDetail: true, dayLoading: true, dayDetail: null });
+    cloud.getDayStats(date).then((data) => {
+      const items = (data.day || []).map((w) => ({
+        id: w._id,
+        date: w.date,
+        mode: w.mode,
+        calories: w.calories || 0,
+        totalSets: w.totalSets || 0,
+        timeText: this.timeText(w.startedAt, w.endedAt),
+        exercises: (w.exercises || []).map((ex) => ({
+          name: ex.name,
+          sets: (ex.sets || []).map((s) => (Number(s.weight) > 0 ? (s.weight + 'kg×' + s.reps) : (s.reps + ' 次')))
+        }))
+      }));
+      this.setData({ dayLoading: false, dayDetail: { date, items } });
+    }).catch(() => {
+      this.setData({ dayLoading: false });
+      this.toast('加载失败，请重试');
+    });
+  },
+  timeText(startedAt, endedAt) {
+    const fmt = (t) => {
+      const d = new Date(t);
+      if (isNaN(d.getTime())) return '';
+      return (d.getHours() < 10 ? '0' + d.getHours() : '' + d.getHours()) + ':' + (d.getMinutes() < 10 ? '0' + d.getMinutes() : '' + d.getMinutes());
+    };
+    const s = fmt(startedAt);
+    const e = fmt(endedAt);
+    return s && e ? (s + '–' + e) : '';
+  },
+  closeDayDetail() {
+    this.setData({ showDayDetail: false });
+  },
+  toast(title) {
+    wx.showToast({ title, icon: 'none' });
   },
   onShareAppMessage() {
     return share.appMessage('我的训练数据：趋势与 PR 都在牛来举铁', '/pages/history/history');

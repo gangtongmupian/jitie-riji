@@ -6,6 +6,7 @@ const share = require('../../utils/share');
 Page({
   data: {
     loading: true,
+    nickname: '',
     week: { count: 0, durationSec: 0, volume: 0 },
     weekText: { duration: '0 分钟', calories: '0 kcal' },
     recent: null
@@ -40,6 +41,7 @@ Page({
       }
       this.setData({
         loading: false,
+        nickname: (storage.getProfile() && storage.getProfile().nickname) || '牛来举铁',
         week,
         recent,
         weekText: {
@@ -53,6 +55,33 @@ Page({
   },
   start() {
     wx.switchTab({ url: '/pages/record/record' });
+  },
+  editNickname() {
+    const profile = storage.getProfile();
+    const current = (profile && profile.nickname) || '';
+    wx.showModal({
+      title: '修改昵称',
+      editable: true,
+      placeholderText: '输入你的昵称',
+      content: current,
+      confirmText: '保存',
+      success: (r) => {
+        if (!r.confirm) return;
+        const name = (r.content || '').trim().slice(0, 8);
+        if (!name) return this.toast('昵称不能为空');
+        const merged = Object.assign({}, storage.getProfile(), { nickname: name });
+        storage.setProfile(merged);
+        this.setData({ nickname: name });
+        cloud.saveProfile(merged).then(() => {
+          wx.showToast({ title: '昵称已更新', icon: 'success' });
+        }).catch(() => {
+          wx.showToast({ title: '昵称已保存在本地', icon: 'none' });
+        });
+      }
+    });
+  },
+  toast(title) {
+    wx.showToast({ title, icon: 'none' });
   },
   onShareAppMessage() {
     const count = (this.data.week && this.data.week.count) || 0;

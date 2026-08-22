@@ -2,6 +2,15 @@
   display: flex;
   margin-top: 48rpx;
 }
+.hero-title {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+}
+.hero-edit {
+  font-size: 26rpx;
+  color: var(--on-dark-muted);
+}
 .hw {
   flex: 1;
   text-align: center;
