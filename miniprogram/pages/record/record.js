@@ -4,6 +4,7 @@ const standards = require('../../utils/standards');
 const stats = require('../../utils/stats');
 const format = require('../../utils/format');
 const share = require('../../utils/share');
+const exerciseDetails = require('../../data/exercise-details');
 
 const BODY_ORDER = ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'];
 
@@ -23,6 +24,8 @@ Page({
     saving: false,
     showCustomForm: false,
     customForm: { name: '', bodyPart: '胸', equipment: '哑铃', weighted: true },
+    detail: null,
+    showDetail: false,
     bodyParts: ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'],
     bodyPartTabs: ['全部', '胸', '背', '腿', '肩', '手臂', '核心', '臀腿'],
     activeBodyPart: '全部',
@@ -33,13 +36,22 @@ Page({
     this.startedAt = Date.now();
     this.saved = false;
     this._restTimers = {};
+    this._vibeTimers = [];
     if (wx.enableAlertBeforeUnload) {
       wx.enableAlertBeforeUnload({ message: '训练尚未完成，确定退出吗？' });
     }
     this.loadCatalog();
   },
+  onShow() {
+    this.resumeRests();
+  },
+  onHide() {
+    this.persistActiveRest();
+  },
   onUnload() {
     this.clearRestTimers();
+    this.clearVibeTimers();
+    this.persistActiveRest();
     if (!this.saved && this.data.exercises && this.data.exercises.length) {
       storage.saveDraft(this.buildWorkout());
     }
@@ -183,7 +195,9 @@ Page({
     this.recalc();
   },
   pickExercise(e) {
-    const id = e.currentTarget.dataset.id;
+    this.addExerciseById(e.currentTarget.dataset.id);
+  },
+  addExerciseById(id) {
     if (this.data.exercises.some((x) => x.exerciseId === id)) {
       this.setData({ showExercisePicker: false });
       return this.toast('该动作已添加');
@@ -204,6 +218,39 @@ Page({
     };
     this.setData({ exercises: this.data.exercises.concat([item]), showExercisePicker: false });
     this.recalc();
+  },
+  pickExerciseFromDetail(e) {
+    this.setData({ showDetail: false });
+    this.addExerciseById(e.currentTarget.dataset.id);
+  },
+  openDetail(e) {
+    const id = e.currentTarget.dataset.id;
+    const ex = this.data.allExercises.find((x) => x.id === id);
+    if (!ex) return;
+    const d = exerciseDetails[id] || {};
+    const profile = storage.getProfile();
+    let weights = null;
+    if (ex.weighted && profile && profile.gender && profile.weightKg) {
+      const rec = standards.recommendedWeight(profile.gender, profile.weightKg, ex);
+      if (rec) weights = rec;
+    }
+    this.setData({
+      detail: {
+        id: ex.id,
+        name: ex.name,
+        enName: ex.enName || '',
+        bodyPart: ex.bodyPart,
+        equipment: ex.equipment || '',
+        targets: d.targets || [],
+        steps: d.steps || [],
+        tips: d.tips || [],
+        weights
+      },
+      showDetail: true
+    });
+  },
+  closeDetail() {
+    this.setData({ showDetail: false });
   },
   onSetInput(e) {
     const { ei, si, field } = e.currentTarget.dataset;
@@ -277,23 +324,28 @@ Page({
     if (idx < 0) return;
     const item = exercises[idx];
     item.restRunning = true;
+    item.restEndAt = Date.now() + (item.restMinutes || 3) * 60000;
     item.restRemaining = (item.restMinutes || 3) * 60;
     item.restText = this.fmtTime(item.restRemaining);
     exercises[idx] = item;
     this.startRestTimer(item.exerciseId);
     this.setData({ exercises, activeRest: { exerciseId: item.exerciseId, name: item.name, text: item.restText } });
+    this.persistActiveRest();
   },
   stopRest(ex) {
     this.stopRestTimer(ex.exerciseId);
+    this.clearVibeTimers();
     const exercises = this.data.exercises.map((x) => Object.assign({}, x));
     const idx = exercises.findIndex((x) => x.exerciseId === ex.exerciseId);
     if (idx >= 0) {
       exercises[idx].restRunning = false;
+      exercises[idx].restEndAt = 0;
       exercises[idx].restRemaining = 0;
       exercises[idx].restText = '';
     }
     const activeRest = this.data.activeRest && this.data.activeRest.exerciseId === ex.exerciseId ? null : this.data.activeRest;
     this.setData({ exercises, activeRest });
+    this.persistActiveRest();
   },
   stopRestActive() {
     const active = this.data.activeRest;
@@ -319,27 +371,104 @@ Page({
   tickRest(exerciseId) {
     const idx = this.data.exercises.findIndex((x) => x.exerciseId === exerciseId);
     if (idx < 0) { this.stopRestTimer(exerciseId); return; }
-    const exercises = this.data.exercises.slice();
-    const ex = Object.assign({}, exercises[idx]);
-    const remaining = (ex.restRemaining || 0) - 1;
+    const ex = this.data.exercises[idx];
+    if (!ex.restEndAt) { this.stopRestTimer(exerciseId); return; }
+    const remaining = Math.max(0, Math.ceil((ex.restEndAt - Date.now()) / 1000));
     if (remaining <= 0) {
-      this.stopRestTimer(exerciseId);
-      ex.restRunning = false;
-      ex.restRemaining = 0;
-      ex.restText = '';
-      exercises[idx] = ex;
-      this.setData({ exercises, activeRest: null });
-      if (wx.vibrateLong) wx.vibrateLong();
-      wx.showToast({ title: '休息结束，开始下一组！', icon: 'none' });
+      this.finishRest(ex);
       return;
     }
-    ex.restRemaining = remaining;
-    ex.restText = this.fmtTime(remaining);
-    exercises[idx] = ex;
+    const exercises = this.data.exercises.slice();
+    const updated = Object.assign({}, ex, { restRemaining: remaining, restText: this.fmtTime(remaining) });
+    exercises[idx] = updated;
     const activeRest = this.data.activeRest && this.data.activeRest.exerciseId === exerciseId
-      ? Object.assign({}, this.data.activeRest, { text: ex.restText })
+      ? Object.assign({}, this.data.activeRest, { text: updated.restText })
       : this.data.activeRest;
     this.setData({ exercises, activeRest });
+  },
+  finishRest(ex) {
+    this.stopRestTimer(ex.exerciseId);
+    const exercises = this.data.exercises.map((x) => Object.assign({}, x));
+    const idx = exercises.findIndex((x) => x.exerciseId === ex.exerciseId);
+    let done = null;
+    if (idx >= 0) {
+      exercises[idx] = Object.assign({}, exercises[idx], {
+        restRunning: false,
+        restEndAt: 0,
+        restRemaining: 0,
+        restText: ''
+      });
+      done = { exerciseId: exercises[idx].exerciseId, name: exercises[idx].name, text: '00:00', done: true };
+    }
+    this.setData({ exercises, activeRest: done });
+    this.persistActiveRest();
+    this.vibrateFinish();
+    wx.showToast({ title: '休息结束，开始下一组！', icon: 'none', duration: 2500 });
+  },
+  vibrateFinish() {
+    this.clearVibeTimers();
+    const burst = () => {
+      if (wx.vibrateLong) wx.vibrateLong();
+      if (wx.vibrateShort) {
+        try { wx.vibrateShort({ type: 'heavy' }); } catch (e) { /* 忽略低版本 */ }
+      }
+    };
+    burst();
+    this._vibeTimers.push(setTimeout(burst, 1200));
+    this._vibeTimers.push(setTimeout(burst, 2600));
+  },
+  clearVibeTimers() {
+    (this._vibeTimers || []).forEach((t) => clearTimeout(t));
+    this._vibeTimers = [];
+  },
+  persistActiveRest() {
+    const active = this.data.activeRest;
+    if (active && !active.done) {
+      const ex = this.data.exercises.find((x) => x.exerciseId === active.exerciseId);
+      if (ex && ex.restRunning && ex.restEndAt) {
+        wx.setStorageSync('jitie.activeRest', { exerciseId: ex.exerciseId, name: ex.name, restEndAt: ex.restEndAt });
+        return;
+      }
+    }
+    wx.removeStorageSync('jitie.activeRest');
+  },
+  resumeRests() {
+    let finished = null;
+    const exercises = this.data.exercises.map((x) => Object.assign({}, x));
+    let changed = false;
+    exercises.forEach((ex) => {
+      if (!ex.restRunning || !ex.restEndAt) return;
+      const remaining = Math.max(0, Math.ceil((ex.restEndAt - Date.now()) / 1000));
+      if (remaining <= 0) {
+        finished = finished || ex;
+      } else {
+        ex.restRemaining = remaining;
+        ex.restText = this.fmtTime(remaining);
+        this.startRestTimer(ex.exerciseId);
+        changed = true;
+      }
+    });
+    if (changed) this.setData({ exercises });
+    if (finished) { this.finishRest(finished); return; }
+    const saved = wx.getStorageSync('jitie.activeRest');
+    if (!saved || !saved.restEndAt) return;
+    const idx = this.data.exercises.findIndex((x) => x.exerciseId === saved.exerciseId);
+    if (idx < 0) { wx.removeStorageSync('jitie.activeRest'); return; }
+    const ex = Object.assign({}, this.data.exercises[idx]);
+    const remaining = Math.max(0, Math.ceil((saved.restEndAt - Date.now()) / 1000));
+    ex.restRunning = true;
+    ex.restEndAt = saved.restEndAt;
+    ex.restRemaining = remaining;
+    ex.restText = this.fmtTime(remaining);
+    const arr = this.data.exercises.slice();
+    arr[idx] = ex;
+    if (remaining <= 0) {
+      this.setData({ exercises: arr });
+      this.finishRest(ex);
+    } else {
+      this.setData({ exercises: arr, activeRest: { exerciseId: ex.exerciseId, name: ex.name, text: ex.restText } });
+      this.startRestTimer(ex.exerciseId);
+    }
   },
   fmtTime(sec) {
     const m = Math.floor(sec / 60);

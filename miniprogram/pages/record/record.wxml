@@ -58,7 +58,14 @@
   </view>
 
   <view class="sticky-bar">
-    <view wx:if="{{activeRest}}" class="rest-active">
+    <view wx:if="{{activeRest && activeRest.done}}" class="rest-active rest-done">
+      <view class="rest-active-info">
+        <text class="rest-active-name">休息结束</text>
+        <text class="rest-active-time rest-done-time">开始下一组！</text>
+      </view>
+      <view class="btn btn-primary rest-stop" bindtap="stopRestActive">知道了</view>
+    </view>
+    <view wx:elif="{{activeRest}}" class="rest-active">
       <view class="rest-active-info">
         <text class="rest-active-name">{{activeRest.name}}</text>
         <text class="rest-active-time">{{activeRest.text}}</text>
@@ -98,11 +105,64 @@
               <view class="ex-item-info">
                 <view class="ex-item-name">{{e.name}}</view>
                 <view class="ex-item-en">{{e.enName}}</view>
+                <view class="ex-item-range">{{e.rangeText}}</view>
               </view>
-              <view class="ex-item-range">{{e.rangeText}}</view>
+              <view class="ex-item-ops">
+                <view class="ex-demo" data-id="{{e.id}}" catchtap="openDetail">演示</view>
+              </view>
             </view>
           </block>
         </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view wx:if="{{showDetail && detail}}" class="mask" bindtap="closeDetail">
+    <view class="sheet detail-sheet" catchtap="noop">
+      <view class="sheet-head">
+        <text class="sheet-title">动作演示</text>
+        <text class="sheet-close" bindtap="closeDetail">关闭</text>
+      </view>
+      <scroll-view scroll-y class="sheet-body detail-body">
+        <view class="detail-name">{{detail.name}}</view>
+        <view class="detail-en" wx:if="{{detail.enName}}">{{detail.enName}}</view>
+        <view class="detail-tags">
+          <text class="tag">{{detail.bodyPart}}</text>
+          <text class="tag">{{detail.equipment}}</text>
+          <text class="tag">{{detail.weights ? '负重' : '自重'}}</text>
+        </view>
+        <view class="section">目标肌群</view>
+        <view class="pill-row" wx:if="{{detail.targets.length}}">
+          <view class="pill" wx:for="{{detail.targets}}" wx:key="*this">{{item}}</view>
+        </view>
+        <view wx:else class="detail-none">暂无目标肌群数据</view>
+        <view class="section">推荐重量</view>
+        <view wx:if="{{detail.weights}}" class="weight-grid">
+          <view class="weight-cell">
+            <text class="weight-label">新手</text>
+            <text class="weight-val">{{detail.weights.novice[0]}}–{{detail.weights.novice[1]}}kg</text>
+          </view>
+          <view class="weight-cell">
+            <text class="weight-label">中级</text>
+            <text class="weight-val">{{detail.weights.intermediate[0]}}–{{detail.weights.intermediate[1]}}kg</text>
+          </view>
+          <view class="weight-cell">
+            <text class="weight-label">高级</text>
+            <text class="weight-val">{{detail.weights.advanced[0]}}–{{detail.weights.advanced[1]}}kg</text>
+          </view>
+        </view>
+        <view wx:else class="detail-none">自重动作，无需负重推荐</view>
+        <view class="section">动作要领</view>
+        <view wx:if="{{detail.steps.length}}">
+          <view class="step-line" wx:for="{{detail.steps}}" wx:for-index="si" wx:key="*this">
+            <text class="step-no">{{si + 1}}</text>
+            <text class="step-text">{{item}}</text>
+          </view>
+        </view>
+        <view wx:else class="detail-none">自定义动作暂无演示说明，请按自己熟悉的方式执行</view>
+        <view class="section">注意事项</view>
+        <view class="tip-line" wx:for="{{detail.tips}}" wx:key="*this">• {{item}}</view>
+        <view class="btn btn-primary btn-block detail-add" data-id="{{detail.id}}" bindtap="pickExerciseFromDetail">使用此动作</view>
       </scroll-view>
     </view>
   </view>

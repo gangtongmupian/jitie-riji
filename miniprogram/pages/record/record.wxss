@@ -301,6 +301,21 @@
 .ex-item-range {
   font-size: 24rpx;
   color: var(--steel);
+  margin-top: 6rpx;
+}
+.ex-item-ops {
+  flex: none;
+  display: flex;
+  align-items: center;
+  margin-left: 16rpx;
+}
+.ex-demo {
+  padding: 10rpx 26rpx;
+  border-radius: var(--r-full);
+  background: var(--tint-sky);
+  color: var(--link-blue);
+  font-size: 24rpx;
+  font-weight: 600;
 }
 .custom-entry {
   margin: 20rpx 0 8rpx;
@@ -340,4 +355,96 @@
 }
 .form-save {
   margin-top: 40rpx;
+}
+
+/* 动作演示弹层 */
+.detail-sheet {
+  max-height: 84vh;
+}
+.detail-body {
+  height: 72vh;
+}
+.detail-name {
+  font-size: 40rpx;
+  font-weight: 600;
+  margin-top: 24rpx;
+}
+.detail-en {
+  font-size: 26rpx;
+  color: var(--stone);
+  margin: 6rpx 0 16rpx;
+}
+.detail-tags {
+  display: flex;
+  gap: 12rpx;
+  flex-wrap: wrap;
+}
+.detail-none {
+  font-size: 26rpx;
+  color: var(--stone);
+}
+.step-line {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 14rpx;
+}
+.step-no {
+  flex: none;
+  width: 36rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-size: 22rpx;
+  text-align: center;
+  margin-top: 4rpx;
+}
+.step-text {
+  flex: 1;
+  font-size: 28rpx;
+  color: var(--charcoal);
+  line-height: 1.5;
+}
+.tip-line {
+  font-size: 26rpx;
+  color: var(--slate);
+  margin-bottom: 10rpx;
+  line-height: 1.5;
+}
+.weight-grid {
+  display: flex;
+  gap: 16rpx;
+}
+.weight-cell {
+  flex: 1;
+  background: var(--surface);
+  border-radius: var(--r-md);
+  padding: 16rpx 0;
+  text-align: center;
+}
+.weight-label {
+  display: block;
+  font-size: 22rpx;
+  color: var(--stone);
+}
+.weight-val {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--primary-deep);
+  margin-top: 4rpx;
+}
+.detail-add {
+  margin: 32rpx 0 8rpx;
+}
+
+/* 休息结束状态 */
+.rest-done {
+  background: var(--tint-mint);
+  border-radius: var(--r-md);
+  padding: 12rpx 20rpx;
+}
+.rest-done-time {
+  color: var(--success);
 }
