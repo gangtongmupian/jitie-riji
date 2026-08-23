@@ -1,0 +1,4 @@
+<view class="anim-wrap">
+  <canvas canvas-id="{{canvasId}}" class="anim-canvas" width="{{width}}" height="{{height}}" style="width: {{width}}px; height: {{height}}px;"></canvas>
+  <view class="anim-tip">动画演示 · 自动循环</view>
+</view>

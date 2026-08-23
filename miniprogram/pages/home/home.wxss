@@ -23,6 +23,7 @@
   font-size: 40rpx;
   font-weight: 600;
   color: var(--on-dark);
+  font-variant-numeric: tabular-nums;
 }
 .hw-s {
   display: block;
@@ -48,6 +49,7 @@
   font-weight: 600;
   letter-spacing: -1rpx;
   margin-top: 12rpx;
+  font-variant-numeric: tabular-nums;
 }
 .recent-meta {
   font-size: 26rpx;

@@ -13,6 +13,7 @@
     <view wx:if="{{loading}}" class="loading">加载动作库中…</view>
 
     <block wx:else>
+      <view wx:if="{{exercises.length}}" class="weight-hint">重量口径：杠铃记总重量（杆＋两边挂片），哑铃记单只，器械记配重显示值</view>
       <view wx:if="{{!exercises.length}}" class="empty">
         <view class="empty-title">{{mode === 'template' ? '选择一个训练模板开始' : '添加动作开始训练'}}</view>
         <view class="btn btn-primary empty-btn" bindtap="{{mode === 'template' ? 'openTemplates' : 'openExercises'}}">
@@ -90,7 +91,10 @@
       <scroll-view scroll-y class="sheet-body">
         <view wx:if="{{showTemplatePicker}}">
           <view class="tpl card" wx:for="{{templates}}" wx:key="id" data-id="{{item.id}}" bindtap="pickTemplate">
-            <view class="tpl-name">{{item.name}}</view>
+            <view class="tpl-name">
+              {{item.name}}
+              <text class="tag {{item.genderHint === 'male' ? 'tag-blue' : (item.genderHint === 'female' ? 'tag-rose' : 'tag-gray')}}">{{item.genderText}}</text>
+            </view>
             <view class="tpl-meta">{{item.goal}} · 每周 {{item.frequency}} 次 · {{item.exercises.length}} 个动作</view>
           </view>
         </view>
@@ -102,6 +106,7 @@
           <block wx:for="{{filteredGroups}}" wx:for-item="g" wx:key="bodyPart">
             <view class="group-title">{{g.bodyPart}}</view>
             <view class="ex-item" wx:for="{{g.items}}" wx:for-item="e" wx:key="id" data-id="{{e.id}}" bindtap="pickExercise">
+              <image class="ex-icon" src="/images/glyphs/{{e.glyph}}.png" mode="aspectFit" />
               <view class="ex-item-info">
                 <view class="ex-item-name">{{e.name}}</view>
                 <view class="ex-item-en">{{e.enName}}</view>
@@ -160,6 +165,7 @@
           <text class="tag">{{detail.equipment}}</text>
           <text class="tag">{{detail.weights ? '负重' : '自重'}}</text>
         </view>
+        <exercise-anim motion-key="{{detail.motion}}" glyph="{{detail.glyph}}" />
         <view class="section">目标肌群</view>
         <view class="pill-row" wx:if="{{detail.targets.length}}">
           <view class="pill" wx:for="{{detail.targets}}" wx:key="*this">{{item}}</view>

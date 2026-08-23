@@ -18,15 +18,19 @@ page {
   --ink: #1a1a1a;
   --charcoal: #37352f;
   --slate: #5d5b54;
-  --steel: #787671;
-  --stone: #a4a097;
+  --steel: #6b6861;
+  --stone: #75726a;
   --muted: #bbb8b1;
   --on-dark: #ffffff;
   --on-dark-muted: #a4a097;
   /* 语义 */
   --success: #1aae39;
+  --success-deep: #0e7528;
   --warning: #dd5b00;
+  --warning-deep: #ad4200;
   --error: #e03131;
+  --rose-deep: #b02a58;
+  --track: #e8e6e3;
   /* 粉彩 */
   --tint-lavender: #e6e0f5;
   --tint-peach: #ffe8d4;
@@ -116,7 +120,7 @@ scroll-view {
   font-weight: 500;
   color: var(--steel);
   background: var(--canvas);
-  min-height: 80rpx;
+  min-height: 88rpx;
 }
 .pill-sel {
   background: var(--ink);
@@ -182,15 +186,23 @@ scroll-view {
 }
 .tag-green {
   background: var(--tint-mint);
-  color: var(--success);
+  color: var(--success-deep);
 }
 .tag-orange {
   background: var(--tint-peach);
-  color: var(--warning);
+  color: var(--warning-deep);
 }
 .tag-gray {
   background: var(--surface);
   color: var(--steel);
+}
+.tag-blue {
+  background: var(--tint-sky);
+  color: var(--link-blue);
+}
+.tag-rose {
+  background: var(--tint-rose);
+  color: var(--rose-deep);
 }
 .badge {
   display: inline-flex;
@@ -297,7 +309,7 @@ scroll-view {
 .bar-track {
   flex: 1;
   height: 8rpx;
-  background: #e8e6e3;
+  background: var(--track);
   border-radius: var(--r-full);
   overflow: hidden;
 }

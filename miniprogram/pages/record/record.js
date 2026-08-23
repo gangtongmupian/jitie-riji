@@ -5,6 +5,7 @@ const stats = require('../../utils/stats');
 const format = require('../../utils/format');
 const share = require('../../utils/share');
 const exerciseDetails = require('../../data/exercise-details');
+const motion = require('../../utils/motion');
 
 const BODY_ORDER = ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'];
 
@@ -38,6 +39,7 @@ Page({
     share.enableShareMenu();
     this.startedAt = Date.now();
     this.saved = false;
+    this._finishing = false;
     this._restTimers = {};
     this._vibeTimers = [];
     if (wx.enableAlertBeforeUnload) {
@@ -73,7 +75,9 @@ Page({
         const ga = a.genderHint === gender ? 0 : (a.genderHint === 'all' ? 1 : 2);
         const gb = b.genderHint === gender ? 0 : (b.genderHint === 'all' ? 1 : 2);
         return ga - gb;
-      });
+      }).map((t) => Object.assign({}, t, {
+        genderText: t.genderHint === 'male' ? '男士' : (t.genderHint === 'female' ? '女士' : '通用')
+      }));
       this.setData({ loading: false, allExercises: exercises, templates, groupedExercises: this.buildGroups(exercises) });
       this.applyFilter();
     }).catch(() => {
@@ -90,7 +94,11 @@ Page({
       const rec = standards.recommendedWeight(gender, profile.weightKg, e);
       if (rec) rangeText += ' · 推荐 ' + rec.novice[0] + '–' + rec.novice[1] + 'kg';
     }
-    return Object.assign({}, e, { rangeText });
+    return Object.assign({}, e, {
+      rangeText,
+      glyph: motion.resolveGlyph(e),
+      motion: motion.resolveMotion(e)
+    });
   },
   enrich(exercises) {
     return exercises.map((e) => this.enrichOne(e));
@@ -244,6 +252,8 @@ Page({
         enName: ex.enName || '',
         bodyPart: ex.bodyPart,
         equipment: ex.equipment || '',
+        glyph: ex.glyph || motion.resolveGlyph(ex),
+        motion: ex.motion || motion.resolveMotion(ex),
         targets: d.targets || [],
         steps: d.steps || [],
         tips: d.tips || [],
@@ -504,6 +514,7 @@ Page({
     };
   },
   finish() {
+    if (this.data.saving || this._finishing) return;
     if (!this.data.exercises.length) return this.toast('请至少添加一个动作');
     for (const ex of this.data.exercises) {
       if (!ex.sets.length) return this.toast(`「${ex.name}」至少需要一组`);
@@ -526,13 +537,14 @@ Page({
     this.setData({ showFinishSheet: false });
   },
   confirmFinish() {
+    if (this.data.saving || this._finishing) return;
+    this._finishing = true;
     const v = Number(this.data.finishCalories);
     const calories = v > 0 ? Math.round(v) : this.data.estimatedCalories;
-    this.setData({ showFinishSheet: false });
+    this.setData({ showFinishSheet: false, saving: true });
     const workout = this.buildWorkout(calories);
     this.clearRestTimers();
     this.setData({ activeRest: null });
-    this.setData({ saving: true });
     storage.saveDraft(workout);
     cloud.saveWorkout(workout).then((saved) => {
       storage.clearDraft();
@@ -546,6 +558,7 @@ Page({
       this.setData({ saving: false });
       wx.redirectTo({ url: '/pages/share/share' });
     }).catch(() => {
+      this._finishing = false;
       this.setData({ saving: false });
       this.toast('保存失败，已存草稿，稍后自动重试');
     });

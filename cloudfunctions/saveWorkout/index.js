@@ -41,6 +41,15 @@ exports.main = async (event) => {
   if (templateId) doc.templateId = templateId;
   if (templateName) doc.templateName = templateName;
 
+  // 幂等保护:同一用户同一开始时间、组数、容量已存在时直接复用,避免双击/重试产生重复记录
+  if (started) {
+    const dupRes = await workouts.where({ openid: OPENID, startedAt: started }).limit(10).get();
+    const same = dupRes.data.find((d) => d.totalSets === doc.totalSets && d.totalVolume === doc.totalVolume);
+    if (same) {
+      return { ok: true, data: { _id: same._id, totalSets: same.totalSets, totalVolume: same.totalVolume, duplicated: true } };
+    }
+  }
+
   const res = await workouts.add({ data: doc });
   return { ok: true, data: { _id: res._id, totalSets: doc.totalSets, totalVolume: doc.totalVolume } };
 };

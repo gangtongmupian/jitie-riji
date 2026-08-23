@@ -29,8 +29,18 @@ function estimateCalories(weightKg, durationSec, totalVolume) {
 exports.main = async (event = {}) => {
   const { OPENID } = cloud.getWXContext();
   const res = await workouts.where({ openid: OPENID }).limit(1000).get();
+  // 按 开始时间+组数+容量 去重,防止历史重复提交影响"训练次数"统计
+  const seenWorkouts = new Set();
   const list = res.data
     .filter((w) => /^\d{4}-\d{2}-\d{2}$/.test(w.date || ''))
+    .filter((w) => {
+      const started = Number(w.startedAt) || 0;
+      if (!started) return true;
+      const key = started + '|' + (w.totalSets || 0) + '|' + (w.totalVolume || 0);
+      if (seenWorkouts.has(key)) return false;
+      seenWorkouts.add(key);
+      return true;
+    })
     .sort((a, b) => String(b.date).localeCompare(String(a.date)));
 
   const userRes = await users.where({ openid: OPENID }).limit(1).get();

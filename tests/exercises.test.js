@@ -8,7 +8,8 @@ const PARTS = ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'];
 test('exercises: id 唯一且字段合法', () => {
   const ids = exercises.map((e) => e.id);
   assert.equal(new Set(ids).size, ids.length, '存在重复 id');
-  assert.ok(exercises.length >= 50, '动作数量应不少于 50');
+  assert.ok(exercises.length >= 80, '动作数量应不少于 80(含 ROSEN 固定器械)');
+  assert.ok(exercises.filter((e) => e.id.indexOf('rosen-') === 0).length >= 20, 'ROSEN 固定器械应不少于 20 台');
   for (const e of exercises) {
     assert.ok(e.name, `${e.id} 缺少 name`);
     assert.ok(PARTS.includes(e.bodyPart), `${e.id} 部位非法: ${e.bodyPart}`);

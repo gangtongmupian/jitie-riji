@@ -1,0 +1,16 @@
+.anim-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24rpx;
+}
+.anim-canvas {
+  border-radius: 20rpx;
+  background: #ffffff;
+  border: 1rpx solid var(--hairline);
+}
+.anim-tip {
+  margin-top: 12rpx;
+  font-size: 22rpx;
+  color: var(--stone);
+}
