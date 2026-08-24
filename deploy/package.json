@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "miniprogram-ci": "^1.9.14"
+    "miniprogram-ci": "^2.1.46"
   }
 }
