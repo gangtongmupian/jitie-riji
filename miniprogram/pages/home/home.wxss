@@ -2,6 +2,24 @@
   display: flex;
   margin-top: 48rpx;
 }
+.error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20rpx 24rpx 0;
+  padding: 0 28rpx;
+  min-height: 88rpx;
+  background: var(--surface);
+  border: 1rpx solid var(--warning);
+  border-radius: var(--r-md);
+  font-size: 26rpx;
+  color: var(--warning-deep);
+}
+.error-retry {
+  font-weight: 600;
+  color: var(--warning-deep);
+  margin-left: 24rpx;
+}
 .hero-title {
   display: flex;
   align-items: center;

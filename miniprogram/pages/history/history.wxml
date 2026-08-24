@@ -1,5 +1,9 @@
 <view class="page">
   <view class="pane">
+    <view wx:if="{{loadError}}" class="error-banner" bindtap="retry">
+      <text>数据加载失败，云端暂时不可用</text>
+      <text class="error-retry">点此重试</text>
+    </view>
     <view wx:if="{{loading}}" class="loading">加载中…</view>
 
     <block wx:else>

@@ -4,6 +4,7 @@ const share = require('../../utils/share');
 Page({
   data: {
     loading: true,
+    loadError: false,
     periods: { week: { count: 0, caloriesText: '0 kcal' }, month: { count: 0, caloriesText: '0 kcal' }, year: { count: 0, caloriesText: '0 kcal' } },
     prsList: [],
     calendar: [],
@@ -37,14 +38,19 @@ Page({
         .sort((a, b) => b.bestWeight - a.bestWeight);
       this.setData({
         loading: false,
+        loadError: false,
         periods,
         prsList,
         hasData: prsList.length > 0 || (data.dates || []).length > 0
       });
       this.buildCalendar();
     }).catch(() => {
-      this.setData({ loading: false });
+      this.setData({ loading: false, loadError: true });
     });
+  },
+  retry() {
+    this.setData({ loading: true, loadError: false });
+    this.refresh();
   },
   buildCalendar() {
     const year = this.year;

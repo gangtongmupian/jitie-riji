@@ -6,6 +6,7 @@ const share = require('../../utils/share');
 Page({
   data: {
     loading: true,
+    loadError: false,
     nickname: '',
     week: { count: 0, durationSec: 0, volume: 0 },
     weekText: { duration: '0 分钟', calories: '0 kcal' },
@@ -41,6 +42,7 @@ Page({
       }
       this.setData({
         loading: false,
+        loadError: false,
         nickname: (storage.getProfile() && storage.getProfile().nickname) || '牛来举铁',
         week,
         recent,
@@ -50,8 +52,12 @@ Page({
         }
       });
     }).catch(() => {
-      this.setData({ loading: false });
+      this.setData({ loading: false, loadError: true });
     });
+  },
+  retry() {
+    this.setData({ loading: true, loadError: false });
+    this.refresh();
   },
   start() {
     wx.switchTab({ url: '/pages/record/record' });

@@ -1,4 +1,8 @@
 <view class="page">
+  <view wx:if="{{loadError}}" class="error-banner" bindtap="retry">
+    <text>数据加载失败，云端暂时不可用</text>
+    <text class="error-retry">点此重试</text>
+  </view>
   <view class="navy-hero">
     <view class="hero-title" bindtap="editNickname">{{nickname}} <text class="hero-edit">✎</text></view>
     <view class="hero-sub">你好，今天也要坚持</view>

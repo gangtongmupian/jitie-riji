@@ -3,6 +3,24 @@
   text-align: center;
   color: var(--steel);
 }
+.error-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+  padding: 0 28rpx;
+  min-height: 88rpx;
+  background: var(--surface);
+  border: 1rpx solid var(--warning);
+  border-radius: var(--r-md);
+  font-size: 26rpx;
+  color: var(--warning-deep);
+}
+.error-retry {
+  font-weight: 600;
+  color: var(--warning-deep);
+  margin-left: 24rpx;
+}
 
 .period-grid {
   display: flex;
