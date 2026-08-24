@@ -3,6 +3,7 @@ cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 const db = cloud.database();
 const workouts = db.collection('workouts');
 const users = db.collection('users');
+const streak = require('./streak');
 
 function weekStart(date) {
   const d = new Date(date);
@@ -118,7 +119,11 @@ exports.main = async (event = {}) => {
       trend: buckets,
       prs: prMap,
       recent: list.slice(0, 5).map((w) => Object.assign({}, w, { calories: calOf(w) })),
-      dates
+      dates,
+      streak: streak.currentStreak(dates),
+      maxStreak: streak.maxStreak(dates),
+      totalWorkouts: list.length,
+      achievements: streak.achievements(dates, list.reduce((s, w) => s + (w.totalSets || 0), 0), list.reduce((s, w) => s + (w.totalVolume || 0), 0))
     }
   };
 };

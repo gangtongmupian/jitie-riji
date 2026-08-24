@@ -5,7 +5,8 @@
     "pages/record/record",
     "pages/history/history",
     "pages/profile/profile",
-    "pages/share/share"
+    "pages/share/share",
+    "pages/invite/invite"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fafaf9",

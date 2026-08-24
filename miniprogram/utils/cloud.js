@@ -17,12 +17,13 @@ function call(name, data) {
   });
 }
 
-function ensureLogin() {
-  return call('login').then((data) => {
+function ensureLogin(inviter) {
+  return call('login', inviter ? { inviter } : {}).then((data) => {
     const user = data.user || null;
     if (user) {
       const profile = Object.assign({}, storage.getProfile(), user);
       storage.setProfile(profile);
+      if (profile.openid && storage.getInviter() === profile.openid) storage.clearInviter();
       const app = getApp();
       if (app) app.globalData.profile = profile;
     }
@@ -77,4 +78,8 @@ function getDayStats(date) {
   return call('stats', { date });
 }
 
-module.exports = { call, ensureLogin, getCatalog, saveProfile, saveWorkout, getStats, getDayStats };
+function getInviteStatus() {
+  return call('invite', {});
+}
+
+module.exports = { call, ensureLogin, getCatalog, saveProfile, saveWorkout, getStats, getDayStats, getInviteStatus };

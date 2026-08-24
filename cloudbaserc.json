@@ -7,6 +7,9 @@
     { "name": "catalog", "timeout": 10 },
     { "name": "saveWorkout", "timeout": 10 },
     { "name": "stats", "timeout": 15 },
-    { "name": "initDb", "timeout": 60 }
+    { "name": "initDb", "timeout": 60 },
+    { "name": "qrcode", "timeout": 15 },
+    { "name": "invite", "timeout": 10 },
+    { "name": "remind", "timeout": 30 }
   ]
 }

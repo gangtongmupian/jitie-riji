@@ -1,0 +1,19 @@
+<view class="page">
+  <view wx:if="{{loading}}" class="loading">加载中…</view>
+  <view wx:else class="pane">
+    <view class="card invite-card">
+      <view class="invite-title">邀请好友，解锁进阶计划</view>
+      <view class="invite-sub">{{tip}}</view>
+      <view wx:if="{{qrFileID}}" class="invite-qr">
+        <image src="{{qrFileID}}" mode="aspectFit" class="qr-img" show-menu-by-longpress />
+      </view>
+      <view wx:else class="invite-qr invite-qr-empty">二维码生成中，或稍后刷新查看</view>
+      <view class="invite-meta">已邀请 {{inviteCount}} 位好友</view>
+      <view class="invite-state {{rewardUnlocked ? 'invite-state-ok' : ''}}">
+        {{rewardUnlocked ? '✓ 已解锁进阶计划' : '邀请 1 位好友后自动解锁'}}
+      </view>
+    </view>
+    <button class="btn btn-primary btn-block" open-type="share">转发给好友</button>
+    <view class="invite-hint">好友通过你的分享进入并完成建档后，双方同时解锁</view>
+  </view>
+</view>

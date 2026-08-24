@@ -30,6 +30,7 @@
     <view wx:if="{{step === 0}}">
       <view class="mtitle">欢迎来到牛来举铁</view>
       <view class="msub">记录每次训练，看见进步，分享成果。</view>
+      <view wx:if="{{invited}}" class="invite-hint">🎁 来自好友的邀请：完成建档即可解锁「进阶计划」</view>
       <view class="card agree-card">
         <scroll-view scroll-y class="agree-scroll">
           <text class="agree-text">{{agreement}}</text>

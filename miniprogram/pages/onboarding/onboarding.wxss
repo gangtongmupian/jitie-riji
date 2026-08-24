@@ -47,6 +47,14 @@
 .agree-scroll {
   height: 360rpx;
 }
+.invite-hint {
+  margin: 16rpx 0 24rpx;
+  padding: 20rpx 24rpx;
+  background: var(--tint-lavender);
+  color: var(--primary-deep);
+  border-radius: var(--r-md);
+  font-size: 26rpx;
+}
 .agree-text {
   font-size: 26rpx;
   color: var(--slate);

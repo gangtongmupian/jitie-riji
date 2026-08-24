@@ -49,6 +49,67 @@
   color: var(--on-dark-muted);
   margin-top: 6rpx;
 }
+.hero-strip {
+  display: flex;
+  align-items: center;
+  margin: 36rpx 0 8rpx;
+  padding: 24rpx 32rpx;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--r-md);
+}
+.hs-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hs-div {
+  width: 1rpx;
+  height: 48rpx;
+  background: var(--navy-mid);
+}
+.hs-b {
+  font-size: 44rpx;
+  font-weight: 600;
+  color: var(--on-dark);
+  font-variant-numeric: tabular-nums;
+}
+.hs-s {
+  font-size: 22rpx;
+  color: var(--on-dark-muted);
+  margin-top: 4rpx;
+}
+.ach-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+.ach {
+  width: calc((100% - 32rpx) / 3);
+  box-sizing: border-box;
+  padding: 20rpx 12rpx;
+  border-radius: var(--r-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rpx;
+}
+.ach-on {
+  background: var(--tint-lavender);
+  color: var(--primary-deep);
+}
+.ach-off {
+  background: var(--surface);
+  color: var(--stone);
+  opacity: 0.7;
+}
+.ach-name {
+  font-size: 24rpx;
+  font-weight: 600;
+}
+.ach-state {
+  font-size: 20rpx;
+}
 
 .recent {
   padding: 28rpx 32rpx;

@@ -6,6 +6,7 @@ const format = require('../../utils/format');
 const share = require('../../utils/share');
 const exerciseDetails = require('../../data/exercise-details');
 const motion = require('../../utils/motion');
+const config = require('../../config');
 
 const BODY_ORDER = ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'];
 
@@ -70,13 +71,15 @@ Page({
     cloud.getCatalog().then((catalog) => {
       const profile = storage.getProfile();
       const gender = profile && profile.gender;
+      const unlocked = !!(profile && profile.inviteReward);
       const exercises = this.enrich(catalog.exercises || []);
       const templates = (catalog.templates || []).slice().sort((a, b) => {
         const ga = a.genderHint === gender ? 0 : (a.genderHint === 'all' ? 1 : 2);
         const gb = b.genderHint === gender ? 0 : (b.genderHint === 'all' ? 1 : 2);
         return ga - gb;
       }).map((t) => Object.assign({}, t, {
-        genderText: t.genderHint === 'male' ? '男士' : (t.genderHint === 'female' ? '女士' : '通用')
+        genderText: t.genderHint === 'male' ? '男士' : (t.genderHint === 'female' ? '女士' : '通用'),
+        locked: !!(t.premium && !unlocked)
       }));
       this.setData({ loading: false, allExercises: exercises, templates, groupedExercises: this.buildGroups(exercises) });
       this.applyFilter();
@@ -186,6 +189,17 @@ Page({
   pickTemplate(e) {
     const t = this.data.templates.find((x) => x.id === e.currentTarget.dataset.id);
     if (!t) return this.toast('模板不存在或未加载');
+    if (t.locked) {
+      this.setData({ showTemplatePicker: false });
+      wx.showModal({
+        title: '进阶计划',
+        content: config.INVITE_TIP,
+        confirmText: '去邀请',
+        cancelText: '再看看',
+        success: (r) => { if (r.confirm) wx.navigateTo({ url: '/pages/invite/invite' }); }
+      });
+      return;
+    }
     const exercises = (t.exercises || []).map((item) => {
       const ex = this.data.allExercises.find((x) => x.id === item.exerciseId);
       const reps = Math.round(((item.repRange && item.repRange[0] + item.repRange[1]) / 2) || 10);

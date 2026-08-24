@@ -25,6 +25,27 @@
       <view class="btn btn-ghost btn-block edit-btn" bindtap="edit">编辑资料</view>
     </view>
 
+    <view class="section">成长与邀请</view>
+    <view class="list">
+      <view class="lrow" bindtap="invite">
+        <view class="lrow-main">
+          <text>邀请好友解锁进阶计划</text>
+          <text class="lrow-sub">已邀请 {{inviteCount}} 人{{rewardUnlocked ? ' · 已解锁' : ''}}</text>
+        </view>
+        <text class="lrow-r">›</text>
+      </view>
+      <view wx:if="{{showRemind}}" class="lrow">
+        <text>训练提醒</text>
+        <switch checked="{{remindEnabled}}" bindchange="toggleRemind" color="#5645d4" />
+      </view>
+    </view>
+
+    <view wx:if="{{showGroup || showContact}}" class="section">联系我们</view>
+    <view wx:if="{{showGroup || showContact}}" class="list">
+      <view wx:if="{{showGroup}}" class="lrow" bindtap="joinGroup"><text>加入训练交流群</text><text class="lrow-r">›</text></view>
+      <view wx:if="{{showContact}}" class="lrow" bindtap="contact"><text>联系客服</text><text class="lrow-r">复制微信号</text></view>
+    </view>
+
     <view class="section">设置</view>
     <view class="list">
       <view class="lrow" bindtap="edit"><text>编辑资料</text><text class="lrow-r">›</text></view>

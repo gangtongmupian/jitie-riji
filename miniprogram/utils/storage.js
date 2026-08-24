@@ -3,6 +3,7 @@ const DRAFT_KEY = 'jitie.draft';
 const CATALOG_KEY = 'jitie.catalog.v2';
 const CATALOG_TTL = 24 * 60 * 60 * 1000;
 const CUSTOM_KEY = 'jitie.customExercises';
+const INVITER_KEY = 'jitie.inviter';
 
 function getProfile() {
   return wx.getStorageSync(PROFILE_KEY) || null;
@@ -54,9 +55,22 @@ function addCustomExercise(exercise) {
   return list;
 }
 
+function getInviter() {
+  return wx.getStorageSync(INVITER_KEY) || '';
+}
+
+function setInviter(openid) {
+  if (openid) wx.setStorageSync(INVITER_KEY, openid);
+}
+
+function clearInviter() {
+  wx.removeStorageSync(INVITER_KEY);
+}
+
 module.exports = {
   getProfile, setProfile, clearProfile,
   saveDraft, loadDraft, clearDraft,
   cacheCatalog, loadCatalogCache,
-  getCustomExercises, addCustomExercise
+  getCustomExercises, addCustomExercise,
+  getInviter, setInviter, clearInviter
 };

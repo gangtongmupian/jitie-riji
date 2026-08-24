@@ -16,6 +16,11 @@
         <text class="hw-s">本周消耗（kcal）</text>
       </view>
     </view>
+    <view class="hero-strip">
+      <view class="hs-item"><text class="hs-b">{{streak}}</text><text class="hs-s">连续训练（天）</text></view>
+      <view class="hs-div"></view>
+      <view class="hs-item"><text class="hs-b">{{totalWorkouts}}</text><text class="hs-s">累计训练（次）</text></view>
+    </view>
   </view>
 
   <view class="pane">
@@ -33,6 +38,14 @@
     <view wx:else class="empty">
       <view class="empty-title">还没有训练记录</view>
       <view>点击上方「开始训练」记录第一次</view>
+    </view>
+
+    <view class="section">我的成就</view>
+    <view class="ach-grid">
+      <view wx:for="{{achievements}}" wx:key="id" class="ach {{item.done ? 'ach-on' : 'ach-off'}}">
+        <text class="ach-name">{{item.name}}</text>
+        <text class="ach-state">{{item.done ? '已达成' : '未达成'}}</text>
+      </view>
     </view>
   </view>
 </view>

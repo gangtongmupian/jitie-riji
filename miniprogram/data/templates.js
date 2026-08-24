@@ -59,6 +59,29 @@ const templates = [
       { exerciseId: 'rosen-sel-leg-extension', sets: 3, repRange: [12, 15] },
       { exerciseId: 'rosen-sel-calf', sets: 3, repRange: [15, 20] }
     ]
+  },
+  {
+    id: 'pro-gain', name: '进阶计划 · 增肌', goal: '增肌', genderHint: 'all', premium: true, frequency: 5,
+    exercises: [
+      { exerciseId: 'bench', sets: 4, repRange: [6, 10] },
+      { exerciseId: 'squat', sets: 4, repRange: [6, 10] },
+      { exerciseId: 'row', sets: 4, repRange: [8, 12] },
+      { exerciseId: 'ohp', sets: 3, repRange: [8, 12] },
+      { exerciseId: 'pullup', sets: 4, repRange: [6, 10] },
+      { exerciseId: 'rdl', sets: 3, repRange: [8, 12] },
+      { exerciseId: 'legpress', sets: 4, repRange: [10, 15] }
+    ]
+  },
+  {
+    id: 'pro-slim', name: '进阶计划 · 减脂', goal: '减脂', genderHint: 'all', premium: true, frequency: 4,
+    exercises: [
+      { exerciseId: 'squat', sets: 4, repRange: [10, 15] },
+      { exerciseId: 'pushup', sets: 4, repRange: [10, 15] },
+      { exerciseId: 'row', sets: 3, repRange: [10, 12] },
+      { exerciseId: 'hipbridge', sets: 4, repRange: [12, 15] },
+      { exerciseId: 'plank', sets: 3, repRange: [30, 60] },
+      { exerciseId: 'legpress', sets: 3, repRange: [12, 15] }
+    ]
   }
 ];
 

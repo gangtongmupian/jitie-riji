@@ -1,5 +1,6 @@
 const format = require('../../utils/format');
 const share = require('../../utils/share');
+const cloud = require('../../utils/cloud');
 
 Page({
   data: {
@@ -12,7 +13,8 @@ Page({
     bg: 'white',
     photoPath: '',
     generating: false,
-    saved: false
+    saved: false,
+    streak: 0
   },
   onLoad() {
     share.enableShareMenu();
@@ -43,6 +45,10 @@ Page({
       dateLabel: format.formatDate(workout.date)
     });
     this.drawCard();
+    cloud.getStats().then((data) => {
+      this.setData({ streak: data.streak || 0 });
+      this.drawCard();
+    }).catch(() => {});
   },
   drawCard(cb) {
     const workout = this.data.workout;
@@ -102,6 +108,11 @@ Page({
     ctx.setFillStyle(muted);
     ctx.setFontSize(24);
     ctx.fillText(format.formatDate(workout.date), 48, 920);
+    if (this.data.streak > 0) {
+      ctx.setFillStyle(muted);
+      ctx.setFontSize(24);
+      ctx.fillText('已连续训练 ' + this.data.streak + ' 天', 48, 960);
+    }
 
     ctx.draw(false, () => {
       this.setData({ generating: false });

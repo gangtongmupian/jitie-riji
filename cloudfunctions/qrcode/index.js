@@ -1,10 +1,12 @@
 const cloud = require('wx-server-sdk');
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 
-exports.main = async () => {
+exports.main = async (event = {}) => {
+  const scene = String(event.scene || 'share').slice(0, 32);
+  const page = event.page || 'pages/home/home';
   const res = await cloud.openapi.wxacode.getUnlimited({
-    scene: 'share',
-    page: 'pages/home/home',
+    scene,
+    page,
     width: 430,
     checkPath: false
   });

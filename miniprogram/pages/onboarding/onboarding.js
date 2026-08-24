@@ -11,6 +11,7 @@ Page({
   data: {
     loading: true,
     step: 0,
+    invited: false,
     agree: false,
     agreement: AGREEMENT,
     goals: GOALS,
@@ -21,6 +22,7 @@ Page({
   onLoad(options) {
     share.enableShareMenu();
     this.edit = options && options.edit === '1';
+    this.setData({ invited: !!storage.getInviter() });
     const cached = storage.getProfile();
     if (this.edit) {
       if (cached) this.prefill(cached);
@@ -28,7 +30,7 @@ Page({
       return;
     }
     if (cached && cached.gender) { this.goHome(); return; }
-    cloud.ensureLogin().then((user) => {
+    cloud.ensureLogin(storage.getInviter() || undefined).then((user) => {
       if (user && user.gender) { storage.setProfile(Object.assign({}, cached, user)); this.goHome(); return; }
       this.setData({ loading: false });
     }).catch(() => this.setData({ loading: false }));

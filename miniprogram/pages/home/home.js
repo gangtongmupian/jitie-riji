@@ -10,7 +10,22 @@ Page({
     nickname: '',
     week: { count: 0, durationSec: 0, volume: 0 },
     weekText: { duration: '0 分钟', calories: '0 kcal' },
-    recent: null
+    recent: null,
+    streak: 0,
+    totalWorkouts: 0,
+    achievements: []
+  },
+  onLoad(options) {
+    const inviter = this.parseInviter(options);
+    if (inviter && !storage.getProfile()) storage.setInviter(inviter);
+  },
+  parseInviter(options) {
+    const raw = (options && (options.inviter || options.scene)) || '';
+    if (!raw) return '';
+    let v = raw;
+    if (v.indexOf('inviter=') >= 0) v = v.split('inviter=')[1] || '';
+    try { v = decodeURIComponent(v); } catch (e) { /* 保持原值 */ }
+    return v.replace(/[^0-9a-zA-Z_\-]/g, '');
   },
   onShow() {
     share.enableShareMenu();
@@ -46,6 +61,9 @@ Page({
         nickname: (storage.getProfile() && storage.getProfile().nickname) || '牛来举铁',
         week,
         recent,
+        streak: data.streak || 0,
+        totalWorkouts: data.totalWorkouts || 0,
+        achievements: data.achievements || [],
         weekText: {
           duration: format.formatDuration(week.durationSec),
           calories: (week.calories || 0) + ' kcal'

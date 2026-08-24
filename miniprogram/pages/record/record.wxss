@@ -277,6 +277,10 @@
   color: var(--slate);
   margin-top: 6rpx;
 }
+.tag-lock {
+  background: var(--tint-lavender);
+  color: var(--primary-deep);
+}
 .group-title {
   font-size: 24rpx;
   color: var(--steel);

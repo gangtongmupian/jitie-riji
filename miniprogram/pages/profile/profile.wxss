@@ -34,3 +34,12 @@
 .danger {
   color: var(--error);
 }
+.lrow-main {
+  display: flex;
+  flex-direction: column;
+}
+.lrow-sub {
+  font-size: 22rpx;
+  color: var(--stone);
+  margin-top: 4rpx;
+}
