@@ -67,10 +67,21 @@ function clearInviter() {
   wx.removeStorageSync(INVITER_KEY);
 }
 
+function clearAllLocal() {
+  wx.removeStorageSync(PROFILE_KEY);
+  wx.removeStorageSync(DRAFT_KEY);
+  wx.removeStorageSync(CATALOG_KEY);
+  wx.removeStorageSync(CUSTOM_KEY);
+  wx.removeStorageSync(INVITER_KEY);
+  wx.removeStorageSync('jitie.lastWorkout');
+  wx.removeStorageSync('jitie.activeRest');
+}
+
 module.exports = {
   getProfile, setProfile, clearProfile,
   saveDraft, loadDraft, clearDraft,
   cacheCatalog, loadCatalogCache,
   getCustomExercises, addCustomExercise,
-  getInviter, setInviter, clearInviter
+  getInviter, setInviter, clearInviter,
+  clearAllLocal
 };

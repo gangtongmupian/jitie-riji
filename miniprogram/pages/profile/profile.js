@@ -103,20 +103,27 @@ Page({
   privacy() {
     wx.showModal({
       title: '隐私说明',
-      content: '本小程序仅收集实现功能所必需的信息（性别、年龄、身高、体重、健身目标），用于计算体质指标与推荐训练重量，不对外共享。',
+      content: '本小程序仅收集实现功能所必需的信息（性别、年龄、身高、体重、健身目标、训练记录、头像），用于记录训练与统计，不对外共享。可通过「注销账号」永久删除云端全部数据。',
       showCancel: false
     });
   },
   logout() {
     wx.showModal({
       title: '注销账号',
-      content: '注销后将清除本地资料，云端数据按 openid 保留。确定继续吗？',
+      content: '注销后将永久删除云端全部数据（档案、训练记录、邀请关系、头像），不可恢复。确定继续吗？',
       confirmColor: '#e03131',
       success: (r) => {
-        if (r.confirm) {
-          storage.clearProfile();
+        if (!r.confirm) return;
+        wx.showLoading({ title: '注销中' });
+        cloud.deleteAccount().then(() => {
+          wx.hideLoading();
+          storage.clearAllLocal();
           wx.reLaunch({ url: '/pages/onboarding/onboarding' });
-        }
+          wx.showToast({ title: '已注销', icon: 'success' });
+        }).catch(() => {
+          wx.hideLoading();
+          this.toast('注销失败，请稍后重试');
+        });
       }
     });
   },

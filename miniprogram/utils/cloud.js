@@ -82,4 +82,8 @@ function getInviteStatus() {
   return call('invite', {});
 }
 
-module.exports = { call, ensureLogin, getCatalog, saveProfile, saveWorkout, getStats, getDayStats, getInviteStatus };
+function deleteAccount() {
+  return call('deleteAccount', {});
+}
+
+module.exports = { call, ensureLogin, getCatalog, saveProfile, saveWorkout, getStats, getDayStats, getInviteStatus, deleteAccount };

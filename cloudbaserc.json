@@ -10,6 +10,7 @@
     { "name": "initDb", "timeout": 60 },
     { "name": "qrcode", "timeout": 15 },
     { "name": "invite", "timeout": 10 },
-    { "name": "remind", "timeout": 30 }
+    { "name": "remind", "timeout": 30 },
+    { "name": "deleteAccount", "timeout": 30 }
   ]
 }
