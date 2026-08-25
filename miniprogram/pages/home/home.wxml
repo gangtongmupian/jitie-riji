@@ -4,7 +4,14 @@
     <text class="error-retry">点此重试</text>
   </view>
   <view class="navy-hero">
-    <view class="hero-title" bindtap="editNickname">{{nickname}} <text class="hero-edit">✎</text></view>
+    <view class="hero-user" bindtap="editProfile">
+      <image wx:if="{{avatar}}" class="hero-avatar" src="{{avatar}}" mode="aspectFill" />
+      <view wx:else class="hero-avatar hero-avatar-text">{{nickname[0]}}</view>
+      <view class="hero-id">
+        <text class="hero-title">{{nickname}}</text>
+        <text class="hero-edit">✎ 点击修改昵称 / 头像</text>
+      </view>
+    </view>
     <view class="hero-sub">你好，今天也要坚持</view>
     <view class="hero-week">
       <view class="hw">

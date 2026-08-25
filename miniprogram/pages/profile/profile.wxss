@@ -18,6 +18,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 .profile-name {
   font-size: 34rpx;

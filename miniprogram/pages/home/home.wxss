@@ -25,6 +25,33 @@
   align-items: center;
   gap: 10rpx;
 }
+.hero-user {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  min-height: 96rpx;
+}
+.hero-avatar {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  border: 2rpx solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.hero-avatar-text {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: var(--on-dark);
+}
+.hero-id {
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
 .hero-edit {
   font-size: 26rpx;
   color: var(--on-dark-muted);

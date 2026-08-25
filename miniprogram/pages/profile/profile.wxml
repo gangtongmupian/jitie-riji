@@ -2,7 +2,8 @@
   <view class="pane">
     <view wx:if="{{profile && metrics}}" class="card profile-card">
       <view class="profile-head">
-        <view class="avatar">{{profile.gender === 'male' ? '男' : '女'}}</view>
+        <image wx:if="{{profile.avatarFileID}}" class="avatar" src="{{profile.avatarFileID}}" mode="aspectFill" />
+        <view wx:else class="avatar">{{profile.gender === 'male' ? '男' : '女'}}</view>
         <view class="profile-info">
           <view class="profile-name">{{profile.gender === 'male' ? '男' : '女'}} · {{profile.age}} 岁</view>
           <view class="profile-sub">{{profile.heightCm}}cm · {{profile.weightKg}}kg · 目标 {{profile.goal}}</view>

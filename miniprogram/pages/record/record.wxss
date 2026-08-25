@@ -520,3 +520,20 @@
 .rest-done-time {
   color: var(--success);
 }
+.machine-photo {
+  margin-top: 24rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.machine-img {
+  width: 100%;
+  height: 320rpx;
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+.machine-model {
+  font-size: 24rpx;
+  color: var(--steel);
+  margin-top: 10rpx;
+}

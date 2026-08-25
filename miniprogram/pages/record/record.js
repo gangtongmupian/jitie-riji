@@ -7,6 +7,7 @@ const share = require('../../utils/share');
 const exerciseDetails = require('../../data/exercise-details');
 const motion = require('../../utils/motion');
 const config = require('../../config');
+const rosenMachines = require('../../data/rosen-machines');
 
 const BODY_ORDER = ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'];
 
@@ -100,7 +101,8 @@ Page({
     return Object.assign({}, e, {
       rangeText,
       glyph: motion.resolveGlyph(e),
-      motion: motion.resolveMotion(e)
+      motion: motion.resolveMotion(e),
+      machine: rosenMachines[e.id] || null
     });
   },
   enrich(exercises) {
@@ -210,6 +212,7 @@ Page({
         equipment: ex ? ex.equipment : '',
         weighted: ex ? !!ex.weighted : false,
         restMinutes: 3,
+        restSeconds: 0,
         restRunning: false,
         restRemaining: 0,
         restText: '',
@@ -236,6 +239,7 @@ Page({
       equipment: ex.equipment,
       weighted: !!ex.weighted,
       restMinutes: 3,
+      restSeconds: 0,
       restRunning: false,
       restRemaining: 0,
       restText: '',
@@ -268,6 +272,7 @@ Page({
         equipment: ex.equipment || '',
         glyph: ex.glyph || motion.resolveGlyph(ex),
         motion: ex.motion || motion.resolveMotion(ex),
+        machine: ex.machine || rosenMachines[ex.id] || null,
         targets: d.targets || [],
         steps: d.steps || [],
         tips: d.tips || [],
@@ -338,6 +343,23 @@ Page({
     exercises[ei] = ex;
     this.setData({ exercises });
   },
+  incRestSec(e) {
+    this.changeRestSec(e, 5);
+  },
+  decRestSec(e) {
+    this.changeRestSec(e, -5);
+  },
+  changeRestSec(e, delta) {
+    const ei = e.currentTarget.dataset.ei;
+    const exercises = this.data.exercises.slice();
+    const ex = Object.assign({}, exercises[ei]);
+    let sec = (ex.restSeconds || 0) + delta;
+    if (sec < 0) sec = 55;
+    if (sec > 55) sec = 0;
+    ex.restSeconds = sec;
+    exercises[ei] = ex;
+    this.setData({ exercises });
+  },
   toggleRest(e) {
     const ei = e.currentTarget.dataset.ei;
     const ex = this.data.exercises[ei];
@@ -351,8 +373,9 @@ Page({
     if (idx < 0) return;
     const item = exercises[idx];
     item.restRunning = true;
-    item.restEndAt = Date.now() + (item.restMinutes || 3) * 60000;
-    item.restRemaining = (item.restMinutes || 3) * 60;
+    const totalSec = (item.restMinutes || 0) * 60 + (item.restSeconds || 0);
+    item.restEndAt = Date.now() + totalSec * 1000;
+    item.restRemaining = totalSec;
     item.restText = this.fmtTime(item.restRemaining);
     exercises[idx] = item;
     this.startRestTimer(item.exerciseId);

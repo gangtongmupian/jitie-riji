@@ -48,6 +48,11 @@
               <text class="rest-val">{{ex.restMinutes}}分</text>
               <text class="rest-btn" data-ei="{{ei}}" bindtap="incRest">＋</text>
             </view>
+            <view class="rest-stepper">
+              <text class="rest-btn" data-ei="{{ei}}" bindtap="decRestSec">−</text>
+              <text class="rest-val">{{ex.restSeconds}}秒</text>
+              <text class="rest-btn" data-ei="{{ei}}" bindtap="incRestSec">＋</text>
+            </view>
             <view class="rest-go {{ex.restRunning ? 'rest-going' : ''}}" data-ei="{{ei}}" bindtap="toggleRest">{{ex.restRunning ? ex.restText : '开始休息'}}</view>
           </view>
           <view class="add-set" data-ei="{{ei}}" bindtap="addSet">+ 加一组</view>
@@ -107,10 +112,11 @@
           <block wx:for="{{filteredGroups}}" wx:for-item="g" wx:key="bodyPart">
             <view class="group-title">{{g.bodyPart}}</view>
             <view class="ex-item" wx:for="{{g.items}}" wx:for-item="e" wx:key="id" data-id="{{e.id}}" bindtap="pickExercise">
-              <image class="ex-icon" src="/images/glyphs/{{e.glyph}}.png" mode="aspectFit" />
+              <image wx:if="{{e.machine}}" class="ex-icon" src="{{e.machine.image}}" mode="aspectFit" />
+              <image wx:else class="ex-icon" src="/images/glyphs/{{e.glyph}}.png" mode="aspectFit" />
               <view class="ex-item-info">
                 <view class="ex-item-name">{{e.name}}</view>
-                <view class="ex-item-en">{{e.enName}}</view>
+                <view class="ex-item-en">{{e.enName}}{{e.machine ? ' · ' + e.machine.model : ''}}</view>
                 <view class="ex-item-range">{{e.rangeText}}</view>
               </view>
               <view class="ex-item-ops">
@@ -165,6 +171,10 @@
           <text class="tag">{{detail.bodyPart}}</text>
           <text class="tag">{{detail.equipment}}</text>
           <text class="tag">{{detail.weights ? '负重' : '自重'}}</text>
+        </view>
+        <view wx:if="{{detail.machine}}" class="machine-photo">
+          <image src="{{detail.machine.image}}" mode="aspectFit" class="machine-img" />
+          <view class="machine-model">{{detail.machine.model}} · {{detail.machine.siteName}}</view>
         </view>
         <exercise-anim motion-key="{{detail.motion}}" glyph="{{detail.glyph}}" />
         <view class="section">目标肌群</view>

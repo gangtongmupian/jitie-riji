@@ -33,6 +33,7 @@ exports.main = async (event) => {
   const frequency = event.frequency == null ? null : Number(event.frequency);
   const nickname = event.nickname === undefined ? null : String(event.nickname).trim().slice(0, 12);
   const remindEnabled = event.remindEnabled === undefined ? undefined : !!event.remindEnabled;
+  const avatarFileID = event.avatarFileID === undefined ? undefined : String(event.avatarFileID).trim().slice(0, 300);
 
   if (!(gender === 'male' || gender === 'female')) return { ok: false, error: '请选择性别' };
   if (!(age >= 6 && age <= 100)) return { ok: false, error: '年龄需在 6–100 岁之间' };
@@ -54,6 +55,7 @@ exports.main = async (event) => {
   if (frequency != null) data.frequency = frequency;
   if (nickname !== null) data.nickname = nickname;
   if (remindEnabled !== undefined) data.remindEnabled = remindEnabled;
+  if (avatarFileID !== undefined) data.avatarFileID = avatarFileID || null;
 
   const found = await users.where({ openid: OPENID }).limit(1).get();
   if (found.data[0]) {

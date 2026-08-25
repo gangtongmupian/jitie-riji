@@ -8,6 +8,7 @@ Page({
     loading: true,
     loadError: false,
     nickname: '',
+    avatar: '',
     week: { count: 0, durationSec: 0, volume: 0 },
     weekText: { duration: '0 分钟', calories: '0 kcal' },
     recent: null,
@@ -59,6 +60,7 @@ Page({
         loading: false,
         loadError: false,
         nickname: (storage.getProfile() && storage.getProfile().nickname) || '牛来举铁',
+        avatar: (storage.getProfile() && storage.getProfile().avatarFileID) || '',
         week,
         recent,
         streak: data.streak || 0,
@@ -79,6 +81,51 @@ Page({
   },
   start() {
     wx.switchTab({ url: '/pages/record/record' });
+  },
+  editProfile() {
+    wx.showActionSheet({
+      itemList: ['修改昵称', '更换头像'],
+      success: (r) => {
+        if (r.tapIndex === 0) this.editNickname();
+        else if (r.tapIndex === 1) this.chooseAvatar();
+      }
+    });
+  },
+  chooseAvatar() {
+    wx.chooseMedia({
+      count: 1,
+      mediaType: ['image'],
+      sizeType: ['compressed'],
+      success: (res) => {
+        const file = res.tempFiles && res.tempFiles[0];
+        if (!file) return;
+        const profile = storage.getProfile() || {};
+        const openid = profile.openid || 'user';
+        const ext = (file.tempFilePath.match(/\.(\w+)$/) || [])[1] || 'jpg';
+        wx.showLoading({ title: '上传中' });
+        wx.cloud.uploadFile({
+          cloudPath: 'avatars/' + openid + '-' + Date.now() + '.' + ext,
+          filePath: file.tempFilePath,
+          success: (up) => {
+            const merged = Object.assign({}, storage.getProfile(), { avatarFileID: up.fileID });
+            storage.setProfile(merged);
+            this.setData({ avatar: up.fileID });
+            cloud.saveProfile(merged).then(() => {
+              wx.hideLoading();
+              wx.showToast({ title: '头像已更新', icon: 'success' });
+            }).catch(() => {
+              wx.hideLoading();
+              wx.showToast({ title: '头像已保存在本地', icon: 'none' });
+            });
+          },
+          fail: () => {
+            wx.hideLoading();
+            this.toast('上传失败，请重试');
+          }
+        });
+      },
+      fail: () => {}
+    });
   },
   editNickname() {
     const profile = storage.getProfile();
