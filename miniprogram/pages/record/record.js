@@ -339,7 +339,8 @@ Page({
     const ei = e.currentTarget.dataset.ei;
     const exercises = this.data.exercises.slice();
     const ex = Object.assign({}, exercises[ei]);
-    ex.restMinutes = Math.max(1, Math.min(30, (ex.restMinutes || 3) + delta));
+    const base = ex.restMinutes == null ? 3 : ex.restMinutes;
+    ex.restMinutes = Math.max(0, Math.min(30, base + delta));
     exercises[ei] = ex;
     this.setData({ exercises });
   },
