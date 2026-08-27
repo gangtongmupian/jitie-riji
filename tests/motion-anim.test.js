@@ -10,8 +10,8 @@ test('anim: 每个动作都能解析出三帧插图并已打包', () => {
     const slug = motion.resolveAnimSlug(e);
     assert.ok(slug, `${e.id} 缺少三帧插图动作映射`);
     for (const n of [1, 2, 3]) {
-      const file = path.join(__dirname, '../miniprogram/images/anim', slug + '-' + n + '.webp');
-      assert.ok(fs.existsSync(file), `${e.id} -> ${slug} 帧${n} 图片缺失: ${slug}-${n}.webp`);
+      const file = path.join(__dirname, '../miniprogram/images/anim', slug + '-' + n + '.png');
+      assert.ok(fs.existsSync(file), `${e.id} -> ${slug} 帧${n} 图片缺失: ${slug}-${n}.png`);
     }
   }
 });
@@ -30,7 +30,7 @@ test('anim: 自定义动作按部位兜底且文件存在', () => {
     const slug = motion.resolveAnimSlug(c);
     assert.ok(slug, `${c.bodyPart} 兜底映射缺失`);
     for (const n of [1, 2, 3]) {
-      const file = path.join(__dirname, '../miniprogram/images/anim', slug + '-' + n + '.webp');
+      const file = path.join(__dirname, '../miniprogram/images/anim', slug + '-' + n + '.png');
       assert.ok(fs.existsSync(file), `${c.bodyPart} -> ${slug} 帧${n} 缺失`);
     }
   }

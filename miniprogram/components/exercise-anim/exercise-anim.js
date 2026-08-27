@@ -52,7 +52,7 @@ Component({
   methods: {
     frameUrls(slug) {
       if (!slug) return [];
-      return [1, 2, 3].map((n) => '/images/anim/' + slug + '-' + n + '.webp');
+      return [1, 2, 3].map((n) => '/images/anim/' + slug + '-' + n + '.png');
     },
     start() {
       this.stop();
@@ -71,6 +71,9 @@ Component({
         }, stepMs);
         return;
       }
+      this.startCanvas();
+    },
+    startCanvas() {
       this.ctx = wx.createCanvasContext(this.data.canvasId, this);
       this.phase = 0;
       const loop = (ts) => {
@@ -81,6 +84,15 @@ Component({
         this._raf = raf(loop);
       };
       this._raf = raf(loop);
+    },
+    onImgError() {
+      // 真机图片缺失/格式不兼容时回退到画布火柴人,避免黑屏
+      if (this._imgTimer != null) {
+        clearInterval(this._imgTimer);
+        this._imgTimer = null;
+      }
+      this.setData({ frames: [] });
+      this.startCanvas();
     },
     stop() {
       if (this._raf != null) {
