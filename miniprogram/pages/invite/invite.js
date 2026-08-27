@@ -41,7 +41,7 @@ Page({
     }).catch((err) => {
       console.error('[invite] 加载失败:', err);
       this.setData({ loading: false });
-      this.setData({ qrError: '二维码生成失败，请检查网络后重试' });
+      this.setData({ qrError: '加载失败：' + ((err && err.message) || '请检查网络后重试') });
     });
   },
   genQr(openid) {
@@ -54,7 +54,7 @@ Page({
       return qr;
     }).catch((err) => {
       console.error('[invite] 二维码生成失败:', err);
-      this.setData({ qrError: '二维码生成失败，请检查网络后重试' });
+      this.setData({ qrError: '二维码生成失败：' + ((err && err.message) || '未知错误') });
       throw err;
     });
   },
