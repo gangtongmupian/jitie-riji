@@ -15,6 +15,7 @@
     "compileWorklet": false,
     "uglifyFileName": false,
     "uploadWithSourceMap": true,
+    "ignoreDevUnusedFiles": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,

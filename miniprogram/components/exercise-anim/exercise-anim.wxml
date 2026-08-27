@@ -1,4 +1,7 @@
 <view class="anim-wrap">
-  <canvas canvas-id="{{canvasId}}" class="anim-canvas" width="{{width}}" height="{{height}}" style="width: {{width}}px; height: {{height}}px;"></canvas>
+  <view wx:if="{{frames.length}}" class="anim-card" style="width: {{width}}px; height: {{height}}px;">
+    <image wx:if="{{frames[frameIndex]}}" src="{{frames[frameIndex]}}" mode="aspectFit" class="anim-img" />
+  </view>
+  <canvas wx:else canvas-id="{{canvasId}}" class="anim-canvas" width="{{width}}" height="{{height}}" style="width: {{width}}px; height: {{height}}px;"></canvas>
   <view class="anim-tip">动画演示 · 自动循环</view>
 </view>

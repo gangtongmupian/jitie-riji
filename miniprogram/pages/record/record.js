@@ -102,6 +102,7 @@ Page({
       rangeText,
       glyph: motion.resolveGlyph(e),
       motion: motion.resolveMotion(e),
+      animKey: motion.resolveAnimSlug(e),
       machine: rosenMachines[e.id] || null
     });
   },
@@ -272,6 +273,7 @@ Page({
         equipment: ex.equipment || '',
         glyph: ex.glyph || motion.resolveGlyph(ex),
         motion: ex.motion || motion.resolveMotion(ex),
+        animKey: ex.animKey || motion.resolveAnimSlug(ex),
         machine: ex.machine || rosenMachines[ex.id] || null,
         targets: d.targets || [],
         steps: d.steps || [],

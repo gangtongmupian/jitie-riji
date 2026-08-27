@@ -1,5 +1,6 @@
 // 动作动画与器械图示解析
-// - resolveMotion: 按动作 id 返回动画类型(火柴人骨架往复演示)
+// - resolveMotion: 按动作 id 返回动画类型(火柴人骨架往复演示,兜底用)
+// - resolveAnimSlug: 按动作 id 返回 workout-guide 三帧插图动作 key(images/anim/<slug>-<n>.png)
 // - resolveGlyph: 按动作 id 返回器械图示 key(images/glyphs/<key>.png)
 // - poseAt: 给定动画类型与相位 t(0..1) 返回插值后的骨架姿态
 // 坐标空间: x 0..100, y 0..100(y 向下), 地面约 y=84
@@ -132,10 +133,119 @@ const FALLBACK_MOTION = {
   胸: 'bench-press', 背: 'row', 腿: 'squat', 肩: 'shoulder-press', 手臂: 'curl', 核心: 'crunch', 臀腿: 'hip-thrust'
 };
 
+// workout-guide(bryllim/workout-guide) 三帧标准化插图动作 key
+// 素材许可: CC BY-SA 4.0, 作者 Bryl Lim / Everkinetic
+const ANIM_BY_ID = {
+  // 胸
+  bench: 'bench-press',
+  'incline-bench': 'incline-bench-press',
+  'decline-bench': 'decline-bench-press',
+  'db-bench': 'dumbbell-bench-press',
+  'incline-db': 'incline-dumbbell-press',
+  'chest-press': 'machine-chest-press',
+  'peck-deck': 'pec-deck',
+  'cable-fly': 'cable-fly',
+  fly: 'dumbbell-fly',
+  pushup: 'push-up',
+  dip: 'chest-dip',
+  // 背
+  deadlift: 'deadlift',
+  row: 'machine-row',
+  'bentover-row': 'barbell-row',
+  'one-arm-row': 'one-arm-dumbbell-row',
+  'lat-pulldown': 'lat-pulldown',
+  pullup: 'pull-up',
+  chinup: 'chin-up',
+  'tbar-row': 't-bar-row',
+  shrug: 'shrug',
+  'face-pull': 'face-pull',
+  // 腿
+  squat: 'squat',
+  'front-squat': 'front-squat',
+  legpress: 'leg-press',
+  'hack-squat': 'hack-squat',
+  'goblet-squat': 'goblet-squat',
+  rdl: 'romanian-deadlift',
+  lunge: 'forward-lunge',
+  'leg-extension': 'leg-extension',
+  'leg-curl': 'lying-leg-curl',
+  'calf-raise': 'standing-calf-raise',
+  'sumo-deadlift': 'sumo-deadlift',
+  // 臀腿
+  hipbridge: 'glute-bridge',
+  'hip-thrust': 'hip-thrust',
+  'glute-kickback': 'cable-kickback',
+  'hip-abduction': 'hip-abduction-machine',
+  // 肩
+  ohp: 'standing-dumbbell-press',
+  'barbell-ohp': 'overhead-press',
+  'arnold-press': 'arnold-press',
+  'lateral-raise': 'lateral-raise',
+  'front-raise': 'front-raise',
+  'rear-delt-fly': 'rear-delt-fly',
+  'upright-row': 'upright-row',
+  // 手臂
+  curl: 'bicep-curl',
+  'barbell-curl': 'ez-bar-curl',
+  'hammer-curl': 'hammer-curl',
+  'preacher-curl': 'preacher-curl',
+  pushdown: 'tricep-pushdown',
+  'skull-crusher': 'skull-crusher',
+  'overhead-extension': 'dumbbell-overhead-tricep-extension',
+  'bench-dip': 'bench-dip',
+  // 核心
+  crunch: 'crunch',
+  plank: 'plank',
+  'side-plank': 'side-plank',
+  'russian-twist': 'russian-twist',
+  'leg-raise': 'hanging-leg-raise',
+  'mountain-climber': 'mountain-climber',
+  'dead-bug': 'dead-bug',
+  'cable-crunch': 'cable-crunch',
+  // ROSEN 固定器械(映射到最接近的标准动作)
+  'rosen-hm-bench-press': 'bench-press',
+  'rosen-hm-incline-press': 'incline-bench-press',
+  'rosen-hm-decline-press': 'decline-bench-press',
+  'rosen-sel-chest-press': 'machine-chest-press',
+  'rosen-cable-fly': 'cable-fly',
+  'rosen-hm-lat-pulldown': 'lat-pulldown',
+  'rosen-hm-seated-row': 'machine-row',
+  'rosen-hm-low-row': 'machine-row',
+  'rosen-hm-pullover': 'straight-arm-pulldown',
+  'rosen-sel-lat-pulldown': 'lat-pulldown',
+  'rosen-sel-seated-row': 'machine-row',
+  'rosen-leg-press45': 'leg-press',
+  'rosen-hack-squat': 'hack-squat',
+  'rosen-sel-leg-extension': 'leg-extension',
+  'rosen-sel-leg-curl': 'lying-leg-curl',
+  'rosen-sel-calf': 'seated-calf-raise',
+  'rosen-hm-shoulder-press': 'machine-shoulder-press',
+  'rosen-sel-shoulder-press': 'machine-shoulder-press',
+  'rosen-sel-lateral': 'machine-lateral-raise',
+  'rosen-hm-bicep': 'bicep-curl',
+  'rosen-hm-tricep': 'overhead-tricep-extension',
+  'rosen-sel-bicep': 'bicep-curl',
+  'rosen-sel-hip': 'hip-abduction-machine',
+  'rosen-hip-thrust': 'hip-thrust',
+  'rosen-ab-crunch': 'crunch',
+  'rosen-back-extension': 'back-extension'
+};
+
+// 自定义动作/未收录动作按部位兜底
+const ANIM_FALLBACK_BY_PART = {
+  胸: 'bench-press', 背: 'machine-row', 腿: 'squat', 肩: 'overhead-press', 手臂: 'bicep-curl', 核心: 'crunch', 臀腿: 'hip-thrust'
+};
+
 function resolveMotion(ex) {
   const key = MOTION_BY_ID[ex && ex.id];
   if (key) return key;
   return FALLBACK_MOTION[(ex && ex.bodyPart)] || 'crunch';
+}
+
+function resolveAnimSlug(ex) {
+  const key = ANIM_BY_ID[ex && ex.id];
+  if (key) return key;
+  return ANIM_FALLBACK_BY_PART[(ex && ex.bodyPart)] || '';
 }
 
 function resolveGlyph(ex) {
@@ -184,7 +294,10 @@ function glyphExists(key) {
 
 module.exports = {
   MOTIONS,
+  ANIM_BY_ID,
+  ANIM_FALLBACK_BY_PART,
   resolveMotion,
+  resolveAnimSlug,
   resolveGlyph,
   poseAt,
   easeInOut,

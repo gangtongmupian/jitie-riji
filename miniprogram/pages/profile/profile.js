@@ -98,7 +98,12 @@ Page({
     });
   },
   about() {
-    wx.showModal({ title: '关于牛来举铁', content: '记录每次训练，看见进步，分享成果。', showCancel: false });
+    wx.showModal({
+      title: '关于牛来举铁',
+      content: '记录每次训练，看见进步，分享成果。\n\n动作演示插画来自 Bryl Lim / Everkinetic 的 Workout Guide（CC BY-SA 4.0），在此致谢。',
+      showCancel: false,
+      confirmText: '知道了'
+    });
   },
   privacy() {
     wx.showModal({

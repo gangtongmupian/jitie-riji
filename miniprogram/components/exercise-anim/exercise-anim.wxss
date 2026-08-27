@@ -9,6 +9,19 @@
   background: #ffffff;
   border: 1rpx solid var(--hairline);
 }
+.anim-card {
+  border-radius: 20rpx;
+  background: linear-gradient(160deg, #2b2936 0%, #1d1b26 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 6rpx 24rpx rgba(30, 28, 40, 0.18);
+}
+.anim-img {
+  width: 88%;
+  height: 88%;
+}
 .anim-tip {
   margin-top: 12rpx;
   font-size: 22rpx;
