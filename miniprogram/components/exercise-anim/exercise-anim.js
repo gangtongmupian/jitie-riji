@@ -23,12 +23,15 @@ const caf = typeof cancelAnimationFrame === 'function'
 Component({
   properties: {
     motionKey: { type: String, value: 'crunch' },
+    animKey: { type: String, value: '' },
     glyph: { type: String, value: 'machine-generic' },
     width: { type: Number, value: 340 },
     height: { type: Number, value: 240 }
   },
   data: {
-    canvasId: 'exercise-anim'
+    canvasId: 'exercise-anim',
+    frames: [],
+    frameIndex: 0
   },
   lifetimes: {
     attached() {
@@ -41,11 +44,33 @@ Component({
   observers: {
     motionKey() {
       this.restart();
+    },
+    animKey() {
+      this.restart();
     }
   },
   methods: {
+    frameUrls(slug) {
+      if (!slug) return [];
+      return [1, 2, 3].map((n) => '/images/anim/' + slug + '-' + n + '.webp');
+    },
     start() {
       this.stop();
+      const slug = this.data.animKey;
+      if (slug) {
+        const frames = this.frameUrls(slug);
+        this.setData({ frames, frameIndex: 0 });
+        if (!frames.length) return;
+        // 三帧往复: 0 -> 1 -> 2 -> 1 -> 0 ...
+        const seq = [0, 1, 2, 1];
+        let pos = 0;
+        const stepMs = Math.max(200, Math.round(this.repSec() / 4 * 1000));
+        this._imgTimer = setInterval(() => {
+          pos = (pos + 1) % seq.length;
+          this.setData({ frameIndex: seq[pos] });
+        }, stepMs);
+        return;
+      }
       this.ctx = wx.createCanvasContext(this.data.canvasId, this);
       this.phase = 0;
       const loop = (ts) => {
@@ -62,12 +87,24 @@ Component({
         caf(this._raf);
         this._raf = null;
       }
+      if (this._imgTimer != null) {
+        clearInterval(this._imgTimer);
+        this._imgTimer = null;
+      }
       this._lastTs = 0;
     },
     restart() {
-      if (!this.ctx) return;
-      this.phase = 0;
-      this._lastTs = 0;
+      if (this.data.frames && this.data.frames.length) {
+        // 图片模式: 直接重启轮播
+        this.start();
+        return;
+      }
+      if (this.ctx) {
+        this.phase = 0;
+        this._lastTs = 0;
+      } else {
+        this.start();
+      }
     },
     repSec() {
       return REP_SEC[this.data.motionKey] || 2.4;

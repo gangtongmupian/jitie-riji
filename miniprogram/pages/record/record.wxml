@@ -176,7 +176,7 @@
           <image src="{{detail.machine.image}}" mode="aspectFit" class="machine-img" />
           <view class="machine-model">{{detail.machine.model}} · {{detail.machine.siteName}}</view>
         </view>
-        <exercise-anim motion-key="{{detail.motion}}" glyph="{{detail.glyph}}" />
+        <exercise-anim motion-key="{{detail.motion}}" anim-key="{{detail.animKey}}" glyph="{{detail.glyph}}" />
         <view class="section">目标肌群</view>
         <view class="pill-row" wx:if="{{detail.targets.length}}">
           <view class="pill" wx:for="{{detail.targets}}" wx:key="*this">{{item}}</view>

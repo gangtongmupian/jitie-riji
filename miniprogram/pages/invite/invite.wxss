@@ -42,6 +42,13 @@
   padding: 0 24rpx;
   box-sizing: border-box;
 }
+.qr-error-text {
+  margin-bottom: 20rpx;
+  line-height: 1.6;
+}
+.qr-retry {
+  min-width: 200rpx;
+}
 .invite-meta {
   font-size: 28rpx;
   font-weight: 600;

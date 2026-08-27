@@ -7,7 +7,11 @@
       <view wx:if="{{qrFileID}}" class="invite-qr">
         <image src="{{qrFileID}}" mode="aspectFit" class="qr-img" show-menu-by-longpress />
       </view>
-      <view wx:else class="invite-qr invite-qr-empty">二维码生成中，或稍后刷新查看</view>
+      <view wx:elif="{{qrError}}" class="invite-qr invite-qr-empty">
+        <view class="qr-error-text">{{qrError}}</view>
+        <button class="btn btn-ghost qr-retry" bindtap="retryQr">重新生成</button>
+      </view>
+      <view wx:else class="invite-qr invite-qr-empty">二维码生成中，请稍候…</view>
       <view class="invite-meta">已邀请 {{inviteCount}} 位好友</view>
       <view class="invite-state {{rewardUnlocked ? 'invite-state-ok' : ''}}">
         {{rewardUnlocked ? '✓ 已解锁进阶计划' : '邀请 1 位好友后自动解锁'}}

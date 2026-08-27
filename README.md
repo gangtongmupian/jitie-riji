@@ -56,6 +56,11 @@ node --test 'tests/*.test.js'
 - BMR：Mifflin-St Jeor 公式
 - 推荐重量区间：按「性别 × 训练水平」的体重倍数规则，取 2.5kg 档；自重动作不给出重量
 
+## 素材致谢
+
+- 动作演示三帧插画：源自 [Workout Guide](https://github.com/bryllim/workout-guide)（作者 Bryl Lim，基础姿态来自 [Everkinetic](https://github.com/everkinetic/data)），采用 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) 许可，仅作等比缩放使用，未做其他修改。
+- ROSEN 固定器械照片：来源 ROSEN 官网产品页，仅用于器械识别展示。
+
 ## 文档
 
 - [DESIGN.md](DESIGN.md)：Notion 风格设计语言
