@@ -1,6 +1,6 @@
 const PROFILE_KEY = 'jitie.profile';
 const DRAFT_KEY = 'jitie.draft';
-const CATALOG_KEY = 'jitie.catalog.v2';
+const CATALOG_KEY = 'jitie.catalog.v3';
 const CATALOG_TTL = 24 * 60 * 60 * 1000;
 const CUSTOM_KEY = 'jitie.customExercises';
 const INVITER_KEY = 'jitie.inviter';

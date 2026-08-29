@@ -186,5 +186,357 @@
         ]
       }
     ]
+  },
+  {
+    "id": "rosen-machine-m",
+    "name": "铁馆器械 · 男版",
+    "goal": "增肌",
+    "genderHint": "male",
+    "frequency": 3,
+    "exercises": [
+      {
+        "exerciseId": "rosen-hm-bench-press",
+        "sets": 4,
+        "repRange": [
+          8,
+          12
+        ]
+      },
+      {
+        "exerciseId": "rosen-hm-lat-pulldown",
+        "sets": 4,
+        "repRange": [
+          10,
+          12
+        ]
+      },
+      {
+        "exerciseId": "rosen-hm-seated-row",
+        "sets": 3,
+        "repRange": [
+          10,
+          12
+        ]
+      },
+      {
+        "exerciseId": "rosen-hm-shoulder-press",
+        "sets": 3,
+        "repRange": [
+          8,
+          12
+        ]
+      },
+      {
+        "exerciseId": "rosen-leg-press45",
+        "sets": 4,
+        "repRange": [
+          10,
+          15
+        ]
+      },
+      {
+        "exerciseId": "rosen-hm-bicep",
+        "sets": 3,
+        "repRange": [
+          10,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rosen-machine-f",
+    "name": "铁馆器械 · 女版",
+    "goal": "塑形",
+    "genderHint": "female",
+    "frequency": 3,
+    "exercises": [
+      {
+        "exerciseId": "rosen-sel-chest-press",
+        "sets": 3,
+        "repRange": [
+          10,
+          12
+        ]
+      },
+      {
+        "exerciseId": "rosen-sel-lat-pulldown",
+        "sets": 3,
+        "repRange": [
+          10,
+          12
+        ]
+      },
+      {
+        "exerciseId": "rosen-hip-thrust",
+        "sets": 4,
+        "repRange": [
+          12,
+          15
+        ]
+      },
+      {
+        "exerciseId": "rosen-sel-hip",
+        "sets": 3,
+        "repRange": [
+          15,
+          20
+        ]
+      },
+      {
+        "exerciseId": "rosen-sel-leg-extension",
+        "sets": 3,
+        "repRange": [
+          12,
+          15
+        ]
+      },
+      {
+        "exerciseId": "rosen-sel-calf",
+        "sets": 3,
+        "repRange": [
+          15,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "id": "forward-machine-m",
+    "name": "FORWARD器械 · 男版",
+    "goal": "增肌",
+    "genderHint": "male",
+    "frequency": 3,
+    "exercises": [
+      {
+        "exerciseId": "fwd-fwhm-001",
+        "sets": 4,
+        "repRange": [
+          8,
+          12
+        ]
+      },
+      {
+        "exerciseId": "fwd-fwhm-005",
+        "sets": 4,
+        "repRange": [
+          10,
+          12
+        ]
+      },
+      {
+        "exerciseId": "fwd-fwhm-004",
+        "sets": 3,
+        "repRange": [
+          10,
+          12
+        ]
+      },
+      {
+        "exerciseId": "fwd-fwhm-002",
+        "sets": 3,
+        "repRange": [
+          8,
+          12
+        ]
+      },
+      {
+        "exerciseId": "fwd-fws-014",
+        "sets": 4,
+        "repRange": [
+          10,
+          15
+        ]
+      },
+      {
+        "exerciseId": "fwd-fwhm-008",
+        "sets": 3,
+        "repRange": [
+          10,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "id": "forward-machine-f",
+    "name": "FORWARD器械 · 女版",
+    "goal": "塑形",
+    "genderHint": "female",
+    "frequency": 3,
+    "exercises": [
+      {
+        "exerciseId": "fwd-rrs-004",
+        "sets": 3,
+        "repRange": [
+          10,
+          12
+        ]
+      },
+      {
+        "exerciseId": "fwd-rrs-002",
+        "sets": 3,
+        "repRange": [
+          10,
+          12
+        ]
+      },
+      {
+        "exerciseId": "fwd-fws-019",
+        "sets": 4,
+        "repRange": [
+          12,
+          15
+        ]
+      },
+      {
+        "exerciseId": "fwd-fws-015",
+        "sets": 3,
+        "repRange": [
+          15,
+          20
+        ]
+      },
+      {
+        "exerciseId": "fwd-fws-012",
+        "sets": 3,
+        "repRange": [
+          12,
+          15
+        ]
+      },
+      {
+        "exerciseId": "fwd-fws-013",
+        "sets": 3,
+        "repRange": [
+          12,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pro-gain",
+    "name": "进阶计划 · 增肌",
+    "goal": "增肌",
+    "genderHint": "all",
+    "premium": true,
+    "frequency": 5,
+    "exercises": [
+      {
+        "exerciseId": "bench",
+        "sets": 4,
+        "repRange": [
+          6,
+          10
+        ]
+      },
+      {
+        "exerciseId": "squat",
+        "sets": 4,
+        "repRange": [
+          6,
+          10
+        ]
+      },
+      {
+        "exerciseId": "row",
+        "sets": 4,
+        "repRange": [
+          8,
+          12
+        ]
+      },
+      {
+        "exerciseId": "ohp",
+        "sets": 3,
+        "repRange": [
+          8,
+          12
+        ]
+      },
+      {
+        "exerciseId": "pullup",
+        "sets": 4,
+        "repRange": [
+          6,
+          10
+        ]
+      },
+      {
+        "exerciseId": "rdl",
+        "sets": 3,
+        "repRange": [
+          8,
+          12
+        ]
+      },
+      {
+        "exerciseId": "legpress",
+        "sets": 4,
+        "repRange": [
+          10,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pro-slim",
+    "name": "进阶计划 · 减脂",
+    "goal": "减脂",
+    "genderHint": "all",
+    "premium": true,
+    "frequency": 4,
+    "exercises": [
+      {
+        "exerciseId": "squat",
+        "sets": 4,
+        "repRange": [
+          10,
+          15
+        ]
+      },
+      {
+        "exerciseId": "pushup",
+        "sets": 4,
+        "repRange": [
+          10,
+          15
+        ]
+      },
+      {
+        "exerciseId": "row",
+        "sets": 3,
+        "repRange": [
+          10,
+          12
+        ]
+      },
+      {
+        "exerciseId": "hipbridge",
+        "sets": 4,
+        "repRange": [
+          12,
+          15
+        ]
+      },
+      {
+        "exerciseId": "plank",
+        "sets": 3,
+        "repRange": [
+          30,
+          60
+        ]
+      },
+      {
+        "exerciseId": "legpress",
+        "sets": 3,
+        "repRange": [
+          12,
+          15
+        ]
+      }
+    ]
   }
 ]

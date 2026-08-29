@@ -440,5 +440,254 @@ module.exports = {
     targets: ['竖脊肌', '臀大肌', '腘绳肌'],
     steps: ['髋部抵住挡垫，双脚踩稳，上身悬空。', '背部发力将上身抬起至与腿接近直线。', '缓慢下放还原。'],
     tips: ['顶部不要过度后仰。', '全程匀速控制，不借惯性。']
+  },
+
+  // ---- 2026-08 扩充：workout-guide 高频动作 ----
+  'smith-machine-bench-press': {
+    targets: ['胸大肌', '肱三头肌', '三角肌前束'],
+    steps: ['仰卧于史密斯机卧推凳，杠铃位于胸部正上方，双脚踩实。', '下放杠铃至胸部中下沿，肘部约 45°。', '胸部发力推起至手臂接近伸直。'],
+    tips: ['史密斯机轨迹固定，仍要主动收紧肩胛。', '不要完全锁死肘关节，保持胸肌张力。']
+  },
+  'incline-cable-fly': {
+    targets: ['胸大肌上束', '三角肌前束'],
+    steps: ['将龙门架滑轮调至低位，仰卧于上斜凳。', '手臂微屈，由身体两侧向胸上方夹拢。', '缓慢还原至胸肌充分拉伸。'],
+    tips: ['肘部角度全程固定。', '下放幅度以肩部舒适为准。']
+  },
+  'decline-dumbbell-press': {
+    targets: ['胸大肌下束', '肱三头肌'],
+    steps: ['固定双腿于下斜凳，持哑铃于胸部两侧。', '沿斜下方将哑铃推起至手臂伸直。', '缓慢下放至下胸两侧。'],
+    tips: ['下斜角度 15–30° 即可。', '哑铃轨迹保持与下胸垂直。']
+  },
+  'weighted-push-up': {
+    targets: ['胸大肌', '肱三头肌', '三角肌前束'],
+    steps: ['将杠铃片放入背包或由同伴放置于上背。', '标准俯卧撑姿势，身体成一直线。', '胸部贴近地面后推起。'],
+    tips: ['重量循序渐进，先从 5kg 开始。', '核心收紧，避免塌腰。']
+  },
+  'chest-supported-row': {
+    targets: ['背阔肌', '菱形肌', '斜方肌中下束'],
+    steps: ['胸部贴紧上斜板，双手握把或哑铃。', '背部发力将手柄拉向躯干。', '缓慢还原至肩胛前伸。'],
+    tips: ['上斜板支撑可减少下背压力。', '顶峰收缩 1 秒再还原。']
+  },
+  'pendlay-row': {
+    targets: ['背阔肌', '斜方肌', '竖脊肌'],
+    steps: ['俯身与地面接近平行，杠铃悬空于小腿前。', '背部发力将杠铃拉向下胸，每次触地再拉起。', '杠铃放回地面，重新发力。'],
+    tips: ['每一拍都从地面重新起杠，不做连续弹震。', '保持脊柱中立，不弓背。']
+  },
+  'single-arm-cable-row': {
+    targets: ['背阔肌', '菱形肌', '肱二头肌'],
+    steps: ['单膝跪凳或弓步站立，握住低位滑轮把手。', '背部发力将手柄拉向髋部。', '缓慢还原至肩胛前伸。'],
+    tips: ['躯干保持稳定，不左右旋转。', '用背而非手臂发力。']
+  },
+  'rack-pull': {
+    targets: ['竖脊肌', '臀大肌', '腘绳肌', '斜方肌'],
+    steps: ['将杠铃架于膝盖上方高度，握距与硬拉相同。', '收紧核心，伸髋站起至身体直立。', '控制杠铃下放回架上。'],
+    tips: ['半程动作，可以比硬拉上更大的重量。', '全程保持背部平直。']
+  },
+  'inverted-row': {
+    targets: ['背阔肌', '菱形肌', '肱二头肌'],
+    steps: ['仰卧于杠下，双手握杠，身体成直线。', '背部发力将胸部拉向杠。', '缓慢下放还原。'],
+    tips: ['杠越低难度越大，先从中位开始。', '全程收紧核心，不塌腰。']
+  },
+  'straight-arm-pulldown': {
+    targets: ['背阔肌', '大圆肌'],
+    steps: ['面对高位滑轮站立，手臂伸直握横杆。', '保持手臂伸直，将横杆下压至大腿前。', '缓慢还原至肩胛上提。'],
+    tips: ['肘关节几乎不弯曲。', '想象用背阔肌把杆“按”下来。']
+  },
+  'dumbbell-shrug': {
+    targets: ['斜方肌上束'],
+    steps: ['双手持哑铃于体侧，自然站立。', '耸肩将哑铃竖直上提。', '顶部停顿 1 秒后缓慢下放。'],
+    tips: ['不要用屈肘借力。', '轨迹垂直，不画圈。']
+  },
+  'machine-shoulder-press': {
+    targets: ['三角肌前束', '三角肌中束', '肱三头肌'],
+    steps: ['调整座椅，使手柄与肩同高，背部贴紧靠垫。', '向上推起至手臂接近伸直。', '缓慢下放至肩部有轻微拉伸。'],
+    tips: ['不要耸肩，肩胛下沉。', '下放控制在 2–3 秒。']
+  },
+  'machine-lateral-raise': {
+    targets: ['三角肌中束'],
+    steps: ['坐姿或站姿，肘部抵住挡板，肩部放松。', '三角肌发力将手臂向两侧抬起至与肩平。', '缓慢下放还原。'],
+    tips: ['重量宁轻勿重。', '顶部小拇指略高于大拇指，感受中束收缩。']
+  },
+  'cable-lateral-raise': {
+    targets: ['三角肌中束'],
+    steps: ['侧对龙门架站立，远离滑轮的手握把。', '手臂微屈，向侧上方抬至与肩平。', '缓慢下放至起始位。'],
+    tips: ['身体保持直立，不侧倾借力。', '全程控制绳索张力。']
+  },
+  'reverse-pec-deck': {
+    targets: ['三角肌后束', '菱形肌'],
+    steps: ['面向靠垫坐稳，双手握后侧手柄。', '向后打开双臂，将手柄拉向身体两侧。', '缓慢还原至肩胛前伸。'],
+    tips: ['肘部微屈固定。', '想象用肘尖向后画弧。']
+  },
+  'bulgarian-split-squat': {
+    targets: ['股四头肌', '臀大肌'],
+    steps: ['后脚搭在凳面，前脚踩实，持哑铃于体侧。', '垂直下蹲至前腿大腿接近水平。', '前脚发力站起。'],
+    tips: ['重心放在前脚掌偏脚跟。', '躯干微前倾即可，保持平衡。']
+  },
+  'reverse-lunge': {
+    targets: ['股四头肌', '臀大肌', '腘绳肌'],
+    steps: ['持哑铃于体侧站立。', '单腿向后迈出，下蹲至双膝约 90°。', '前脚发力收回站立。'],
+    tips: ['后膝轻触地面但不借力。', '躯干保持直立。']
+  },
+  'step-up': {
+    targets: ['股四头肌', '臀大肌'],
+    steps: ['面向踏板或训练凳站立，持哑铃于体侧。', '单脚踩实踏板，蹬伸站上。', '控制下放回到地面。'],
+    tips: ['踏板高度 30–45cm 为宜。', '全程用踩踏脚发力，不靠后脚蹬地。']
+  },
+  'wall-sit': {
+    targets: ['股四头肌', '臀大肌'],
+    steps: ['背贴墙，双脚前移约一脚半。', '沿墙下滑至大腿与地面平行。', '保持姿势至目标时间。'],
+    tips: ['膝盖不超过脚尖。', '背部全程贴墙，核心收紧。']
+  },
+  'seated-leg-curl': {
+    targets: ['腘绳肌', '腓肠肌'],
+    steps: ['坐姿调整挡垫至脚踝上方。', '腘绳肌发力将挡垫向下压至最大屈膝。', '缓慢还原。'],
+    tips: ['臀部贴紧座椅，不抬臀借力。', '还原时保持张力。']
+  },
+  'good-morning': {
+    targets: ['腘绳肌', '臀大肌', '竖脊肌'],
+    steps: ['杠铃置于上背，站距与肩同宽，膝微屈。', '髋部后移，躯干前俯至接近平行地面。', '伸髋站起还原。'],
+    tips: ['全程保持背部平直。', '用轻重量学习动作模式。']
+  },
+  'nordic-hamstring-curl': {
+    targets: ['腘绳肌'],
+    steps: ['跪姿，脚踝由同伴或器械固定。', '身体缓慢前倒，保持从头到膝成直线。', '用腘绳肌控制下放，必要时用手撑地。'],
+    tips: ['离心为主，循序渐进。', '髋部不要先屈。']
+  },
+  'single-leg-rdl': {
+    targets: ['腘绳肌', '臀大肌', '竖脊肌'],
+    steps: ['单腿站立，持哑铃于体侧。', '髋部后移，躯干前俯，后腿向后抬起。', '身体成 T 形后，伸髋站起。'],
+    tips: ['髋部水平，不旋转骨盆。', '保持支撑腿膝盖微屈。']
+  },
+  'seated-calf-raise': {
+    targets: ['腓肠肌', '比目鱼肌'],
+    steps: ['坐姿将前脚掌踩于踏板，膝盖压住挡垫。', '踝关节发力提起脚跟至最高点。', '缓慢下放至小腿充分拉伸。'],
+    tips: ['底部拉伸 1 秒再起。', '全程匀速，不弹震。']
+  },
+  'leg-press-calf-raise': {
+    targets: ['腓肠肌', '比目鱼肌'],
+    steps: ['坐入腿举机，仅用前脚掌踩踏板。', '踝关节发力将踏板推起至脚尖踮起。', '缓慢下放至小腿拉伸。'],
+    tips: ['膝盖保持微屈不锁死。', '重量选择比腿举小很多。']
+  },
+  'trap-bar-deadlift': {
+    targets: ['臀大肌', '腘绳肌', '股四头肌', '竖脊肌'],
+    steps: ['站入六角杠中央，握两侧把手。', '收紧核心，伸髋伸膝站起。', '控制下放至杠片轻触地面。'],
+    tips: ['六角杠对下背更友好，但同样保持背部平直。', '动作全程杠贴身体。']
+  },
+  'cable-pull-through': {
+    targets: ['臀大肌', '腘绳肌'],
+    steps: ['背对低位滑轮，绳索从两腿间穿过，双手握住。', '髋部后移，躯干前俯。', '伸髋将绳索向前上方拉起至身体直立。'],
+    tips: ['膝盖微屈，重心在脚跟。', '用髋发力，不用腰。']
+  },
+  'dumbbell-hip-thrust': {
+    targets: ['臀大肌', '腘绳肌'],
+    steps: ['上背靠凳，将哑铃置于髋部，双手扶稳。', '臀肌发力将髋推起至躯干与大腿成直线。', '缓慢下放至臀部接近地面。'],
+    tips: ['顶部夹紧臀部 1 秒。', '下巴微收，不抬头挺腰。']
+  },
+  'donkey-kick': {
+    targets: ['臀大肌'],
+    steps: ['四足跪姿，双手撑地。', '保持屈膝，将一侧腿向后上方抬起。', '控制下放还原。'],
+    tips: ['骨盆保持稳定，不翻腰。', '用臀肌发力而非腰部。']
+  },
+  'clamshell': {
+    targets: ['臀中肌'],
+    steps: ['侧卧屈膝，双脚并拢。', '保持骨盆稳定，将上方膝盖向上打开。', '缓慢合拢还原。'],
+    tips: ['脚踝始终并拢。', '可以加弹力带增加阻力。']
+  },
+  'ab-wheel': {
+    targets: ['腹直肌', '腹斜肌', '前锯肌'],
+    steps: ['跪姿持健腹轮，肩部位于轮子正上方。', '核心收紧，向前滚出至身体接近水平。', '腹部发力将轮子拉回。'],
+    tips: ['下背不要塌陷，全程收腹。', '初学者先控制滚出距离。']
+  },
+  'pallof-press': {
+    targets: ['腹斜肌', '腹横肌'],
+    steps: ['侧对龙门架站立，双手将绳索拉至胸前。', '双臂向前伸直推出。', '对抗旋转力，缓慢收回。'],
+    tips: ['骨盆与肩保持正对前方。', '重量从小到大，重在抗旋转。']
+  },
+  'cable-woodchop': {
+    targets: ['腹斜肌', '腹直肌'],
+    steps: ['将滑轮调至高位或低位，双手握把。', '躯干旋转，将把手沿对角线拉向对侧。', '控制还原，完成另一侧。'],
+    tips: ['转动来自躯干而非手臂。', '膝盖微屈，骨盆稳定。']
+  },
+  'reverse-crunch': {
+    targets: ['腹直肌下束'],
+    steps: ['仰卧，双手放于体侧，双腿屈膝抬起。', '腹部发力将髋部卷离地面。', '缓慢下放还原。'],
+    tips: ['用腹肌卷动而非甩腿。', '下放时脚不触地，保持张力。']
+  },
+  'bird-dog': {
+    targets: ['竖脊肌', '腹横肌', '臀大肌'],
+    steps: ['四足跪姿，背部平直。', '同时伸直对侧手臂与腿。', '保持 2 秒后缓慢还原，交替进行。'],
+    tips: ['骨盆保持水平，不旋转。', '动作越慢越有效。']
+  },
+  'hanging-knee-raise': {
+    targets: ['腹直肌下束', '髂腰肌'],
+    steps: ['悬垂于单杠，肩部下沉。', '腹部发力将膝盖抬向胸口。', '缓慢下放至双腿垂直。'],
+    tips: ['不要摆荡借力。', '初学者可先做悬垂提膝。']
+  },
+  'close-grip-bench-press': {
+    targets: ['肱三头肌', '胸大肌内侧'],
+    steps: ['仰卧，双手握距与肩同宽或略窄。', '杠铃下放至下胸，肘部贴近身体。', '三头发力推起至手臂伸直。'],
+    tips: ['握距过窄会增加手腕压力。', '肘部夹角全程保持约 45°。']
+  },
+  'cable-curl': {
+    targets: ['肱二头肌'],
+    steps: ['面对低位滑轮站立，握直杆或绳索。', '大臂固定，弯举至前臂接近垂直。', '缓慢下放至手臂伸直。'],
+    tips: ['肘部贴紧身体不前后移动。', '顶峰收缩 1 秒。']
+  },
+  'concentration-curl': {
+    targets: ['肱二头肌'],
+    steps: ['坐姿，上臂内侧贴住大腿内侧，持哑铃。', '二头发力弯举至顶峰。', '缓慢下放至手臂伸直。'],
+    tips: ['单侧孤立训练，重量不宜大。', '下放 3 秒控制离心。']
+  },
+  'rope-tricep-pushdown': {
+    targets: ['肱三头肌'],
+    steps: ['面对高位滑轮，双手握绳索两端。', '大臂固定，下压至手臂伸直并外分绳头。', '缓慢还原至前臂超过水平。'],
+    tips: ['肘部贴紧身体。', '底部外分绳索，强化三头收缩。']
+  },
+  'dumbbell-skull-crusher': {
+    targets: ['肱三头肌'],
+    steps: ['仰卧持哑铃于胸部上方，手臂伸直。', '肘部固定，将哑铃下放至额头上方。', '三头发力伸肘还原。'],
+    tips: ['肘尖朝上，不要外展。', '重量宁轻勿重，注意安全。']
+  },
+  'farmer-carry': {
+    targets: ['前臂', '斜方肌', '核心'],
+    steps: ['双手各持一只重哑铃于体侧。', '挺胸收腹，正常步幅向前行走。', '走到目标距离或时间。'],
+    tips: ['肩胛下沉，不耸肩。', '步幅稳定，不左右摇晃。']
   }
 };
+
+// FORWARD 器械的演示说明复用最接近的标准动作（保持单一来源，避免重复维护）
+const DETAIL_SOURCE = {
+  // FWS 插片机系列
+  'fwd-fws-001': 'peck-deck', 'fwd-fws-002': 'rosen-sel-lat-pulldown', 'fwd-fws-003': 'rosen-sel-seated-row',
+  'fwd-fws-004': 'chest-press', 'fwd-fws-005': 'machine-shoulder-press', 'fwd-fws-006': 'rosen-sel-bicep',
+  'fwd-fws-008': 'rosen-hm-pullover', 'fwd-fws-009': 'peck-deck', 'fwd-fws-011': 'rosen-ab-crunch',
+  'fwd-fws-012': 'rosen-sel-leg-extension', 'fwd-fws-013': 'rosen-sel-leg-curl', 'fwd-fws-014': 'legpress',
+  'fwd-fws-015': 'rosen-sel-hip', 'fwd-fws-019': 'rosen-hip-thrust', 'fwd-fws-021': 'row',
+  'fwd-fws-022': 'peck-deck', 'fwd-fws-030': 'row', 'fwd-fws-031': 'row', 'fwd-fws-032': 'cable-fly',
+  'fwd-fws-033': 'row', 'fwd-fws-034': 'row', 'fwd-fws-035': 'row',
+  // FWHM 分动式挂片系列
+  'fwd-fwhm-001': 'rosen-hm-bench-press', 'fwd-fwhm-002': 'rosen-hm-shoulder-press',
+  'fwd-fwhm-003': 'rosen-sel-hip', 'fwd-fwhm-004': 'rosen-hm-seated-row', 'fwd-fwhm-005': 'rosen-hm-lat-pulldown',
+  'fwd-fwhm-006': 'rosen-hm-low-row', 'fwd-fwhm-007': 'rosen-hm-lat-pulldown', 'fwd-fwhm-008': 'rosen-hm-bicep',
+  'fwd-fwhm-009': 'rosen-sel-lateral', 'fwd-fwhm-010': 'rosen-hm-incline-press',
+  'fwd-fwhm-012': 'rosen-sel-leg-curl', 'fwd-fwhm-013': 'rosen-sel-leg-extension',
+  'fwd-fwhm-014': 'peck-deck', 'fwd-fwhm-015': 'peck-deck', 'fwd-fwhm-016': 'rosen-hack-squat',
+  'fwd-fwhm-017': 'rosen-hack-squat', 'fwd-fwhm-018': 'legpress', 'fwd-fwhm-021': 'rosen-hack-squat',
+  'fwd-fwhm-023': 'rosen-hip-thrust', 'fwd-fwhm-024': 'rosen-hip-thrust', 'fwd-fwhm-025': 'dip',
+  'fwd-fwhm-031': 'rosen-hm-pullover', 'fwd-fwhm-032': 'rosen-hack-squat', 'fwd-fwhm-033': 'rosen-hack-squat',
+  'fwd-fwhm-034': 'rosen-sel-hip', 'fwd-fwhm-035': 'rosen-hm-seated-row',
+  // RRS 皇家插片机系列
+  'fwd-rrs-001': 'peck-deck', 'fwd-rrs-002': 'rosen-sel-lat-pulldown', 'fwd-rrs-003': 'row',
+  'fwd-rrs-004': 'chest-press', 'fwd-rrs-005': 'machine-shoulder-press', 'fwd-rrs-006': 'rosen-sel-bicep',
+  'fwd-rrs-007': 'rosen-hm-incline-press', 'fwd-rrs-008': 'rosen-hm-pullover',
+  'fwd-rrs-012': 'rosen-sel-leg-extension', 'fwd-rrs-013': 'rosen-sel-leg-curl', 'fwd-rrs-014': 'legpress',
+  'fwd-rrs-015': 'rosen-sel-hip', 'fwd-rrs-018': 'rosen-sel-seated-row', 'fwd-rrs-022': 'peck-deck',
+  'fwd-rrs-023': 'rosen-sel-leg-curl'
+};
+
+function detailsOf(id) {
+  return module.exports[id] || module.exports[DETAIL_SOURCE[id]] || {};
+}
+
+module.exports.DETAIL_SOURCE = DETAIL_SOURCE;
+module.exports.detailsOf = detailsOf;

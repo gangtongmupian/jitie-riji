@@ -42,3 +42,17 @@ test('motion: ROSEN 固定器械模板男女分开且引用有效', () => {
     }
   }
 });
+
+test('motion: FORWARD 固定器械模板男女分开且引用有效', () => {
+  const templates = require('../miniprogram/data/templates');
+  const fwd = templates.filter((t) => t.id.indexOf('forward-') === 0);
+  assert.equal(fwd.length, 2, '应存在男/女两套 FORWARD 器械模板');
+  assert.ok(fwd.some((t) => t.genderHint === 'male'), '缺少男版 FORWARD 模板');
+  assert.ok(fwd.some((t) => t.genderHint === 'female'), '缺少女版 FORWARD 模板');
+  const ids = new Set(exercises.map((e) => e.id));
+  for (const t of fwd) {
+    for (const x of t.exercises) {
+      assert.ok(ids.has(x.exerciseId), `模板 ${t.id} 引用了不存在的动作 ${x.exerciseId}`);
+    }
+  }
+});

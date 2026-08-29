@@ -8,6 +8,7 @@ const exerciseDetails = require('../../data/exercise-details');
 const motion = require('../../utils/motion');
 const config = require('../../config');
 const rosenMachines = require('../../data/rosen-machines');
+const forwardMachines = require('../../data/forward-machines');
 
 const BODY_ORDER = ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'];
 
@@ -103,7 +104,7 @@ Page({
       glyph: motion.resolveGlyph(e),
       motion: motion.resolveMotion(e),
       animKey: motion.resolveAnimSlug(e),
-      machine: rosenMachines[e.id] || null
+      machine: rosenMachines[e.id] || forwardMachines[e.id] || null
     });
   },
   enrich(exercises) {
@@ -257,7 +258,7 @@ Page({
     const id = e.currentTarget.dataset.id;
     const ex = this.data.allExercises.find((x) => x.id === id);
     if (!ex) return;
-    const d = exerciseDetails[id] || {};
+    const d = (exerciseDetails.detailsOf ? exerciseDetails.detailsOf(id) : exerciseDetails[id]) || {};
     const profile = storage.getProfile();
     let weights = null;
     if (ex.weighted && profile && profile.gender && profile.weightKg) {
@@ -274,7 +275,7 @@ Page({
         glyph: ex.glyph || motion.resolveGlyph(ex),
         motion: ex.motion || motion.resolveMotion(ex),
         animKey: ex.animKey || motion.resolveAnimSlug(ex),
-        machine: ex.machine || rosenMachines[ex.id] || null,
+        machine: ex.machine || rosenMachines[ex.id] || forwardMachines[ex.id] || null,
         targets: d.targets || [],
         steps: d.steps || [],
         tips: d.tips || [],

@@ -61,6 +61,28 @@ const templates = [
     ]
   },
   {
+    id: 'forward-machine-m', name: 'FORWARD器械 · 男版', goal: '增肌', genderHint: 'male', frequency: 3,
+    exercises: [
+      { exerciseId: 'fwd-fwhm-001', sets: 4, repRange: [8, 12] },
+      { exerciseId: 'fwd-fwhm-005', sets: 4, repRange: [10, 12] },
+      { exerciseId: 'fwd-fwhm-004', sets: 3, repRange: [10, 12] },
+      { exerciseId: 'fwd-fwhm-002', sets: 3, repRange: [8, 12] },
+      { exerciseId: 'fwd-fws-014', sets: 4, repRange: [10, 15] },
+      { exerciseId: 'fwd-fwhm-008', sets: 3, repRange: [10, 15] }
+    ]
+  },
+  {
+    id: 'forward-machine-f', name: 'FORWARD器械 · 女版', goal: '塑形', genderHint: 'female', frequency: 3,
+    exercises: [
+      { exerciseId: 'fwd-rrs-004', sets: 3, repRange: [10, 12] },
+      { exerciseId: 'fwd-rrs-002', sets: 3, repRange: [10, 12] },
+      { exerciseId: 'fwd-fws-019', sets: 4, repRange: [12, 15] },
+      { exerciseId: 'fwd-fws-015', sets: 3, repRange: [15, 20] },
+      { exerciseId: 'fwd-fws-012', sets: 3, repRange: [12, 15] },
+      { exerciseId: 'fwd-fws-013', sets: 3, repRange: [12, 15] }
+    ]
+  },
+  {
     id: 'pro-gain', name: '进阶计划 · 增肌', goal: '增肌', genderHint: 'all', premium: true, frequency: 5,
     exercises: [
       { exerciseId: 'bench', sets: 4, repRange: [6, 10] },

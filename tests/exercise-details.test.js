@@ -5,7 +5,7 @@ const details = require('../miniprogram/data/exercise-details');
 
 test('every exercise has details with targets/steps/tips', () => {
   for (const ex of exercises) {
-    const d = details[ex.id];
+    const d = details.detailsOf ? details.detailsOf(ex.id) : details[ex.id];
     assert.ok(d, '缺少演示说明: ' + ex.id);
     assert.ok(Array.isArray(d.targets) && d.targets.length > 0, ex.id + ' 缺少目标肌群');
     assert.ok(Array.isArray(d.steps) && d.steps.length > 0, ex.id + ' 缺少动作要领');
@@ -15,5 +15,8 @@ test('every exercise has details with targets/steps/tips', () => {
 
 test('details ids are consistent with exercises', () => {
   const ids = new Set(exercises.map((e) => e.id));
-  Object.keys(details).forEach((id) => assert.ok(ids.has(id), '未知动作 id: ' + id));
+  Object.keys(details).forEach((id) => {
+    const v = details[id];
+    if (v && Array.isArray(v.targets)) assert.ok(ids.has(id), '未知动作 id: ' + id);
+  });
 });

@@ -1,44 +1,8 @@
 [
   {
-    "id": "squat",
-    "name": "杠铃深蹲",
-    "bodyPart": "腿",
-    "equipment": "杠铃",
-    "weighted": true,
-    "pcts": {
-      "male": {
-        "novice": [
-          0.4,
-          0.6
-        ],
-        "intermediate": [
-          0.6,
-          0.8
-        ],
-        "advanced": [
-          0.8,
-          1
-        ]
-      },
-      "female": {
-        "novice": [
-          0.25,
-          0.4
-        ],
-        "intermediate": [
-          0.4,
-          0.55
-        ],
-        "advanced": [
-          0.55,
-          0.7
-        ]
-      }
-    }
-  },
-  {
     "id": "bench",
     "name": "杠铃卧推",
+    "enName": "Barbell Bench Press",
     "bodyPart": "胸",
     "equipment": "杠铃",
     "weighted": true,
@@ -74,8 +38,329 @@
     }
   },
   {
+    "id": "incline-bench",
+    "name": "上斜杠铃卧推",
+    "enName": "Incline Barbell Press",
+    "bodyPart": "胸",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.35,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.95
+        ]
+      },
+      "female": {
+        "novice": [
+          0.18,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.45
+        ],
+        "advanced": [
+          0.45,
+          0.6
+        ]
+      }
+    }
+  },
+  {
+    "id": "decline-bench",
+    "name": "下斜杠铃卧推",
+    "enName": "Decline Barbell Press",
+    "bodyPart": "胸",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    }
+  },
+  {
+    "id": "db-bench",
+    "name": "哑铃卧推",
+    "enName": "Dumbbell Bench Press",
+    "bodyPart": "胸",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.08,
+          0.14
+        ],
+        "intermediate": [
+          0.14,
+          0.2
+        ],
+        "advanced": [
+          0.2,
+          0.26
+        ]
+      }
+    }
+  },
+  {
+    "id": "incline-db",
+    "name": "上斜哑铃卧推",
+    "enName": "Incline Dumbbell Press",
+    "bodyPart": "胸",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.13,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.35
+        ]
+      },
+      "female": {
+        "novice": [
+          0.07,
+          0.12
+        ],
+        "intermediate": [
+          0.12,
+          0.18
+        ],
+        "advanced": [
+          0.18,
+          0.24
+        ]
+      }
+    }
+  },
+  {
+    "id": "chest-press",
+    "name": "坐姿推胸",
+    "enName": "Machine Chest Press",
+    "bodyPart": "胸",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    }
+  },
+  {
+    "id": "peck-deck",
+    "name": "蝴蝶机夹胸",
+    "enName": "Pec Deck Fly",
+    "bodyPart": "胸",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "cable-fly",
+    "name": "绳索夹胸",
+    "enName": "Cable Crossover",
+    "bodyPart": "胸",
+    "equipment": "绳索",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "fly",
+    "name": "哑铃飞鸟",
+    "enName": "Dumbbell Fly",
+    "bodyPart": "胸",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.08,
+          0.12
+        ],
+        "intermediate": [
+          0.12,
+          0.16
+        ],
+        "advanced": [
+          0.16,
+          0.2
+        ]
+      },
+      "female": {
+        "novice": [
+          0.05,
+          0.08
+        ],
+        "intermediate": [
+          0.08,
+          0.12
+        ],
+        "advanced": [
+          0.12,
+          0.15
+        ]
+      }
+    }
+  },
+  {
+    "id": "pushup",
+    "name": "俯卧撑",
+    "enName": "Push-Up",
+    "bodyPart": "胸",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "dip",
+    "name": "双杠臂屈伸",
+    "enName": "Chest Dip",
+    "bodyPart": "胸",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
     "id": "deadlift",
     "name": "硬拉",
+    "enName": "Deadlift",
     "bodyPart": "背",
     "equipment": "杠铃",
     "weighted": true,
@@ -113,6 +398,7 @@
   {
     "id": "row",
     "name": "坐姿划船",
+    "enName": "Seated Cable Row",
     "bodyPart": "背",
     "equipment": "器械",
     "weighted": true,
@@ -148,13 +434,66 @@
     }
   },
   {
-    "id": "ohp",
-    "name": "哑铃推举",
-    "bodyPart": "肩",
+    "id": "bentover-row",
+    "name": "杠铃俯身划船",
+    "enName": "Barbell Bent-Over Row",
+    "bodyPart": "背",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "one-arm-row",
+    "name": "单臂哑铃划船",
+    "enName": "One-Arm Dumbbell Row",
+    "bodyPart": "背",
     "equipment": "哑铃",
     "weighted": true,
     "pcts": {
       "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
         "novice": [
           0.12,
           0.2
@@ -167,93 +506,249 @@
           0.28,
           0.36
         ]
-      },
-      "female": {
-        "novice": [
-          0.08,
-          0.14
-        ],
-        "intermediate": [
-          0.14,
-          0.2
-        ],
-        "advanced": [
-          0.2,
-          0.26
-        ]
       }
     }
   },
   {
-    "id": "curl",
-    "name": "哑铃弯举",
-    "bodyPart": "手臂",
-    "equipment": "哑铃",
+    "id": "lat-pulldown",
+    "name": "高位下拉",
+    "enName": "Lat Pulldown",
+    "bodyPart": "背",
+    "equipment": "绳索",
     "weighted": true,
     "pcts": {
       "male": {
         "novice": [
-          0.08,
-          0.12
+          0.45,
+          0.6
         ],
         "intermediate": [
-          0.12,
-          0.16
+          0.6,
+          0.75
         ],
         "advanced": [
-          0.16,
-          0.2
+          0.75,
+          0.9
         ]
       },
       "female": {
         "novice": [
-          0.05,
-          0.08
+          0.3,
+          0.45
         ],
         "intermediate": [
-          0.08,
-          0.12
+          0.45,
+          0.6
         ],
         "advanced": [
-          0.12,
-          0.15
+          0.6,
+          0.75
         ]
       }
     }
   },
   {
-    "id": "pushdown",
-    "name": "绳索下压",
-    "bodyPart": "手臂",
+    "id": "pullup",
+    "name": "引体向上",
+    "enName": "Pull-Up",
+    "bodyPart": "背",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "chinup",
+    "name": "反手引体向上",
+    "enName": "Chin-Up",
+    "bodyPart": "背",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "tbar-row",
+    "name": "T杠划船",
+    "enName": "T-Bar Row",
+    "bodyPart": "背",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "shrug",
+    "name": "杠铃耸肩",
+    "enName": "Barbell Shrug",
+    "bodyPart": "背",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.5,
+          0.7
+        ],
+        "intermediate": [
+          0.7,
+          0.9
+        ],
+        "advanced": [
+          0.9,
+          1.1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      }
+    }
+  },
+  {
+    "id": "face-pull",
+    "name": "面拉",
+    "enName": "Face Pull",
+    "bodyPart": "背",
     "equipment": "绳索",
     "weighted": true,
     "pcts": {
       "male": {
         "novice": [
           0.15,
-          0.22
+          0.2
         ],
         "intermediate": [
-          0.22,
-          0.3
+          0.2,
+          0.25
         ],
         "advanced": [
-          0.3,
-          0.38
+          0.25,
+          0.3
         ]
       },
       "female": {
         "novice": [
           0.1,
-          0.16
+          0.14
         ],
         "intermediate": [
-          0.16,
-          0.22
+          0.14,
+          0.18
         ],
         "advanced": [
-          0.22,
-          0.28
+          0.18,
+          0.22
+        ]
+      }
+    }
+  },
+  {
+    "id": "squat",
+    "name": "杠铃深蹲",
+    "enName": "Barbell Back Squat",
+    "bodyPart": "腿",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "front-squat",
+    "name": "杠铃前蹲",
+    "enName": "Front Squat",
+    "bodyPart": "腿",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.35,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.95
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
         ]
       }
     }
@@ -261,6 +756,7 @@
   {
     "id": "legpress",
     "name": "腿举",
+    "enName": "Leg Press",
     "bodyPart": "腿",
     "equipment": "器械",
     "weighted": true,
@@ -296,31 +792,5711 @@
     }
   },
   {
-    "id": "pullup",
-    "name": "引体向上",
-    "bodyPart": "背",
+    "id": "hack-squat",
+    "name": "哈克深蹲",
+    "enName": "Hack Squat",
+    "bodyPart": "腿",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.5,
+          0.7
+        ],
+        "intermediate": [
+          0.7,
+          0.9
+        ],
+        "advanced": [
+          0.9,
+          1.1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.3,
+          0.5
+        ],
+        "intermediate": [
+          0.5,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.9
+        ]
+      }
+    }
+  },
+  {
+    "id": "goblet-squat",
+    "name": "高脚杯深蹲",
+    "enName": "Goblet Squat",
+    "bodyPart": "腿",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.25
+        ],
+        "intermediate": [
+          0.25,
+          0.35
+        ],
+        "advanced": [
+          0.35,
+          0.45
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.18
+        ],
+        "intermediate": [
+          0.18,
+          0.26
+        ],
+        "advanced": [
+          0.26,
+          0.34
+        ]
+      }
+    }
+  },
+  {
+    "id": "rdl",
+    "name": "罗马尼亚硬拉",
+    "enName": "Romanian Deadlift",
+    "bodyPart": "腿",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.5,
+          0.7
+        ],
+        "intermediate": [
+          0.7,
+          0.9
+        ],
+        "advanced": [
+          0.9,
+          1.1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      }
+    }
+  },
+  {
+    "id": "lunge",
+    "name": "哑铃弓步蹲",
+    "enName": "Dumbbell Lunge",
+    "bodyPart": "腿",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.25
+        ],
+        "intermediate": [
+          0.25,
+          0.35
+        ],
+        "advanced": [
+          0.35,
+          0.45
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.18
+        ],
+        "intermediate": [
+          0.18,
+          0.26
+        ],
+        "advanced": [
+          0.26,
+          0.34
+        ]
+      }
+    }
+  },
+  {
+    "id": "leg-extension",
+    "name": "腿屈伸",
+    "enName": "Leg Extension",
+    "bodyPart": "腿",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "leg-curl",
+    "name": "俯卧腿弯举",
+    "enName": "Lying Leg Curl",
+    "bodyPart": "腿",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "calf-raise",
+    "name": "站姿提踵",
+    "enName": "Standing Calf Raise",
+    "bodyPart": "腿",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.5,
+          0.7
+        ],
+        "intermediate": [
+          0.7,
+          0.9
+        ],
+        "advanced": [
+          0.9,
+          1.1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      }
+    }
+  },
+  {
+    "id": "sumo-deadlift",
+    "name": "相扑硬拉",
+    "enName": "Sumo Deadlift",
+    "bodyPart": "腿",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.55,
+          0.8
+        ],
+        "intermediate": [
+          0.8,
+          1.1
+        ],
+        "advanced": [
+          1.1,
+          1.4
+        ]
+      },
+      "female": {
+        "novice": [
+          0.35,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.95
+        ]
+      }
+    }
+  },
+  {
+    "id": "hipbridge",
+    "name": "臀桥",
+    "enName": "Hip Bridge",
+    "bodyPart": "臀腿",
     "equipment": "自重",
     "weighted": false
   },
   {
-    "id": "pushup",
-    "name": "俯卧撑",
-    "bodyPart": "胸",
+    "id": "hip-thrust",
+    "name": "杠铃臀推",
+    "enName": "Barbell Hip Thrust",
+    "bodyPart": "臀腿",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.5,
+          0.7
+        ],
+        "intermediate": [
+          0.7,
+          0.9
+        ],
+        "advanced": [
+          0.9,
+          1.1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.35,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.95
+        ]
+      }
+    }
+  },
+  {
+    "id": "glute-kickback",
+    "name": "绳索后踢腿",
+    "enName": "Cable Glute Kickback",
+    "bodyPart": "臀腿",
+    "equipment": "绳索",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.1,
+          0.15
+        ],
+        "intermediate": [
+          0.15,
+          0.2
+        ],
+        "advanced": [
+          0.2,
+          0.25
+        ]
+      },
+      "female": {
+        "novice": [
+          0.08,
+          0.12
+        ],
+        "intermediate": [
+          0.12,
+          0.16
+        ],
+        "advanced": [
+          0.16,
+          0.2
+        ]
+      }
+    }
+  },
+  {
+    "id": "hip-abduction",
+    "name": "坐姿腿外展",
+    "enName": "Hip Abduction",
+    "bodyPart": "臀腿",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      }
+    }
+  },
+  {
+    "id": "ohp",
+    "name": "哑铃推举",
+    "enName": "Dumbbell Shoulder Press",
+    "bodyPart": "肩",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      },
+      "female": {
+        "novice": [
+          0.08,
+          0.14
+        ],
+        "intermediate": [
+          0.14,
+          0.2
+        ],
+        "advanced": [
+          0.2,
+          0.26
+        ]
+      }
+    }
+  },
+  {
+    "id": "barbell-ohp",
+    "name": "杠铃推举",
+    "enName": "Overhead Press",
+    "bodyPart": "肩",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.25
+        ],
+        "intermediate": [
+          0.25,
+          0.35
+        ],
+        "advanced": [
+          0.35,
+          0.45
+        ]
+      }
+    }
+  },
+  {
+    "id": "arnold-press",
+    "name": "阿诺德推举",
+    "enName": "Arnold Press",
+    "bodyPart": "肩",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      },
+      "female": {
+        "novice": [
+          0.06,
+          0.1
+        ],
+        "intermediate": [
+          0.1,
+          0.14
+        ],
+        "advanced": [
+          0.14,
+          0.18
+        ]
+      }
+    }
+  },
+  {
+    "id": "lateral-raise",
+    "name": "哑铃侧平举",
+    "enName": "Dumbbell Lateral Raise",
+    "bodyPart": "肩",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.06,
+          0.1
+        ],
+        "intermediate": [
+          0.1,
+          0.14
+        ],
+        "advanced": [
+          0.14,
+          0.18
+        ]
+      },
+      "female": {
+        "novice": [
+          0.04,
+          0.07
+        ],
+        "intermediate": [
+          0.07,
+          0.1
+        ],
+        "advanced": [
+          0.1,
+          0.13
+        ]
+      }
+    }
+  },
+  {
+    "id": "front-raise",
+    "name": "哑铃前平举",
+    "enName": "Dumbbell Front Raise",
+    "bodyPart": "肩",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.06,
+          0.1
+        ],
+        "intermediate": [
+          0.1,
+          0.14
+        ],
+        "advanced": [
+          0.14,
+          0.18
+        ]
+      },
+      "female": {
+        "novice": [
+          0.04,
+          0.07
+        ],
+        "intermediate": [
+          0.07,
+          0.1
+        ],
+        "advanced": [
+          0.1,
+          0.13
+        ]
+      }
+    }
+  },
+  {
+    "id": "rear-delt-fly",
+    "name": "俯身哑铃飞鸟",
+    "enName": "Rear Delt Fly",
+    "bodyPart": "肩",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.06,
+          0.1
+        ],
+        "intermediate": [
+          0.1,
+          0.14
+        ],
+        "advanced": [
+          0.14,
+          0.18
+        ]
+      },
+      "female": {
+        "novice": [
+          0.04,
+          0.07
+        ],
+        "intermediate": [
+          0.07,
+          0.1
+        ],
+        "advanced": [
+          0.1,
+          0.13
+        ]
+      }
+    }
+  },
+  {
+    "id": "upright-row",
+    "name": "杠铃直立划船",
+    "enName": "Barbell Upright Row",
+    "bodyPart": "肩",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "curl",
+    "name": "哑铃弯举",
+    "enName": "Dumbbell Curl",
+    "bodyPart": "手臂",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.08,
+          0.12
+        ],
+        "intermediate": [
+          0.12,
+          0.16
+        ],
+        "advanced": [
+          0.16,
+          0.2
+        ]
+      },
+      "female": {
+        "novice": [
+          0.05,
+          0.08
+        ],
+        "intermediate": [
+          0.08,
+          0.12
+        ],
+        "advanced": [
+          0.12,
+          0.15
+        ]
+      }
+    }
+  },
+  {
+    "id": "barbell-curl",
+    "name": "杠铃弯举",
+    "enName": "Barbell Curl",
+    "bodyPart": "手臂",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "hammer-curl",
+    "name": "锤式弯举",
+    "enName": "Hammer Curl",
+    "bodyPart": "手臂",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.08,
+          0.12
+        ],
+        "intermediate": [
+          0.12,
+          0.16
+        ],
+        "advanced": [
+          0.16,
+          0.2
+        ]
+      },
+      "female": {
+        "novice": [
+          0.05,
+          0.08
+        ],
+        "intermediate": [
+          0.08,
+          0.12
+        ],
+        "advanced": [
+          0.12,
+          0.15
+        ]
+      }
+    }
+  },
+  {
+    "id": "preacher-curl",
+    "name": "牧师椅弯举",
+    "enName": "Preacher Curl",
+    "bodyPart": "手臂",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "pushdown",
+    "name": "绳索下压",
+    "enName": "Triceps Pushdown",
+    "bodyPart": "手臂",
+    "equipment": "绳索",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "skull-crusher",
+    "name": "仰卧杠铃臂屈伸",
+    "enName": "Skull Crusher",
+    "bodyPart": "手臂",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "overhead-extension",
+    "name": "绳索过头臂屈伸",
+    "enName": "Overhead Triceps Extension",
+    "bodyPart": "手臂",
+    "equipment": "绳索",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.12,
+          0.18
+        ],
+        "intermediate": [
+          0.18,
+          0.24
+        ],
+        "advanced": [
+          0.24,
+          0.3
+        ]
+      },
+      "female": {
+        "novice": [
+          0.08,
+          0.12
+        ],
+        "intermediate": [
+          0.12,
+          0.16
+        ],
+        "advanced": [
+          0.16,
+          0.2
+        ]
+      }
+    }
+  },
+  {
+    "id": "bench-dip",
+    "name": "凳上臂屈伸",
+    "enName": "Bench Dip",
+    "bodyPart": "手臂",
     "equipment": "自重",
     "weighted": false
   },
   {
     "id": "crunch",
     "name": "卷腹",
+    "enName": "Crunch",
     "bodyPart": "核心",
     "equipment": "自重",
     "weighted": false
   },
   {
-    "id": "hipbridge",
-    "name": "臀桥",
+    "id": "plank",
+    "name": "平板支撑",
+    "enName": "Plank",
+    "bodyPart": "核心",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "side-plank",
+    "name": "侧平板支撑",
+    "enName": "Side Plank",
+    "bodyPart": "核心",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "russian-twist",
+    "name": "俄罗斯转体",
+    "enName": "Russian Twist",
+    "bodyPart": "核心",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "leg-raise",
+    "name": "悬垂举腿",
+    "enName": "Hanging Leg Raise",
+    "bodyPart": "核心",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "mountain-climber",
+    "name": "登山跑",
+    "enName": "Mountain Climber",
+    "bodyPart": "核心",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "dead-bug",
+    "name": "死虫式",
+    "enName": "Dead Bug",
+    "bodyPart": "核心",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "cable-crunch",
+    "name": "绳索卷腹",
+    "enName": "Cable Crunch",
+    "bodyPart": "核心",
+    "equipment": "绳索",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.25,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.45
+        ],
+        "advanced": [
+          0.45,
+          0.55
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-hm-bench-press",
+    "name": "ROSEN分动式平卧推胸机",
+    "enName": "Plate-Loaded Chest Press (HM-1009)",
+    "bodyPart": "胸",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-hm-incline-press",
+    "name": "ROSEN分动式上斜推胸机",
+    "enName": "Incline Chest Press (HM-1004)",
+    "bodyPart": "胸",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.35,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.95
+        ]
+      },
+      "female": {
+        "novice": [
+          0.18,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.45
+        ],
+        "advanced": [
+          0.45,
+          0.6
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-hm-decline-press",
+    "name": "ROSEN分动式下斜推胸机",
+    "enName": "Decline Chest Press",
+    "bodyPart": "胸",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-sel-chest-press",
+    "name": "ROSEN插片坐姿推胸机",
+    "enName": "Selectorized Chest Press",
+    "bodyPart": "胸",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.35,
+          0.5
+        ],
+        "intermediate": [
+          0.5,
+          0.65
+        ],
+        "advanced": [
+          0.65,
+          0.8
+        ]
+      },
+      "female": {
+        "novice": [
+          0.18,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.42
+        ],
+        "advanced": [
+          0.42,
+          0.55
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-cable-fly",
+    "name": "ROSEN小飞鸟训练器",
+    "enName": "Crossover (LJ-1027)",
+    "bodyPart": "胸",
+    "equipment": "绳索",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-hm-lat-pulldown",
+    "name": "ROSEN分动式前高拉背机",
+    "enName": "Plate-Loaded High Row (HM-1002)",
+    "bodyPart": "背",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-hm-seated-row",
+    "name": "ROSEN分动式划艇拉背机",
+    "enName": "Plate-Loaded Row (HM-1001)",
+    "bodyPart": "背",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-hm-low-row",
+    "name": "ROSEN分动式划艇低拉背机",
+    "enName": "Plate-Loaded Low Row (HM-1014)",
+    "bodyPart": "背",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-hm-pullover",
+    "name": "ROSEN臂下压背肌机",
+    "enName": "Pullover (HM-1017)",
+    "bodyPart": "背",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-sel-lat-pulldown",
+    "name": "ROSEN插片高拉背机",
+    "enName": "Selectorized Lat Pulldown",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-sel-seated-row",
+    "name": "ROSEN插片坐姿划船机",
+    "enName": "Selectorized Seated Row",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-leg-press45",
+    "name": "ROSEN 45°腿举机",
+    "enName": "45° Leg Press",
+    "bodyPart": "腿",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          1.2,
+          1.6
+        ],
+        "intermediate": [
+          1.6,
+          2
+        ],
+        "advanced": [
+          2,
+          2.4
+        ]
+      },
+      "female": {
+        "novice": [
+          0.8,
+          1.2
+        ],
+        "intermediate": [
+          1.2,
+          1.5
+        ],
+        "advanced": [
+          1.5,
+          1.8
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-hack-squat",
+    "name": "ROSEN摆锤深蹲机",
+    "enName": "Pendulum Squat",
+    "bodyPart": "腿",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.5,
+          0.7
+        ],
+        "intermediate": [
+          0.7,
+          0.9
+        ],
+        "advanced": [
+          0.9,
+          1.1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.3,
+          0.5
+        ],
+        "intermediate": [
+          0.5,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.9
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-sel-leg-extension",
+    "name": "ROSEN插片腿屈伸机",
+    "enName": "Selectorized Leg Extension",
+    "bodyPart": "腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-sel-leg-curl",
+    "name": "ROSEN插片俯卧腿弯举机",
+    "enName": "Selectorized Lying Leg Curl",
+    "bodyPart": "腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-sel-calf",
+    "name": "ROSEN插片坐姿提踵机",
+    "enName": "Selectorized Seated Calf Raise",
+    "bodyPart": "腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.5,
+          0.7
+        ],
+        "intermediate": [
+          0.7,
+          0.9
+        ],
+        "advanced": [
+          0.9,
+          1.1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-hm-shoulder-press",
+    "name": "ROSEN分动式推肩机",
+    "enName": "Plate-Loaded Shoulder Press (HM-1020)",
+    "bodyPart": "肩",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-sel-shoulder-press",
+    "name": "ROSEN坐式举肩训练器",
+    "enName": "Seated Shoulder Press (LJ-1005)",
+    "bodyPart": "肩",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.18,
+          0.28
+        ],
+        "intermediate": [
+          0.28,
+          0.38
+        ],
+        "advanced": [
+          0.38,
+          0.48
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.18
+        ],
+        "intermediate": [
+          0.18,
+          0.26
+        ],
+        "advanced": [
+          0.26,
+          0.34
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-sel-lateral",
+    "name": "ROSEN插片侧平举机",
+    "enName": "Selectorized Lateral Raise",
+    "bodyPart": "肩",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.06,
+          0.1
+        ],
+        "intermediate": [
+          0.1,
+          0.14
+        ],
+        "advanced": [
+          0.14,
+          0.18
+        ]
+      },
+      "female": {
+        "novice": [
+          0.04,
+          0.07
+        ],
+        "intermediate": [
+          0.07,
+          0.1
+        ],
+        "advanced": [
+          0.1,
+          0.13
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-hm-bicep",
+    "name": "ROSEN坐式二头肌训练器",
+    "enName": "Plate-Loaded Biceps Curl (HM-1015)",
+    "bodyPart": "手臂",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-hm-tricep",
+    "name": "ROSEN坐式下压三头肌训练器",
+    "enName": "Plate-Loaded Triceps Extension (HM-1016)",
+    "bodyPart": "手臂",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-sel-bicep",
+    "name": "ROSEN二头肌训练器",
+    "enName": "Biceps Curl (LJ-1002)",
+    "bodyPart": "手臂",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.12,
+          0.18
+        ],
+        "intermediate": [
+          0.18,
+          0.24
+        ],
+        "advanced": [
+          0.24,
+          0.3
+        ]
+      },
+      "female": {
+        "novice": [
+          0.08,
+          0.12
+        ],
+        "intermediate": [
+          0.12,
+          0.16
+        ],
+        "advanced": [
+          0.16,
+          0.2
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-sel-hip",
+    "name": "ROSEN大腿内外侧训练器",
+    "enName": "Hip Adduction/Abduction (LJ-1017)",
+    "bodyPart": "臀腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-hip-thrust",
+    "name": "ROSEN臀推机",
+    "enName": "Hip Thrust Machine",
+    "bodyPart": "臀腿",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.5,
+          0.7
+        ],
+        "intermediate": [
+          0.7,
+          0.9
+        ],
+        "advanced": [
+          0.9,
+          1.1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.35,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.95
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-ab-crunch",
+    "name": "ROSEN腹肌训练器",
+    "enName": "Ab Crunch Machine",
+    "bodyPart": "核心",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.25,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.45
+        ],
+        "advanced": [
+          0.45,
+          0.55
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      }
+    }
+  },
+  {
+    "id": "rosen-back-extension",
+    "name": "ROSEN罗马椅挺身",
+    "enName": "Back Extension Bench",
+    "bodyPart": "背",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "smith-machine-bench-press",
+    "name": "史密斯卧推",
+    "enName": "Smith Machine Bench Press",
+    "bodyPart": "胸",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    }
+  },
+  {
+    "id": "incline-cable-fly",
+    "name": "上斜绳索夹胸",
+    "enName": "Incline Cable Fly",
+    "bodyPart": "胸",
+    "equipment": "绳索",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "decline-dumbbell-press",
+    "name": "下斜哑铃卧推",
+    "enName": "Decline Dumbbell Press",
+    "bodyPart": "胸",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.08,
+          0.14
+        ],
+        "intermediate": [
+          0.14,
+          0.2
+        ],
+        "advanced": [
+          0.2,
+          0.26
+        ]
+      }
+    }
+  },
+  {
+    "id": "weighted-push-up",
+    "name": "负重俯卧撑",
+    "enName": "Weighted Push-Up",
+    "bodyPart": "胸",
+    "equipment": "自重",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.25
+        ],
+        "intermediate": [
+          0.25,
+          0.35
+        ],
+        "advanced": [
+          0.35,
+          0.45
+        ]
+      },
+      "female": {
+        "novice": [
+          0.08,
+          0.15
+        ],
+        "intermediate": [
+          0.15,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.3
+        ]
+      }
+    }
+  },
+  {
+    "id": "chest-supported-row",
+    "name": "上斜板划船",
+    "enName": "Chest Supported Row",
+    "bodyPart": "背",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "pendlay-row",
+    "name": "潘德雷划船",
+    "enName": "Pendlay Row",
+    "bodyPart": "背",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "single-arm-cable-row",
+    "name": "单臂绳索划船",
+    "enName": "Single-Arm Cable Row",
+    "bodyPart": "背",
+    "equipment": "绳索",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "rack-pull",
+    "name": "架上拉",
+    "enName": "Rack Pull",
+    "bodyPart": "背",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.8,
+          1.1
+        ],
+        "intermediate": [
+          1.1,
+          1.4
+        ],
+        "advanced": [
+          1.4,
+          1.7
+        ]
+      },
+      "female": {
+        "novice": [
+          0.5,
+          0.75
+        ],
+        "intermediate": [
+          0.75,
+          1
+        ],
+        "advanced": [
+          1,
+          1.25
+        ]
+      }
+    }
+  },
+  {
+    "id": "inverted-row",
+    "name": "反向划船",
+    "enName": "Inverted Row",
+    "bodyPart": "背",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "straight-arm-pulldown",
+    "name": "直臂下压",
+    "enName": "Straight-Arm Pulldown",
+    "bodyPart": "背",
+    "equipment": "绳索",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.25,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.45
+        ],
+        "advanced": [
+          0.45,
+          0.55
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      }
+    }
+  },
+  {
+    "id": "dumbbell-shrug",
+    "name": "哑铃耸肩",
+    "enName": "Dumbbell Shrug",
+    "bodyPart": "背",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.25,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.45
+        ],
+        "advanced": [
+          0.45,
+          0.55
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      }
+    }
+  },
+  {
+    "id": "machine-shoulder-press",
+    "name": "器械推肩",
+    "enName": "Machine Shoulder Press",
+    "bodyPart": "肩",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.25
+        ],
+        "intermediate": [
+          0.25,
+          0.35
+        ],
+        "advanced": [
+          0.35,
+          0.45
+        ]
+      }
+    }
+  },
+  {
+    "id": "machine-lateral-raise",
+    "name": "器械侧平举",
+    "enName": "Machine Lateral Raise",
+    "bodyPart": "肩",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.06,
+          0.1
+        ],
+        "intermediate": [
+          0.1,
+          0.14
+        ],
+        "advanced": [
+          0.14,
+          0.18
+        ]
+      },
+      "female": {
+        "novice": [
+          0.04,
+          0.07
+        ],
+        "intermediate": [
+          0.07,
+          0.1
+        ],
+        "advanced": [
+          0.1,
+          0.13
+        ]
+      }
+    }
+  },
+  {
+    "id": "cable-lateral-raise",
+    "name": "绳索侧平举",
+    "enName": "Cable Lateral Raise",
+    "bodyPart": "肩",
+    "equipment": "绳索",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.06,
+          0.1
+        ],
+        "intermediate": [
+          0.1,
+          0.14
+        ],
+        "advanced": [
+          0.14,
+          0.18
+        ]
+      },
+      "female": {
+        "novice": [
+          0.04,
+          0.07
+        ],
+        "intermediate": [
+          0.07,
+          0.1
+        ],
+        "advanced": [
+          0.1,
+          0.13
+        ]
+      }
+    }
+  },
+  {
+    "id": "reverse-pec-deck",
+    "name": "反向蝴蝶机",
+    "enName": "Reverse Pec Deck",
+    "bodyPart": "肩",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.06,
+          0.1
+        ],
+        "intermediate": [
+          0.1,
+          0.14
+        ],
+        "advanced": [
+          0.14,
+          0.18
+        ]
+      },
+      "female": {
+        "novice": [
+          0.04,
+          0.07
+        ],
+        "intermediate": [
+          0.07,
+          0.1
+        ],
+        "advanced": [
+          0.1,
+          0.13
+        ]
+      }
+    }
+  },
+  {
+    "id": "bulgarian-split-squat",
+    "name": "保加利亚分腿蹲",
+    "enName": "Bulgarian Split Squat",
+    "bodyPart": "腿",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.25
+        ],
+        "intermediate": [
+          0.25,
+          0.35
+        ],
+        "advanced": [
+          0.35,
+          0.45
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.18
+        ],
+        "intermediate": [
+          0.18,
+          0.26
+        ],
+        "advanced": [
+          0.26,
+          0.34
+        ]
+      }
+    }
+  },
+  {
+    "id": "reverse-lunge",
+    "name": "反向箭步蹲",
+    "enName": "Reverse Lunge",
+    "bodyPart": "腿",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.25
+        ],
+        "intermediate": [
+          0.25,
+          0.35
+        ],
+        "advanced": [
+          0.35,
+          0.45
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.18
+        ],
+        "intermediate": [
+          0.18,
+          0.26
+        ],
+        "advanced": [
+          0.26,
+          0.34
+        ]
+      }
+    }
+  },
+  {
+    "id": "step-up",
+    "name": "上台阶",
+    "enName": "Step-Up",
+    "bodyPart": "腿",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.25
+        ],
+        "intermediate": [
+          0.25,
+          0.35
+        ],
+        "advanced": [
+          0.35,
+          0.45
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.18
+        ],
+        "intermediate": [
+          0.18,
+          0.26
+        ],
+        "advanced": [
+          0.26,
+          0.34
+        ]
+      }
+    }
+  },
+  {
+    "id": "wall-sit",
+    "name": "靠墙静蹲",
+    "enName": "Wall Sit",
+    "bodyPart": "腿",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "seated-leg-curl",
+    "name": "坐姿腿弯举",
+    "enName": "Seated Leg Curl",
+    "bodyPart": "腿",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "good-morning",
+    "name": "早安式",
+    "enName": "Good Morning",
+    "bodyPart": "腿",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "nordic-hamstring-curl",
+    "name": "北欧挺",
+    "enName": "Nordic Hamstring Curl",
+    "bodyPart": "腿",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "single-leg-rdl",
+    "name": "单腿罗马尼亚硬拉",
+    "enName": "Single-Leg Romanian Deadlift",
+    "bodyPart": "腿",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.25
+        ],
+        "intermediate": [
+          0.25,
+          0.35
+        ],
+        "advanced": [
+          0.35,
+          0.45
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.18
+        ],
+        "intermediate": [
+          0.18,
+          0.26
+        ],
+        "advanced": [
+          0.26,
+          0.34
+        ]
+      }
+    }
+  },
+  {
+    "id": "seated-calf-raise",
+    "name": "坐姿提踵",
+    "enName": "Seated Calf Raise",
+    "bodyPart": "腿",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      }
+    }
+  },
+  {
+    "id": "leg-press-calf-raise",
+    "name": "腿举提踵",
+    "enName": "Leg Press Calf Raise",
+    "bodyPart": "腿",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.6,
+          0.9
+        ],
+        "intermediate": [
+          0.9,
+          1.2
+        ],
+        "advanced": [
+          1.2,
+          1.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "trap-bar-deadlift",
+    "name": "六角杠硬拉",
+    "enName": "Trap Bar Deadlift",
+    "bodyPart": "腿",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.6,
+          0.9
+        ],
+        "intermediate": [
+          0.9,
+          1.2
+        ],
+        "advanced": [
+          1.2,
+          1.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      }
+    }
+  },
+  {
+    "id": "cable-pull-through",
+    "name": "绳索直腿后拉",
+    "enName": "Cable Pull-Through",
+    "bodyPart": "臀腿",
+    "equipment": "绳索",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      }
+    }
+  },
+  {
+    "id": "dumbbell-hip-thrust",
+    "name": "哑铃臀推",
+    "enName": "Dumbbell Hip Thrust",
+    "bodyPart": "臀腿",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      }
+    }
+  },
+  {
+    "id": "donkey-kick",
+    "name": "驴踢",
+    "enName": "Donkey Kick",
     "bodyPart": "臀腿",
     "equipment": "自重",
     "weighted": false
+  },
+  {
+    "id": "clamshell",
+    "name": "蚌式开合",
+    "enName": "Clamshell",
+    "bodyPart": "臀腿",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "ab-wheel",
+    "name": "健腹轮",
+    "enName": "Ab Wheel Rollout",
+    "bodyPart": "核心",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "pallof-press",
+    "name": "帕洛夫推",
+    "enName": "Pallof Press",
+    "bodyPart": "核心",
+    "equipment": "绳索",
+    "weighted": false
+  },
+  {
+    "id": "cable-woodchop",
+    "name": "绳索伐木",
+    "enName": "Cable Woodchop",
+    "bodyPart": "核心",
+    "equipment": "绳索",
+    "weighted": false
+  },
+  {
+    "id": "reverse-crunch",
+    "name": "反向卷腹",
+    "enName": "Reverse Crunch",
+    "bodyPart": "核心",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "bird-dog",
+    "name": "鸟狗式",
+    "enName": "Bird Dog",
+    "bodyPart": "核心",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "hanging-knee-raise",
+    "name": "悬垂膝举",
+    "enName": "Hanging Knee Raise",
+    "bodyPart": "核心",
+    "equipment": "自重",
+    "weighted": false
+  },
+  {
+    "id": "close-grip-bench-press",
+    "name": "窄距卧推",
+    "enName": "Close-Grip Bench Press",
+    "bodyPart": "手臂",
+    "equipment": "杠铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.35,
+          0.5
+        ],
+        "intermediate": [
+          0.5,
+          0.65
+        ],
+        "advanced": [
+          0.65,
+          0.8
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.42
+        ],
+        "advanced": [
+          0.42,
+          0.55
+        ]
+      }
+    }
+  },
+  {
+    "id": "cable-curl",
+    "name": "绳索弯举",
+    "enName": "Cable Curl",
+    "bodyPart": "手臂",
+    "equipment": "绳索",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.08,
+          0.12
+        ],
+        "intermediate": [
+          0.12,
+          0.16
+        ],
+        "advanced": [
+          0.16,
+          0.2
+        ]
+      },
+      "female": {
+        "novice": [
+          0.05,
+          0.08
+        ],
+        "intermediate": [
+          0.08,
+          0.12
+        ],
+        "advanced": [
+          0.12,
+          0.15
+        ]
+      }
+    }
+  },
+  {
+    "id": "concentration-curl",
+    "name": "集中弯举",
+    "enName": "Concentration Curl",
+    "bodyPart": "手臂",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.05,
+          0.08
+        ],
+        "intermediate": [
+          0.08,
+          0.11
+        ],
+        "advanced": [
+          0.11,
+          0.14
+        ]
+      },
+      "female": {
+        "novice": [
+          0.03,
+          0.05
+        ],
+        "intermediate": [
+          0.05,
+          0.08
+        ],
+        "advanced": [
+          0.08,
+          0.1
+        ]
+      }
+    }
+  },
+  {
+    "id": "rope-tricep-pushdown",
+    "name": "绳索双绳下压",
+    "enName": "Rope Tricep Pushdown",
+    "bodyPart": "手臂",
+    "equipment": "绳索",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.1,
+          0.15
+        ],
+        "intermediate": [
+          0.15,
+          0.2
+        ],
+        "advanced": [
+          0.2,
+          0.25
+        ]
+      },
+      "female": {
+        "novice": [
+          0.06,
+          0.1
+        ],
+        "intermediate": [
+          0.1,
+          0.14
+        ],
+        "advanced": [
+          0.14,
+          0.18
+        ]
+      }
+    }
+  },
+  {
+    "id": "dumbbell-skull-crusher",
+    "name": "哑铃碎颅者",
+    "enName": "Dumbbell Skull Crusher",
+    "bodyPart": "手臂",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.08,
+          0.12
+        ],
+        "intermediate": [
+          0.12,
+          0.16
+        ],
+        "advanced": [
+          0.16,
+          0.2
+        ]
+      },
+      "female": {
+        "novice": [
+          0.05,
+          0.08
+        ],
+        "intermediate": [
+          0.08,
+          0.12
+        ],
+        "advanced": [
+          0.12,
+          0.15
+        ]
+      }
+    }
+  },
+  {
+    "id": "farmer-carry",
+    "name": "农夫行走",
+    "enName": "Farmer Carry",
+    "bodyPart": "手臂",
+    "equipment": "哑铃",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-001",
+    "name": "FORWARD蝴蝶机夹胸",
+    "enName": "Pec Deck Fly (FWS-001)",
+    "bodyPart": "胸",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-002",
+    "name": "FORWARD高位下拉器",
+    "enName": "Lat Pulldown (FWS-002)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.45,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.9
+        ]
+      },
+      "female": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-003",
+    "name": "FORWARD坐姿划船器",
+    "enName": "Seated Row (FWS-003)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-004",
+    "name": "FORWARD坐姿推胸器",
+    "enName": "Chest Press (FWS-004)",
+    "bodyPart": "胸",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-005",
+    "name": "FORWARD坐姿推肩器",
+    "enName": "Shoulder Press (FWS-005)",
+    "bodyPart": "肩",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.25
+        ],
+        "intermediate": [
+          0.25,
+          0.35
+        ],
+        "advanced": [
+          0.35,
+          0.45
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-006",
+    "name": "FORWARD二头肌训练器",
+    "enName": "Arm Curl (FWS-006)",
+    "bodyPart": "手臂",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.12,
+          0.18
+        ],
+        "intermediate": [
+          0.18,
+          0.24
+        ],
+        "advanced": [
+          0.24,
+          0.3
+        ]
+      },
+      "female": {
+        "novice": [
+          0.08,
+          0.12
+        ],
+        "intermediate": [
+          0.12,
+          0.16
+        ],
+        "advanced": [
+          0.16,
+          0.2
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-008",
+    "name": "FORWARD臂下压背肌机",
+    "enName": "Pull Over (FWS-008)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-009",
+    "name": "FORWARD站姿多向飞鸟机",
+    "enName": "Standing Multi Flight (FWS-009)",
+    "bodyPart": "胸",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-011",
+    "name": "FORWARD腹肌训练器",
+    "enName": "Abdominal (FWS-011)",
+    "bodyPart": "核心",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.25,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.45
+        ],
+        "advanced": [
+          0.45,
+          0.55
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-012",
+    "name": "FORWARD腿屈伸机",
+    "enName": "Leg Extension (FWS-012)",
+    "bodyPart": "腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-013",
+    "name": "FORWARD俯卧腿弯举机",
+    "enName": "Lying Leg Curl (FWS-013)",
+    "bodyPart": "腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-014",
+    "name": "FORWARD腿举机",
+    "enName": "Leg Press (FWS-014)",
+    "bodyPart": "腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          1,
+          1.4
+        ],
+        "intermediate": [
+          1.4,
+          1.8
+        ],
+        "advanced": [
+          1.8,
+          2.2
+        ]
+      },
+      "female": {
+        "novice": [
+          0.7,
+          1
+        ],
+        "intermediate": [
+          1,
+          1.3
+        ],
+        "advanced": [
+          1.3,
+          1.6
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-015",
+    "name": "FORWARD大腿内外侧训练器",
+    "enName": "Inner Outer Thigh (FWS-015)",
+    "bodyPart": "臀腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-019",
+    "name": "FORWARD臀推机",
+    "enName": "Hip Thrust (FWS-019)",
+    "bodyPart": "臀腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.5,
+          0.7
+        ],
+        "intermediate": [
+          0.7,
+          0.9
+        ],
+        "advanced": [
+          0.9,
+          1.1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.35,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.95
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-021",
+    "name": "FORWARD单滑轮训练器",
+    "enName": "Single Pulley (FWS-021)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-022",
+    "name": "FORWARD夹胸机",
+    "enName": "Chest Flight (FWS-022)",
+    "bodyPart": "胸",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-030",
+    "name": "FORWARD大飞鸟低拉机",
+    "enName": "Power Low Pulley (FWS-030)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-031",
+    "name": "FORWARD双滑轮训练器",
+    "enName": "Dual Pulley (FWS-031)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-032",
+    "name": "FORWARD绳索交叉训练器",
+    "enName": "Cable Crossover (FWS-032)",
+    "bodyPart": "胸",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-033",
+    "name": "FORWARD综合训练器（4站）",
+    "enName": "Multi Gym 4 Station (FWS-033)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-034",
+    "name": "FORWARD综合训练器（8站）",
+    "enName": "Multi Gym 8 Station (FWS-034)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-035",
+    "name": "FORWARD综合训练器（12站）",
+    "enName": "Multi Gym 12 Station (FWS-035)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-001",
+    "name": "FORWARD分动式推胸机",
+    "enName": "Chest Press (FWHM-001)",
+    "bodyPart": "胸",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-002",
+    "name": "FORWARD分动式推肩机",
+    "enName": "Shoulder Press (FWHM-002)",
+    "bodyPart": "肩",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.25
+        ],
+        "intermediate": [
+          0.25,
+          0.35
+        ],
+        "advanced": [
+          0.35,
+          0.45
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-003",
+    "name": "FORWARD站姿腿外展机",
+    "enName": "Standing Abductor (FWHM-003)",
+    "bodyPart": "臀腿",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-004",
+    "name": "FORWARD分动式坐姿划船机",
+    "enName": "Seated Row (FWHM-004)",
+    "bodyPart": "背",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-005",
+    "name": "FORWARD分动式高位下拉机",
+    "enName": "Lat Pulldown (FWHM-005)",
+    "bodyPart": "背",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.45,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.9
+        ]
+      },
+      "female": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-006",
+    "name": "FORWARD分动式高拉机",
+    "enName": "High Row (FWHM-006)",
+    "bodyPart": "背",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-007",
+    "name": "FORWARD宽距高位下拉机",
+    "enName": "Wide Lat Pulldown (FWHM-007)",
+    "bodyPart": "背",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.45,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.9
+        ]
+      },
+      "female": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-008",
+    "name": "FORWARD分动式二头肌训练器",
+    "enName": "Arm Curl (FWHM-008)",
+    "bodyPart": "手臂",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.12,
+          0.18
+        ],
+        "intermediate": [
+          0.18,
+          0.24
+        ],
+        "advanced": [
+          0.24,
+          0.3
+        ]
+      },
+      "female": {
+        "novice": [
+          0.08,
+          0.12
+        ],
+        "intermediate": [
+          0.12,
+          0.16
+        ],
+        "advanced": [
+          0.16,
+          0.2
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-009",
+    "name": "FORWARD分动式侧平举机",
+    "enName": "Lateral Raise (FWHM-009)",
+    "bodyPart": "肩",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.06,
+          0.1
+        ],
+        "intermediate": [
+          0.1,
+          0.14
+        ],
+        "advanced": [
+          0.14,
+          0.18
+        ]
+      },
+      "female": {
+        "novice": [
+          0.04,
+          0.07
+        ],
+        "intermediate": [
+          0.07,
+          0.1
+        ],
+        "advanced": [
+          0.1,
+          0.13
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-010",
+    "name": "FORWARD分动式上斜推胸机",
+    "enName": "Incline Press (FWHM-010)",
+    "bodyPart": "胸",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.35,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.95
+        ]
+      },
+      "female": {
+        "novice": [
+          0.18,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.45
+        ],
+        "advanced": [
+          0.45,
+          0.6
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-012",
+    "name": "FORWARD分动式俯卧腿弯举机",
+    "enName": "Lying Leg Curl (FWHM-012)",
+    "bodyPart": "腿",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-013",
+    "name": "FORWARD分动式腿屈伸机",
+    "enName": "Leg Extension (FWHM-013)",
+    "bodyPart": "腿",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-014",
+    "name": "FORWARD分动式夹胸机",
+    "enName": "Chest Flight (FWHM-014)",
+    "bodyPart": "胸",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-015",
+    "name": "FORWARD分动式下斜夹胸机",
+    "enName": "Lower Chest Flight (FWHM-015)",
+    "bodyPart": "胸",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-016",
+    "name": "FORWARD哈克推机",
+    "enName": "Hack Press (FWHM-016)",
+    "bodyPart": "腿",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.5,
+          0.7
+        ],
+        "intermediate": [
+          0.7,
+          0.9
+        ],
+        "advanced": [
+          0.9,
+          1.1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.3,
+          0.5
+        ],
+        "intermediate": [
+          0.5,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.9
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-017",
+    "name": "FORWARD哈克深蹲机",
+    "enName": "Hack Squat (FWHM-017)",
+    "bodyPart": "腿",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.5,
+          0.7
+        ],
+        "intermediate": [
+          0.7,
+          0.9
+        ],
+        "advanced": [
+          0.9,
+          1.1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.3,
+          0.5
+        ],
+        "intermediate": [
+          0.5,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.9
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-018",
+    "name": "FORWARD分动式腿举机",
+    "enName": "Power Leg Press (FWHM-018)",
+    "bodyPart": "腿",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          1,
+          1.4
+        ],
+        "intermediate": [
+          1.4,
+          1.8
+        ],
+        "advanced": [
+          1.8,
+          2.2
+        ]
+      },
+      "female": {
+        "novice": [
+          0.7,
+          1
+        ],
+        "intermediate": [
+          1,
+          1.3
+        ],
+        "advanced": [
+          1.3,
+          1.6
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-021",
+    "name": "FORWARD腰带深蹲机",
+    "enName": "Belt Squat (FWHM-021)",
+    "bodyPart": "腿",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-023",
+    "name": "FORWARD臀冲机",
+    "enName": "Gluteus Thrust (FWHM-023)",
+    "bodyPart": "臀腿",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.5,
+          0.7
+        ],
+        "intermediate": [
+          0.7,
+          0.9
+        ],
+        "advanced": [
+          0.9,
+          1.1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.35,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.95
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-024",
+    "name": "FORWARD分动式臀推机",
+    "enName": "Hip Thrust (FWHM-024)",
+    "bodyPart": "臀腿",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.5,
+          0.7
+        ],
+        "intermediate": [
+          0.7,
+          0.9
+        ],
+        "advanced": [
+          0.9,
+          1.1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.35,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.95
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-025",
+    "name": "FORWARD双杠臂屈伸机",
+    "enName": "Dips Press (FWHM-025)",
+    "bodyPart": "胸",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-031",
+    "name": "FORWARD臂下压背肌机",
+    "enName": "Pull Over (FWHM-031)",
+    "bodyPart": "背",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-032",
+    "name": "FORWARD摆锤深蹲机",
+    "enName": "Pendulum Squat (FWHM-032)",
+    "bodyPart": "腿",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.5,
+          0.7
+        ],
+        "intermediate": [
+          0.7,
+          0.9
+        ],
+        "advanced": [
+          0.9,
+          1.1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.3,
+          0.5
+        ],
+        "intermediate": [
+          0.5,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.9
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-033",
+    "name": "FORWARD V形深蹲机",
+    "enName": "Power V Squat (FWHM-033)",
+    "bodyPart": "腿",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.5,
+          0.7
+        ],
+        "intermediate": [
+          0.7,
+          0.9
+        ],
+        "advanced": [
+          0.9,
+          1.1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.3,
+          0.5
+        ],
+        "intermediate": [
+          0.5,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.9
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-034",
+    "name": "FORWARD连杆腿外展机",
+    "enName": "Link Outer Thigh (FWHM-034)",
+    "bodyPart": "臀腿",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-035",
+    "name": "FORWARD杠杆划船机",
+    "enName": "Lever Row (FWHM-035)",
+    "bodyPart": "背",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-rrs-001",
+    "name": "FORWARD蝴蝶机夹胸",
+    "enName": "Pec Deck Fly (RRS-001)",
+    "bodyPart": "胸",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-rrs-002",
+    "name": "FORWARD高位下拉器",
+    "enName": "Lat Pulldown (RRS-002)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.45,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.9
+        ]
+      },
+      "female": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-rrs-003",
+    "name": "FORWARD低拉滑轮机",
+    "enName": "Low Pulley (RRS-003)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.3,
+          0.45
+        ],
+        "intermediate": [
+          0.45,
+          0.6
+        ],
+        "advanced": [
+          0.6,
+          0.75
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-rrs-004",
+    "name": "FORWARD坐姿推胸器",
+    "enName": "Chest Press (RRS-004)",
+    "bodyPart": "胸",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-rrs-005",
+    "name": "FORWARD坐姿推肩器",
+    "enName": "Shoulder Press (RRS-005)",
+    "bodyPart": "肩",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.25
+        ],
+        "intermediate": [
+          0.25,
+          0.35
+        ],
+        "advanced": [
+          0.35,
+          0.45
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-rrs-006",
+    "name": "FORWARD二头肌训练器",
+    "enName": "Arm Curl (RRS-006)",
+    "bodyPart": "手臂",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.12,
+          0.18
+        ],
+        "intermediate": [
+          0.18,
+          0.24
+        ],
+        "advanced": [
+          0.24,
+          0.3
+        ]
+      },
+      "female": {
+        "novice": [
+          0.08,
+          0.12
+        ],
+        "intermediate": [
+          0.12,
+          0.16
+        ],
+        "advanced": [
+          0.16,
+          0.2
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-rrs-007",
+    "name": "FORWARD上斜推胸机",
+    "enName": "Incline Press (RRS-007)",
+    "bodyPart": "胸",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.35,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.95
+        ]
+      },
+      "female": {
+        "novice": [
+          0.18,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.45
+        ],
+        "advanced": [
+          0.45,
+          0.6
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-rrs-008",
+    "name": "FORWARD臂下压背肌机",
+    "enName": "Pullover (RRS-008)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-rrs-012",
+    "name": "FORWARD腿屈伸机",
+    "enName": "Leg Extension (RRS-012)",
+    "bodyPart": "腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-rrs-013",
+    "name": "FORWARD俯卧腿弯举机",
+    "enName": "Lying Leg Curl (RRS-013)",
+    "bodyPart": "腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-rrs-014",
+    "name": "FORWARD双蹬腿举机",
+    "enName": "Leg Press Dual (RRS-014)",
+    "bodyPart": "腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          1,
+          1.4
+        ],
+        "intermediate": [
+          1.4,
+          1.8
+        ],
+        "advanced": [
+          1.8,
+          2.2
+        ]
+      },
+      "female": {
+        "novice": [
+          0.7,
+          1
+        ],
+        "intermediate": [
+          1,
+          1.3
+        ],
+        "advanced": [
+          1.3,
+          1.6
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-rrs-015",
+    "name": "FORWARD大腿内外侧训练器",
+    "enName": "Inner Out Thigh (RRS-015)",
+    "bodyPart": "臀腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-rrs-018",
+    "name": "FORWARD低拉划船机",
+    "enName": "Low Row (RRS-018)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-rrs-022",
+    "name": "FORWARD下斜夹胸机",
+    "enName": "Lower Chest Flight (RRS-022)",
+    "bodyPart": "胸",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-rrs-023",
+    "name": "FORWARD坐姿腿弯举机",
+    "enName": "Seated Leg Curl (RRS-023)",
+    "bodyPart": "腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    }
   }
 ]
