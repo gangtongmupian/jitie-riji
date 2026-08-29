@@ -7,7 +7,7 @@
 ## 功能特性
 
 - **首次建档引导**：隐私协议勾选 → 性别 / 年龄 / 身高 / 体重 / 健身目标 → 自动计算 BMI、体脂参考区间、基础代谢 BMR
-- **专业动作库**：59 个动作，覆盖胸 / 背 / 腿 / 臀腿 / 肩 / 手臂 / 核心 7 大部位，含中英文术语、器械分类、男女差异化推荐重量区间
+- **专业动作库**：190 个动作（101 个标准动作 + 26 台 ROSEN + 63 台 FORWARD 固定器械），覆盖胸 / 背 / 腿 / 臀腿 / 肩 / 手臂 / 核心 7 大部位，含中英文术语、器械图示、男女差异化推荐重量区间
 - **训练记录**：自由训练 / 模板训练双模式；4 套男女差异化模板（全身分化男/女版、PPL、上下肢分化），训练中可随时换模板
 - **自定义动作**：内置动作之外可添加自定义动作，满足个性化需求
 - **动作间歇计时器**：每组动作可设 1–30 分钟休息倒计时，底部常驻显示，到点震动提醒
@@ -28,7 +28,7 @@
 miniprogram/          小程序前端（6 页面 + 工具层 + 数据种子）
   pages/              onboarding / home / record / history / profile / share
   utils/              纯函数逻辑（体质指标/统计/格式化）+ 云调用封装 + 本地存储
-  data/               动作库（59 个）与模板（4 套）前端兜底种子
+  data/               动作库（190 个）与模板（10 套）前端兜底种子
 cloudfunctions/       云函数（login / saveProfile / catalog / saveWorkout / stats / initDb）
 tests/                node:test 单元测试（15 个用例）
 docs/                 设计文档、实现计划、部署指南、验收清单
@@ -60,6 +60,7 @@ node --test 'tests/*.test.js'
 
 - 动作演示三帧插画：源自 [Workout Guide](https://github.com/bryllim/workout-guide)（作者 Bryl Lim，基础姿态来自 [Everkinetic](https://github.com/everkinetic/data)），采用 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) 许可，仅作等比缩放使用，未做其他修改。
 - ROSEN 固定器械照片：来源 ROSEN 官网产品页，仅用于器械识别展示。
+- FORWARD 韩国器械照片：来源 FORWARD 韩国官网产品页，仅用于器械识别展示。
 
 ## 文档
 
