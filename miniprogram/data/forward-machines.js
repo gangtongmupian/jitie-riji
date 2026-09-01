@@ -63,5 +63,23 @@ module.exports = {
   'fwd-rrs-015': { model: 'RRS-015', siteName: '大腿内外侧训练器', image: '/images/forward/RRS-015.jpg' },
   'fwd-rrs-018': { model: 'RRS-018', siteName: '低拉划船机', image: '/images/forward/RRS-018.jpg' },
   'fwd-rrs-022': { model: 'RRS-022', siteName: '下斜夹胸机', image: '/images/forward/RRS-022.jpg' },
-  'fwd-rrs-023': { model: 'RRS-023', siteName: '坐姿腿弯举机', image: '/images/forward/RRS-023.jpg' }
+  'fwd-rrs-023': { model: 'RRS-023', siteName: '坐姿腿弯举机', image: '/images/forward/RRS-023.jpg' },
+  // FWF 自由力量系列（哑铃架/杠铃架/力量架无独立动作，不收录）
+  'fwd-fwf-001': { model: 'FWF-001', siteName: '奥林匹克平凳', image: '/images/forward/FWF-001.jpg' },
+  'fwd-fwf-001-2': { model: 'FWF-001-2', siteName: '辅助奥林匹克平凳', image: '/images/forward/FWF-001-2.jpg' },
+  'fwd-fwf-002': { model: 'FWF-002', siteName: '奥林匹克上斜凳', image: '/images/forward/FWF-002.jpg' },
+  'fwd-fwf-002-2': { model: 'FWF-002-2', siteName: '辅助奥林匹克上斜凳', image: '/images/forward/FWF-002-2.jpg' },
+  'fwd-fwf-004': { model: 'FWF-004', siteName: '平凳', image: '/images/forward/FWF-004.jpg' },
+  'fwd-fwf-006': { model: 'FWF-006', siteName: '多功能凳', image: '/images/forward/FWF-006.jpg' },
+  'fwd-fwf-006-2': { model: 'FWF-006-2', siteName: '多用途凳', image: '/images/forward/FWF-006-2.jpg' },
+  'fwd-fwf-021': { model: 'FWF-021', siteName: '史密斯机（垂直型）', image: '/images/forward/FWF-021.jpg' },
+  'fwd-fwf-022': { model: 'FWF-022', siteName: '史密斯机（倾斜型）', image: '/images/forward/FWF-022.jpg' },
+  'fwd-fwf-023': { model: 'FWF-023', siteName: '3D史密斯机', image: '/images/forward/FWF-023.jpg' },
+  'fwd-fwf-025': { model: 'FWF-025', siteName: '双功能力量架史密斯', image: '/images/forward/FWF-025.jpg' },
+  'fwd-fwf-027': { model: 'FWF-027', siteName: '凳式史密斯推胸（下斜）', image: '/images/forward/FWF-027.jpg' },
+  'fwd-fwf-028': { model: 'FWF-028', siteName: '凳式史密斯推肩（上斜）', image: '/images/forward/FWF-028.jpg' },
+  // 补充型号
+  'fwd-fws-010': { model: 'FWS-010', siteName: '辅助引体双杠机', image: '/images/forward/FWS-010.jpg' },
+  'fwd-fwhm-011': { model: 'FWHM-011', siteName: '推胸下斜双功能机', image: '/images/forward/FWHM-011.jpg' },
+  'fwd-fwhm-027': { model: 'FWHM-027', siteName: '站立推肩提踵机', image: '/images/forward/FWHM-027.jpg' }
 };

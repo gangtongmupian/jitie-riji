@@ -47,7 +47,7 @@ test('anim: ROSEN 器械动作也映射到有效插图', () => {
 
 test('anim: FORWARD 器械动作也映射到有效插图', () => {
   const fwd = exercises.filter((e) => e.id.indexOf('fwd-') === 0);
-  assert.ok(fwd.length >= 40, 'FORWARD 动作数量异常');
+  assert.ok(fwd.length >= 70, 'FORWARD 动作数量异常');
   for (const e of fwd) {
     const slug = motion.resolveAnimSlug(e);
     assert.ok(slug && motion.ANIM_BY_ID[e.id], `${e.id} 未显式映射`);

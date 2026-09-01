@@ -123,7 +123,15 @@ const MOTION_BY_ID = {
   'fwd-rrs-004': 'bench-press', 'fwd-rrs-005': 'shoulder-press', 'fwd-rrs-006': 'curl',
   'fwd-rrs-007': 'incline-press', 'fwd-rrs-008': 'pullover', 'fwd-rrs-012': 'leg-extension',
   'fwd-rrs-013': 'leg-curl', 'fwd-rrs-014': 'leg-press', 'fwd-rrs-015': 'hip-abduction',
-  'fwd-rrs-018': 'row', 'fwd-rrs-022': 'chest-fly', 'fwd-rrs-023': 'leg-curl'
+  'fwd-rrs-018': 'row', 'fwd-rrs-022': 'chest-fly', 'fwd-rrs-023': 'leg-curl',
+  // FORWARD FWF 自由力量系列
+  'fwd-fwf-001': 'bench-press', 'fwd-fwf-001-2': 'bench-press', 'fwd-fwf-002': 'incline-press',
+  'fwd-fwf-002-2': 'incline-press', 'fwd-fwf-004': 'bench-press', 'fwd-fwf-006': 'bench-press',
+  'fwd-fwf-006-2': 'bench-press', 'fwd-fwf-021': 'squat', 'fwd-fwf-022': 'squat',
+  'fwd-fwf-023': 'squat', 'fwd-fwf-025': 'squat', 'fwd-fwf-027': 'bench-press',
+  'fwd-fwf-028': 'shoulder-press',
+  // FORWARD 补充型号
+  'fwd-fws-010': 'pullup', 'fwd-fwhm-011': 'bench-press', 'fwd-fwhm-027': 'shoulder-press'
 };
 
 // 每个动作 id -> 器械图示 key(images/glyphs/<key>.png)
@@ -211,7 +219,15 @@ const GLYPH_BY_ID = {
   'fwd-rrs-008': 'machine-pullover', 'fwd-rrs-012': 'machine-leg-extension',
   'fwd-rrs-013': 'machine-leg-curl', 'fwd-rrs-014': 'machine-leg-press',
   'fwd-rrs-015': 'machine-hip-abduction', 'fwd-rrs-018': 'machine-row',
-  'fwd-rrs-022': 'machine-fly', 'fwd-rrs-023': 'machine-leg-curl'
+  'fwd-rrs-022': 'machine-fly', 'fwd-rrs-023': 'machine-leg-curl',
+  // FORWARD FWF 自由力量系列
+  'fwd-fwf-001': 'bench', 'fwd-fwf-001-2': 'bench', 'fwd-fwf-002': 'bench',
+  'fwd-fwf-002-2': 'bench', 'fwd-fwf-004': 'bench', 'fwd-fwf-006': 'bench',
+  'fwd-fwf-006-2': 'bench', 'fwd-fwf-021': 'machine-hack-squat', 'fwd-fwf-022': 'machine-hack-squat',
+  'fwd-fwf-023': 'machine-hack-squat', 'fwd-fwf-025': 'machine-hack-squat',
+  'fwd-fwf-027': 'machine-chest-press', 'fwd-fwf-028': 'machine-shoulder-press',
+  // FORWARD 补充型号
+  'fwd-fws-010': 'pullup-bar', 'fwd-fwhm-011': 'machine-chest-press', 'fwd-fwhm-027': 'machine-shoulder-press'
 };
 
 // 部位 + 器械 兜底映射(自定义动作也会用)
@@ -365,7 +381,15 @@ const ANIM_BY_ID = {
   'fwd-rrs-008': 'straight-arm-pulldown', 'fwd-rrs-012': 'leg-extension',
   'fwd-rrs-013': 'lying-leg-curl', 'fwd-rrs-014': 'leg-press',
   'fwd-rrs-015': 'hip-abduction-machine', 'fwd-rrs-018': 'machine-row',
-  'fwd-rrs-022': 'pec-deck', 'fwd-rrs-023': 'lying-leg-curl'
+  'fwd-rrs-022': 'pec-deck', 'fwd-rrs-023': 'lying-leg-curl',
+  // FORWARD FWF 自由力量系列
+  'fwd-fwf-001': 'bench-press', 'fwd-fwf-001-2': 'bench-press', 'fwd-fwf-002': 'incline-bench-press',
+  'fwd-fwf-002-2': 'incline-bench-press', 'fwd-fwf-004': 'bench-press', 'fwd-fwf-006': 'bench-press',
+  'fwd-fwf-006-2': 'bench-press', 'fwd-fwf-021': 'squat', 'fwd-fwf-022': 'squat',
+  'fwd-fwf-023': 'squat', 'fwd-fwf-025': 'squat', 'fwd-fwf-027': 'bench-press',
+  'fwd-fwf-028': 'machine-shoulder-press',
+  // FORWARD 补充型号
+  'fwd-fws-010': 'pull-up', 'fwd-fwhm-011': 'bench-press', 'fwd-fwhm-027': 'machine-shoulder-press'
 };
 
 // 自定义动作/未收录动作按部位兜底

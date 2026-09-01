@@ -4335,7 +4335,7 @@
   },
   {
     "id": "fwd-fws-008",
-    "name": "FORWARD臂下压背肌机",
+    "name": "FORWARD上拉背肌机",
     "enName": "Pull Over (FWS-008)",
     "bodyPart": "背",
     "equipment": "插片机",
@@ -5475,7 +5475,7 @@
   },
   {
     "id": "fwd-fwhm-016",
-    "name": "FORWARD哈克推机",
+    "name": "FORWARD哈克蹬腿机",
     "enName": "Hack Press (FWHM-016)",
     "bodyPart": "腿",
     "equipment": "悍马",
@@ -5741,7 +5741,7 @@
   },
   {
     "id": "fwd-fwhm-031",
-    "name": "FORWARD臂下压背肌机",
+    "name": "FORWARD上拉背肌机",
     "enName": "Pull Over (FWHM-031)",
     "bodyPart": "背",
     "equipment": "悍马",
@@ -6197,7 +6197,7 @@
   },
   {
     "id": "fwd-rrs-008",
-    "name": "FORWARD臂下压背肌机",
+    "name": "FORWARD上拉背肌机",
     "enName": "Pullover (RRS-008)",
     "bodyPart": "背",
     "equipment": "插片机",
@@ -6495,6 +6495,584 @@
         "advanced": [
           0.28,
           0.36
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwf-001",
+    "name": "FORWARD奥林匹克平凳",
+    "enName": "Olympic Flat Bench (FWF-001)",
+    "bodyPart": "胸",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwf-001-2",
+    "name": "FORWARD辅助奥林匹克平凳",
+    "enName": "Aid Olympic Flat Bench (FWF-001-2)",
+    "bodyPart": "胸",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwf-002",
+    "name": "FORWARD奥林匹克上斜凳",
+    "enName": "Olympic Incline Bench (FWF-002)",
+    "bodyPart": "胸",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.35,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.95
+        ]
+      },
+      "female": {
+        "novice": [
+          0.18,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.45
+        ],
+        "advanced": [
+          0.45,
+          0.6
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwf-002-2",
+    "name": "FORWARD辅助奥林匹克上斜凳",
+    "enName": "Aid Olympic Incline Bench (FWF-002-2)",
+    "bodyPart": "胸",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.35,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.95
+        ]
+      },
+      "female": {
+        "novice": [
+          0.18,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.45
+        ],
+        "advanced": [
+          0.45,
+          0.6
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwf-004",
+    "name": "FORWARD平凳",
+    "enName": "Flat Bench (FWF-004)",
+    "bodyPart": "胸",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwf-006",
+    "name": "FORWARD多功能凳",
+    "enName": "Multi Bench (FWF-006)",
+    "bodyPart": "胸",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwf-006-2",
+    "name": "FORWARD多用途凳",
+    "enName": "Multi Purpose Bench (FWF-006-2)",
+    "bodyPart": "胸",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwf-021",
+    "name": "FORWARD史密斯机（垂直型）",
+    "enName": "Smith Machine Vertical (FWF-021)",
+    "bodyPart": "腿",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwf-022",
+    "name": "FORWARD史密斯机（倾斜型）",
+    "enName": "Smith Machine Angled (FWF-022)",
+    "bodyPart": "腿",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwf-023",
+    "name": "FORWARD 3D史密斯机",
+    "enName": "3D Smith Machine (FWF-023)",
+    "bodyPart": "腿",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwf-025",
+    "name": "FORWARD双功能力量架史密斯",
+    "enName": "Dual Power Rack Smith (FWF-025)",
+    "bodyPart": "腿",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwf-027",
+    "name": "FORWARD凳式史密斯推胸（下斜）",
+    "enName": "Bench Smith Chest & Decline (FWF-027)",
+    "bodyPart": "胸",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwf-028",
+    "name": "FORWARD凳式史密斯推肩（上斜）",
+    "enName": "Bench Smith Shoulder & Incline (FWF-028)",
+    "bodyPart": "肩",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.25
+        ],
+        "intermediate": [
+          0.25,
+          0.35
+        ],
+        "advanced": [
+          0.35,
+          0.45
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fws-010",
+    "name": "FORWARD辅助引体双杠机",
+    "enName": "Assisted Chin-Up & Dip (FWS-010)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": false
+  },
+  {
+    "id": "fwd-fwhm-011",
+    "name": "FORWARD推胸下斜双功能机",
+    "enName": "Chest & Decline Dual (FWHM-011)",
+    "bodyPart": "胸",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    }
+  },
+  {
+    "id": "fwd-fwhm-027",
+    "name": "FORWARD站立推肩提踵机",
+    "enName": "Standing Shoulder & Calf (FWHM-027)",
+    "bodyPart": "肩",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.25
+        ],
+        "intermediate": [
+          0.25,
+          0.35
+        ],
+        "advanced": [
+          0.35,
+          0.45
         ]
       }
     }

@@ -682,7 +682,15 @@ const DETAIL_SOURCE = {
   'fwd-rrs-007': 'rosen-hm-incline-press', 'fwd-rrs-008': 'rosen-hm-pullover',
   'fwd-rrs-012': 'rosen-sel-leg-extension', 'fwd-rrs-013': 'rosen-sel-leg-curl', 'fwd-rrs-014': 'legpress',
   'fwd-rrs-015': 'rosen-sel-hip', 'fwd-rrs-018': 'rosen-sel-seated-row', 'fwd-rrs-022': 'peck-deck',
-  'fwd-rrs-023': 'rosen-sel-leg-curl'
+  'fwd-rrs-023': 'rosen-sel-leg-curl',
+  // FWF 自由力量系列
+  'fwd-fwf-001': 'bench', 'fwd-fwf-001-2': 'bench', 'fwd-fwf-002': 'incline-bench',
+  'fwd-fwf-002-2': 'incline-bench', 'fwd-fwf-004': 'bench', 'fwd-fwf-006': 'bench',
+  'fwd-fwf-006-2': 'bench', 'fwd-fwf-021': 'squat', 'fwd-fwf-022': 'squat',
+  'fwd-fwf-023': 'squat', 'fwd-fwf-025': 'squat', 'fwd-fwf-027': 'smith-machine-bench-press',
+  'fwd-fwf-028': 'machine-shoulder-press',
+  // 补充型号
+  'fwd-fws-010': 'pullup', 'fwd-fwhm-011': 'chest-press', 'fwd-fwhm-027': 'machine-shoulder-press'
 };
 
 function detailsOf(id) {
