@@ -7,9 +7,10 @@
     <view wx:if="{{loading}}" class="loading">加载中…</view>
 
     <block wx:else>
-      <view class="section">训练统计</view>
-      <view class="period-grid">
-        <view class="period-card card">
+      <view class="numbered"><text class="numbered-n">01</text><text class="numbered-t">训练统计</text></view>
+      <view class="kpi-row period-kpi">
+        <view class="period-card card period-lead">
+          <view class="accent-bar"></view>
           <text class="period-label">本周训练量</text>
           <text class="period-kcal">{{periods.week.caloriesText}}</text>
           <text class="period-sub">{{periods.week.count}} 次训练</text>
@@ -26,7 +27,7 @@
         </view>
       </view>
 
-      <view class="section">训练日历</view>
+      <view class="numbered"><text class="numbered-n">02</text><text class="numbered-t">训练日历</text></view>
       <view class="card cal-card">
         <view class="cal-head">
           <text class="cal-nav" bindtap="prevMonth">‹</text>

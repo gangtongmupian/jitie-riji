@@ -1,44 +1,44 @@
 page {
   /* 品牌 */
-  --primary: #5645d4;
-  --primary-pressed: #4534b3;
-  --primary-deep: #3a2a99;
-  --link-blue: #0075de;
-  --navy: #0a1530;
-  --navy-deep: #070f24;
-  --navy-mid: #1a2a52;
+  --primary: #d9481f;
+  --primary-pressed: #c23e17;
+  --primary-deep: #a33913;
+  --link-blue: #1e4d3a;
+  --navy: #17150f;
+  --navy-deep: #0f0d09;
+  --navy-mid: #2a261d;
   /* 表面 */
-  --canvas: #ffffff;
-  --surface: #f6f5f4;
-  --surface-soft: #fafaf9;
-  --hairline: #e5e3df;
-  --hairline-soft: #ede9e4;
-  --hairline-strong: #c8c4be;
+  --canvas: #fbf8f2;
+  --surface: #f1ece2;
+  --surface-soft: #f5f1e8;
+  --hairline: #d8d3c9;
+  --hairline-soft: #e5dfd4;
+  --hairline-strong: #c8c2b6;
   /* 文字 */
-  --ink: #1a1a1a;
-  --charcoal: #37352f;
-  --slate: #5d5b54;
-  --steel: #6b6861;
-  --stone: #75726a;
-  --muted: #bbb8b1;
+  --ink: #17150f;
+  --charcoal: #2b2820;
+  --slate: #6b6558;
+  --steel: #7d766a;
+  --stone: #8b8376;
+  --muted: #c2bcae;
   --on-dark: #ffffff;
-  --on-dark-muted: #a4a097;
+  --on-dark-muted: #d3cbbd;
   /* 语义 */
-  --success: #1aae39;
-  --success-deep: #0e7528;
-  --warning: #dd5b00;
-  --warning-deep: #ad4200;
-  --error: #e03131;
-  --rose-deep: #b02a58;
-  --track: #e8e6e3;
+  --success: #1e4d3a;
+  --success-deep: #123c2c;
+  --warning: #d9481f;
+  --warning-deep: #b23a16;
+  --error: #d6352b;
+  --rose-deep: #b2344a;
+  --track: #ddd6ca;
   /* 粉彩 */
-  --tint-lavender: #e6e0f5;
-  --tint-peach: #ffe8d4;
-  --tint-mint: #d9f3e1;
-  --tint-sky: #dcecfa;
-  --tint-rose: #fde0ec;
-  --tint-yellow: #fef7d6;
-  --yellow-bold: #f9e79f;
+  --tint-lavender: #f3e3d3;
+  --tint-peach: #ffd9c2;
+  --tint-mint: #cfe7d2;
+  --tint-sky: #d7e3ea;
+  --tint-rose: #f5d6d3;
+  --tint-yellow: #f6e6c0;
+  --yellow-bold: #f2b705;
   /* 圆角(rpx:1px ≈ 2rpx) */
   --r-sm: 12rpx;
   --r-md: 16rpx;
@@ -47,7 +47,7 @@ page {
   /* 其他 */
   background: var(--surface-soft);
   color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 30rpx;
   line-height: 1.5;
   overflow-x: hidden;
@@ -371,4 +371,103 @@ scroll-view {
 }
 .set-input {
   flex: 1;
+}
+
+/* ===== 运动计分卡 (Sports Scorecard) / Editorial ===== */
+
+/* 超大数字：计分牌主体 */
+.display {
+  font-size: 120rpx;
+  font-weight: 800;
+  letter-spacing: -4rpx;
+  line-height: 0.95;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.display-sm {
+  font-size: 76rpx;
+  font-weight: 800;
+  letter-spacing: -3rpx;
+  line-height: 1;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 斜切强调块 / 强调条 */
+.accent-bar {
+  display: inline-block;
+  width: 108rpx;
+  height: 12rpx;
+  background: var(--primary);
+  transform: skewX(-18deg);
+  margin: 20rpx 0;
+}
+.accent-block {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  transform: skewX(-8deg);
+  padding: 10rpx 26rpx;
+  font-size: 26rpx;
+  font-weight: 700;
+}
+.accent-block > text {
+  display: inline-block;
+  transform: skewX(8deg);
+}
+
+/* 计分卡标签（大写 + 增大字距） */
+.scorecard-label {
+  font-size: 24rpx;
+  letter-spacing: 4rpx;
+  color: var(--slate);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* 交错统计区：不对称 grid */
+.kpi-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 20rpx;
+}
+
+/* 大标题（编辑感） */
+.editorial-title {
+  font-size: 52rpx;
+  font-weight: 800;
+  letter-spacing: -2rpx;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+/* 编号式分段标题（01 胸 / 02 背） */
+.numbered {
+  display: flex;
+  align-items: baseline;
+  gap: 16rpx;
+}
+.numbered-n {
+  font-size: 30rpx;
+  font-weight: 800;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+.numbered-t {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* 新纪录高亮带 */
+.record-banner {
+  background: var(--yellow-bold);
+  color: #17150f;
+  font-weight: 700;
+  padding: 16rpx 24rpx;
+  transform: skewX(-6deg);
+}
+.record-banner > text {
+  display: inline-block;
+  transform: skewX(6deg);
 }

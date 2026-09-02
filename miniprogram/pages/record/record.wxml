@@ -99,7 +99,7 @@
             <view class="tpl-name">
               {{item.name}}
               <text class="tag {{item.genderHint === 'male' ? 'tag-blue' : (item.genderHint === 'female' ? 'tag-rose' : 'tag-gray')}}">{{item.genderText}}</text>
-              <text wx:if="{{item.locked}}" class="tag tag-lock">🔒 邀请解锁</text>
+              <text wx:if="{{item.locked}}" class="tag tag-lock">邀请解锁</text>
             </view>
             <view class="tpl-meta">{{item.goal}} · 每周 {{item.frequency}} 次 · {{item.exercises.length}} 个动作</view>
           </view>

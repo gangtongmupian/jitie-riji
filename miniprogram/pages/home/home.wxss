@@ -2,6 +2,46 @@
   display: flex;
   margin-top: 48rpx;
 }
+/* 计分卡主视觉 */
+.hero-score {
+  margin-top: 40rpx;
+}
+.hero-label {
+  color: var(--on-dark-muted);
+}
+.kpi-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24rpx;
+  margin: 12rpx 0 8rpx;
+}
+.hero-display {
+  color: var(--on-dark);
+  font-size: 150rpx;
+}
+.kpi-top-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10rpx;
+  padding-bottom: 8rpx;
+}
+.kpi-top-side .accent-bar {
+  margin: 0;
+}
+.kpi-side-b {
+  font-size: 64rpx;
+  font-weight: 800;
+  letter-spacing: -2rpx;
+  color: var(--on-dark);
+  font-variant-numeric: tabular-nums;
+}
+.hero-score .accent-block {
+  margin-top: 12rpx;
+  background: var(--yellow-bold);
+  color: #17150f;
+}
 .error-banner {
   display: flex;
   align-items: center;
