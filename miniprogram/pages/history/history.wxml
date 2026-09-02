@@ -78,6 +78,7 @@
               <text class="tag">{{item.mode === 'template' ? '模板训练' : '自由训练'}}</text>
             </view>
             <view class="day-stat">{{item.totalSets}} 组 · {{item.calories}} kcal</view>
+            <view class="btn btn-primary day-share" data-id="{{item.id}}" catchtap="shareWorkout">分享此记录</view>
             <view class="day-ex" wx:for="{{item.exercises}}" wx:for-item="ex" wx:key="name">
               <view class="day-ex-name">{{ex.name}}</view>
               <view class="day-ex-sets">

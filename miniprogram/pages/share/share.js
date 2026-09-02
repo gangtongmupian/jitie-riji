@@ -12,13 +12,14 @@ Page({
     dateLabel: '',
     bg: 'white',
     photoPath: '',
+    photoReady: false,
     generating: false,
     saved: false,
     streak: 0
   },
   onLoad() {
     share.enableShareMenu();
-    const workout = wx.getStorageSync('jitie.lastWorkout');
+    const workout = wx.getStorageSync('jitie.shareWorkout') || wx.getStorageSync('jitie.lastWorkout');
     if (!workout) {
       this.setData({ workout: null });
       return;
@@ -26,7 +27,8 @@ Page({
     const summaries = (workout.exercises || []).map((ex) => {
       const sets = ex.sets || [];
       const best = sets.reduce((a, b) => ((Number(b.weight) > Number(a.weight)) ? b : a), sets[0]);
-      const label = ex.weighted
+      const weighted = ex.weighted || sets.some((s) => Number(s.weight) > 0);
+      const label = weighted
         ? `${best ? best.weight : 0}kg×${best ? best.reps : 0}`
         : `自重×${best ? best.reps : 0}`;
       return { name: ex.name, count: sets.length, label };
@@ -56,10 +58,10 @@ Page({
     const w = 750;
     const h = 1000;
     const ctx = wx.createCanvasContext('shareCanvas', this);
-    const dark = this.data.bg === 'photo' && this.data.photoPath;
+    const dark = this.data.bg === 'photo' && this.data.photoReady && this._photo;
 
     if (dark) {
-      ctx.drawImage(this.data.photoPath, 0, 0, w, h);
+      ctx.drawImage(this._photo, 0, 0, w, h);
       ctx.setFillStyle('rgba(0,0,0,0.5)');
       ctx.fillRect(0, 0, w, h);
     } else {
@@ -126,42 +128,74 @@ Page({
       success: (res) => {
         const file = res.tempFiles && res.tempFiles[0];
         if (!file) return;
-        this.setData({ bg: 'photo', photoPath: file.tempFilePath, generating: true });
-        this.drawCard();
+        this.setData({ generating: true, saved: false });
+        wx.getImageInfo({
+          src: file.tempFilePath,
+          success: (info) => {
+            this._photo = info.path || file.tempFilePath;
+            this.setData({ bg: 'photo', photoPath: info.path || file.tempFilePath, photoReady: true });
+            if (this.data.workout) this.drawCard();
+            else this.setData({ generating: false });
+          },
+          fail: () => {
+            this.setData({ bg: 'white', photoPath: '', photoReady: false, generating: false, saved: false });
+            wx.showToast({ title: '图片读取失败，请重试', icon: 'none' });
+          }
+        });
       }
     });
   },
   resetBg() {
-    this.setData({ bg: 'white', photoPath: '', generating: true });
+    this.setData({ bg: 'white', photoPath: '', photoReady: false, generating: true, saved: false });
     this.drawCard();
   },
   save() {
     if (this.saving) return;
     this.saving = true;
     this.setData({ generating: true });
-    this.drawCard(() => {
-      wx.canvasToTempFilePath({
-        canvasId: 'shareCanvas',
-        success: (res) => {
-          wx.saveImageToPhotosAlbum({
-            filePath: res.tempFilePath,
-            success: () => {
-              this.saving = false;
-              this.setData({ saved: true });
-              wx.showToast({ title: '已保存到相册' });
-            },
-            fail: (err) => {
-              this.saving = false;
-              this.handleAlbumError(err);
-            }
-          });
+    const finalize = () => {
+      this.drawCard(() => {
+        wx.canvasToTempFilePath({
+          canvasId: 'shareCanvas',
+          success: (res) => {
+            wx.saveImageToPhotosAlbum({
+              filePath: res.tempFilePath,
+              success: () => {
+                this.saving = false;
+                this.setData({ saved: true });
+                wx.showToast({ title: '已保存到相册' });
+              },
+              fail: (err) => {
+                this.saving = false;
+                this.handleAlbumError(err);
+              }
+            });
+          },
+          fail: () => {
+            this.saving = false;
+            wx.showToast({ title: '生成图片失败，请重试', icon: 'none' });
+          }
+        });
+      });
+    };
+    // 若背景照片尚未预载完成，先读取再绘制，避免画布取不到大图
+    if (this.data.bg === 'photo' && this.data.photoPath && !this.data.photoReady) {
+      wx.getImageInfo({
+        src: this.data.photoPath,
+        success: (info) => {
+          this._photo = info.path || this.data.photoPath;
+          this.setData({ photoReady: true });
+          finalize();
         },
         fail: () => {
           this.saving = false;
-          wx.showToast({ title: '生成图片失败，请重试', icon: 'none' });
+          this.setData({ generating: false });
+          wx.showToast({ title: '图片读取失败，请重试', icon: 'none' });
         }
       });
-    });
+    } else {
+      finalize();
+    }
   },
   handleAlbumError(err) {
     if (err && err.errMsg && err.errMsg.indexOf('auth') >= 0) {

@@ -593,6 +593,7 @@ Page({
         totalSets: stats.totalSets(this.data.exercises),
         totalVolume: stats.totalVolume(this.data.exercises)
       });
+      share.clearShareTarget();
       wx.setStorageSync('jitie.lastWorkout', shareData);
       this.saved = true;
       if (wx.disableAlertBeforeUnload) wx.disableAlertBeforeUnload();

@@ -82,6 +82,7 @@ Page({
     if (!active || !date) return;
     this.setData({ showDayDetail: true, dayLoading: true, dayDetail: null });
     cloud.getDayStats(date).then((data) => {
+      this._dayWorkouts = data.day || [];
       const items = (data.day || []).map((w) => ({
         id: w._id,
         date: w.date,
@@ -112,6 +113,19 @@ Page({
   },
   closeDayDetail() {
     this.setData({ showDayDetail: false });
+  },
+  shareWorkout(e) {
+    const id = e.currentTarget.dataset.id;
+    const w = (this._dayWorkouts || []).find((x) => x._id === id);
+    if (!w) { this.toast('记录不存在，无法分享'); return; }
+    share.setShareTarget({
+      date: w.date,
+      mode: w.mode,
+      calories: w.calories || 0,
+      totalSets: w.totalSets || 0,
+      exercises: (w.exercises || []).map((ex) => ({ name: ex.name, sets: ex.sets || [] }))
+    });
+    wx.navigateTo({ url: '/pages/share/share' });
   },
   toast(title) {
     wx.showToast({ title, icon: 'none' });

@@ -112,8 +112,8 @@
           <block wx:for="{{filteredGroups}}" wx:for-item="g" wx:key="bodyPart">
             <view class="group-title">{{g.bodyPart}}</view>
             <view class="ex-item" wx:for="{{g.items}}" wx:for-item="e" wx:key="id" data-id="{{e.id}}" bindtap="pickExercise">
-              <image wx:if="{{e.machine}}" class="ex-icon" src="{{e.machine.image}}" mode="aspectFit" />
-              <image wx:else class="ex-icon" src="/images/glyphs/{{e.glyph}}.png" mode="aspectFit" />
+              <image wx:if="{{e.machine}}" class="ex-icon" src="{{e.machine.image}}" mode="aspectFit" lazy-load />
+              <image wx:else class="ex-icon" src="/images/glyphs/{{e.glyph}}.png" mode="aspectFit" lazy-load />
               <view class="ex-item-info">
                 <view class="ex-item-name">{{e.name}}</view>
                 <view class="ex-item-en">{{e.enName}}{{e.machine ? ' · ' + e.machine.model : ''}}</view>
@@ -173,7 +173,7 @@
           <text class="tag">{{detail.weights ? '负重' : '自重'}}</text>
         </view>
         <view wx:if="{{detail.machine}}" class="machine-photo">
-          <image src="{{detail.machine.image}}" mode="aspectFit" class="machine-img" />
+          <image src="{{detail.machine.image}}" mode="aspectFit" class="machine-img" lazy-load />
           <view class="machine-model">{{detail.machine.model}} · {{detail.machine.siteName}}</view>
         </view>
         <exercise-anim motion-key="{{detail.motion}}" anim-key="{{detail.animKey}}" glyph="{{detail.glyph}}" />

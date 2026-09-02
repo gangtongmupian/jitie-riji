@@ -24,4 +24,13 @@ function timeline(title) {
   return q ? { title, query: q } : { title };
 }
 
-module.exports = { enableShareMenu, appMessage, timeline };
+// 记录「要从分享页分享的某次训练历史」，避免被 lastWorkout 覆盖
+function setShareTarget(workout) {
+  wx.setStorageSync('jitie.shareWorkout', workout);
+}
+
+function clearShareTarget() {
+  try { wx.removeStorageSync('jitie.shareWorkout'); } catch (e) {}
+}
+
+module.exports = { enableShareMenu, appMessage, timeline, setShareTarget, clearShareTarget };

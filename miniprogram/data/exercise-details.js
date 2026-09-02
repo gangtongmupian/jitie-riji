@@ -468,21 +468,6 @@ module.exports = {
     steps: ['胸部贴紧上斜板，双手握把或哑铃。', '背部发力将手柄拉向躯干。', '缓慢还原至肩胛前伸。'],
     tips: ['上斜板支撑可减少下背压力。', '顶峰收缩 1 秒再还原。']
   },
-  'pendlay-row': {
-    targets: ['背阔肌', '斜方肌', '竖脊肌'],
-    steps: ['俯身与地面接近平行，杠铃悬空于小腿前。', '背部发力将杠铃拉向下胸，每次触地再拉起。', '杠铃放回地面，重新发力。'],
-    tips: ['每一拍都从地面重新起杠，不做连续弹震。', '保持脊柱中立，不弓背。']
-  },
-  'single-arm-cable-row': {
-    targets: ['背阔肌', '菱形肌', '肱二头肌'],
-    steps: ['单膝跪凳或弓步站立，握住低位滑轮把手。', '背部发力将手柄拉向髋部。', '缓慢还原至肩胛前伸。'],
-    tips: ['躯干保持稳定，不左右旋转。', '用背而非手臂发力。']
-  },
-  'rack-pull': {
-    targets: ['竖脊肌', '臀大肌', '腘绳肌', '斜方肌'],
-    steps: ['将杠铃架于膝盖上方高度，握距与硬拉相同。', '收紧核心，伸髋站起至身体直立。', '控制杠铃下放回架上。'],
-    tips: ['半程动作，可以比硬拉上更大的重量。', '全程保持背部平直。']
-  },
   'inverted-row': {
     targets: ['背阔肌', '菱形肌', '肱二头肌'],
     steps: ['仰卧于杠下，双手握杠，身体成直线。', '背部发力将胸部拉向杠。', '缓慢下放还原。'],
@@ -542,16 +527,6 @@ module.exports = {
     targets: ['腘绳肌', '腓肠肌'],
     steps: ['坐姿调整挡垫至脚踝上方。', '腘绳肌发力将挡垫向下压至最大屈膝。', '缓慢还原。'],
     tips: ['臀部贴紧座椅，不抬臀借力。', '还原时保持张力。']
-  },
-  'good-morning': {
-    targets: ['腘绳肌', '臀大肌', '竖脊肌'],
-    steps: ['杠铃置于上背，站距与肩同宽，膝微屈。', '髋部后移，躯干前俯至接近平行地面。', '伸髋站起还原。'],
-    tips: ['全程保持背部平直。', '用轻重量学习动作模式。']
-  },
-  'nordic-hamstring-curl': {
-    targets: ['腘绳肌'],
-    steps: ['跪姿，脚踝由同伴或器械固定。', '身体缓慢前倒，保持从头到膝成直线。', '用腘绳肌控制下放，必要时用手撑地。'],
-    tips: ['离心为主，循序渐进。', '髋部不要先屈。']
   },
   'single-leg-rdl': {
     targets: ['腘绳肌', '臀大肌', '竖脊肌'],
@@ -662,9 +637,8 @@ const DETAIL_SOURCE = {
   'fwd-fws-004': 'chest-press', 'fwd-fws-005': 'machine-shoulder-press', 'fwd-fws-006': 'rosen-sel-bicep',
   'fwd-fws-008': 'rosen-hm-pullover', 'fwd-fws-009': 'peck-deck', 'fwd-fws-011': 'rosen-ab-crunch',
   'fwd-fws-012': 'rosen-sel-leg-extension', 'fwd-fws-013': 'rosen-sel-leg-curl', 'fwd-fws-014': 'legpress',
-  'fwd-fws-015': 'rosen-sel-hip', 'fwd-fws-019': 'rosen-hip-thrust', 'fwd-fws-021': 'row',
-  'fwd-fws-022': 'peck-deck', 'fwd-fws-030': 'row', 'fwd-fws-031': 'row', 'fwd-fws-032': 'cable-fly',
-  'fwd-fws-033': 'row', 'fwd-fws-034': 'row', 'fwd-fws-035': 'row',
+  'fwd-fws-015': 'rosen-sel-hip', 'fwd-fws-019': 'rosen-hip-thrust',
+  'fwd-fws-022': 'peck-deck', 'fwd-fws-032': 'cable-fly',
   // FWHM 分动式挂片系列
   'fwd-fwhm-001': 'rosen-hm-bench-press', 'fwd-fwhm-002': 'rosen-hm-shoulder-press',
   'fwd-fwhm-003': 'rosen-sel-hip', 'fwd-fwhm-004': 'rosen-hm-seated-row', 'fwd-fwhm-005': 'rosen-hm-lat-pulldown',
