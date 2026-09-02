@@ -1,0 +1,25 @@
+<view class="page">
+  <view class="pane">
+    <view class="lib-head">
+      <view class="scorecard-label">JITIE LIBRARY</view>
+      <view class="lib-title">健身动作库</view>
+      <view class="lib-sub">{{total}} 个动作图解与演示 · 男生女生推荐重量</view>
+    </view>
+
+    <scroll-view scroll-x class="part-tabs">
+      <view wx:for="{{parts}}" wx:key="*this" class="part-tab {{active === item ? 'part-tab-on' : ''}}" data-value="{{item}}" bindtap="selectPart">{{item}}</view>
+    </scroll-view>
+
+    <block wx:for="{{groups}}" wx:for-item="g" wx:key="bodyPart">
+      <view class="sect">
+        <view class="sect-n">{{g.bodyPart}}</view>
+        <view class="sect-cnt">{{g.items.length}} 个动作</view>
+      </view>
+      <navigator class="ex-item" url="/pages/exercise-detail/exercise-detail?ex={{item.id}}" hover-class="ex-item-hover" wx:for="{{g.items}}" wx:for-item="item" wx:key="id">
+        <view class="ex-name">{{item.name}}</view>
+        <view class="ex-en">{{item.enName}}<text wx:if="{{item.equipment}}"> · {{item.equipment}}</text></view>
+        <view class="ex-arrow">›</view>
+      </navigator>
+    </block>
+  </view>
+</view>

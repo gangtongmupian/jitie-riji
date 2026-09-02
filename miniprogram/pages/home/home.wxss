@@ -20,6 +20,34 @@
   color: var(--warning-deep);
   margin-left: 24rpx;
 }
+.lib-entry {
+  margin-top: 24rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 28rpx 32rpx;
+  position: relative;
+}
+.lib-entry-hover {
+  background: var(--surface);
+}
+.lib-entry-t {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--ink);
+}
+.lib-entry-s {
+  font-size: 24rpx;
+  color: var(--slate);
+  margin-top: 6rpx;
+}
+.lib-entry-a {
+  position: absolute;
+  right: 28rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40rpx;
+  color: var(--stone);
+}
 .hero-title {
   display: flex;
   align-items: center;

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "记录训练 · 健身动作库",
+  "navigationBarTitleText": "动作演示",
   "usingComponents": {
     "exercise-anim": "/components/exercise-anim/exercise-anim"
   }

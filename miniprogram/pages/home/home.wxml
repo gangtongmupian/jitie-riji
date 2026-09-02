@@ -33,6 +33,12 @@
   <view class="pane">
     <view class="btn btn-primary btn-block" bindtap="start">开始训练</view>
 
+    <navigator class="card lib-entry" url="/pages/library/library" hover-class="lib-entry-hover">
+      <view class="lib-entry-t">健身动作库</view>
+      <view class="lib-entry-s">190+ 动作图解与演示 · 免登录浏览</view>
+      <view class="lib-entry-a">›</view>
+    </navigator>
+
     <view class="section">最近一次训练</view>
     <view wx:if="{{recent}}" class="card recent">
       <view class="recent-head">

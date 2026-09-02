@@ -6,7 +6,9 @@
     "pages/history/history",
     "pages/profile/profile",
     "pages/share/share",
-    "pages/invite/invite"
+    "pages/invite/invite",
+    "pages/library/library",
+    "pages/exercise-detail/exercise-detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fafaf9",

@@ -1,0 +1,88 @@
+.lib-head {
+  padding: 12rpx 0 28rpx;
+}
+.scorecard-label {
+  font-size: 24rpx;
+  letter-spacing: 4rpx;
+  color: var(--slate);
+  font-weight: 700;
+}
+.lib-title {
+  font-size: 52rpx;
+  font-weight: 800;
+  letter-spacing: -2rpx;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-top: 8rpx;
+}
+.lib-sub {
+  font-size: 26rpx;
+  color: var(--slate);
+  margin-top: 10rpx;
+}
+.part-tabs {
+  white-space: nowrap;
+  margin: 4rpx 0 8rpx;
+}
+.part-tab {
+  display: inline-flex;
+  align-items: center;
+  height: 72rpx;
+  padding: 0 30rpx;
+  border-radius: 36rpx;
+  background: var(--surface);
+  color: var(--steel);
+  font-size: 28rpx;
+  font-weight: 500;
+  margin-right: 12rpx;
+}
+.part-tab-on {
+  background: var(--ink);
+  color: #fff;
+}
+.sect {
+  display: flex;
+  align-items: baseline;
+  margin: 36rpx 0 12rpx;
+}
+.sect-n {
+  font-size: 34rpx;
+  font-weight: 800;
+  color: var(--ink);
+}
+.sect-cnt {
+  margin-left: 16rpx;
+  font-size: 24rpx;
+  color: var(--stone);
+}
+.ex-item {
+  display: flex;
+  flex-direction: column;
+  padding: 24rpx 28rpx;
+  background: var(--canvas);
+  border: 1rpx solid var(--hairline);
+  border-radius: var(--r-md);
+  margin-bottom: 12rpx;
+  position: relative;
+}
+.ex-item-hover {
+  background: var(--surface);
+}
+.ex-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--ink);
+}
+.ex-en {
+  font-size: 24rpx;
+  color: var(--slate);
+  margin-top: 6rpx;
+}
+.ex-arrow {
+  position: absolute;
+  right: 28rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40rpx;
+  color: var(--stone);
+}

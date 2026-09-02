@@ -1,0 +1,33 @@
+<view class="page" wx:if="{{ex}}">
+  <view class="pane">
+    <view class="detail-head">
+      <view class="scorecard-label">{{ex.bodyPart}} · {{ex.equipment}}</view>
+      <view class="detail-title">{{ex.name}}</view>
+      <view class="detail-en">{{ex.enName}}</view>
+    </view>
+
+    <exercise-anim motion-key="{{motionKey}}" anim-key="{{animKey}}" glyph="{{glyph}}" width="700" height="460" />
+
+    <view class="block">
+      <view class="block-t">目标肌群</view>
+      <view class="pill-row" wx:if="{{d.targets.length}}">
+        <view class="pill" wx:for="{{d.targets}}" wx:key="*this">{{item}}</view>
+      </view>
+    </view>
+
+    <view class="block">
+      <view class="block-t">动作要领</view>
+      <view class="step-line" wx:for="{{d.steps}}" wx:key="*this">
+        <text class="step-no">{{index + 1}}</text>
+        <text class="step-text">{{item}}</text>
+      </view>
+    </view>
+
+    <view class="block" wx:if="{{d.tips.length}}">
+      <view class="block-t">注意事项</view>
+      <view class="tip-line" wx:for="{{d.tips}}" wx:key="*this">• {{item}}</view>
+    </view>
+
+    <navigator class="btn btn-primary btn-block" url="/pages/record/record">去记录这个动作</navigator>
+  </view>
+</view>
