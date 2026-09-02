@@ -9,17 +9,17 @@
     "pages/invite/invite"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#f5f1e8",
+    "navigationBarBackgroundColor": "#fafaf9",
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "牛来举铁",
-    "backgroundColor": "#f5f1e8",
+    "backgroundColor": "#fafaf9",
     "backgroundTextStyle": "dark"
   },
   "tabBar": {
-    "color": "#7d766a",
-    "selectedColor": "#d9481f",
-    "backgroundColor": "#fbf8f2",
-    "borderStyle": "black",
+    "color": "#787671",
+    "selectedColor": "#5645d4",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
     "list": [
       { "pagePath": "pages/home/home", "text": "首页", "iconPath": "images/tab-home.png", "selectedIconPath": "images/tab-home-active.png" },
       { "pagePath": "pages/record/record", "text": "训练", "iconPath": "images/tab-train.png", "selectedIconPath": "images/tab-train-active.png" },

@@ -12,17 +12,16 @@
         <text class="hero-edit">点击修改昵称 / 头像</text>
       </view>
     </view>
-    <view class="hero-score">
-      <view class="scorecard-label hero-label">本周训练 · 次</view>
-      <view class="kpi-top">
-        <view class="display hero-display">{{week.count}}</view>
-        <view class="kpi-top-side">
-          <view class="accent-bar"></view>
-          <view class="kpi-side-b">{{weekText.calories}}</view>
-          <view class="scorecard-label">本周消耗 · kcal</view>
-        </view>
+    <view class="hero-sub">你好，今天也要坚持</view>
+    <view class="hero-week">
+      <view class="hw">
+        <text class="hw-b">{{week.count}}</text>
+        <text class="hw-s">本周训练（次）</text>
       </view>
-      <view class="accent-block"><text>持续记录 · 看见进步</text></view>
+      <view class="hw">
+        <text class="hw-b">{{weekText.calories}}</text>
+        <text class="hw-s">本周消耗（kcal）</text>
+      </view>
     </view>
     <view class="hero-strip">
       <view class="hs-item"><text class="hs-b">{{streak}}</text><text class="hs-s">连续训练（天）</text></view>
