@@ -4,6 +4,7 @@ const CATALOG_KEY = 'jitie.catalog.v3';
 const CATALOG_TTL = 24 * 60 * 60 * 1000;
 const CUSTOM_KEY = 'jitie.customExercises';
 const INVITER_KEY = 'jitie.inviter';
+const SOURCE_KEY = 'jitie.source';
 
 function getProfile() {
   return wx.getStorageSync(PROFILE_KEY) || null;
@@ -67,12 +68,21 @@ function clearInviter() {
   wx.removeStorageSync(INVITER_KEY);
 }
 
+function getSource() {
+  return wx.getStorageSync(SOURCE_KEY) || '';
+}
+
+function setSource(source) {
+  if (source) wx.setStorageSync(SOURCE_KEY, source);
+}
+
 function clearAllLocal() {
   wx.removeStorageSync(PROFILE_KEY);
   wx.removeStorageSync(DRAFT_KEY);
   wx.removeStorageSync(CATALOG_KEY);
   wx.removeStorageSync(CUSTOM_KEY);
   wx.removeStorageSync(INVITER_KEY);
+  wx.removeStorageSync(SOURCE_KEY);
   wx.removeStorageSync('jitie.lastWorkout');
   wx.removeStorageSync('jitie.activeRest');
 }
@@ -82,6 +92,6 @@ module.exports = {
   saveDraft, loadDraft, clearDraft,
   cacheCatalog, loadCatalogCache,
   getCustomExercises, addCustomExercise,
-  getInviter, setInviter, clearInviter,
+  getInviter, setInviter, clearInviter, getSource, setSource,
   clearAllLocal
 };

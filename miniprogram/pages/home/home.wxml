@@ -33,6 +33,24 @@
   <view class="pane">
     <view class="btn btn-primary btn-block" bindtap="start">开始训练</view>
 
+    <block wx:if="{{suggestion && suggestion.items.length}}">
+      <view class="suggest-card card">
+        <view class="suggest-head">
+          <text class="suggest-label">今天练什么？</text>
+          <text class="suggest-focus">{{suggestion.focus}}</text>
+        </view>
+        <view class="suggest-item" wx:for="{{suggestion.items}}" wx:key="name">
+          <text class="si-name">{{item.name}}</text>
+          <text class="si-advice">上次 {{item.last}} · 建议{{item.increased ? '加重' : ''}} {{item.weight}}kg × {{item.targetReps}}</text>
+        </view>
+        <view class="suggest-tip">根据上次表现自动建议，先保持重量、练够次数再加</view>
+      </view>
+    </block>
+
+    <navigator wx:if="{{needProfile}}" class="card profile-cta" url="/pages/onboarding/onboarding" hover-class="lib-entry-hover">
+      完善资料（可选）· 记录年龄/身高/体重，获得更准的重量与热量建议 ›
+    </navigator>
+
     <navigator class="card lib-entry" url="/pages/library/library" hover-class="lib-entry-hover">
       <view class="lib-entry-t">健身动作库</view>
       <view class="lib-entry-s">190+ 动作图解与演示 · 免登录浏览</view>

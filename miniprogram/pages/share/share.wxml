@@ -1,7 +1,17 @@
 <view class="page">
   <view class="pane" wx:if="{{workout}}">
-    <view class="mtitle">训练打卡</view>
+    <view class="mtitle">今日训练完成</view>
     <view class="msub">保存到相册发朋友圈，或转发给好友。</view>
+
+    <view class="done-summary">
+      <view class="ds-grid">
+        <view class="ds-cell"><text class="ds-b">{{totalSets}}</text><text class="ds-s">总组数</text></view>
+        <view class="ds-cell"><text class="ds-b">{{exerciseCount}}</text><text class="ds-s">动作数</text></view>
+        <view class="ds-cell"><text class="ds-b">{{durationText}}</text><text class="ds-s">时长</text></view>
+      </view>
+      <view class="ds-volume">今日训练量 <text class="ds-vol">{{volumeText}}</text></view>
+      <view class="ds-delta {{deltaUp ? 'ds-up' : ''}}">{{deltaText}}</view>
+    </view>
 
     <view class="preview-card">
       <image wx:if="{{bg === 'photo'}}" class="pv-bg" src="{{photoPath}}" mode="aspectFill"></image>
@@ -24,6 +34,18 @@
       <view class="btn btn-ghost action-btn" bindtap="{{bg === 'photo' ? 'resetBg' : 'chooseBg'}}">{{bg === 'photo' ? '换回白卡' : '换背景'}}</view>
       <view class="btn btn-primary action-btn" bindtap="save">{{saved ? '已保存' : '保存到相册'}}</view>
     </view>
+
+    <view wx:if="{{showReminder && !reminderChoice}}" class="remind-box card">
+      <view class="remind-t">要不要提醒下次训练？</view>
+      <view class="remind-row">
+        <view class="pill" data-choice="2" bindtap="chooseReminder">2 天后</view>
+        <view class="pill" data-choice="3" bindtap="chooseReminder">3 天后</view>
+        <view class="pill" data-choice="mwf" bindtap="chooseReminder">每周一/三/五</view>
+        <view class="pill" data-choice="none" bindtap="chooseReminder">不需要</view>
+      </view>
+    </view>
+
+    <view class="btn btn-primary btn-block done-cta" bindtap="goHistory">查看我的训练记录</view>
     <view class="btn-link done" bindtap="done">完成，返回首页</view>
   </view>
 

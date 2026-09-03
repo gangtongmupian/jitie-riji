@@ -48,6 +48,54 @@
   font-size: 40rpx;
   color: var(--stone);
 }
+.suggest-card {
+  margin-top: 24rpx;
+  padding: 28rpx 32rpx;
+}
+.suggest-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 18rpx;
+}
+.suggest-label {
+  font-size: 32rpx;
+  font-weight: 800;
+  letter-spacing: -1rpx;
+  color: var(--ink);
+}
+.suggest-focus {
+  font-size: 26rpx;
+  color: var(--primary);
+  font-weight: 700;
+}
+.suggest-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 14rpx 0;
+  border-top: 1rpx solid var(--hairline-soft);
+}
+.si-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+.si-advice {
+  font-size: 24rpx;
+  color: var(--slate);
+}
+.suggest-tip {
+  margin-top: 12rpx;
+  font-size: 22rpx;
+  color: var(--stone);
+}
+.profile-cta {
+  margin-top: 24rpx;
+  padding: 24rpx 28rpx;
+  font-size: 26rpx;
+  color: var(--link-blue);
+}
 .hero-title {
   display: flex;
   align-items: center;

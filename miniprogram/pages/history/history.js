@@ -1,5 +1,6 @@
 const cloud = require('../../utils/cloud');
 const share = require('../../utils/share');
+const track = require('../../utils/track');
 
 Page({
   data: {
@@ -21,6 +22,7 @@ Page({
     this.month = now.getMonth();
   },
   onShow() {
+    track.track('history_view');
     this.refresh();
   },
   refresh() {

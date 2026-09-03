@@ -2,6 +2,8 @@ const cloud = require('../../utils/cloud');
 const storage = require('../../utils/storage');
 const format = require('../../utils/format');
 const share = require('../../utils/share');
+const track = require('../../utils/track');
+const suggest = require('../../utils/suggest');
 
 Page({
   data: {
@@ -14,11 +16,15 @@ Page({
     recent: null,
     streak: 0,
     totalWorkouts: 0,
-    achievements: []
+    achievements: [],
+    suggestion: null,
+    needProfile: true
   },
   onLoad(options) {
     const inviter = this.parseInviter(options);
     if (inviter && !storage.getProfile()) storage.setInviter(inviter);
+    const source = this.parseSource(options);
+    if (source) storage.setSource(source);
   },
   parseInviter(options) {
     const raw = (options && (options.inviter || options.scene)) || '';
@@ -28,13 +34,19 @@ Page({
     try { v = decodeURIComponent(v); } catch (e) { /* 保持原值 */ }
     return v.replace(/[^0-9a-zA-Z_\-]/g, '');
   },
+  parseSource(options) {
+    const raw = (options && (options.source || options.scene)) || '';
+    const s = decodeURIComponent(raw);
+    if (s.indexOf('search') >= 0) return 'search';
+    if (s.indexOf('invite') >= 0) return 'invite';
+    if (s.indexOf('share') >= 0) return 'share';
+    return storage.getInviter() ? 'invite' : 'direct';
+  },
   onShow() {
     share.enableShareMenu();
     const profile = storage.getProfile();
-    if (!profile || !profile.gender) {
-      wx.reLaunch({ url: '/pages/onboarding/onboarding' });
-      return;
-    }
+    this.setData({ needProfile: !(profile && profile.gender) });
+    track.track('home_view');
     this.refresh();
   },
   refresh() {
@@ -71,6 +83,9 @@ Page({
           calories: (week.calories || 0) + ' kcal'
         }
       });
+      const suggestion = suggest.suggest(r || null);
+      if (suggestion.hasLast) track.track('suggestion_seen');
+      this.setData({ suggestion });
     }).catch(() => {
       this.setData({ loading: false, loadError: true });
     });
@@ -80,7 +95,11 @@ Page({
     this.refresh();
   },
   start() {
+    track.track('workout_start');
     wx.switchTab({ url: '/pages/record/record' });
+  },
+  goSetProfile() {
+    wx.navigateTo({ url: '/pages/onboarding/onboarding' });
   },
   editProfile() {
     wx.showActionSheet({

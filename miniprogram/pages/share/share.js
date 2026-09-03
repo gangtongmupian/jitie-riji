@@ -1,15 +1,25 @@
 const format = require('../../utils/format');
 const share = require('../../utils/share');
 const cloud = require('../../utils/cloud');
+const track = require('../../utils/track');
+const storage = require('../../utils/storage');
 
 Page({
   data: {
     workout: null,
     summaries: [],
     volumeText: '0kg',
+    durationText: '',
     calories: 0,
     headline: { label: '训练完成', value: '' },
     dateLabel: '',
+    deltaText: '',
+    deltaUp: false,
+    firstTime: false,
+    totalSets: 0,
+    exerciseCount: 0,
+    showReminder: false,
+    reminderChoice: '',
     bg: 'white',
     photoPath: '',
     photoReady: false,
@@ -36,6 +46,8 @@ Page({
     const calories = Number(workout.calories) || 0;
     const totalSets = workout.totalSets || 0;
     const exCount = (workout.exercises || []).length;
+    const volume = Number(workout.totalVolume) || 0;
+    const durationMin = Math.max(1, Math.round((Number(workout.durationSec) || 0) / 60) || exCount);
     const headline = calories > 0
       ? { label: '本次消耗热量', value: calories + ' kcal' }
       : { label: '训练完成', value: exCount + ' 个动作 · ' + totalSets + ' 组' };
@@ -43,14 +55,33 @@ Page({
       workout,
       summaries,
       calories,
+      totalSets,
+      exerciseCount: exCount,
+      volumeText: format.formatVolume(volume),
+      durationText: durationMin + ' 分钟',
       headline,
-      dateLabel: format.formatDate(workout.date)
+      dateLabel: format.formatDate(workout.date),
+      showReminder: true
     });
     this.drawCard();
     cloud.getStats().then((data) => {
+      const recent = (data.recent || []).filter((w) => w._id !== (workout._id || ''));
+      const prev = recent[0];
+      if (!prev) {
+        this.setData({ firstTime: true, deltaText: '首次记录，已为你保存 · 下次会给你建议' });
+      } else {
+        const prevVol = Number(prev.totalVolume) || 0;
+        const curVol = Number(volume) || 0;
+        const diff = curVol - prevVol;
+        this.setData({
+          deltaText: diff > 0 ? ('比上次 +' + format.formatVolume(diff)) : (diff < 0 ? ('比上次 ' + format.formatVolume(diff)) : '与上次持平'),
+          deltaUp: diff >= 0
+        });
+      }
       this.setData({ streak: data.streak || 0 });
       this.drawCard();
     }).catch(() => {});
+    track.track('share_view', { totalSets, exCount, volume });
   },
   drawCard(cb) {
     const workout = this.data.workout;
@@ -148,6 +179,21 @@ Page({
   resetBg() {
     this.setData({ bg: 'white', photoPath: '', photoReady: false, generating: true, saved: false });
     this.drawCard();
+  },
+  chooseReminder(e) {
+    const choice = e.currentTarget.dataset.choice;
+    const profile = (storage.getProfile && storage.getProfile()) || {};
+    storage.setProfile(Object.assign({}, profile, { reminderSchedule: choice }));
+    track.track('reminder_optin', { choice });
+    if (choice !== 'none' && wx.requestSubscribeMessage) {
+      // TEMPLATE_ID：到 mp 后台申请订阅消息后填入
+      wx.requestSubscribeMessage({ tmplIds: ['REPLACE_WITH_TEMPLATE_ID'] }).catch(() => {});
+    }
+    this.setData({ reminderChoice: choice, showReminder: false });
+    wx.showToast({ title: choice === 'none' ? '好的，不提醒' : '已设置训练提醒', icon: 'none' });
+  },
+  goHistory() {
+    wx.switchTab({ url: '/pages/history/history' });
   },
   save() {
     if (this.saving) return;

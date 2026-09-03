@@ -2,6 +2,7 @@ const storage = require('../../utils/storage');
 const cloud = require('../../utils/cloud');
 const standards = require('../../utils/standards');
 const share = require('../../utils/share');
+const track = require('../../utils/track');
 
 const GOALS = ['增肌', '减脂', '增力', '保持'];
 const FREQS = [1, 2, 3, 4, 5, 6, 7];
@@ -99,6 +100,7 @@ Page({
     wx.showLoading({ title: '计算中' });
     cloud.saveProfile(profile).then((metrics) => {
       wx.hideLoading();
+      track.track('onboarding_complete');
       this.setData({
         result: Object.assign({}, profile, metrics, { bmiLevelLabel: standards.bmiLevelLabel(metrics.bmiLevel) }),
         step: 3

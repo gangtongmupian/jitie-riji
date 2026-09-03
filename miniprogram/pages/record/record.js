@@ -9,6 +9,7 @@ const motion = require('../../utils/motion');
 const config = require('../../config');
 const rosenMachines = require('../../data/rosen-machines');
 const forwardMachines = require('../../data/forward-machines');
+const track = require('../../utils/track');
 
 const BODY_ORDER = ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'];
 
@@ -248,6 +249,7 @@ Page({
       sets: [{ reps: '', weight: '', _key: this.genId() }]
     };
     this.setData({ exercises: this.data.exercises.concat([item]), showExercisePicker: false });
+    track.track('exercise_added', { name: ex.name, bodyPart: ex.bodyPart });
     this.recalc();
   },
   pickExerciseFromDetail(e) {
@@ -299,6 +301,7 @@ Page({
     const last = ex.sets[ex.sets.length - 1] || { reps: '', weight: '' };
     exercises[ei] = Object.assign({}, ex, { sets: ex.sets.concat([{ reps: last.reps, weight: last.weight, _key: this.genId() }]) });
     this.setData({ exercises });
+    track.track('set_completed', { exercise: ex.name, sets: exercises[ei].sets.length });
     this.recalc();
   },
   removeSet(e) {
@@ -595,6 +598,12 @@ Page({
       });
       share.clearShareTarget();
       wx.setStorageSync('jitie.lastWorkout', shareData);
+      track.track('workout_completed', {
+        totalSets: shareData.totalSets,
+        totalVolume: shareData.totalVolume,
+        calories: calories,
+        exercises: shareData.exercises.length
+      });
       this.saved = true;
       if (wx.disableAlertBeforeUnload) wx.disableAlertBeforeUnload();
       this.setData({ saving: false });

@@ -118,3 +118,76 @@
   width: 320rpx;
   margin: 24rpx auto 0;
 }
+.done-summary {
+  margin: 8rpx 0 24rpx;
+  padding: 28rpx 32rpx;
+  background: var(--surface);
+  border-radius: var(--r-lg);
+}
+.ds-grid {
+  display: flex;
+}
+.ds-cell {
+  flex: 1;
+  text-align: center;
+}
+.ds-b {
+  display: block;
+  font-size: 44rpx;
+  font-weight: 800;
+  letter-spacing: -1rpx;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.ds-s {
+  display: block;
+  font-size: 22rpx;
+  color: var(--slate);
+  margin-top: 4rpx;
+}
+.ds-volume {
+  margin-top: 24rpx;
+  padding-top: 24rpx;
+  border-top: 1rpx solid var(--hairline);
+  font-size: 28rpx;
+  color: var(--charcoal);
+  display: flex;
+  align-items: baseline;
+}
+.ds-vol {
+  margin-left: 12rpx;
+  font-size: 48rpx;
+  font-weight: 800;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+.ds-delta {
+  margin-top: 12rpx;
+  font-size: 26rpx;
+  color: var(--slate);
+}
+.ds-delta.ds-up {
+  color: var(--success-deep);
+  font-weight: 600;
+}
+.remind-box {
+  margin: 32rpx 0;
+  padding: 28rpx 32rpx;
+}
+.remind-t {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 20rpx;
+}
+.remind-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+.done-cta {
+  margin-top: 8rpx;
+}
+.done {
+  margin-top: 24rpx;
+}
