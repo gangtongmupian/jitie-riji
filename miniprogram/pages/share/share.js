@@ -183,11 +183,12 @@ Page({
   chooseReminder(e) {
     const choice = e.currentTarget.dataset.choice;
     const profile = (storage.getProfile && storage.getProfile()) || {};
-    storage.setProfile(Object.assign({}, profile, { reminderSchedule: choice }));
+    const updated = Object.assign({}, profile, { reminderSchedule: choice, remindEnabled: choice !== 'none' });
+    storage.setProfile(updated);
+    if (cloud.saveProfile) cloud.saveProfile(updated).catch(() => {});
     track.track('reminder_optin', { choice });
     if (choice !== 'none' && wx.requestSubscribeMessage) {
-      // TEMPLATE_ID：到 mp 后台申请订阅消息后填入
-      wx.requestSubscribeMessage({ tmplIds: ['REPLACE_WITH_TEMPLATE_ID'] }).catch(() => {});
+      wx.requestSubscribeMessage({ tmplIds: ['c3xdncU-7EZv4m47saS7f83x9AH4rvGBBpOAvMyQjHQ'] }).catch(() => {});
     }
     this.setData({ reminderChoice: choice, showReminder: false });
     wx.showToast({ title: choice === 'none' ? '好的，不提醒' : '已设置训练提醒', icon: 'none' });

@@ -5,8 +5,8 @@ const db = cloud.database();
 const users = db.collection('users');
 const workouts = db.collection('workouts');
 
-// TODO: 在微信公众平台「订阅消息」申请模板后，把模板 ID 填入并重新部署
-const TEMPLATE_ID = '';
+// 订阅消息模板 ID（微信公众平台「订阅消息」）
+const TEMPLATE_ID = 'c3xdncU-7EZv4m47saS7f83x9AH4rvGBBpOAvMyQjHQ';
 
 function isoDate(d) {
   return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');

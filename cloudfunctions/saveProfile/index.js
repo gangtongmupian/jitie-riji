@@ -25,6 +25,20 @@ function bmr(gender, age, heightCm, weightKg) {
 
 exports.main = async (event) => {
   const { OPENID } = cloud.getWXContext();
+  const remindEnabled = event.remindEnabled === undefined ? undefined : !!event.remindEnabled;
+  const reminderSchedule = event.reminderSchedule === undefined ? undefined : String(event.reminderSchedule).slice(0, 10);
+
+  // 仅设置训练提醒（可能尚未建档）：不校验资料，直接更新/创建用户文档
+  if (!event.gender && (remindEnabled !== undefined || reminderSchedule !== undefined)) {
+    const patch = { updatedAt: db.serverDate() };
+    if (remindEnabled !== undefined) patch.remindEnabled = remindEnabled;
+    if (reminderSchedule !== undefined) patch.reminderSchedule = reminderSchedule;
+    const found = await users.where({ openid: OPENID }).limit(1).get();
+    if (found.data[0]) await users.doc(found.data[0]._id).update({ data: patch });
+    else await users.add({ data: { openid: OPENID, createdAt: db.serverDate(), ...patch } });
+    return { ok: true, data: {} };
+  }
+
   const gender = event.gender;
   const age = Number(event.age);
   const heightCm = Number(event.heightCm);
@@ -32,7 +46,6 @@ exports.main = async (event) => {
   const goal = event.goal;
   const frequency = event.frequency == null ? null : Number(event.frequency);
   const nickname = event.nickname === undefined ? null : String(event.nickname).trim().slice(0, 12);
-  const remindEnabled = event.remindEnabled === undefined ? undefined : !!event.remindEnabled;
   const avatarFileID = event.avatarFileID === undefined ? undefined : String(event.avatarFileID).trim().slice(0, 300);
 
   if (!(gender === 'male' || gender === 'female')) return { ok: false, error: '请选择性别' };
@@ -55,6 +68,7 @@ exports.main = async (event) => {
   if (frequency != null) data.frequency = frequency;
   if (nickname !== null) data.nickname = nickname;
   if (remindEnabled !== undefined) data.remindEnabled = remindEnabled;
+  if (reminderSchedule !== undefined) data.reminderSchedule = reminderSchedule;
   if (avatarFileID !== undefined) data.avatarFileID = avatarFileID || null;
 
   const found = await users.where({ openid: OPENID }).limit(1).get();
