@@ -18,6 +18,7 @@ Page({
     firstTime: false,
     totalSets: 0,
     exerciseCount: 0,
+    weekCount: 0,
     showReminder: false,
     reminderChoice: '',
     bg: 'white',
@@ -78,7 +79,7 @@ Page({
           deltaUp: diff >= 0
         });
       }
-      this.setData({ streak: data.streak || 0 });
+      this.setData({ streak: data.streak || 0, weekCount: (data.week && data.week.count) || 0 });
       this.drawCard();
     }).catch(() => {});
     track.track('share_view', { totalSets, exCount, volume });

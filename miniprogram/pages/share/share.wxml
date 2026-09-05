@@ -11,6 +11,9 @@
       </view>
       <view class="ds-volume">今日训练量 <text class="ds-vol">{{volumeText}}</text></view>
       <view class="ds-delta {{deltaUp ? 'ds-up' : ''}}">{{deltaText}}</view>
+      <view class="ds-retention" wx:if="{{weekCount || streak}}">
+        本周已练 <text class="ds-r-b">{{weekCount}}</text> 次 · 连续 <text class="ds-r-b">{{streak}}</text> 天
+      </view>
     </view>
 
     <view class="preview-card">

@@ -170,6 +170,18 @@
   color: var(--success-deep);
   font-weight: 600;
 }
+.ds-retention {
+  margin-top: 14rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx dashed var(--hairline);
+  font-size: 26rpx;
+  color: var(--slate);
+}
+.ds-r-b {
+  color: var(--primary);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
 .remind-box {
   margin: 32rpx 0;
   padding: 28rpx 32rpx;
