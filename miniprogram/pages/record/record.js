@@ -10,6 +10,7 @@ const config = require('../../config');
 const track = require('../../utils/track');
 const rosenMachines = require('../../data/rosen-machines');
 const forwardMachines = require('../../data/forward-machines');
+const searchUtil = require('../../utils/search');
 
 const BODY_ORDER = ['胸', '背', '腿', '臀腿', '肩', '手臂', '核心', '有氧', '拉伸'];
 
@@ -37,6 +38,7 @@ Page({
     bodyParts: ['胸', '背', '腿', '臀腿', '肩', '手臂', '核心', '有氧', '拉伸'],
     bodyPartTabs: ['全部', '胸', '背', '腿', '臀腿', '肩', '手臂', '核心', '有氧', '拉伸', '品牌器械'],
     activeBodyPart: '全部',
+    searchQuery: '',
     filteredGroups: []
   },
   onLoad() {
@@ -126,6 +128,12 @@ Page({
     return grouped;
   },
   applyFilter() {
+    const q = (this.data.searchQuery || '').trim();
+    if (q) {
+      const items = searchUtil.filter(this.data.allExercises, q);
+      this.setData({ filteredGroups: [{ bodyPart: '搜索到 ' + items.length + ' 个动作', items }] });
+      return;
+    }
     const active = this.data.activeBodyPart;
     const all = this.data.groupedExercises;
     if (active === '品牌器械') {
@@ -140,6 +148,7 @@ Page({
   selectBodyPart(e) {
     const active = e.currentTarget.dataset.value;
     const all = this.data.groupedExercises;
+    if (this.data.searchQuery) this.setData({ searchQuery: '' });
     if (active === '品牌器械') {
       const items = this.data.allExercises.filter((x) => x.brand);
       this.setData({ activeBodyPart: active, filteredGroups: [{ bodyPart: '品牌器械', items }] });
@@ -149,6 +158,14 @@ Page({
       activeBodyPart: active,
       filteredGroups: active === '全部' ? all : all.filter((g) => g.bodyPart === active)
     });
+  },
+  onSearch(e) {
+    this.setData({ searchQuery: e.detail.value });
+    this.applyFilter();
+  },
+  clearSearch() {
+    this.setData({ searchQuery: '' });
+    this.applyFilter();
   },
   openCustomForm() {
     this.setData({ showExercisePicker: false, showCustomForm: true });

@@ -35,7 +35,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "glwt",
+    "pyf": "ganglingwotui"
   },
   {
     "id": "incline-bench-press",
@@ -73,7 +75,9 @@
           0.6
         ]
       }
-    }
+    },
+    "py": "sxglwt",
+    "pyf": "shangxieganglingwotui"
   },
   {
     "id": "incline-dumbbell-press",
@@ -111,7 +115,9 @@
           0.24
         ]
       }
-    }
+    },
+    "py": "sxylwt",
+    "pyf": "shangxieyalingwotui"
   },
   {
     "id": "dumbbell-bench-press",
@@ -149,7 +155,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "ylwt",
+    "pyf": "yalingwotui"
   },
   {
     "id": "decline-bench-press",
@@ -187,7 +195,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "xxglwt",
+    "pyf": "xiaxieganglingwotui"
   },
   {
     "id": "machine-chest-press",
@@ -225,7 +235,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "zztx",
+    "pyf": "zuozituixiong"
   },
   {
     "id": "pec-deck",
@@ -263,7 +275,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "hdjjx",
+    "pyf": "hudiejijiaxiong"
   },
   {
     "id": "cable-fly",
@@ -301,7 +315,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "ssjx",
+    "pyf": "shengsuojiaxiong"
   },
   {
     "id": "push-up",
@@ -309,7 +325,9 @@
     "enName": "Push-up",
     "bodyPart": "胸",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "fwc",
+    "pyf": "fuwocheng"
   },
   {
     "id": "weighted-push-up",
@@ -347,7 +365,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "fzfwc",
+    "pyf": "fuzhongfuwocheng"
   },
   {
     "id": "overhead-press",
@@ -385,7 +405,9 @@
           0.45
         ]
       }
-    }
+    },
+    "py": "gltj",
+    "pyf": "ganglingtuiju"
   },
   {
     "id": "seated-dumbbell-press",
@@ -423,7 +445,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "ylzztj",
+    "pyf": "yalingzuozituijian"
   },
   {
     "id": "arnold-press",
@@ -461,7 +485,9 @@
           0.18
         ]
       }
-    }
+    },
+    "py": "andtj",
+    "pyf": "anuodetuiju"
   },
   {
     "id": "lateral-raise",
@@ -499,7 +525,9 @@
           0.13
         ]
       }
-    }
+    },
+    "py": "ylcpj",
+    "pyf": "yalingcepingju"
   },
   {
     "id": "cable-lateral-raise",
@@ -537,7 +565,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "sscpj",
+    "pyf": "shengsuocepingju"
   },
   {
     "id": "front-raise",
@@ -575,7 +605,9 @@
           0.13
         ]
       }
-    }
+    },
+    "py": "ylqpj",
+    "pyf": "yalingqianpingju"
   },
   {
     "id": "rear-delt-fly",
@@ -613,7 +645,9 @@
           0.13
         ]
       }
-    }
+    },
+    "py": "fsylfn",
+    "pyf": "fushenyalingfeiniao"
   },
   {
     "id": "reverse-pec-deck",
@@ -651,7 +685,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "fxhdj",
+    "pyf": "fanxianghudieji"
   },
   {
     "id": "face-pull",
@@ -689,7 +725,9 @@
           0.22
         ]
       }
-    }
+    },
+    "py": "ml",
+    "pyf": "mianla"
   },
   {
     "id": "upright-row",
@@ -727,7 +765,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "glzlhc",
+    "pyf": "ganglingzhilihuachuan"
   },
   {
     "id": "deadlift",
@@ -765,7 +805,9 @@
           1
         ]
       }
-    }
+    },
+    "py": "yl",
+    "pyf": "yingla"
   },
   {
     "id": "romanian-deadlift",
@@ -803,7 +845,9 @@
           0.75
         ]
       }
-    }
+    },
+    "py": "lmnyyl",
+    "pyf": "luomaniyayingla"
   },
   {
     "id": "barbell-row",
@@ -841,7 +885,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "glfshc",
+    "pyf": "ganglingfushenhuachuan"
   },
   {
     "id": "t-bar-row",
@@ -879,7 +925,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "tghc",
+    "pyf": "tganghuachuan"
   },
   {
     "id": "dumbbell-bent-over-row",
@@ -917,7 +965,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "ylfshc",
+    "pyf": "yalingfushenhuachuan"
   },
   {
     "id": "one-arm-dumbbell-row",
@@ -955,7 +1005,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "dbylhc",
+    "pyf": "danbiyalinghuachuan"
   },
   {
     "id": "chest-supported-row",
@@ -993,7 +1045,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "sxbhc",
+    "pyf": "shangxiebanhuachuan"
   },
   {
     "id": "seated-row",
@@ -1031,7 +1085,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "zzsshc",
+    "pyf": "zuozishengsuohuachuan"
   },
   {
     "id": "machine-row",
@@ -1069,7 +1125,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "zzhc",
+    "pyf": "zuozihuachuan"
   },
   {
     "id": "lat-pulldown",
@@ -1107,7 +1165,9 @@
           0.75
         ]
       }
-    }
+    },
+    "py": "gwxl",
+    "pyf": "gaoweixiala"
   },
   {
     "id": "close-grip-lat-pulldown",
@@ -1145,7 +1205,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "zjgwxl",
+    "pyf": "zhaijugaoweixiala"
   },
   {
     "id": "straight-arm-pulldown",
@@ -1183,7 +1245,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "zbxy",
+    "pyf": "zhibixiaya"
   },
   {
     "id": "pull-up",
@@ -1191,7 +1255,9 @@
     "enName": "Pull-up",
     "bodyPart": "背",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "ytxs",
+    "pyf": "yintixiangshang"
   },
   {
     "id": "assisted-pull-up",
@@ -1229,7 +1295,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "fzytxs",
+    "pyf": "fuzhuyintixiangshang"
   },
   {
     "id": "weighted-pull-up",
@@ -1267,7 +1335,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "fzyt",
+    "pyf": "fuzhongyinti"
   },
   {
     "id": "chin-up",
@@ -1275,7 +1345,9 @@
     "enName": "Chin-up",
     "bodyPart": "背",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "fsytxs",
+    "pyf": "fanshouyintixiangshang"
   },
   {
     "id": "shrug",
@@ -1313,7 +1385,9 @@
           0.75
         ]
       }
-    }
+    },
+    "py": "glsj",
+    "pyf": "ganglingsongjian"
   },
   {
     "id": "squat",
@@ -1351,7 +1425,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "glsd",
+    "pyf": "ganglingshendun"
   },
   {
     "id": "front-squat",
@@ -1389,7 +1465,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "glqd",
+    "pyf": "ganglingqiandun"
   },
   {
     "id": "hack-squat",
@@ -1427,7 +1505,9 @@
           0.9
         ]
       }
-    }
+    },
+    "py": "hksd",
+    "pyf": "hakeshendun"
   },
   {
     "id": "leg-press",
@@ -1465,7 +1545,9 @@
           1.6
         ]
       }
-    }
+    },
+    "py": "tj",
+    "pyf": "tuiju"
   },
   {
     "id": "bulgarian-split-squat",
@@ -1503,7 +1585,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "bjlyftd",
+    "pyf": "baojialiyafentuidun"
   },
   {
     "id": "walking-lunge",
@@ -1541,7 +1625,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "xzgb",
+    "pyf": "xingzougongbu"
   },
   {
     "id": "step-up",
@@ -1579,7 +1665,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "stj",
+    "pyf": "shangtaijie"
   },
   {
     "id": "leg-extension",
@@ -1617,7 +1705,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "tqs",
+    "pyf": "tuiqushen"
   },
   {
     "id": "leg-curl",
@@ -1655,7 +1745,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "twj",
+    "pyf": "tuiwanju"
   },
   {
     "id": "seated-leg-curl",
@@ -1693,7 +1785,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "zztwj",
+    "pyf": "zuozituiwanju"
   },
   {
     "id": "hip-thrust",
@@ -1731,7 +1825,9 @@
           0.95
         ]
       }
-    }
+    },
+    "py": "gltt",
+    "pyf": "ganglingtuntui"
   },
   {
     "id": "glute-bridge",
@@ -1739,7 +1835,9 @@
     "enName": "Glute Bridge",
     "bodyPart": "臀腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "tq",
+    "pyf": "tunqiao"
   },
   {
     "id": "good-morning",
@@ -1777,7 +1875,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "zas",
+    "pyf": "zaoanshi"
   },
   {
     "id": "standing-calf-raise",
@@ -1815,7 +1915,9 @@
           0.75
         ]
       }
-    }
+    },
+    "py": "zztz",
+    "pyf": "zhanzitizhong"
   },
   {
     "id": "seated-calf-raise",
@@ -1853,7 +1955,9 @@
           0.75
         ]
       }
-    }
+    },
+    "py": "zztz",
+    "pyf": "zuozitizhong"
   },
   {
     "id": "bicep-curl",
@@ -1891,7 +1995,9 @@
           0.15
         ]
       }
-    }
+    },
+    "py": "ylwj",
+    "pyf": "yalingwanju"
   },
   {
     "id": "hammer-curl",
@@ -1929,7 +2035,9 @@
           0.15
         ]
       }
-    }
+    },
+    "py": "cswj",
+    "pyf": "chuishiwanju"
   },
   {
     "id": "preacher-curl",
@@ -1967,7 +2075,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "msywj",
+    "pyf": "mushiyiwanju"
   },
   {
     "id": "cable-curl",
@@ -2005,7 +2115,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "sswj",
+    "pyf": "shengsuowanju"
   },
   {
     "id": "reverse-curl",
@@ -2043,7 +2155,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "fwwj",
+    "pyf": "fanwowanju"
   },
   {
     "id": "wrist-curl",
@@ -2081,7 +2195,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "wwj",
+    "pyf": "wanwanju"
   },
   {
     "id": "tricep-pushdown",
@@ -2119,7 +2235,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "ssxy",
+    "pyf": "shengsuoxiaya"
   },
   {
     "id": "overhead-tricep-extension",
@@ -2157,7 +2275,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "gtbqs",
+    "pyf": "guotoubiqushen"
   },
   {
     "id": "skull-crusher",
@@ -2195,7 +2315,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "ywglbqs",
+    "pyf": "yangwoganglingbiqushen"
   },
   {
     "id": "close-grip-bench-press",
@@ -2233,7 +2355,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "zjwt",
+    "pyf": "zhaijuwotui"
   },
   {
     "id": "dip",
@@ -2241,7 +2365,9 @@
     "enName": "Dip",
     "bodyPart": "手臂",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "bqs",
+    "pyf": "biqushen"
   },
   {
     "id": "assisted-dip",
@@ -2279,7 +2405,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "fzbqs",
+    "pyf": "fuzhubiqushen"
   },
   {
     "id": "plank",
@@ -2287,7 +2415,9 @@
     "enName": "Plank",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "pbzc",
+    "pyf": "pingbanzhicheng"
   },
   {
     "id": "side-plank",
@@ -2295,7 +2425,9 @@
     "enName": "Side Plank",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "cpbzc",
+    "pyf": "cepingbanzhicheng"
   },
   {
     "id": "hanging-leg-raise",
@@ -2303,7 +2435,9 @@
     "enName": "Hanging Leg Raise",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "xcjt",
+    "pyf": "xuanchuijutui"
   },
   {
     "id": "cable-crunch",
@@ -2341,7 +2475,9 @@
           0.38
         ]
       }
-    }
+    },
+    "py": "ssjf",
+    "pyf": "shengsuojuanfu"
   },
   {
     "id": "ab-wheel",
@@ -2349,7 +2485,9 @@
     "enName": "Ab Wheel Rollout",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "jfl",
+    "pyf": "jianfulun"
   },
   {
     "id": "running",
@@ -2357,7 +2495,9 @@
     "enName": "Running",
     "bodyPart": "有氧",
     "equipment": "有氧器械",
-    "weighted": false
+    "weighted": false,
+    "py": "pb",
+    "pyf": "paobu"
   },
   {
     "id": "walking",
@@ -2365,7 +2505,9 @@
     "enName": "Walking",
     "bodyPart": "有氧",
     "equipment": "有氧器械",
-    "weighted": false
+    "weighted": false,
+    "py": "zb",
+    "pyf": "zoubu"
   },
   {
     "id": "cycling",
@@ -2373,7 +2515,9 @@
     "enName": "Cycling",
     "bodyPart": "有氧",
     "equipment": "有氧器械",
-    "weighted": false
+    "weighted": false,
+    "py": "qx",
+    "pyf": "qixing"
   },
   {
     "id": "rowing",
@@ -2381,7 +2525,9 @@
     "enName": "Rowing",
     "bodyPart": "有氧",
     "equipment": "有氧器械",
-    "weighted": false
+    "weighted": false,
+    "py": "hcj",
+    "pyf": "huachuanji"
   },
   {
     "id": "stair-climber",
@@ -2389,7 +2535,9 @@
     "enName": "Stair Climber",
     "bodyPart": "有氧",
     "equipment": "有氧器械",
-    "weighted": false
+    "weighted": false,
+    "py": "plj",
+    "pyf": "palouji"
   },
   {
     "id": "dumbbell-fly",
@@ -2427,7 +2575,9 @@
           0.15
         ]
       }
-    }
+    },
+    "py": "ylfn",
+    "pyf": "yalingfeiniao"
   },
   {
     "id": "incline-cable-fly",
@@ -2465,7 +2615,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "sxssfn",
+    "pyf": "shangxieshengsuofeiniao"
   },
   {
     "id": "decline-dumbbell-press",
@@ -2503,7 +2655,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "xxylwt",
+    "pyf": "xiaxieyalingwotui"
   },
   {
     "id": "smith-machine-bench-press",
@@ -2541,7 +2695,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "smsjwt",
+    "pyf": "shimisijiwotui"
   },
   {
     "id": "landmine-press",
@@ -2579,7 +2735,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "dlgtj",
+    "pyf": "dileiguantuiju"
   },
   {
     "id": "chest-dip",
@@ -2587,7 +2745,9 @@
     "enName": "Chest Dip",
     "bodyPart": "胸",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "sgbqs",
+    "pyf": "shuanggangbiqushen"
   },
   {
     "id": "weighted-dip",
@@ -2625,7 +2785,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "fzsgbqs",
+    "pyf": "fuzhongshuanggangbiqushen"
   },
   {
     "id": "machine-shoulder-press",
@@ -2663,7 +2825,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "qxtj",
+    "pyf": "qixietuijian"
   },
   {
     "id": "standing-dumbbell-press",
@@ -2701,7 +2865,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "yltj",
+    "pyf": "yalingtuiju"
   },
   {
     "id": "push-press",
@@ -2739,7 +2905,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "jltj",
+    "pyf": "jielituiju"
   },
   {
     "id": "machine-lateral-raise",
@@ -2777,7 +2945,9 @@
           0.13
         ]
       }
-    }
+    },
+    "py": "qxcpj",
+    "pyf": "qixiecepingju"
   },
   {
     "id": "cable-front-raise",
@@ -2815,7 +2985,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "ssqpj",
+    "pyf": "shengsuoqianpingju"
   },
   {
     "id": "plate-front-raise",
@@ -2853,7 +3025,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "glpqpj",
+    "pyf": "ganglingpianqianpingju"
   },
   {
     "id": "bent-over-rear-delt-raise",
@@ -2891,7 +3065,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "fshssjjhssj",
+    "pyf": "fushenhoushusanjiaojihoushushangju"
   },
   {
     "id": "cable-rear-delt-fly",
@@ -2929,7 +3105,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "sshsfn",
+    "pyf": "shengsuohoushufeiniao"
   },
   {
     "id": "pendlay-row",
@@ -2967,7 +3145,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "pdlhc",
+    "pyf": "pandeleihuachuan"
   },
   {
     "id": "inverted-row",
@@ -2975,7 +3155,9 @@
     "enName": "Inverted Row",
     "bodyPart": "背",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "fxhc",
+    "pyf": "fanxianghuachuan"
   },
   {
     "id": "meadows-row",
@@ -3013,7 +3195,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "mdshc",
+    "pyf": "meiduosihuachuan"
   },
   {
     "id": "single-arm-cable-row",
@@ -3051,7 +3235,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "dbsshc",
+    "pyf": "danbishengsuohuachuan"
   },
   {
     "id": "wide-grip-lat-pulldown",
@@ -3089,7 +3275,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "kjgwxl",
+    "pyf": "kuanjugaoweixiala"
   },
   {
     "id": "neutral-grip-pull-up",
@@ -3097,7 +3285,9 @@
     "enName": "Neutral-Grip Pull-up",
     "bodyPart": "背",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "dwytxs",
+    "pyf": "duiwoyintixiangshang"
   },
   {
     "id": "assisted-chin-up",
@@ -3135,7 +3325,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "fzfsyt",
+    "pyf": "fuzhufanshouyinti"
   },
   {
     "id": "weighted-chin-up",
@@ -3173,7 +3365,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "fzfsyt",
+    "pyf": "fuzhongfanshouyinti"
   },
   {
     "id": "rack-pull",
@@ -3211,7 +3405,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "jsl",
+    "pyf": "jiashangla"
   },
   {
     "id": "back-extension",
@@ -3219,7 +3415,9 @@
     "enName": "Back Extension",
     "bodyPart": "背",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "lmyts",
+    "pyf": "luomayitingshen"
   },
   {
     "id": "dumbbell-shrug",
@@ -3257,7 +3455,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "ylsj",
+    "pyf": "yalingsongjian"
   },
   {
     "id": "goblet-squat",
@@ -3295,7 +3495,9 @@
           0.34
         ]
       }
-    }
+    },
+    "py": "gjbsd",
+    "pyf": "gaojiaobeishendun"
   },
   {
     "id": "smith-machine-squat",
@@ -3333,7 +3535,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "smsjsd",
+    "pyf": "shimisijishendun"
   },
   {
     "id": "belt-squat",
@@ -3371,7 +3575,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "ydsd",
+    "pyf": "yaodaishendun"
   },
   {
     "id": "sumo-deadlift",
@@ -3409,7 +3615,9 @@
           0.95
         ]
       }
-    }
+    },
+    "py": "xpyl",
+    "pyf": "xiangpuyingla"
   },
   {
     "id": "trap-bar-deadlift",
@@ -3447,7 +3655,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "ljgyl",
+    "pyf": "liujiaogangyingla"
   },
   {
     "id": "lying-leg-curl",
@@ -3485,7 +3695,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "fwtwj",
+    "pyf": "fuwotuiwanju"
   },
   {
     "id": "nordic-hamstring-curl",
@@ -3493,7 +3705,9 @@
     "enName": "Nordic Hamstring Curl",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "bot",
+    "pyf": "beiouting"
   },
   {
     "id": "single-leg-romanian-deadlift",
@@ -3531,7 +3745,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "dtlmnyyl",
+    "pyf": "dantuiluomaniyayingla"
   },
   {
     "id": "reverse-lunge",
@@ -3569,7 +3785,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "fxgb",
+    "pyf": "fanxianggongbu"
   },
   {
     "id": "split-squat",
@@ -3607,7 +3825,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "ftd",
+    "pyf": "fentuidun"
   },
   {
     "id": "cable-kickback",
@@ -3645,7 +3865,9 @@
           0.2
         ]
       }
-    }
+    },
+    "py": "sshtt",
+    "pyf": "shengsuohoutitui"
   },
   {
     "id": "hip-abduction-machine",
@@ -3683,7 +3905,9 @@
           0.38
         ]
       }
-    }
+    },
+    "py": "dtwzj",
+    "pyf": "datuiwaizhanji"
   },
   {
     "id": "single-leg-glute-bridge",
@@ -3691,7 +3915,9 @@
     "enName": "Single-Leg Glute Bridge",
     "bodyPart": "臀腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "dttq",
+    "pyf": "dantuitunqiao"
   },
   {
     "id": "barbell-glute-bridge",
@@ -3729,7 +3955,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "gltq",
+    "pyf": "ganglingtunqiao"
   },
   {
     "id": "dumbbell-glute-bridge",
@@ -3767,7 +3995,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "yltq",
+    "pyf": "yalingtunqiao"
   },
   {
     "id": "dumbbell-hip-thrust",
@@ -3805,7 +4035,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "yltt",
+    "pyf": "yalingtuntui"
   },
   {
     "id": "smith-machine-hip-thrust",
@@ -3843,7 +4075,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "smsjtt",
+    "pyf": "shimisijituntui"
   },
   {
     "id": "smith-machine-romanian-deadlift",
@@ -3881,7 +4115,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "smsjlmnyyl",
+    "pyf": "shimisijiluomaniyayingla"
   },
   {
     "id": "dumbbell-romanian-deadlift",
@@ -3919,7 +4155,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "yllmnyyl",
+    "pyf": "yalingluomaniyayingla"
   },
   {
     "id": "kettlebell-romanian-deadlift",
@@ -3957,7 +4195,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "hllmnyyl",
+    "pyf": "hulingluomaniyayingla"
   },
   {
     "id": "cable-pull-through",
@@ -3995,7 +4235,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "sszthl",
+    "pyf": "shengsuozhituihoula"
   },
   {
     "id": "machine-glute-kickback",
@@ -4033,7 +4275,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "qxtht",
+    "pyf": "qixietunhouti"
   },
   {
     "id": "cable-standing-hip-abduction",
@@ -4071,7 +4315,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "sszzkwz",
+    "pyf": "shengsuozhanzikuanwaizhan"
   },
   {
     "id": "cable-standing-hip-adduction",
@@ -4109,7 +4355,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "sszzkns",
+    "pyf": "shengsuozhanzikuanneishou"
   },
   {
     "id": "hip-adduction-machine",
@@ -4147,7 +4395,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "dtnsj",
+    "pyf": "datuineishouji"
   },
   {
     "id": "smith-machine-bulgarian-split-squat",
@@ -4185,7 +4435,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "smsjbjlyftd",
+    "pyf": "shimisijibaojialiyafentuidun"
   },
   {
     "id": "smith-machine-reverse-lunge",
@@ -4223,7 +4475,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "smsjfxgb",
+    "pyf": "shimisijifanxianggongbu"
   },
   {
     "id": "smith-machine-split-squat",
@@ -4261,7 +4515,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "smsjftd",
+    "pyf": "shimisijifentuidun"
   },
   {
     "id": "heel-elevated-goblet-squat",
@@ -4299,7 +4555,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "jgdggjbsd",
+    "pyf": "jiaogendiangaogaojiaobeishendun"
   },
   {
     "id": "dumbbell-sumo-squat",
@@ -4337,7 +4595,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "ylxpsd",
+    "pyf": "yalingxiangpushendun"
   },
   {
     "id": "dumbbell-sumo-deadlift",
@@ -4375,7 +4635,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "ylxpyl",
+    "pyf": "yalingxiangpuyingla"
   },
   {
     "id": "front-foot-elevated-split-squat",
@@ -4413,7 +4675,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "qjdgftd",
+    "pyf": "qianjiaodiangaofentuidun"
   },
   {
     "id": "deficit-reverse-lunge",
@@ -4451,7 +4715,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "dgfxgb",
+    "pyf": "diangaofanxianggongbu"
   },
   {
     "id": "dumbbell-lateral-lunge",
@@ -4489,7 +4755,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "ylcxgb",
+    "pyf": "yalingcexianggongbu"
   },
   {
     "id": "dumbbell-curtsy-lunge",
@@ -4527,7 +4795,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "yljcgb",
+    "pyf": "yalingjiaochagongbu"
   },
   {
     "id": "landmine-squat",
@@ -4565,7 +4835,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "dlgsd",
+    "pyf": "dileiguanshendun"
   },
   {
     "id": "landmine-romanian-deadlift",
@@ -4603,7 +4875,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "dlglmnyyl",
+    "pyf": "dileiguanluomaniyayingla"
   },
   {
     "id": "kettlebell-swing",
@@ -4641,7 +4915,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "hlbd",
+    "pyf": "hulingbaidang"
   },
   {
     "id": "glute-focused-back-extension",
@@ -4649,7 +4925,9 @@
     "enName": "Glute-Focused Back Extension",
     "bodyPart": "臀腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "twzbqs",
+    "pyf": "tunweizhubeiqushen"
   },
   {
     "id": "reverse-hyperextension",
@@ -4657,7 +4935,9 @@
     "enName": "Reverse Hyperextension",
     "bodyPart": "臀腿",
     "equipment": "器械",
-    "weighted": false
+    "weighted": false,
+    "py": "fxcs",
+    "pyf": "fanxiangchaoshen"
   },
   {
     "id": "donkey-calf-raise",
@@ -4695,7 +4975,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "lstz",
+    "pyf": "lüshitizhong"
   },
   {
     "id": "leg-press-calf-raise",
@@ -4733,7 +5015,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "tjtz",
+    "pyf": "tuijutizhong"
   },
   {
     "id": "wall-sit",
@@ -4741,7 +5025,9 @@
     "enName": "Wall Sit",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "kqjd",
+    "pyf": "kaoqiangjingdun"
   },
   {
     "id": "jump-squat",
@@ -4749,7 +5035,9 @@
     "enName": "Jump Squat",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "tysd",
+    "pyf": "tiaoyueshendun"
   },
   {
     "id": "incline-dumbbell-curl",
@@ -4787,7 +5075,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "sxylwj",
+    "pyf": "shangxieyalingwanju"
   },
   {
     "id": "concentration-curl",
@@ -4825,7 +5115,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "jzwj",
+    "pyf": "jizhongwanju"
   },
   {
     "id": "ez-bar-curl",
@@ -4863,7 +5155,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "glwj",
+    "pyf": "ganglingwanju"
   },
   {
     "id": "spider-curl",
@@ -4901,7 +5195,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "zzwj",
+    "pyf": "zhizhuwanju"
   },
   {
     "id": "rope-hammer-curl",
@@ -4939,7 +5235,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "sscswj",
+    "pyf": "shengsuochuishiwanju"
   },
   {
     "id": "drag-curl",
@@ -4977,7 +5275,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "tzwj",
+    "pyf": "tuozhuaiwanju"
   },
   {
     "id": "rope-tricep-pushdown",
@@ -5015,7 +5315,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "ssssxy",
+    "pyf": "shengsuoshengsuoxiaya"
   },
   {
     "id": "dumbbell-skull-crusher",
@@ -5053,7 +5355,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "sylslz",
+    "pyf": "shuangyalingsuiluzhe"
   },
   {
     "id": "single-dumbbell-skullcrusher",
@@ -5091,7 +5395,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "dylslz",
+    "pyf": "danyalingsuiluzhe"
   },
   {
     "id": "dumbbell-overhead-tricep-extension",
@@ -5129,7 +5435,9 @@
           0.2
         ]
       }
-    }
+    },
+    "py": "ssgtbqs",
+    "pyf": "shengsuoguotoubiqushen"
   },
   {
     "id": "single-arm-dumbbell-tricep-extension",
@@ -5167,7 +5475,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "dbylstqs",
+    "pyf": "danbiyalingsantouqushen"
   },
   {
     "id": "bench-dip",
@@ -5175,7 +5485,9 @@
     "enName": "Bench Dip",
     "bodyPart": "手臂",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "dsbqs",
+    "pyf": "dengshangbiqushen"
   },
   {
     "id": "tricep-kickback",
@@ -5213,7 +5525,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "stht",
+    "pyf": "santouhouti"
   },
   {
     "id": "wrist-extension",
@@ -5251,7 +5565,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "ws",
+    "pyf": "wanshen"
   },
   {
     "id": "farmer-carry",
@@ -5259,7 +5575,9 @@
     "enName": "Farmer Carry",
     "bodyPart": "手臂",
     "equipment": "哑铃",
-    "weighted": false
+    "weighted": false,
+    "py": "nfxz",
+    "pyf": "nongfuxingzou"
   },
   {
     "id": "crunch",
@@ -5267,7 +5585,9 @@
     "enName": "Crunch",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "jf",
+    "pyf": "juanfu"
   },
   {
     "id": "reverse-crunch",
@@ -5275,7 +5595,9 @@
     "enName": "Reverse Crunch",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "fxjf",
+    "pyf": "fanxiangjuanfu"
   },
   {
     "id": "russian-twist",
@@ -5283,7 +5605,9 @@
     "enName": "Russian Twist",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "elszt",
+    "pyf": "eluosizhuanti"
   },
   {
     "id": "bicycle-crunch",
@@ -5291,7 +5615,9 @@
     "enName": "Bicycle Crunch",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "zxcjf",
+    "pyf": "zixingchejuanfu"
   },
   {
     "id": "mountain-climber",
@@ -5299,7 +5625,9 @@
     "enName": "Mountain Climber",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "dsp",
+    "pyf": "dengshanpao"
   },
   {
     "id": "dead-bug",
@@ -5307,7 +5635,9 @@
     "enName": "Dead Bug",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "scs",
+    "pyf": "sichongshi"
   },
   {
     "id": "bird-dog",
@@ -5315,7 +5645,9 @@
     "enName": "Bird Dog",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "ngs",
+    "pyf": "niaogoushi"
   },
   {
     "id": "pallof-press",
@@ -5353,7 +5685,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "plft",
+    "pyf": "paluofutui"
   },
   {
     "id": "cable-woodchop",
@@ -5391,7 +5725,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "ssfm",
+    "pyf": "shengsuofamu"
   },
   {
     "id": "half-kneeling-pallof-press",
@@ -5429,7 +5765,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "bgzplft",
+    "pyf": "banguizipaluofutui"
   },
   {
     "id": "cable-pallof-hold",
@@ -5437,7 +5775,9 @@
     "enName": "Cable Pallof Hold",
     "bodyPart": "核心",
     "equipment": "绳索",
-    "weighted": false
+    "weighted": false,
+    "py": "ssplfzc",
+    "pyf": "shengsuopaluofuzhicheng"
   },
   {
     "id": "hanging-knee-raise",
@@ -5445,7 +5785,9 @@
     "enName": "Hanging Knee Raise",
     "bodyPart": "核心",
     "equipment": "单杠",
-    "weighted": false
+    "weighted": false,
+    "py": "xctx",
+    "pyf": "xuanchuitaixi"
   },
   {
     "id": "captains-chair-knee-raise",
@@ -5453,7 +5795,9 @@
     "enName": "Captain's Chair Knee Raise",
     "bodyPart": "核心",
     "equipment": "器械",
-    "weighted": false
+    "weighted": false,
+    "py": "lmytx",
+    "pyf": "luomayitaixi"
   },
   {
     "id": "decline-sit-up",
@@ -5461,7 +5805,9 @@
     "enName": "Decline Sit-Up",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "xxywqz",
+    "pyf": "xiaxieyangwoqizuo"
   },
   {
     "id": "weighted-crunch",
@@ -5499,7 +5845,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "fzjf",
+    "pyf": "fuzhongjuanfu"
   },
   {
     "id": "weighted-russian-twist",
@@ -5537,7 +5885,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "fzelszt",
+    "pyf": "fuzhongeluosizhuanti"
   },
   {
     "id": "dumbbell-side-bend",
@@ -5575,7 +5925,9 @@
           0.26
         ]
       }
-    }
+    },
+    "py": "yltcq",
+    "pyf": "yalingticequ"
   },
   {
     "id": "elliptical",
@@ -5583,7 +5935,9 @@
     "enName": "Elliptical",
     "bodyPart": "有氧",
     "equipment": "有氧器械",
-    "weighted": false
+    "weighted": false,
+    "py": "tyj",
+    "pyf": "tuoyuanji"
   },
   {
     "id": "swimming",
@@ -5591,7 +5945,9 @@
     "enName": "Swimming",
     "bodyPart": "有氧",
     "equipment": "有氧器械",
-    "weighted": false
+    "weighted": false,
+    "py": "yy",
+    "pyf": "youyong"
   },
   {
     "id": "jump-rope",
@@ -5599,7 +5955,9 @@
     "enName": "Jump Rope",
     "bodyPart": "有氧",
     "equipment": "有氧器械",
-    "weighted": false
+    "weighted": false,
+    "py": "ts",
+    "pyf": "tiaosheng"
   },
   {
     "id": "assault-bike",
@@ -5607,7 +5965,9 @@
     "enName": "Assault Bike",
     "bodyPart": "有氧",
     "equipment": "有氧器械",
-    "weighted": false
+    "weighted": false,
+    "py": "fzdc",
+    "pyf": "fengzudanche"
   },
   {
     "id": "skierg",
@@ -5615,7 +5975,9 @@
     "enName": "SkiErg",
     "bodyPart": "有氧",
     "equipment": "有氧器械",
-    "weighted": false
+    "weighted": false,
+    "py": "hxj",
+    "pyf": "huaxueji"
   },
   {
     "id": "hiking",
@@ -5623,7 +5985,9 @@
     "enName": "Hiking",
     "bodyPart": "有氧",
     "equipment": "有氧器械",
-    "weighted": false
+    "weighted": false,
+    "py": "tb",
+    "pyf": "tubu"
   },
   {
     "id": "treadmill-incline-walk",
@@ -5631,7 +5995,9 @@
     "enName": "Treadmill Incline Walk",
     "bodyPart": "有氧",
     "equipment": "有氧器械",
-    "weighted": false
+    "weighted": false,
+    "py": "pbjsxz",
+    "pyf": "paobujishangxiezou"
   },
   {
     "id": "battle-ropes",
@@ -5639,7 +6005,9 @@
     "enName": "Battle Ropes",
     "bodyPart": "有氧",
     "equipment": "有氧器械",
-    "weighted": false
+    "weighted": false,
+    "py": "zs",
+    "pyf": "zhansheng"
   },
   {
     "id": "incline-push-up",
@@ -5647,7 +6015,9 @@
     "enName": "Incline Push-up",
     "bodyPart": "胸",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "sxfwc",
+    "pyf": "shangxiefuwocheng"
   },
   {
     "id": "knee-push-up",
@@ -5655,7 +6025,9 @@
     "enName": "Knee Push-up",
     "bodyPart": "胸",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "gzfwc",
+    "pyf": "guizifuwocheng"
   },
   {
     "id": "wide-push-up",
@@ -5663,7 +6035,9 @@
     "enName": "Wide Push-up",
     "bodyPart": "胸",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "kjfwc",
+    "pyf": "kuanjufuwocheng"
   },
   {
     "id": "diamond-push-up",
@@ -5671,7 +6045,9 @@
     "enName": "Diamond Push-up",
     "bodyPart": "手臂",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "zsfwc",
+    "pyf": "zuanshifuwocheng"
   },
   {
     "id": "decline-push-up",
@@ -5679,7 +6055,9 @@
     "enName": "Decline Push-up",
     "bodyPart": "胸",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "xxfwc",
+    "pyf": "xiaxiefuwocheng"
   },
   {
     "id": "pike-push-up",
@@ -5687,7 +6065,9 @@
     "enName": "Pike Push-up",
     "bodyPart": "肩",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "pkfwc",
+    "pyf": "paikefuwocheng"
   },
   {
     "id": "feet-elevated-pike-push-up",
@@ -5695,7 +6075,9 @@
     "enName": "Feet-Elevated Pike Push-up",
     "bodyPart": "肩",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "jdgpkfwc",
+    "pyf": "jiaodiangaopaikefuwocheng"
   },
   {
     "id": "archer-push-up",
@@ -5703,7 +6085,9 @@
     "enName": "Archer Push-up",
     "bodyPart": "胸",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "gsfwc",
+    "pyf": "gongshoufuwocheng"
   },
   {
     "id": "typewriter-push-up",
@@ -5711,7 +6095,9 @@
     "enName": "Typewriter Push-up",
     "bodyPart": "胸",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "dzjfwc",
+    "pyf": "dazijifuwocheng"
   },
   {
     "id": "explosive-push-up",
@@ -5719,7 +6105,9 @@
     "enName": "Explosive Push-up",
     "bodyPart": "胸",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "bffwc",
+    "pyf": "baofafuwocheng"
   },
   {
     "id": "hindu-push-up",
@@ -5727,7 +6115,9 @@
     "enName": "Hindu Push-up",
     "bodyPart": "胸",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "ydfwc",
+    "pyf": "yindufuwocheng"
   },
   {
     "id": "scapular-push-up",
@@ -5735,7 +6125,9 @@
     "enName": "Scapular Push-up",
     "bodyPart": "背",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "jjfwc",
+    "pyf": "jianjiafuwocheng"
   },
   {
     "id": "push-up-shoulder-tap",
@@ -5743,7 +6135,9 @@
     "enName": "Push-up Shoulder Tap",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "fwcjcp",
+    "pyf": "fuwochengjianchupeng"
   },
   {
     "id": "wall-push-up",
@@ -5751,7 +6145,9 @@
     "enName": "Wall Push-up",
     "bodyPart": "胸",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "kqfwc",
+    "pyf": "kaoqiangfuwocheng"
   },
   {
     "id": "wall-walk",
@@ -5759,7 +6155,9 @@
     "enName": "Wall Walk",
     "bodyPart": "肩",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "kqz",
+    "pyf": "kaoqiangzou"
   },
   {
     "id": "wall-handstand-push-up",
@@ -5767,7 +6165,9 @@
     "enName": "Wall Handstand Push-up",
     "bodyPart": "肩",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "kqdlfwc",
+    "pyf": "kaoqiangdaolifuwocheng"
   },
   {
     "id": "handstand-push-up",
@@ -5775,7 +6175,9 @@
     "enName": "Handstand Push-up",
     "bodyPart": "肩",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "dlfwc",
+    "pyf": "daolifuwocheng"
   },
   {
     "id": "chair-dip",
@@ -5783,7 +6185,9 @@
     "enName": "Chair Dip",
     "bodyPart": "手臂",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "ysbqs",
+    "pyf": "yishangbiqushen"
   },
   {
     "id": "doorway-row",
@@ -5791,7 +6195,9 @@
     "enName": "Doorway Row",
     "bodyPart": "背",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "mkhc",
+    "pyf": "menkuanghuachuan"
   },
   {
     "id": "towel-row",
@@ -5799,7 +6205,9 @@
     "enName": "Towel Row",
     "bodyPart": "背",
     "equipment": "毛巾",
-    "weighted": false
+    "weighted": false,
+    "py": "mjhc",
+    "pyf": "maojinhuachuan"
   },
   {
     "id": "prone-y-raise",
@@ -5807,7 +6215,9 @@
     "enName": "Prone Y Raise",
     "bodyPart": "背",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "fwysj",
+    "pyf": "fuwoyshangju"
   },
   {
     "id": "prone-t-raise",
@@ -5815,7 +6225,9 @@
     "enName": "Prone T Raise",
     "bodyPart": "背",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "fwtsj",
+    "pyf": "fuwotshangju"
   },
   {
     "id": "superman",
@@ -5823,7 +6235,9 @@
     "enName": "Superman",
     "bodyPart": "背",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "crs",
+    "pyf": "chaorenshi"
   },
   {
     "id": "superman-hold",
@@ -5831,7 +6245,9 @@
     "enName": "Superman Hold",
     "bodyPart": "背",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "crszc",
+    "pyf": "chaorenshizhicheng"
   },
   {
     "id": "reverse-snow-angel",
@@ -5839,7 +6255,9 @@
     "enName": "Reverse Snow Angel",
     "bodyPart": "背",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "fxxts",
+    "pyf": "fanxiangxuetianshi"
   },
   {
     "id": "dead-hang",
@@ -5847,7 +6265,9 @@
     "enName": "Dead Hang",
     "bodyPart": "手臂",
     "equipment": "单杠",
-    "weighted": false
+    "weighted": false,
+    "py": "xc",
+    "pyf": "xuanchui"
   },
   {
     "id": "active-hang",
@@ -5855,7 +6275,9 @@
     "enName": "Active Hang",
     "bodyPart": "背",
     "equipment": "单杠",
-    "weighted": false
+    "weighted": false,
+    "py": "zdxc",
+    "pyf": "zhudongxuanchui"
   },
   {
     "id": "scapular-pull-up",
@@ -5863,7 +6285,9 @@
     "enName": "Scapular Pull-up",
     "bodyPart": "背",
     "equipment": "单杠",
-    "weighted": false
+    "weighted": false,
+    "py": "jjyt",
+    "pyf": "jianjiayinti"
   },
   {
     "id": "negative-pull-up",
@@ -5871,7 +6295,9 @@
     "enName": "Negative Pull-up",
     "bodyPart": "背",
     "equipment": "单杠",
-    "weighted": false
+    "weighted": false,
+    "py": "lxyt",
+    "pyf": "lixinyinti"
   },
   {
     "id": "commando-pull-up",
@@ -5879,7 +6305,9 @@
     "enName": "Commando Pull-up",
     "bodyPart": "背",
     "equipment": "单杠",
-    "weighted": false
+    "weighted": false,
+    "py": "tjdyt",
+    "pyf": "tujiduiyinti"
   },
   {
     "id": "l-sit-pull-up",
@@ -5887,7 +6315,9 @@
     "enName": "L-Sit Pull-up",
     "bodyPart": "背",
     "equipment": "单杠",
-    "weighted": false
+    "weighted": false,
+    "py": "ywqzytxs",
+    "pyf": "yangwoqizuoyintixiangshang"
   },
   {
     "id": "towel-pull-up",
@@ -5895,7 +6325,9 @@
     "enName": "Towel Pull-up",
     "bodyPart": "背",
     "equipment": "毛巾",
-    "weighted": false
+    "weighted": false,
+    "py": "mjyt",
+    "pyf": "maojinyinti"
   },
   {
     "id": "bodyweight-squat",
@@ -5903,7 +6335,9 @@
     "enName": "Bodyweight Squat",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "zzsd",
+    "pyf": "zizhongshendun"
   },
   {
     "id": "pistol-squat",
@@ -5911,7 +6345,9 @@
     "enName": "Pistol Squat",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "sqd",
+    "pyf": "shouqiangdun"
   },
   {
     "id": "assisted-pistol-squat",
@@ -5919,7 +6355,9 @@
     "enName": "Assisted Pistol Squat",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "fzsqd",
+    "pyf": "fuzhushouqiangdun"
   },
   {
     "id": "shrimp-squat",
@@ -5927,7 +6365,9 @@
     "enName": "Shrimp Squat",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "xssd",
+    "pyf": "xiashishendun"
   },
   {
     "id": "cossack-squat",
@@ -5935,7 +6375,9 @@
     "enName": "Cossack Squat",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "gsksd",
+    "pyf": "gesakeshendun"
   },
   {
     "id": "sissy-squat",
@@ -5943,7 +6385,9 @@
     "enName": "Sissy Squat",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "xssd",
+    "pyf": "xisishendun"
   },
   {
     "id": "forward-lunge",
@@ -5951,7 +6395,9 @@
     "enName": "Forward Lunge",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "ylgbd",
+    "pyf": "yalinggongbudun"
   },
   {
     "id": "lateral-lunge",
@@ -5959,7 +6405,9 @@
     "enName": "Lateral Lunge",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "cxgb",
+    "pyf": "cexianggongbu"
   },
   {
     "id": "curtsy-lunge",
@@ -5967,7 +6415,9 @@
     "enName": "Curtsy Lunge",
     "bodyPart": "臀腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "jcgb",
+    "pyf": "jiaochagongbu"
   },
   {
     "id": "skater-squat",
@@ -5975,7 +6425,9 @@
     "enName": "Skater Squat",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "hbsd",
+    "pyf": "huabingshendun"
   },
   {
     "id": "single-leg-box-squat",
@@ -5983,7 +6435,9 @@
     "enName": "Single-Leg Box Squat",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "dtxsd",
+    "pyf": "dantuixiangshendun"
   },
   {
     "id": "step-down",
@@ -5991,7 +6445,9 @@
     "enName": "Step-Down",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "xtj",
+    "pyf": "xiataijie"
   },
   {
     "id": "calf-raise",
@@ -5999,7 +6455,9 @@
     "enName": "Calf Raise",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "tz",
+    "pyf": "tizhong"
   },
   {
     "id": "single-leg-calf-raise",
@@ -6007,7 +6465,9 @@
     "enName": "Single-Leg Calf Raise",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "dttz",
+    "pyf": "dantuitizhong"
   },
   {
     "id": "glute-bridge-march",
@@ -6015,7 +6475,9 @@
     "enName": "Glute Bridge March",
     "bodyPart": "臀腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "tqxj",
+    "pyf": "tunqiaoxingjun"
   },
   {
     "id": "frog-pump",
@@ -6023,7 +6485,9 @@
     "enName": "Frog Pump",
     "bodyPart": "臀腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "qwb",
+    "pyf": "qingwabeng"
   },
   {
     "id": "donkey-kick",
@@ -6031,7 +6495,9 @@
     "enName": "Donkey Kick",
     "bodyPart": "臀腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "lt",
+    "pyf": "lüti"
   },
   {
     "id": "fire-hydrant",
@@ -6039,7 +6505,9 @@
     "enName": "Fire Hydrant",
     "bodyPart": "臀腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "xfss",
+    "pyf": "xiaofangshuanshi"
   },
   {
     "id": "clamshell",
@@ -6047,7 +6515,9 @@
     "enName": "Clamshell",
     "bodyPart": "臀腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "bs",
+    "pyf": "bangshi"
   },
   {
     "id": "hip-airplane",
@@ -6055,7 +6525,9 @@
     "enName": "Hip Airplane",
     "bodyPart": "臀腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "kfj",
+    "pyf": "kuanfeiji"
   },
   {
     "id": "side-lying-hip-abduction",
@@ -6063,7 +6535,9 @@
     "enName": "Side-Lying Hip Abduction",
     "bodyPart": "臀腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "cfwkwz",
+    "pyf": "cefuwokuanwaizhan"
   },
   {
     "id": "side-lying-leg-raise",
@@ -6071,7 +6545,9 @@
     "enName": "Side-Lying Leg Raise",
     "bodyPart": "臀腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "cfwjt",
+    "pyf": "cefuwojutui"
   },
   {
     "id": "lying-hamstring-walkout",
@@ -6079,7 +6555,9 @@
     "enName": "Lying Hamstring Walkout",
     "bodyPart": "腿",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "fwgsjxz",
+    "pyf": "fuwoguoshengjixingzou"
   },
   {
     "id": "towel-hamstring-curl",
@@ -6087,7 +6565,9 @@
     "enName": "Towel Hamstring Curl",
     "bodyPart": "腿",
     "equipment": "毛巾",
-    "weighted": false
+    "weighted": false,
+    "py": "mjgsjwj",
+    "pyf": "maojinguoshengjiwanju"
   },
   {
     "id": "stability-ball-hamstring-curl",
@@ -6095,7 +6575,9 @@
     "enName": "Stability Ball Hamstring Curl",
     "bodyPart": "腿",
     "equipment": "瑞士球",
-    "weighted": false
+    "weighted": false,
+    "py": "rsqgsjwj",
+    "pyf": "ruishiqiuguoshengjiwanju"
   },
   {
     "id": "banded-glute-bridge",
@@ -6103,7 +6585,9 @@
     "enName": "Banded Glute Bridge",
     "bodyPart": "臀腿",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldtq",
+    "pyf": "tanlidaitunqiao"
   },
   {
     "id": "banded-hip-thrust",
@@ -6111,7 +6595,9 @@
     "enName": "Banded Hip Thrust",
     "bodyPart": "臀腿",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldtt",
+    "pyf": "tanlidaituntui"
   },
   {
     "id": "banded-frog-pump",
@@ -6119,7 +6605,9 @@
     "enName": "Banded Frog Pump",
     "bodyPart": "臀腿",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldqwb",
+    "pyf": "tanlidaiqingwabeng"
   },
   {
     "id": "banded-clamshell",
@@ -6127,7 +6615,9 @@
     "enName": "Banded Clamshell",
     "bodyPart": "臀腿",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldbs",
+    "pyf": "tanlidaibangshi"
   },
   {
     "id": "banded-lateral-walk",
@@ -6135,7 +6625,9 @@
     "enName": "Banded Lateral Walk",
     "bodyPart": "臀腿",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldcxz",
+    "pyf": "tanlidaicexiangzou"
   },
   {
     "id": "banded-monster-walk",
@@ -6143,7 +6635,9 @@
     "enName": "Banded Monster Walk",
     "bodyPart": "臀腿",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldgsz",
+    "pyf": "tanlidaiguaishouzou"
   },
   {
     "id": "banded-squat",
@@ -6151,7 +6645,9 @@
     "enName": "Banded Squat",
     "bodyPart": "腿",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldsd",
+    "pyf": "tanlidaishendun"
   },
   {
     "id": "banded-donkey-kick",
@@ -6159,7 +6655,9 @@
     "enName": "Banded Donkey Kick",
     "bodyPart": "臀腿",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldlt",
+    "pyf": "tanlidailüti"
   },
   {
     "id": "banded-fire-hydrant",
@@ -6167,7 +6665,9 @@
     "enName": "Banded Fire Hydrant",
     "bodyPart": "臀腿",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldxfss",
+    "pyf": "tanlidaixiaofangshuanshi"
   },
   {
     "id": "banded-kickback",
@@ -6175,7 +6675,9 @@
     "enName": "Banded Kickback",
     "bodyPart": "臀腿",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldht",
+    "pyf": "tanlidaihouti"
   },
   {
     "id": "banded-standing-hip-abduction",
@@ -6183,7 +6685,9 @@
     "enName": "Banded Standing Hip Abduction",
     "bodyPart": "臀腿",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldzzkwz",
+    "pyf": "tanlidaizhanzikuanwaizhan"
   },
   {
     "id": "banded-seated-hip-abduction",
@@ -6191,7 +6695,9 @@
     "enName": "Banded Seated Hip Abduction",
     "bodyPart": "臀腿",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldzzkwz",
+    "pyf": "tanlidaizuozikuanwaizhan"
   },
   {
     "id": "band-pull-apart",
@@ -6199,7 +6705,9 @@
     "enName": "Band Pull-Apart",
     "bodyPart": "背",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldlk",
+    "pyf": "tanlidailakai"
   },
   {
     "id": "banded-face-pull",
@@ -6207,7 +6715,9 @@
     "enName": "Banded Face Pull",
     "bodyPart": "背",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldml",
+    "pyf": "tanlidaimianla"
   },
   {
     "id": "banded-row",
@@ -6215,7 +6725,9 @@
     "enName": "Banded Row",
     "bodyPart": "背",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldhc",
+    "pyf": "tanlidaihuachuan"
   },
   {
     "id": "banded-lat-pulldown",
@@ -6223,7 +6735,9 @@
     "enName": "Banded Lat Pulldown",
     "bodyPart": "背",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldgwxl",
+    "pyf": "tanlidaigaoweixiala"
   },
   {
     "id": "banded-pallof-press",
@@ -6231,7 +6745,9 @@
     "enName": "Banded Pallof Press",
     "bodyPart": "核心",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldplft",
+    "pyf": "tanlidaipaluofutui"
   },
   {
     "id": "banded-woodchop",
@@ -6239,7 +6755,9 @@
     "enName": "Banded Woodchop",
     "bodyPart": "核心",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldfm",
+    "pyf": "tanlidaifamu"
   },
   {
     "id": "banded-dead-bug",
@@ -6247,7 +6765,9 @@
     "enName": "Banded Dead Bug",
     "bodyPart": "核心",
     "equipment": "弹力带",
-    "weighted": false
+    "weighted": false,
+    "py": "tldscs",
+    "pyf": "tanlidaisichongshi"
   },
   {
     "id": "hollow-body-hold",
@@ -6255,7 +6775,9 @@
     "enName": "Hollow Body Hold",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "kxtzc",
+    "pyf": "kongxintizhicheng"
   },
   {
     "id": "hollow-rock",
@@ -6263,7 +6785,9 @@
     "enName": "Hollow Rock",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "kxtbd",
+    "pyf": "kongxintibaidong"
   },
   {
     "id": "v-up",
@@ -6271,7 +6795,9 @@
     "enName": "V-Up",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "vzltq",
+    "pyf": "vziliangtouqi"
   },
   {
     "id": "flutter-kick",
@@ -6279,7 +6805,9 @@
     "enName": "Flutter Kick",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "dsstt",
+    "pyf": "dashuishititui"
   },
   {
     "id": "lying-leg-raise",
@@ -6287,7 +6815,9 @@
     "enName": "Lying Leg Raise",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "fwjt",
+    "pyf": "fuwojutui"
   },
   {
     "id": "toe-touch",
@@ -6295,7 +6825,9 @@
     "enName": "Toe Touch",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "cj",
+    "pyf": "chujiao"
   },
   {
     "id": "heel-tap",
@@ -6303,7 +6835,9 @@
     "enName": "Heel Tap",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "dz",
+    "pyf": "dianzhong"
   },
   {
     "id": "plank-shoulder-tap",
@@ -6311,7 +6845,9 @@
     "enName": "Plank Shoulder Tap",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "pbcj",
+    "pyf": "pingbanchujian"
   },
   {
     "id": "plank-jack",
@@ -6319,7 +6855,9 @@
     "enName": "Plank Jack",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "pbkht",
+    "pyf": "pingbankaihetiao"
   },
   {
     "id": "bear-plank",
@@ -6327,7 +6865,9 @@
     "enName": "Bear Plank",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "xszc",
+    "pyf": "xiongshizhicheng"
   },
   {
     "id": "bear-crawl",
@@ -6335,7 +6875,9 @@
     "enName": "Bear Crawl",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "xp",
+    "pyf": "xiongpa"
   },
   {
     "id": "crab-walk",
@@ -6343,7 +6885,9 @@
     "enName": "Crab Walk",
     "bodyPart": "手臂",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "xx",
+    "pyf": "xiexing"
   },
   {
     "id": "inchworm",
@@ -6351,7 +6895,9 @@
     "enName": "Inchworm",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "mmcp",
+    "pyf": "maomaochongpa"
   },
   {
     "id": "l-sit-hold",
@@ -6359,7 +6905,9 @@
     "enName": "L-Sit Hold",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "ywqzzc",
+    "pyf": "yangwoqizuozhicheng"
   },
   {
     "id": "seated-knee-tuck",
@@ -6367,7 +6915,9 @@
     "enName": "Seated Knee Tuck",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "zzsx",
+    "pyf": "zuozishouxi"
   },
   {
     "id": "side-plank-hip-dip",
@@ -6375,7 +6925,9 @@
     "enName": "Side Plank Hip Dip",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "cpbkxc",
+    "pyf": "cepingbankuanxiachen"
   },
   {
     "id": "copenhagen-plank",
@@ -6383,7 +6935,9 @@
     "enName": "Copenhagen Plank",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "gbhgpb",
+    "pyf": "gebenhagenpingban"
   },
   {
     "id": "dragon-flag",
@@ -6391,7 +6945,9 @@
     "enName": "Dragon Flag",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "lq",
+    "pyf": "longqi"
   },
   {
     "id": "burpee",
@@ -6399,7 +6955,9 @@
     "enName": "Burpee",
     "bodyPart": "有氧",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "bbt",
+    "pyf": "bobitiao"
   },
   {
     "id": "half-burpee",
@@ -6407,7 +6965,9 @@
     "enName": "Half Burpee",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "bbbt",
+    "pyf": "banbobitiao"
   },
   {
     "id": "squat-thrust",
@@ -6415,7 +6975,9 @@
     "enName": "Squat Thrust",
     "bodyPart": "核心",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "sdt",
+    "pyf": "shenduntui"
   },
   {
     "id": "high-knees",
@@ -6423,7 +6985,9 @@
     "enName": "High Knees",
     "bodyPart": "有氧",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "gtt",
+    "pyf": "gaotaitui"
   },
   {
     "id": "jumping-jack",
@@ -6431,7 +6995,9 @@
     "enName": "Jumping Jack",
     "bodyPart": "有氧",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "kht",
+    "pyf": "kaihetiao"
   },
   {
     "id": "skater-hop",
@@ -6439,7 +7005,9 @@
     "enName": "Skater Hop",
     "bodyPart": "有氧",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "hbt",
+    "pyf": "huabingtiao"
   },
   {
     "id": "lateral-shuffle",
@@ -6447,7 +7015,9 @@
     "enName": "Lateral Shuffle",
     "bodyPart": "有氧",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "cxhb",
+    "pyf": "cexianghuabu"
   },
   {
     "id": "fast-feet",
@@ -6455,7 +7025,9 @@
     "enName": "Fast Feet",
     "bodyPart": "有氧",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "ksjb",
+    "pyf": "kuaisujiaobu"
   },
   {
     "id": "sprawl",
@@ -6463,7 +7035,9 @@
     "enName": "Sprawl",
     "bodyPart": "有氧",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "pdqs",
+    "pyf": "padiqishen"
   },
   {
     "id": "seal-jack",
@@ -6471,7 +7045,9 @@
     "enName": "Seal Jack",
     "bodyPart": "有氧",
     "equipment": "自重",
-    "weighted": false
+    "weighted": false,
+    "py": "hbkht",
+    "pyf": "haibaokaihetiao"
   },
   {
     "id": "cat-cow-stretch",
@@ -6480,7 +7056,9 @@
     "bodyPart": "拉伸",
     "equipment": "自重",
     "weighted": false,
-    "stretch": true
+    "stretch": true,
+    "py": "mnsls",
+    "pyf": "maoniushilashen"
   },
   {
     "id": "arm-circles",
@@ -6489,7 +7067,9 @@
     "bodyPart": "拉伸",
     "equipment": "自重",
     "weighted": false,
-    "stretch": true
+    "stretch": true,
+    "py": "rb",
+    "pyf": "raobi"
   },
   {
     "id": "worlds-greatest-stretch",
@@ -6498,7 +7078,9 @@
     "bodyPart": "拉伸",
     "equipment": "自重",
     "weighted": false,
-    "stretch": true
+    "stretch": true,
+    "py": "qsls",
+    "pyf": "quanshenlashen"
   },
   {
     "id": "leg-swings-stretch",
@@ -6507,7 +7089,9 @@
     "bodyPart": "拉伸",
     "equipment": "自重",
     "weighted": false,
-    "stretch": true
+    "stretch": true,
+    "py": "bt",
+    "pyf": "baitui"
   },
   {
     "id": "torso-twist-stretch",
@@ -6516,7 +7100,9 @@
     "bodyPart": "拉伸",
     "equipment": "自重",
     "weighted": false,
-    "stretch": true
+    "stretch": true,
+    "py": "qgzt",
+    "pyf": "quganzhuanti"
   },
   {
     "id": "doorway-chest-stretch",
@@ -6525,7 +7111,9 @@
     "bodyPart": "拉伸",
     "equipment": "自重",
     "weighted": false,
-    "stretch": true
+    "stretch": true,
+    "py": "mkxbls",
+    "pyf": "menkuangxiongbulashen"
   },
   {
     "id": "childs-pose",
@@ -6534,7 +7122,9 @@
     "bodyPart": "拉伸",
     "equipment": "自重",
     "weighted": false,
-    "stretch": true
+    "stretch": true,
+    "py": "yes",
+    "pyf": "yingershi"
   },
   {
     "id": "kneeling-hip-flexor-stretch",
@@ -6543,7 +7133,9 @@
     "bodyPart": "拉伸",
     "equipment": "自重",
     "weighted": false,
-    "stretch": true
+    "stretch": true,
+    "py": "gzqyjls",
+    "pyf": "guiziqiayaojilashen"
   },
   {
     "id": "hamstring-stretch",
@@ -6552,7 +7144,9 @@
     "bodyPart": "拉伸",
     "equipment": "自重",
     "weighted": false,
-    "stretch": true
+    "stretch": true,
+    "py": "gsjls",
+    "pyf": "guoshengjilashen"
   },
   {
     "id": "standing-quad-stretch",
@@ -6561,7 +7155,9 @@
     "bodyPart": "拉伸",
     "equipment": "自重",
     "weighted": false,
-    "stretch": true
+    "stretch": true,
+    "py": "zzgstls",
+    "pyf": "zhanzigusitoulashen"
   },
   {
     "id": "seated-forward-fold-stretch",
@@ -6570,7 +7166,9 @@
     "bodyPart": "拉伸",
     "equipment": "自重",
     "weighted": false,
-    "stretch": true
+    "stretch": true,
+    "py": "zztqq",
+    "pyf": "zuozitiqianqu"
   },
   {
     "id": "cross-body-shoulder-stretch",
@@ -6579,7 +7177,9 @@
     "bodyPart": "拉伸",
     "equipment": "自重",
     "weighted": false,
-    "stretch": true
+    "stretch": true,
+    "py": "jcstjbls",
+    "pyf": "jiaochashentijianbulashen"
   },
   {
     "id": "wall-calf-stretch",
@@ -6588,7 +7188,9 @@
     "bodyPart": "拉伸",
     "equipment": "自重",
     "weighted": false,
-    "stretch": true
+    "stretch": true,
+    "py": "kqxtls",
+    "pyf": "kaoqiangxiaotuilashen"
   },
   {
     "id": "butterfly-stretch",
@@ -6597,7 +7199,9 @@
     "bodyPart": "拉伸",
     "equipment": "自重",
     "weighted": false,
-    "stretch": true
+    "stretch": true,
+    "py": "hdsls",
+    "pyf": "hudieshilashen"
   },
   {
     "id": "rosen-hm-bench-press",
@@ -6637,7 +7241,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "fdspwtxj",
+    "pyf": "fendongshipingwotuixiongji"
   },
   {
     "id": "rosen-hm-incline-press",
@@ -6677,7 +7283,9 @@
           0.6
         ]
       }
-    }
+    },
+    "py": "fdssxtxj",
+    "pyf": "fendongshishangxietuixiongji"
   },
   {
     "id": "rosen-hm-decline-press",
@@ -6717,7 +7325,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "fdsxxtxj",
+    "pyf": "fendongshixiaxietuixiongji"
   },
   {
     "id": "rosen-sel-chest-press",
@@ -6757,7 +7367,9 @@
           0.55
         ]
       }
-    }
+    },
+    "py": "cpzztxj",
+    "pyf": "chapianzuozituixiongji"
   },
   {
     "id": "rosen-cable-fly",
@@ -6797,7 +7409,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "xfnxlq",
+    "pyf": "xiaofeiniaoxunlianqi"
   },
   {
     "id": "rosen-hm-lat-pulldown",
@@ -6837,7 +7451,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "fdsqglbj",
+    "pyf": "fendongshiqiangaolabeiji"
   },
   {
     "id": "rosen-hm-seated-row",
@@ -6877,7 +7493,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "fdshtlbj",
+    "pyf": "fendongshihuatinglabeiji"
   },
   {
     "id": "rosen-hm-low-row",
@@ -6917,7 +7535,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "fdshtdlbj",
+    "pyf": "fendongshihuatingdilabeiji"
   },
   {
     "id": "rosen-hm-pullover",
@@ -6957,7 +7577,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "bxybjj",
+    "pyf": "bixiayabeijiji"
   },
   {
     "id": "rosen-sel-lat-pulldown",
@@ -6997,7 +7619,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "cpglbj",
+    "pyf": "chapiangaolabeiji"
   },
   {
     "id": "rosen-sel-seated-row",
@@ -7037,7 +7661,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "cpzzhcj",
+    "pyf": "chapianzuozihuachuanji"
   },
   {
     "id": "rosen-leg-press45",
@@ -7077,7 +7703,9 @@
           1.8
         ]
       }
-    }
+    },
+    "py": "45tjj",
+    "pyf": "45tuijuji"
   },
   {
     "id": "rosen-hack-squat",
@@ -7117,7 +7745,9 @@
           0.9
         ]
       }
-    }
+    },
+    "py": "bcsdj",
+    "pyf": "baichuishendunji"
   },
   {
     "id": "rosen-sel-leg-extension",
@@ -7157,7 +7787,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "cptqsj",
+    "pyf": "chapiantuiqushenji"
   },
   {
     "id": "rosen-sel-leg-curl",
@@ -7197,7 +7829,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "cpfwtwjj",
+    "pyf": "chapianfuwotuiwanjuji"
   },
   {
     "id": "rosen-sel-calf",
@@ -7237,7 +7871,9 @@
           0.75
         ]
       }
-    }
+    },
+    "py": "cpzztzj",
+    "pyf": "chapianzuozitizhongji"
   },
   {
     "id": "rosen-hm-shoulder-press",
@@ -7277,7 +7913,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "fdstjj",
+    "pyf": "fendongshituijianji"
   },
   {
     "id": "rosen-sel-shoulder-press",
@@ -7317,7 +7955,9 @@
           0.34
         ]
       }
-    }
+    },
+    "py": "zsjjxlq",
+    "pyf": "zuoshijujianxunlianqi"
   },
   {
     "id": "rosen-sel-lateral",
@@ -7357,7 +7997,9 @@
           0.13
         ]
       }
-    }
+    },
+    "py": "cpcpjj",
+    "pyf": "chapiancepingjuji"
   },
   {
     "id": "rosen-hm-bicep",
@@ -7397,7 +8039,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "zsetjxlq",
+    "pyf": "zuoshiertoujixunlianqi"
   },
   {
     "id": "rosen-hm-tricep",
@@ -7437,7 +8081,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "zsxystjxlq",
+    "pyf": "zuoshixiayasantoujixunlianqi"
   },
   {
     "id": "rosen-sel-bicep",
@@ -7477,7 +8123,9 @@
           0.2
         ]
       }
-    }
+    },
+    "py": "etjxlq",
+    "pyf": "ertoujixunlianqi"
   },
   {
     "id": "rosen-sel-hip",
@@ -7517,7 +8165,9 @@
           0.38
         ]
       }
-    }
+    },
+    "py": "dtnwcxlq",
+    "pyf": "datuineiwaicexunlianqi"
   },
   {
     "id": "rosen-hip-thrust",
@@ -7557,7 +8207,9 @@
           0.95
         ]
       }
-    }
+    },
+    "py": "ttj",
+    "pyf": "tuntuiji"
   },
   {
     "id": "rosen-ab-crunch",
@@ -7597,7 +8249,9 @@
           0.38
         ]
       }
-    }
+    },
+    "py": "fjxlq",
+    "pyf": "fujixunlianqi"
   },
   {
     "id": "rosen-back-extension",
@@ -7637,7 +8291,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "lmyts",
+    "pyf": "luomayitingshen"
   },
   {
     "id": "fwd-fws-001",
@@ -7677,7 +8333,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "hdjjx",
+    "pyf": "hudiejijiaxiong"
   },
   {
     "id": "fwd-fws-002",
@@ -7717,7 +8375,9 @@
           0.75
         ]
       }
-    }
+    },
+    "py": "gwxlq",
+    "pyf": "gaoweixialaqi"
   },
   {
     "id": "fwd-fws-003",
@@ -7757,7 +8417,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "zzhcq",
+    "pyf": "zuozihuachuanqi"
   },
   {
     "id": "fwd-fws-004",
@@ -7797,7 +8459,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "zztxq",
+    "pyf": "zuozituixiongqi"
   },
   {
     "id": "fwd-fws-005",
@@ -7837,7 +8501,9 @@
           0.45
         ]
       }
-    }
+    },
+    "py": "zztjq",
+    "pyf": "zuozituijianqi"
   },
   {
     "id": "fwd-fws-006",
@@ -7877,7 +8543,9 @@
           0.2
         ]
       }
-    }
+    },
+    "py": "etjxlq",
+    "pyf": "ertoujixunlianqi"
   },
   {
     "id": "fwd-fws-008",
@@ -7917,7 +8585,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "slbjj",
+    "pyf": "shanglabeijiji"
   },
   {
     "id": "fwd-fws-009",
@@ -7957,7 +8627,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "zzdxfnj",
+    "pyf": "zhanziduoxiangfeiniaoji"
   },
   {
     "id": "fwd-fws-011",
@@ -7997,7 +8669,9 @@
           0.38
         ]
       }
-    }
+    },
+    "py": "fjxlq",
+    "pyf": "fujixunlianqi"
   },
   {
     "id": "fwd-fws-012",
@@ -8037,7 +8711,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "tqsj",
+    "pyf": "tuiqushenji"
   },
   {
     "id": "fwd-fws-013",
@@ -8077,7 +8753,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "fwtwjj",
+    "pyf": "fuwotuiwanjuji"
   },
   {
     "id": "fwd-fws-014",
@@ -8117,7 +8795,9 @@
           1.6
         ]
       }
-    }
+    },
+    "py": "tjj",
+    "pyf": "tuijuji"
   },
   {
     "id": "fwd-fws-015",
@@ -8157,7 +8837,9 @@
           0.38
         ]
       }
-    }
+    },
+    "py": "dtnwcxlq",
+    "pyf": "datuineiwaicexunlianqi"
   },
   {
     "id": "fwd-fws-019",
@@ -8197,7 +8879,9 @@
           0.95
         ]
       }
-    }
+    },
+    "py": "ttj",
+    "pyf": "tuntuiji"
   },
   {
     "id": "fwd-fws-022",
@@ -8237,7 +8921,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "jxj",
+    "pyf": "jiaxiongji"
   },
   {
     "id": "fwd-fws-032",
@@ -8277,7 +8963,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "ssjcxlq",
+    "pyf": "shengsuojiaochaxunlianqi"
   },
   {
     "id": "fwd-fwhm-001",
@@ -8317,7 +9005,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "fdstxj",
+    "pyf": "fendongshituixiongji"
   },
   {
     "id": "fwd-fwhm-002",
@@ -8357,7 +9047,9 @@
           0.45
         ]
       }
-    }
+    },
+    "py": "fdstjj",
+    "pyf": "fendongshituijianji"
   },
   {
     "id": "fwd-fwhm-003",
@@ -8397,7 +9089,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "zztwzj",
+    "pyf": "zhanzituiwaizhanji"
   },
   {
     "id": "fwd-fwhm-004",
@@ -8437,7 +9131,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "fdszzhcj",
+    "pyf": "fendongshizuozihuachuanji"
   },
   {
     "id": "fwd-fwhm-005",
@@ -8477,7 +9173,9 @@
           0.75
         ]
       }
-    }
+    },
+    "py": "fdsgwxlj",
+    "pyf": "fendongshigaoweixialaji"
   },
   {
     "id": "fwd-fwhm-006",
@@ -8517,7 +9215,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "fdsglj",
+    "pyf": "fendongshigaolaji"
   },
   {
     "id": "fwd-fwhm-007",
@@ -8557,7 +9257,9 @@
           0.75
         ]
       }
-    }
+    },
+    "py": "kjgwxlj",
+    "pyf": "kuanjugaoweixialaji"
   },
   {
     "id": "fwd-fwhm-008",
@@ -8597,7 +9299,9 @@
           0.2
         ]
       }
-    }
+    },
+    "py": "fdsetjxlq",
+    "pyf": "fendongshiertoujixunlianqi"
   },
   {
     "id": "fwd-fwhm-009",
@@ -8637,7 +9341,9 @@
           0.13
         ]
       }
-    }
+    },
+    "py": "fdscpjj",
+    "pyf": "fendongshicepingjuji"
   },
   {
     "id": "fwd-fwhm-010",
@@ -8677,7 +9383,9 @@
           0.6
         ]
       }
-    }
+    },
+    "py": "fdssxtxj",
+    "pyf": "fendongshishangxietuixiongji"
   },
   {
     "id": "fwd-fwhm-012",
@@ -8717,7 +9425,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "fdsfwtwjj",
+    "pyf": "fendongshifuwotuiwanjuji"
   },
   {
     "id": "fwd-fwhm-013",
@@ -8757,7 +9467,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "fdstqsj",
+    "pyf": "fendongshituiqushenji"
   },
   {
     "id": "fwd-fwhm-014",
@@ -8797,7 +9509,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "fdsjxj",
+    "pyf": "fendongshijiaxiongji"
   },
   {
     "id": "fwd-fwhm-015",
@@ -8837,7 +9551,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "fdsxxjxj",
+    "pyf": "fendongshixiaxiejiaxiongji"
   },
   {
     "id": "fwd-fwhm-016",
@@ -8877,7 +9593,9 @@
           0.9
         ]
       }
-    }
+    },
+    "py": "hkdtj",
+    "pyf": "hakedengtuiji"
   },
   {
     "id": "fwd-fwhm-017",
@@ -8917,7 +9635,9 @@
           0.9
         ]
       }
-    }
+    },
+    "py": "hksdj",
+    "pyf": "hakeshendunji"
   },
   {
     "id": "fwd-fwhm-018",
@@ -8957,7 +9677,9 @@
           1.6
         ]
       }
-    }
+    },
+    "py": "fdstjj",
+    "pyf": "fendongshituijuji"
   },
   {
     "id": "fwd-fwhm-021",
@@ -8997,7 +9719,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "ydsdj",
+    "pyf": "yaodaishendunji"
   },
   {
     "id": "fwd-fwhm-023",
@@ -9037,7 +9761,9 @@
           0.95
         ]
       }
-    }
+    },
+    "py": "tcj",
+    "pyf": "tunchongji"
   },
   {
     "id": "fwd-fwhm-024",
@@ -9077,7 +9803,9 @@
           0.95
         ]
       }
-    }
+    },
+    "py": "fdsttj",
+    "pyf": "fendongshituntuiji"
   },
   {
     "id": "fwd-fwhm-025",
@@ -9117,7 +9845,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "sgbqsj",
+    "pyf": "shuanggangbiqushenji"
   },
   {
     "id": "fwd-fwhm-031",
@@ -9157,7 +9887,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "slbjj",
+    "pyf": "shanglabeijiji"
   },
   {
     "id": "fwd-fwhm-032",
@@ -9197,7 +9929,9 @@
           0.9
         ]
       }
-    }
+    },
+    "py": "bcsdj",
+    "pyf": "baichuishendunji"
   },
   {
     "id": "fwd-fwhm-033",
@@ -9237,7 +9971,9 @@
           0.9
         ]
       }
-    }
+    },
+    "py": "vxsdj",
+    "pyf": "vxingshendunji"
   },
   {
     "id": "fwd-fwhm-034",
@@ -9277,7 +10013,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "lgtwzj",
+    "pyf": "liangantuiwaizhanji"
   },
   {
     "id": "fwd-fwhm-035",
@@ -9317,7 +10055,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "gghcj",
+    "pyf": "gangganhuachuanji"
   },
   {
     "id": "fwd-rrs-001",
@@ -9357,7 +10097,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "hdjjx",
+    "pyf": "hudiejijiaxiong"
   },
   {
     "id": "fwd-rrs-002",
@@ -9397,7 +10139,9 @@
           0.75
         ]
       }
-    }
+    },
+    "py": "gwxlq",
+    "pyf": "gaoweixialaqi"
   },
   {
     "id": "fwd-rrs-003",
@@ -9437,7 +10181,9 @@
           0.5
         ]
       }
-    }
+    },
+    "py": "dlhlj",
+    "pyf": "dilahualunji"
   },
   {
     "id": "fwd-rrs-004",
@@ -9477,7 +10223,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "zztxq",
+    "pyf": "zuozituixiongqi"
   },
   {
     "id": "fwd-rrs-005",
@@ -9517,7 +10265,9 @@
           0.45
         ]
       }
-    }
+    },
+    "py": "zztjq",
+    "pyf": "zuozituijianqi"
   },
   {
     "id": "fwd-rrs-006",
@@ -9557,7 +10307,9 @@
           0.2
         ]
       }
-    }
+    },
+    "py": "etjxlq",
+    "pyf": "ertoujixunlianqi"
   },
   {
     "id": "fwd-rrs-007",
@@ -9597,7 +10349,9 @@
           0.6
         ]
       }
-    }
+    },
+    "py": "sxtxj",
+    "pyf": "shangxietuixiongji"
   },
   {
     "id": "fwd-rrs-008",
@@ -9637,7 +10391,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "slbjj",
+    "pyf": "shanglabeijiji"
   },
   {
     "id": "fwd-rrs-012",
@@ -9677,7 +10433,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "tqsj",
+    "pyf": "tuiqushenji"
   },
   {
     "id": "fwd-rrs-013",
@@ -9717,7 +10475,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "fwtwjj",
+    "pyf": "fuwotuiwanjuji"
   },
   {
     "id": "fwd-rrs-014",
@@ -9757,7 +10517,9 @@
           1.6
         ]
       }
-    }
+    },
+    "py": "sdtjj",
+    "pyf": "shuangdengtuijuji"
   },
   {
     "id": "fwd-rrs-015",
@@ -9797,7 +10559,9 @@
           0.38
         ]
       }
-    }
+    },
+    "py": "dtnwcxlq",
+    "pyf": "datuineiwaicexunlianqi"
   },
   {
     "id": "fwd-rrs-018",
@@ -9837,7 +10601,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "dlhcj",
+    "pyf": "dilahuachuanji"
   },
   {
     "id": "fwd-rrs-022",
@@ -9877,7 +10643,9 @@
           0.28
         ]
       }
-    }
+    },
+    "py": "xxjxj",
+    "pyf": "xiaxiejiaxiongji"
   },
   {
     "id": "fwd-rrs-023",
@@ -9917,7 +10685,9 @@
           0.36
         ]
       }
-    }
+    },
+    "py": "zztwjj",
+    "pyf": "zuozituiwanjuji"
   },
   {
     "id": "fwd-fwf-001",
@@ -9957,7 +10727,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "alpkpd",
+    "pyf": "aolinpikepingdeng"
   },
   {
     "id": "fwd-fwf-001-2",
@@ -9997,7 +10769,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "fzalpkpd",
+    "pyf": "fuzhuaolinpikepingdeng"
   },
   {
     "id": "fwd-fwf-002",
@@ -10037,7 +10811,9 @@
           0.6
         ]
       }
-    }
+    },
+    "py": "alpksxd",
+    "pyf": "aolinpikeshangxiedeng"
   },
   {
     "id": "fwd-fwf-002-2",
@@ -10077,7 +10853,9 @@
           0.6
         ]
       }
-    }
+    },
+    "py": "fzalpksxd",
+    "pyf": "fuzhuaolinpikeshangxiedeng"
   },
   {
     "id": "fwd-fwf-004",
@@ -10117,7 +10895,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "pd",
+    "pyf": "pingdeng"
   },
   {
     "id": "fwd-fwf-006",
@@ -10157,7 +10937,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "dgnd",
+    "pyf": "duogongnengdeng"
   },
   {
     "id": "fwd-fwf-006-2",
@@ -10197,7 +10979,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "dytd",
+    "pyf": "duoyongtudeng"
   },
   {
     "id": "fwd-fwf-021",
@@ -10237,7 +11021,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "smsjczx",
+    "pyf": "shimisijichuizhixing"
   },
   {
     "id": "fwd-fwf-022",
@@ -10277,7 +11063,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "smsjqxx",
+    "pyf": "shimisijiqingxiexing"
   },
   {
     "id": "fwd-fwf-023",
@@ -10317,7 +11105,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "3dsmsj",
+    "pyf": "3dshimisiji"
   },
   {
     "id": "fwd-fwf-025",
@@ -10357,7 +11147,9 @@
           0.7
         ]
       }
-    }
+    },
+    "py": "sgnlljsms",
+    "pyf": "shuanggongnengliliangjiashimisi"
   },
   {
     "id": "fwd-fwf-027",
@@ -10397,7 +11189,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "dssmstxxx",
+    "pyf": "dengshishimisituixiongxiaxie"
   },
   {
     "id": "fwd-fwf-028",
@@ -10437,7 +11231,9 @@
           0.45
         ]
       }
-    }
+    },
+    "py": "dssmstjsx",
+    "pyf": "dengshishimisituijianshangxie"
   },
   {
     "id": "fwd-fws-010",
@@ -10447,7 +11243,9 @@
     "equipment": "插片机",
     "weighted": false,
     "brand": "FORWARD",
-    "animSlug": "pull-up"
+    "animSlug": "pull-up",
+    "py": "fzytsgj",
+    "pyf": "fuzhuyintishuanggangji"
   },
   {
     "id": "fwd-fwhm-011",
@@ -10487,7 +11285,9 @@
           0.65
         ]
       }
-    }
+    },
+    "py": "txxxsgnj",
+    "pyf": "tuixiongxiaxieshuanggongnengji"
   },
   {
     "id": "fwd-fwhm-027",
@@ -10527,6 +11327,8 @@
           0.45
         ]
       }
-    }
+    },
+    "py": "zltjtzj",
+    "pyf": "zhanlituijiantizhongji"
   }
 ]
