@@ -7,14 +7,8 @@
     "pages/profile/profile",
     "pages/share/share",
     "pages/invite/invite",
-    "pages/library/library"
-  ],
-  "subPackages": [
-    {
-      "root": "anim",
-      "name": "anim",
-      "pages": ["pages/exercise-detail/exercise-detail"]
-    }
+    "pages/library/library",
+    "pages/exercise-detail/exercise-detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fafaf9",

@@ -106,10 +106,6 @@
         </view>
         <view wx:else>
           <view class="custom-entry" bindtap="openCustomForm">＋ 自定义动作</view>
-          <view class="search-bar">
-            <input class="search-input" value="{{searchQuery}}" placeholder="搜索动作 / 器械 / 拼音，如 卧推、wt、哑铃" confirm-type="search" bindinput="onSearch" />
-            <view wx:if="{{searchQuery}}" class="search-clear" bindtap="clearSearch">清除</view>
-          </view>
           <scroll-view scroll-x class="part-tabs">
             <view wx:for="{{bodyPartTabs}}" wx:key="*this" class="part-tab {{activeBodyPart === item ? 'part-tab-on' : ''}}" data-value="{{item}}" bindtap="selectBodyPart">{{item}}</view>
           </scroll-view>

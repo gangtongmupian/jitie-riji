@@ -15,7 +15,7 @@
         ]
       },
       {
-        "exerciseId": "bench-press",
+        "exerciseId": "bench",
         "sets": 4,
         "repRange": [
           8,
@@ -23,7 +23,7 @@
         ]
       },
       {
-        "exerciseId": "seated-row",
+        "exerciseId": "row",
         "sets": 3,
         "repRange": [
           10,
@@ -31,7 +31,7 @@
         ]
       },
       {
-        "exerciseId": "overhead-press",
+        "exerciseId": "ohp",
         "sets": 3,
         "repRange": [
           10,
@@ -48,7 +48,7 @@
     "frequency": 3,
     "exercises": [
       {
-        "exerciseId": "glute-bridge",
+        "exerciseId": "hipbridge",
         "sets": 4,
         "repRange": [
           12,
@@ -56,7 +56,7 @@
         ]
       },
       {
-        "exerciseId": "leg-press",
+        "exerciseId": "legpress",
         "sets": 4,
         "repRange": [
           10,
@@ -64,7 +64,7 @@
         ]
       },
       {
-        "exerciseId": "seated-row",
+        "exerciseId": "row",
         "sets": 3,
         "repRange": [
           10,
@@ -72,7 +72,7 @@
         ]
       },
       {
-        "exerciseId": "push-up",
+        "exerciseId": "pushup",
         "sets": 3,
         "repRange": [
           8,
@@ -89,7 +89,7 @@
     "frequency": 5,
     "exercises": [
       {
-        "exerciseId": "bench-press",
+        "exerciseId": "bench",
         "sets": 4,
         "repRange": [
           8,
@@ -97,7 +97,7 @@
         ]
       },
       {
-        "exerciseId": "overhead-press",
+        "exerciseId": "ohp",
         "sets": 3,
         "repRange": [
           8,
@@ -105,7 +105,7 @@
         ]
       },
       {
-        "exerciseId": "tricep-pushdown",
+        "exerciseId": "pushdown",
         "sets": 3,
         "repRange": [
           10,
@@ -113,7 +113,7 @@
         ]
       },
       {
-        "exerciseId": "pull-up",
+        "exerciseId": "pullup",
         "sets": 4,
         "repRange": [
           6,
@@ -121,7 +121,7 @@
         ]
       },
       {
-        "exerciseId": "seated-row",
+        "exerciseId": "row",
         "sets": 3,
         "repRange": [
           8,
@@ -146,7 +146,7 @@
     "frequency": 4,
     "exercises": [
       {
-        "exerciseId": "bench-press",
+        "exerciseId": "bench",
         "sets": 5,
         "repRange": [
           3,
@@ -154,7 +154,7 @@
         ]
       },
       {
-        "exerciseId": "seated-row",
+        "exerciseId": "row",
         "sets": 4,
         "repRange": [
           5,
@@ -162,7 +162,7 @@
         ]
       },
       {
-        "exerciseId": "overhead-press",
+        "exerciseId": "ohp",
         "sets": 3,
         "repRange": [
           5,
@@ -188,14 +188,14 @@
     ]
   },
   {
-    "id": "gym-machine-m",
+    "id": "rosen-machine-m",
     "name": "铁馆器械 · 男版",
     "goal": "增肌",
     "genderHint": "male",
     "frequency": 3,
     "exercises": [
       {
-        "exerciseId": "machine-chest-press",
+        "exerciseId": "rosen-hm-bench-press",
         "sets": 4,
         "repRange": [
           8,
@@ -203,7 +203,7 @@
         ]
       },
       {
-        "exerciseId": "lat-pulldown",
+        "exerciseId": "rosen-hm-lat-pulldown",
         "sets": 4,
         "repRange": [
           10,
@@ -211,7 +211,7 @@
         ]
       },
       {
-        "exerciseId": "machine-row",
+        "exerciseId": "rosen-hm-seated-row",
         "sets": 3,
         "repRange": [
           10,
@@ -219,7 +219,7 @@
         ]
       },
       {
-        "exerciseId": "machine-shoulder-press",
+        "exerciseId": "rosen-hm-shoulder-press",
         "sets": 3,
         "repRange": [
           8,
@@ -227,7 +227,7 @@
         ]
       },
       {
-        "exerciseId": "leg-press",
+        "exerciseId": "rosen-leg-press45",
         "sets": 4,
         "repRange": [
           10,
@@ -235,7 +235,7 @@
         ]
       },
       {
-        "exerciseId": "bicep-curl",
+        "exerciseId": "rosen-hm-bicep",
         "sets": 3,
         "repRange": [
           10,
@@ -245,14 +245,14 @@
     ]
   },
   {
-    "id": "gym-machine-f",
+    "id": "rosen-machine-f",
     "name": "铁馆器械 · 女版",
     "goal": "塑形",
     "genderHint": "female",
     "frequency": 3,
     "exercises": [
       {
-        "exerciseId": "machine-chest-press",
+        "exerciseId": "rosen-sel-chest-press",
         "sets": 3,
         "repRange": [
           10,
@@ -260,7 +260,7 @@
         ]
       },
       {
-        "exerciseId": "lat-pulldown",
+        "exerciseId": "rosen-sel-lat-pulldown",
         "sets": 3,
         "repRange": [
           10,
@@ -268,7 +268,7 @@
         ]
       },
       {
-        "exerciseId": "hip-thrust",
+        "exerciseId": "rosen-hip-thrust",
         "sets": 4,
         "repRange": [
           12,
@@ -276,7 +276,7 @@
         ]
       },
       {
-        "exerciseId": "hip-abduction-machine",
+        "exerciseId": "rosen-sel-hip",
         "sets": 3,
         "repRange": [
           15,
@@ -284,7 +284,7 @@
         ]
       },
       {
-        "exerciseId": "leg-extension",
+        "exerciseId": "rosen-sel-leg-extension",
         "sets": 3,
         "repRange": [
           12,
@@ -292,11 +292,125 @@
         ]
       },
       {
-        "exerciseId": "standing-calf-raise",
+        "exerciseId": "rosen-sel-calf",
         "sets": 3,
         "repRange": [
           15,
           20
+        ]
+      }
+    ]
+  },
+  {
+    "id": "forward-machine-m",
+    "name": "FORWARD器械 · 男版",
+    "goal": "增肌",
+    "genderHint": "male",
+    "frequency": 3,
+    "exercises": [
+      {
+        "exerciseId": "fwd-fwhm-001",
+        "sets": 4,
+        "repRange": [
+          8,
+          12
+        ]
+      },
+      {
+        "exerciseId": "fwd-fwhm-005",
+        "sets": 4,
+        "repRange": [
+          10,
+          12
+        ]
+      },
+      {
+        "exerciseId": "fwd-fwhm-004",
+        "sets": 3,
+        "repRange": [
+          10,
+          12
+        ]
+      },
+      {
+        "exerciseId": "fwd-fwhm-002",
+        "sets": 3,
+        "repRange": [
+          8,
+          12
+        ]
+      },
+      {
+        "exerciseId": "fwd-fws-014",
+        "sets": 4,
+        "repRange": [
+          10,
+          15
+        ]
+      },
+      {
+        "exerciseId": "fwd-fwhm-008",
+        "sets": 3,
+        "repRange": [
+          10,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "id": "forward-machine-f",
+    "name": "FORWARD器械 · 女版",
+    "goal": "塑形",
+    "genderHint": "female",
+    "frequency": 3,
+    "exercises": [
+      {
+        "exerciseId": "fwd-rrs-004",
+        "sets": 3,
+        "repRange": [
+          10,
+          12
+        ]
+      },
+      {
+        "exerciseId": "fwd-rrs-002",
+        "sets": 3,
+        "repRange": [
+          10,
+          12
+        ]
+      },
+      {
+        "exerciseId": "fwd-fws-019",
+        "sets": 4,
+        "repRange": [
+          12,
+          15
+        ]
+      },
+      {
+        "exerciseId": "fwd-fws-015",
+        "sets": 3,
+        "repRange": [
+          15,
+          20
+        ]
+      },
+      {
+        "exerciseId": "fwd-fws-012",
+        "sets": 3,
+        "repRange": [
+          12,
+          15
+        ]
+      },
+      {
+        "exerciseId": "fwd-fws-013",
+        "sets": 3,
+        "repRange": [
+          12,
+          15
         ]
       }
     ]
@@ -310,7 +424,7 @@
     "frequency": 5,
     "exercises": [
       {
-        "exerciseId": "bench-press",
+        "exerciseId": "bench",
         "sets": 4,
         "repRange": [
           6,
@@ -326,7 +440,7 @@
         ]
       },
       {
-        "exerciseId": "seated-row",
+        "exerciseId": "row",
         "sets": 4,
         "repRange": [
           8,
@@ -334,7 +448,7 @@
         ]
       },
       {
-        "exerciseId": "overhead-press",
+        "exerciseId": "ohp",
         "sets": 3,
         "repRange": [
           8,
@@ -342,7 +456,7 @@
         ]
       },
       {
-        "exerciseId": "pull-up",
+        "exerciseId": "pullup",
         "sets": 4,
         "repRange": [
           6,
@@ -350,7 +464,7 @@
         ]
       },
       {
-        "exerciseId": "romanian-deadlift",
+        "exerciseId": "rdl",
         "sets": 3,
         "repRange": [
           8,
@@ -358,7 +472,7 @@
         ]
       },
       {
-        "exerciseId": "leg-press",
+        "exerciseId": "legpress",
         "sets": 4,
         "repRange": [
           10,
@@ -384,7 +498,7 @@
         ]
       },
       {
-        "exerciseId": "push-up",
+        "exerciseId": "pushup",
         "sets": 4,
         "repRange": [
           10,
@@ -392,7 +506,7 @@
         ]
       },
       {
-        "exerciseId": "seated-row",
+        "exerciseId": "row",
         "sets": 3,
         "repRange": [
           10,
@@ -400,7 +514,7 @@
         ]
       },
       {
-        "exerciseId": "glute-bridge",
+        "exerciseId": "hipbridge",
         "sets": 4,
         "repRange": [
           12,
@@ -416,7 +530,7 @@
         ]
       },
       {
-        "exerciseId": "leg-press",
+        "exerciseId": "legpress",
         "sets": 3,
         "repRange": [
           12,

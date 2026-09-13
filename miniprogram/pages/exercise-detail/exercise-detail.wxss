@@ -1,0 +1,76 @@
+.detail-head {
+  padding: 8rpx 0 24rpx;
+}
+.scorecard-label {
+  font-size: 24rpx;
+  letter-spacing: 4rpx;
+  color: var(--slate);
+  font-weight: 700;
+}
+.detail-title {
+  font-size: 48rpx;
+  font-weight: 800;
+  letter-spacing: -2rpx;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-top: 8rpx;
+}
+.detail-en {
+  font-size: 26rpx;
+  color: var(--slate);
+  margin-top: 6rpx;
+}
+.block {
+  margin-top: 40rpx;
+}
+.block-t {
+  font-size: 26rpx;
+  color: var(--steel);
+  font-weight: 600;
+  margin-bottom: 20rpx;
+  letter-spacing: 1rpx;
+}
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+.pill {
+  border: 1rpx solid var(--hairline);
+  border-radius: var(--r-full);
+  padding: 14rpx 28rpx;
+  font-size: 26rpx;
+  color: var(--steel);
+  background: var(--canvas);
+}
+.step-line {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 18rpx;
+}
+.step-no {
+  flex: none;
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--primary);
+  font-size: 24rpx;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+}
+.step-text {
+  flex: 1;
+  font-size: 28rpx;
+  color: var(--charcoal);
+  line-height: 1.6;
+}
+.tip-line {
+  font-size: 26rpx;
+  color: var(--slate);
+  line-height: 1.6;
+  margin-bottom: 10rpx;
+}

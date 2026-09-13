@@ -1,13 +1,11 @@
 const exercises = require('../../data/exercises');
-const searchUtil = require('../../utils/search');
 
-const BODY_ORDER = ['胸', '背', '腿', '臀腿', '肩', '手臂', '核心', '有氧', '拉伸'];
+const BODY_ORDER = ['胸', '背', '腿', '臀腿', '肩', '手臂', '核心'];
 
 Page({
   data: {
-    parts: ['全部'].concat(BODY_ORDER).concat(['品牌器械']),
+    parts: ['全部'].concat(BODY_ORDER),
     active: '全部',
-    keyword: '',
     groups: [],
     total: 0
   },
@@ -18,18 +16,7 @@ Page({
     this.build();
   },
   build() {
-    const kw = (this.data.keyword || '').trim();
-    if (kw) {
-      const items = searchUtil.filter(exercises, kw);
-      this.setData({ groups: [{ bodyPart: '搜索到 ' + items.length + ' 个动作', items }], total: exercises.length });
-      return;
-    }
     const active = this.data.active;
-    if (active === '品牌器械') {
-      const items = exercises.filter((e) => e.brand);
-      this.setData({ groups: [{ bodyPart: '品牌器械', items }], total: exercises.length });
-      return;
-    }
     const list = active === '全部' ? exercises : exercises.filter((e) => e.bodyPart === active);
     const groups = [];
     BODY_ORDER.forEach((bp) => {
@@ -46,15 +33,7 @@ Page({
   },
   selectPart(e) {
     const part = e.currentTarget.dataset.value;
-    this.setData({ active: part, keyword: '' });
-    this.build();
-  },
-  onSearch(e) {
-    this.setData({ keyword: e.detail.value });
-    this.build();
-  },
-  clearSearch() {
-    this.setData({ keyword: '' });
+    this.setData({ active: part });
     this.build();
   }
 });
