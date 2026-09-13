@@ -8,6 +8,8 @@ const exerciseDetails = require('../../data/exercise-details');
 const motion = require('../../utils/motion');
 const config = require('../../config');
 const track = require('../../utils/track');
+const rosenMachines = require('../../data/rosen-machines');
+const forwardMachines = require('../../data/forward-machines');
 
 const BODY_ORDER = ['胸', '背', '腿', '臀腿', '肩', '手臂', '核心', '有氧', '拉伸'];
 
@@ -33,7 +35,7 @@ Page({
     finishCalories: '',
     estimatedCalories: 0,
     bodyParts: ['胸', '背', '腿', '臀腿', '肩', '手臂', '核心', '有氧', '拉伸'],
-    bodyPartTabs: ['全部', '胸', '背', '腿', '臀腿', '肩', '手臂', '核心', '有氧', '拉伸'],
+    bodyPartTabs: ['全部', '胸', '背', '腿', '臀腿', '肩', '手臂', '核心', '有氧', '拉伸', '品牌器械'],
     activeBodyPart: '全部',
     filteredGroups: []
   },
@@ -103,7 +105,7 @@ Page({
       glyph: motion.resolveGlyph(e),
       motion: motion.resolveMotion(e),
       animKey: motion.resolveAnimSlug(e),
-      machine: null
+      machine: rosenMachines[e.id] || forwardMachines[e.id] || null
     });
   },
   enrich(exercises) {
@@ -126,6 +128,11 @@ Page({
   applyFilter() {
     const active = this.data.activeBodyPart;
     const all = this.data.groupedExercises;
+    if (active === '品牌器械') {
+      const items = this.data.allExercises.filter((e) => e.brand);
+      this.setData({ filteredGroups: [{ bodyPart: '品牌器械', items }] });
+      return;
+    }
     this.setData({
       filteredGroups: active === '全部' ? all : all.filter((g) => g.bodyPart === active)
     });
@@ -133,6 +140,11 @@ Page({
   selectBodyPart(e) {
     const active = e.currentTarget.dataset.value;
     const all = this.data.groupedExercises;
+    if (active === '品牌器械') {
+      const items = this.data.allExercises.filter((x) => x.brand);
+      this.setData({ activeBodyPart: active, filteredGroups: [{ bodyPart: '品牌器械', items }] });
+      return;
+    }
     this.setData({
       activeBodyPart: active,
       filteredGroups: active === '全部' ? all : all.filter((g) => g.bodyPart === active)
@@ -275,7 +287,7 @@ Page({
         glyph: ex.glyph || motion.resolveGlyph(ex),
         motion: ex.motion || motion.resolveMotion(ex),
         animKey: ex.animKey || motion.resolveAnimSlug(ex),
-        machine: null,
+        machine: ex.machine || rosenMachines[ex.id] || forwardMachines[ex.id] || null,
         targets: d.targets || [],
         steps: d.steps || [],
         tips: d.tips || [],

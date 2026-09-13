@@ -40,6 +40,6 @@ test('anim: 自定义动作按部位兜底且文件存在', () => {
 
 test('anim: 全部动作均按 slug 直连素材', () => {
   for (const e of exercises) {
-    assert.equal(motion.ANIM_BY_ID[e.id], e.id, `${e.id} 未按 slug 直连素材`);
+    assert.equal(motion.ANIM_BY_ID[e.id], e.animSlug || e.id, `${e.id} 素材映射错误`);
   }
 });

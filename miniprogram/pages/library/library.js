@@ -4,7 +4,7 @@ const BODY_ORDER = ['胸', '背', '腿', '臀腿', '肩', '手臂', '核心', '�
 
 Page({
   data: {
-    parts: ['全部'].concat(BODY_ORDER),
+    parts: ['全部'].concat(BODY_ORDER).concat(['品牌器械']),
     active: '全部',
     groups: [],
     total: 0
@@ -17,6 +17,11 @@ Page({
   },
   build() {
     const active = this.data.active;
+    if (active === '品牌器械') {
+      const items = exercises.filter((e) => e.brand);
+      this.setData({ groups: [{ bodyPart: '品牌器械', items }], total: exercises.length });
+      return;
+    }
     const list = active === '全部' ? exercises : exercises.filter((e) => e.bodyPart === active);
     const groups = [];
     BODY_ORDER.forEach((bp) => {

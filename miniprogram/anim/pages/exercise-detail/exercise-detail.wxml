@@ -8,6 +8,11 @@
 
     <exercise-anim motion-key="{{motionKey}}" anim-key="{{animKey}}" glyph="{{glyph}}" width="700" height="460" />
 
+    <view wx:if="{{machine}}" class="machine-photo">
+      <image src="{{machine.image}}" mode="aspectFit" class="machine-img" lazy-load />
+      <view class="machine-model">{{machine.model}} · {{machine.siteName}}</view>
+    </view>
+
     <view class="block">
       <view class="block-t">目标肌群</view>
       <view class="pill-row" wx:if="{{d.targets.length}}">

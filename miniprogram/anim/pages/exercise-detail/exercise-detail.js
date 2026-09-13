@@ -1,6 +1,8 @@
 const exercises = require('../../../data/exercises');
 const motion = require('../../../utils/motion');
 const details = require('../../../data/exercise-details');
+const rosenMachines = require('../../../data/rosen-machines');
+const forwardMachines = require('../../../data/forward-machines');
 
 Page({
   data: {
@@ -9,6 +11,7 @@ Page({
     animKey: '',
     motionKey: 'crunch',
     glyph: 'machine-generic'
+    , machine: null
   },
   onLoad(options) {
     const id = options && options.ex;
@@ -24,6 +27,7 @@ Page({
       animKey: motion.resolveAnimSlug(ex),
       motionKey: motion.resolveMotion(ex),
       glyph: motion.resolveGlyph(ex)
+      , machine: rosenMachines[ex.id] || forwardMachines[ex.id] || null
     });
     if (wx.setNavigationBarTitle) wx.setNavigationBarTitle({ title: ex.name });
   }

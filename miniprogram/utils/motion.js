@@ -72,7 +72,7 @@ const FALLBACK_MOTION = {
 // 动作 id 即 workout-guide 素材 slug：每个动作都有三帧素材
 const exercisesData = require('../data/exercises');
 const ANIM_BY_ID = {};
-exercisesData.forEach((e) => { ANIM_BY_ID[e.id] = e.id; });
+exercisesData.forEach((e) => { ANIM_BY_ID[e.id] = e.animSlug || e.id; });
 
 // 火柴人动画与器械图示：按部位 / 器械兜底（见下方 FALLBACK_*）
 const MOTION_BY_ID = {};
