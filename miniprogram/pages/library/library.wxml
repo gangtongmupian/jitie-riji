@@ -15,7 +15,7 @@
         <view class="sect-n">{{g.bodyPart}}</view>
         <view class="sect-cnt">{{g.items.length}} 个动作</view>
       </view>
-      <navigator class="ex-item" url="/pages/exercise-detail/exercise-detail?ex={{item.id}}" hover-class="ex-item-hover" wx:for="{{g.items}}" wx:for-item="item" wx:key="id">
+      <navigator class="ex-item" url="/anim/pages/exercise-detail/exercise-detail?ex={{item.id}}" hover-class="ex-item-hover" wx:for="{{g.items}}" wx:for-item="item" wx:key="id">
         <view class="ex-name">{{item.name}}</view>
         <view class="ex-en">{{item.enName}}<text wx:if="{{item.equipment}}"> · {{item.equipment}}</text></view>
         <view class="ex-arrow">›</view>

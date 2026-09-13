@@ -7,7 +7,7 @@
     { "action": "allow", "page": "pages/history/history" },
     { "action": "allow", "page": "pages/profile/profile" },
     { "action": "allow", "page": "pages/library/library" },
-    { "action": "allow", "page": "pages/exercise-detail/exercise-detail" },
+    { "action": "allow", "page": "anim/pages/exercise-detail/exercise-detail" },
     { "action": "disallow", "page": "pages/share/share" },
     { "action": "disallow", "page": "pages/invite/invite" }
   ]

@@ -1,6 +1,6 @@
 const exercises = require('../../data/exercises');
 
-const BODY_ORDER = ['胸', '背', '腿', '臀腿', '肩', '手臂', '核心'];
+const BODY_ORDER = ['胸', '背', '腿', '臀腿', '肩', '手臂', '核心', '有氧', '拉伸'];
 
 Page({
   data: {

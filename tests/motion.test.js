@@ -29,28 +29,14 @@ test('motion: poseAt 输出坐标有限且在画布范围内', () => {
   }
 });
 
-test('motion: ROSEN 固定器械模板男女分开且引用有效', () => {
+test('motion: 铁馆器械模板男女分开且引用有效', () => {
   const templates = require('../miniprogram/data/templates');
-  const rosen = templates.filter((t) => t.id.indexOf('rosen-') === 0);
-  assert.equal(rosen.length, 2, '应存在男/女两套铁馆器械模板');
-  assert.ok(rosen.some((t) => t.genderHint === 'male'), '缺少男版器械模板');
-  assert.ok(rosen.some((t) => t.genderHint === 'female'), '缺少女版器械模板');
+  const gym = templates.filter((t) => t.id.indexOf('gym-machine-') === 0);
+  assert.equal(gym.length, 2, '应存在男/女两套铁馆器械模板');
+  assert.ok(gym.some((t) => t.genderHint === 'male'), '缺少男版器械模板');
+  assert.ok(gym.some((t) => t.genderHint === 'female'), '缺少女版器械模板');
   const ids = new Set(exercises.map((e) => e.id));
-  for (const t of rosen) {
-    for (const x of t.exercises) {
-      assert.ok(ids.has(x.exerciseId), `模板 ${t.id} 引用了不存在的动作 ${x.exerciseId}`);
-    }
-  }
-});
-
-test('motion: FORWARD 固定器械模板男女分开且引用有效', () => {
-  const templates = require('../miniprogram/data/templates');
-  const fwd = templates.filter((t) => t.id.indexOf('forward-') === 0);
-  assert.equal(fwd.length, 2, '应存在男/女两套 FORWARD 器械模板');
-  assert.ok(fwd.some((t) => t.genderHint === 'male'), '缺少男版 FORWARD 模板');
-  assert.ok(fwd.some((t) => t.genderHint === 'female'), '缺少女版 FORWARD 模板');
-  const ids = new Set(exercises.map((e) => e.id));
-  for (const t of fwd) {
+  for (const t of gym) {
     for (const x of t.exercises) {
       assert.ok(ids.has(x.exerciseId), `模板 ${t.id} 引用了不存在的动作 ${x.exerciseId}`);
     }

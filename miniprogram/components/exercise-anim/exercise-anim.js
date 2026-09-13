@@ -35,7 +35,12 @@ Component({
   },
   lifetimes: {
     attached() {
-      this.start();
+      // 三帧素材在 anim 分包内，先确保分包可用（已下载会立即返回）
+      if (wx.loadSubpackage) {
+        wx.loadSubpackage({ name: 'anim' }).then(() => this.start()).catch(() => this.start());
+      } else {
+        this.start();
+      }
     },
     detached() {
       this.stop();
@@ -52,7 +57,8 @@ Component({
   methods: {
     frameUrls(slug) {
       if (!slug) return [];
-      return [1, 2, 3].map((n) => '/images/anim/' + slug + '-' + n + '.png');
+      // 三帧素材放在 anim 分包内（302 个动作 × 3 帧）
+      return [1, 2, 3].map((n) => '/anim/images/anim/' + slug + '-' + n + '.png');
     },
     start() {
       this.stop();

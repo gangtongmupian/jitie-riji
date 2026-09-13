@@ -3,14 +3,12 @@ const assert = require('node:assert/strict');
 const exercises = require('../miniprogram/data/exercises');
 const templates = require('../miniprogram/data/templates');
 
-const PARTS = ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'];
+const PARTS = ['胸', '背', '腿', '臀腿', '肩', '手臂', '核心', '有氧', '拉伸'];
 
 test('exercises: id 唯一且字段合法', () => {
   const ids = exercises.map((e) => e.id);
   assert.equal(new Set(ids).size, ids.length, '存在重复 id');
-  assert.ok(exercises.length >= 80, '动作数量应不少于 80(含 ROSEN 固定器械)');
-  assert.ok(exercises.filter((e) => e.id.indexOf('rosen-') === 0).length >= 20, 'ROSEN 固定器械应不少于 20 台');
-  assert.ok(exercises.filter((e) => e.id.indexOf('fwd-') === 0).length >= 70, 'FORWARD 固定器械应不少于 70 台');
+  assert.ok(exercises.length >= 300, '动作数量应为 workout-guide 全量(302)');
   for (const e of exercises) {
     assert.ok(e.name, `${e.id} 缺少 name`);
     assert.ok(PARTS.includes(e.bodyPart), `${e.id} 部位非法: ${e.bodyPart}`);
@@ -22,13 +20,10 @@ test('exercises: id 唯一且字段合法', () => {
   }
 });
 
-test('FORWARD 器械型号对照完整（每个动作都有型号图）', () => {
-  const machines = require('../miniprogram/data/forward-machines');
-  const fwd = exercises.filter((e) => e.id.indexOf('fwd-') === 0);
-  for (const e of fwd) {
-    const m = machines[e.id];
-    assert.ok(m && m.model, `${e.id} 缺少 FORWARD 型号对照`);
-    assert.ok(m.image && m.image.indexOf('/images/forward/') === 0, `${e.id} 缺少器械图路径`);
+test('exercises: 每个动作都有中文名与英文术语', () => {
+  for (const e of exercises) {
+    assert.ok(e.enName, `${e.id} 缺少英文术语`);
+    assert.ok(!/[A-Za-z]/.test(e.name.replace(/[TVY]/g, '')), `${e.id} 中文名含未翻译英文: ${e.name}`);
   }
 });
 

@@ -7,11 +7,9 @@ const share = require('../../utils/share');
 const exerciseDetails = require('../../data/exercise-details');
 const motion = require('../../utils/motion');
 const config = require('../../config');
-const rosenMachines = require('../../data/rosen-machines');
-const forwardMachines = require('../../data/forward-machines');
 const track = require('../../utils/track');
 
-const BODY_ORDER = ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'];
+const BODY_ORDER = ['胸', '背', '腿', '臀腿', '肩', '手臂', '核心', '有氧', '拉伸'];
 
 Page({
   data: {
@@ -34,8 +32,8 @@ Page({
     showFinishSheet: false,
     finishCalories: '',
     estimatedCalories: 0,
-    bodyParts: ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'],
-    bodyPartTabs: ['全部', '胸', '背', '腿', '肩', '手臂', '核心', '臀腿'],
+    bodyParts: ['胸', '背', '腿', '臀腿', '肩', '手臂', '核心', '有氧', '拉伸'],
+    bodyPartTabs: ['全部', '胸', '背', '腿', '臀腿', '肩', '手臂', '核心', '有氧', '拉伸'],
     activeBodyPart: '全部',
     filteredGroups: []
   },
@@ -105,7 +103,7 @@ Page({
       glyph: motion.resolveGlyph(e),
       motion: motion.resolveMotion(e),
       animKey: motion.resolveAnimSlug(e),
-      machine: rosenMachines[e.id] || forwardMachines[e.id] || null
+      machine: null
     });
   },
   enrich(exercises) {
@@ -277,7 +275,7 @@ Page({
         glyph: ex.glyph || motion.resolveGlyph(ex),
         motion: ex.motion || motion.resolveMotion(ex),
         animKey: ex.animKey || motion.resolveAnimSlug(ex),
-        machine: ex.machine || rosenMachines[ex.id] || forwardMachines[ex.id] || null,
+        machine: null,
         targets: d.targets || [],
         steps: d.steps || [],
         tips: d.tips || [],
