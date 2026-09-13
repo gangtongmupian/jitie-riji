@@ -86,3 +86,26 @@
   font-size: 40rpx;
   color: var(--stone);
 }
+/* 搜索栏 */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin: 8rpx 0 12rpx;
+}
+.search-input {
+  flex: 1;
+  height: 80rpx;
+  padding: 0 28rpx;
+  background: var(--surface);
+  border-radius: var(--r-md);
+  font-size: 28rpx;
+  color: var(--ink);
+  text-align: left;
+}
+.search-clear {
+  flex: none;
+  font-size: 26rpx;
+  color: var(--link-blue);
+  padding: 12rpx 8rpx;
+}

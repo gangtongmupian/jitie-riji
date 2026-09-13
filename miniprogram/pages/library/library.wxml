@@ -7,8 +7,13 @@
     </view>
 
     <scroll-view scroll-x class="part-tabs">
-      <view wx:for="{{parts}}" wx:key="*this" class="part-tab {{active === item ? 'part-tab-on' : ''}}" data-value="{{item}}" bindtap="selectPart">{{item}}</view>
+      <view wx:for="{{parts}}" wx:key="*this" class="part-tab {{active === item && !keyword ? 'part-tab-on' : ''}}" data-value="{{item}}" bindtap="selectPart">{{item}}</view>
     </scroll-view>
+
+    <view class="search-bar">
+      <input class="search-input" value="{{keyword}}" placeholder="搜索动作 / 器械 / 拼音，如 卧推、wt、哑铃" confirm-type="search" bindinput="onSearch" />
+      <view wx:if="{{keyword}}" class="search-clear" bindtap="clearSearch">清除</view>
+    </view>
 
     <block wx:for="{{groups}}" wx:for-item="g" wx:key="bodyPart">
       <view class="sect">
