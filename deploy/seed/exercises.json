@@ -6688,5 +6688,925 @@
         ]
       }
     }
+  },
+  {
+    "id": "rosen-hm-1007",
+    "name": "ROSEN分动式超上斜推胸机",
+    "enName": "分动式超上斜推胸训练器 (HM-1007)",
+    "bodyPart": "胸",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.35,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.95
+        ]
+      },
+      "female": {
+        "novice": [
+          0.18,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.45
+        ],
+        "advanced": [
+          0.45,
+          0.6
+        ]
+      }
+    },
+    "animSlug": "incline-bench-press",
+    "rosen": "HM-1007"
+  },
+  {
+    "id": "rosen-hm-1008",
+    "name": "ROSEN分动式阔角度推胸机",
+    "enName": "分动式阔角度推胸训练器 (HM-1008)",
+    "bodyPart": "胸",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    },
+    "animSlug": "machine-chest-press",
+    "rosen": "HM-1008"
+  },
+  {
+    "id": "rosen-hm-1010",
+    "name": "ROSEN分动式肩部训练器",
+    "enName": "分动式肩部训练器 (HM-1010)",
+    "bodyPart": "肩",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    },
+    "animSlug": "machine-shoulder-press",
+    "rosen": "HM-1010"
+  },
+  {
+    "id": "rosen-hm-1013",
+    "name": "ROSEN分动式DY划艇拉背机",
+    "enName": "分动式DY划艇拉背训练器背肌训练器 (HM-1013)",
+    "bodyPart": "背",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    },
+    "animSlug": "machine-row",
+    "rosen": "HM-1013"
+  },
+  {
+    "id": "rosen-hm-1018",
+    "name": "ROSEN分动式划艇高拉背机",
+    "enName": "分动式划艇高拉背训练器 (HM-1018)",
+    "bodyPart": "背",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    },
+    "animSlug": "lat-pulldown",
+    "rosen": "HM-1018"
+  },
+  {
+    "id": "rosen-hm-1029",
+    "name": "ROSEN 45度角坐式大腿训练器",
+    "enName": "45度角坐式大腿训练器 (HM-1029)",
+    "bodyPart": "腿",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          1.2,
+          1.6
+        ],
+        "intermediate": [
+          1.6,
+          2
+        ],
+        "advanced": [
+          2,
+          2.4
+        ]
+      },
+      "female": {
+        "novice": [
+          0.8,
+          1.2
+        ],
+        "intermediate": [
+          1.2,
+          1.5
+        ],
+        "advanced": [
+          1.5,
+          1.8
+        ]
+      }
+    },
+    "animSlug": "leg-press",
+    "rosen": "HM-1029"
+  },
+  {
+    "id": "rosen-hm-1035",
+    "name": "ROSEN蹬腿训练器",
+    "enName": "蹬腿训练器 (HM-1035)",
+    "bodyPart": "腿",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          1.2,
+          1.6
+        ],
+        "intermediate": [
+          1.6,
+          2
+        ],
+        "advanced": [
+          2,
+          2.4
+        ]
+      },
+      "female": {
+        "novice": [
+          0.8,
+          1.2
+        ],
+        "intermediate": [
+          1.2,
+          1.5
+        ],
+        "advanced": [
+          1.5,
+          1.8
+        ]
+      }
+    },
+    "animSlug": "leg-press",
+    "rosen": "HM-1035"
+  },
+  {
+    "id": "rosen-hm-1047",
+    "name": "ROSEN站地式跨步下蹲机",
+    "enName": "站地式跨步下蹲训练器 (HM-1047)",
+    "bodyPart": "腿",
+    "equipment": "悍马",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.25
+        ],
+        "intermediate": [
+          0.25,
+          0.35
+        ],
+        "advanced": [
+          0.35,
+          0.45
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.18
+        ],
+        "intermediate": [
+          0.18,
+          0.26
+        ],
+        "advanced": [
+          0.26,
+          0.34
+        ]
+      }
+    },
+    "animSlug": "forward-lunge",
+    "rosen": "HM-1047"
+  },
+  {
+    "id": "rosen-hm-1048",
+    "name": "ROSEN史密斯训练器",
+    "enName": "史密斯训练器 (HM-1048)",
+    "bodyPart": "胸",
+    "equipment": "器械",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.6
+        ],
+        "intermediate": [
+          0.6,
+          0.8
+        ],
+        "advanced": [
+          0.8,
+          1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.2,
+          0.35
+        ],
+        "intermediate": [
+          0.35,
+          0.5
+        ],
+        "advanced": [
+          0.5,
+          0.65
+        ]
+      }
+    },
+    "animSlug": "bench-press",
+    "rosen": "HM-1048"
+  },
+  {
+    "id": "rosen-hm-3001",
+    "name": "ROSEN引体上升训练器",
+    "enName": "引体上升训练器 (HM-3001)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.25
+        ],
+        "intermediate": [
+          0.25,
+          0.35
+        ],
+        "advanced": [
+          0.35,
+          0.45
+        ]
+      }
+    },
+    "animSlug": "pull-up",
+    "rosen": "HM-3001"
+  },
+  {
+    "id": "rosen-hm-3002",
+    "name": "ROSEN二头肌训练器",
+    "enName": "二头肌训练器 (HM-3002)",
+    "bodyPart": "手臂",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.12,
+          0.18
+        ],
+        "intermediate": [
+          0.18,
+          0.24
+        ],
+        "advanced": [
+          0.24,
+          0.3
+        ]
+      },
+      "female": {
+        "novice": [
+          0.08,
+          0.12
+        ],
+        "intermediate": [
+          0.12,
+          0.16
+        ],
+        "advanced": [
+          0.16,
+          0.2
+        ]
+      }
+    },
+    "animSlug": "bicep-curl",
+    "rosen": "HM-3002"
+  },
+  {
+    "id": "rosen-hm-3004",
+    "name": "ROSEN固定式高拉背肌机",
+    "enName": "固定式高拉背肌训练器 (HM-3004)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.4,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.7
+        ],
+        "advanced": [
+          0.7,
+          0.85
+        ]
+      },
+      "female": {
+        "novice": [
+          0.25,
+          0.4
+        ],
+        "intermediate": [
+          0.4,
+          0.55
+        ],
+        "advanced": [
+          0.55,
+          0.7
+        ]
+      }
+    },
+    "animSlug": "lat-pulldown",
+    "rosen": "HM-3004"
+  },
+  {
+    "id": "rosen-hm-3006",
+    "name": "ROSEN肩膊推举训练器",
+    "enName": "肩膊推举训练器 (HM-3006)",
+    "bodyPart": "肩",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.18,
+          0.28
+        ],
+        "intermediate": [
+          0.28,
+          0.38
+        ],
+        "advanced": [
+          0.38,
+          0.48
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.18
+        ],
+        "intermediate": [
+          0.18,
+          0.26
+        ],
+        "advanced": [
+          0.26,
+          0.34
+        ]
+      }
+    },
+    "animSlug": "machine-shoulder-press",
+    "rosen": "HM-3006"
+  },
+  {
+    "id": "rosen-hm-3007",
+    "name": "ROSEN三头肌伸展训练器",
+    "enName": "三头肌伸展训练器 (HM-3007)",
+    "bodyPart": "手臂",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    },
+    "animSlug": "overhead-tricep-extension",
+    "rosen": "HM-3007"
+  },
+  {
+    "id": "rosen-hm-3008",
+    "name": "ROSEN大腿外侧肌训练器",
+    "enName": "大腿外侧肌训练器 (HM-3008)",
+    "bodyPart": "臀腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      }
+    },
+    "animSlug": "hip-abduction-machine",
+    "rosen": "HM-3008"
+  },
+  {
+    "id": "rosen-hm-3009",
+    "name": "ROSEN大腿伸展训练器",
+    "enName": "大腿伸展训练器 (HM-3009)",
+    "bodyPart": "腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    },
+    "animSlug": "leg-extension",
+    "rosen": "HM-3009"
+  },
+  {
+    "id": "rosen-hm-3010",
+    "name": "ROSEN坐式大腿屈伸训练器",
+    "enName": "坐式大腿屈伸训练器 (HM-3010)",
+    "bodyPart": "腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    },
+    "animSlug": "lying-leg-curl",
+    "rosen": "HM-3010"
+  },
+  {
+    "id": "rosen-hm-3011",
+    "name": "ROSEN坐式蹬腿训练器",
+    "enName": "坐式蹬腿训练器 (HM-3011)",
+    "bodyPart": "腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          1.2,
+          1.6
+        ],
+        "intermediate": [
+          1.6,
+          2
+        ],
+        "advanced": [
+          2,
+          2.4
+        ]
+      },
+      "female": {
+        "novice": [
+          0.8,
+          1.2
+        ],
+        "intermediate": [
+          1.2,
+          1.5
+        ],
+        "advanced": [
+          1.5,
+          1.8
+        ]
+      }
+    },
+    "animSlug": "leg-press",
+    "rosen": "HM-3011"
+  },
+  {
+    "id": "rosen-hm-3015",
+    "name": "ROSEN蝴蝶式胸肌训练器",
+    "enName": "蝴蝶式胸肌训练器 (HM-3015)",
+    "bodyPart": "胸",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    },
+    "animSlug": "pec-deck",
+    "rosen": "HM-3015"
+  },
+  {
+    "id": "rosen-hm-3016",
+    "name": "ROSEN蝴蝶式胸肌背肌训练器",
+    "enName": "蝴蝶式胸肌/背肌训练器 (HM-3016)",
+    "bodyPart": "胸",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      },
+      "female": {
+        "novice": [
+          0.1,
+          0.16
+        ],
+        "intermediate": [
+          0.16,
+          0.22
+        ],
+        "advanced": [
+          0.22,
+          0.28
+        ]
+      }
+    },
+    "animSlug": "pec-deck",
+    "rosen": "HM-3016"
+  },
+  {
+    "id": "rosen-hm-3017",
+    "name": "ROSEN大腿内侧肌训练器",
+    "enName": "大腿内侧肌训练器 (HM-3017)",
+    "bodyPart": "臀腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.15,
+          0.22
+        ],
+        "intermediate": [
+          0.22,
+          0.3
+        ],
+        "advanced": [
+          0.3,
+          0.38
+        ]
+      }
+    },
+    "animSlug": "hip-abduction-machine",
+    "rosen": "HM-3017"
+  },
+  {
+    "id": "rosen-hm-3018",
+    "name": "ROSEN髋肌臀肌训练器",
+    "enName": "髋肌/臀肌训练器 (HM-3018)",
+    "bodyPart": "臀腿",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.5,
+          0.7
+        ],
+        "intermediate": [
+          0.7,
+          0.9
+        ],
+        "advanced": [
+          0.9,
+          1.1
+        ]
+      },
+      "female": {
+        "novice": [
+          0.35,
+          0.55
+        ],
+        "intermediate": [
+          0.55,
+          0.75
+        ],
+        "advanced": [
+          0.75,
+          0.95
+        ]
+      }
+    },
+    "animSlug": "hip-thrust",
+    "rosen": "HM-3018"
+  },
+  {
+    "id": "rosen-hm-3022",
+    "name": "ROSEN背肌伸展训练器",
+    "enName": "背肌伸展训练器 (HM-3022)",
+    "bodyPart": "背",
+    "equipment": "插片机",
+    "weighted": true,
+    "pcts": {
+      "male": {
+        "novice": [
+          0.2,
+          0.3
+        ],
+        "intermediate": [
+          0.3,
+          0.4
+        ],
+        "advanced": [
+          0.4,
+          0.5
+        ]
+      },
+      "female": {
+        "novice": [
+          0.12,
+          0.2
+        ],
+        "intermediate": [
+          0.2,
+          0.28
+        ],
+        "advanced": [
+          0.28,
+          0.36
+        ]
+      }
+    },
+    "animSlug": "back-extension",
+    "rosen": "HM-3022"
   }
 ]

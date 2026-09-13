@@ -32,6 +32,29 @@ test('FORWARD 器械型号对照完整（每个动作都有型号图）', () => 
   }
 });
 
+test('ROSEN 扩充机型完整（型号 + 官图 + 动画映射 + 说明）', () => {
+  const machines = require('../miniprogram/data/rosen-machines');
+  const motion = require('../miniprogram/utils/motion');
+  const details = require('../miniprogram/data/exercise-details');
+  const fs = require('fs');
+  const path = require('path');
+  const ADDED = ['HM-1007', 'HM-1008', 'HM-1010', 'HM-1013', 'HM-1018', 'HM-1029', 'HM-1035',
+    'HM-1047', 'HM-1048', 'HM-3001', 'HM-3002', 'HM-3004', 'HM-3006', 'HM-3007', 'HM-3008',
+    'HM-3009', 'HM-3010', 'HM-3011', 'HM-3015', 'HM-3016', 'HM-3017', 'HM-3018', 'HM-3022'];
+  const byModel = {};
+  exercises.filter((e) => e.rosen).forEach((e) => { byModel[e.rosen] = e; });
+  ADDED.forEach((m) => {
+    const e = byModel[m];
+    assert.ok(e, '缺少 ROSEN 机型 ' + m);
+    assert.ok(motion.ANIM_BY_ID[e.id], m + ' 缺动画映射');
+    const mm = machines[e.id];
+    assert.ok(mm && mm.model === m, m + ' 缺型号对照');
+    assert.ok(fs.existsSync(path.join(__dirname, '..', 'miniprogram', mm.image.replace(/^\//, ''))), m + ' 缺器械图');
+    const d = details.detailsOf(e.id);
+    assert.ok(d && d.targets && d.steps, m + ' 缺演示说明');
+  });
+});
+
 test('templates: 引用的动作 id 全部存在', () => {
   const ids = new Set(exercises.map((e) => e.id));
   for (const t of templates) {

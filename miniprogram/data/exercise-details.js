@@ -632,6 +632,30 @@ module.exports = {
 
 // FORWARD 器械的演示说明复用最接近的标准动作（保持单一来源，避免重复维护）
 const DETAIL_SOURCE = {
+  // 2026-09 ROSEN 扩充机型
+  'rosen-hm-1007': 'rosen-hm-incline-press',
+  'rosen-hm-1008': 'rosen-hm-bench-press',
+  'rosen-hm-1010': 'rosen-hm-shoulder-press',
+  'rosen-hm-1013': 'rosen-hm-seated-row',
+  'rosen-hm-1018': 'rosen-hm-lat-pulldown',
+  'rosen-hm-1029': 'rosen-leg-press45',
+  'rosen-hm-1035': 'rosen-leg-press45',
+  'rosen-hm-1047': 'lunge',
+  'rosen-hm-1048': 'smith-machine-bench-press',
+  'rosen-hm-3001': 'pullup',
+  'rosen-hm-3002': 'rosen-sel-bicep',
+  'rosen-hm-3004': 'rosen-sel-lat-pulldown',
+  'rosen-hm-3006': 'rosen-sel-shoulder-press',
+  'rosen-hm-3007': 'rosen-hm-tricep',
+  'rosen-hm-3008': 'rosen-sel-hip',
+  'rosen-hm-3009': 'rosen-sel-leg-extension',
+  'rosen-hm-3010': 'rosen-sel-leg-curl',
+  'rosen-hm-3011': 'rosen-leg-press45',
+  'rosen-hm-3015': 'peck-deck',
+  'rosen-hm-3016': 'peck-deck',
+  'rosen-hm-3017': 'rosen-sel-hip',
+  'rosen-hm-3018': 'rosen-hip-thrust',
+  'rosen-hm-3022': 'rosen-back-extension',
   // FWS 插片机系列
   'fwd-fws-001': 'peck-deck', 'fwd-fws-002': 'rosen-sel-lat-pulldown', 'fwd-fws-003': 'rosen-sel-seated-row',
   'fwd-fws-004': 'chest-press', 'fwd-fws-005': 'machine-shoulder-press', 'fwd-fws-006': 'rosen-sel-bicep',

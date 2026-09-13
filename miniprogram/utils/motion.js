@@ -450,6 +450,83 @@ function glyphExists(key) {
   return !!FALLBACK_GLYPH[key] || !!GLYPH_BY_ID[key];
 }
 
+// 2026-09 ROSEN 扩充机型映射
+Object.assign(ANIM_BY_ID, {
+  'rosen-hm-1007': 'incline-bench-press',
+  'rosen-hm-1008': 'machine-chest-press',
+  'rosen-hm-1010': 'machine-shoulder-press',
+  'rosen-hm-1013': 'machine-row',
+  'rosen-hm-1018': 'lat-pulldown',
+  'rosen-hm-1029': 'leg-press',
+  'rosen-hm-1035': 'leg-press',
+  'rosen-hm-1047': 'forward-lunge',
+  'rosen-hm-1048': 'bench-press',
+  'rosen-hm-3001': 'pull-up',
+  'rosen-hm-3002': 'bicep-curl',
+  'rosen-hm-3004': 'lat-pulldown',
+  'rosen-hm-3006': 'machine-shoulder-press',
+  'rosen-hm-3007': 'overhead-tricep-extension',
+  'rosen-hm-3008': 'hip-abduction-machine',
+  'rosen-hm-3009': 'leg-extension',
+  'rosen-hm-3010': 'lying-leg-curl',
+  'rosen-hm-3011': 'leg-press',
+  'rosen-hm-3015': 'pec-deck',
+  'rosen-hm-3016': 'pec-deck',
+  'rosen-hm-3017': 'hip-abduction-machine',
+  'rosen-hm-3018': 'hip-thrust',
+  'rosen-hm-3022': 'back-extension'
+});
+Object.assign(MOTION_BY_ID, {
+  'rosen-hm-1007': 'incline-press',
+  'rosen-hm-1008': 'bench-press',
+  'rosen-hm-1010': 'shoulder-press',
+  'rosen-hm-1013': 'row',
+  'rosen-hm-1018': 'lat-pulldown',
+  'rosen-hm-1029': 'leg-press',
+  'rosen-hm-1035': 'leg-press',
+  'rosen-hm-1047': 'lunge',
+  'rosen-hm-1048': 'bench-press',
+  'rosen-hm-3001': 'pullup',
+  'rosen-hm-3002': 'curl',
+  'rosen-hm-3004': 'lat-pulldown',
+  'rosen-hm-3006': 'shoulder-press',
+  'rosen-hm-3007': 'overhead-extension',
+  'rosen-hm-3008': 'hip-abduction',
+  'rosen-hm-3009': 'leg-extension',
+  'rosen-hm-3010': 'leg-curl',
+  'rosen-hm-3011': 'leg-press',
+  'rosen-hm-3015': 'chest-fly',
+  'rosen-hm-3016': 'chest-fly',
+  'rosen-hm-3017': 'hip-abduction',
+  'rosen-hm-3018': 'hip-thrust',
+  'rosen-hm-3022': 'back-extension'
+});
+Object.assign(GLYPH_BY_ID, {
+  'rosen-hm-1007': 'machine-generic',
+  'rosen-hm-1008': 'machine-generic',
+  'rosen-hm-1010': 'machine-generic',
+  'rosen-hm-1013': 'machine-generic',
+  'rosen-hm-1018': 'machine-generic',
+  'rosen-hm-1029': 'machine-generic',
+  'rosen-hm-1035': 'machine-generic',
+  'rosen-hm-1047': 'machine-generic',
+  'rosen-hm-1048': 'machine-generic',
+  'rosen-hm-3001': 'machine-generic',
+  'rosen-hm-3002': 'machine-generic',
+  'rosen-hm-3004': 'machine-generic',
+  'rosen-hm-3006': 'machine-generic',
+  'rosen-hm-3007': 'machine-generic',
+  'rosen-hm-3008': 'machine-generic',
+  'rosen-hm-3009': 'machine-generic',
+  'rosen-hm-3010': 'machine-generic',
+  'rosen-hm-3011': 'machine-generic',
+  'rosen-hm-3015': 'machine-generic',
+  'rosen-hm-3016': 'machine-generic',
+  'rosen-hm-3017': 'machine-generic',
+  'rosen-hm-3018': 'machine-generic',
+  'rosen-hm-3022': 'machine-generic'
+});
+
 module.exports = {
   MOTIONS,
   ANIM_BY_ID,
