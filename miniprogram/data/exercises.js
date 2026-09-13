@@ -280,7 +280,7 @@ const exercises = [
   {"id":"dragon-flag","name":"龙旗","enName":"Dragon Flag","bodyPart":"核心","equipment":"自重","weighted":false,"py":"lq","pyf":"longqi"},
   {"id":"burpee","name":"波比跳","enName":"Burpee","bodyPart":"有氧","equipment":"自重","weighted":false,"py":"bbt","pyf":"bobitiao"},
   {"id":"half-burpee","name":"半波比跳","enName":"Half Burpee","bodyPart":"核心","equipment":"自重","weighted":false,"py":"bbbt","pyf":"banbobitiao"},
-  {"id":"squat-thrust","name":"深蹲推","enName":"Squat Thrust","bodyPart":"核心","equipment":"自重","weighted":false,"py":"sdt","pyf":"shenduntui"},
+  {"id":"squat-thrust","name":"深蹲提膝","enName":"Squat Thrust","bodyPart":"核心","equipment":"自重","weighted":false,"py":"sdtx","pyf":"shenduntixi"},
   {"id":"high-knees","name":"高抬腿","enName":"High Knees","bodyPart":"有氧","equipment":"自重","weighted":false,"py":"gtt","pyf":"gaotaitui"},
   {"id":"jumping-jack","name":"开合跳","enName":"Jumping Jack","bodyPart":"有氧","equipment":"自重","weighted":false,"py":"kht","pyf":"kaihetiao"},
   {"id":"skater-hop","name":"滑冰跳","enName":"Skater Hop","bodyPart":"有氧","equipment":"自重","weighted":false,"py":"hbt","pyf":"huabingtiao"},
