@@ -12,7 +12,17 @@ const forwardMachines = require('../../data/forward-machines');
 const searchUtil = require('../../utils/search');
 const track = require('../../utils/track');
 
-const BODY_ORDER = ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'];
+const BODY_ORDER = ['有氧', '胸', '背', '腿', '肩', '手臂', '核心', '臀腿'];
+
+function fmtSec(sec) {
+  const s = Math.max(0, Math.floor(Number(sec) || 0));
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const ss = s % 60;
+  const mm = String(m).padStart(2, '0');
+  const sss = String(ss).padStart(2, '0');
+  return h > 0 ? (h + ':' + mm + ':' + sss) : (mm + ':' + sss);
+}
 
 Page({
   data: {
@@ -35,8 +45,8 @@ Page({
     showFinishSheet: false,
     finishCalories: '',
     estimatedCalories: 0,
-    bodyParts: ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'],
-    bodyPartTabs: ['全部', '胸', '背', '腿', '肩', '手臂', '核心', '臀腿'],
+    bodyParts: ['有氧', '胸', '背', '腿', '肩', '手臂', '核心', '臀腿'],
+    bodyPartTabs: ['全部', '有氧', '胸', '背', '腿', '肩', '手臂', '核心', '臀腿'],
     activeBodyPart: '全部',
     searchQuery: '',
     filteredGroups: []
@@ -57,9 +67,11 @@ Page({
     this.resumeRests();
   },
   onHide() {
+    this.pauseCardioTimer();
     this.persistActiveRest();
   },
   onUnload() {
+    this.pauseCardioTimer();
     this.clearRestTimers();
     this.clearVibeTimers();
     this.persistActiveRest();
@@ -258,16 +270,103 @@ Page({
       bodyPart: ex.bodyPart,
       equipment: ex.equipment,
       weighted: !!ex.weighted,
+      cardio: !!ex.cardio,
       restMinutes: 3,
       restSeconds: 0,
       restRunning: false,
       restRemaining: 0,
       restText: '',
-      sets: [{ reps: '', weight: '', _key: this.genId() }]
+      sets: ex.cardio ? [] : [{ reps: '', weight: '', _key: this.genId() }],
+      timerMode: 'countdown',
+      timerTargetMin: 30,
+      timerElapsed: 0,
+      timerRunning: false,
+      timerText: '00:00'
     };
     this.setData({ exercises: this.data.exercises.concat([item]), showExercisePicker: false });
     track.track('exercise_added', { name: ex.name, bodyPart: ex.bodyPart });
     this.recalc();
+  },
+  // ---- 有氧：倒计时 / 计时 ----
+  setCardioMode(e) {
+    const { ei } = e.currentTarget.dataset;
+    const mode = e.currentTarget.dataset.mode;
+    const ex = this.data.exercises.slice();
+    if (ex[ei].timerRunning) return this.toast('请先暂停计时');
+    ex[ei] = Object.assign({}, ex[ei], { timerMode: mode, timerElapsed: 0, timerText: '00:00' });
+    this.setData({ exercises: ex });
+  },
+  changeCardioTarget(e, delta) {
+    const { ei } = e.currentTarget.dataset;
+    const ex = this.data.exercises.slice();
+    const cur = Number(ex[ei].timerTargetMin) || 30;
+    if (ex[ei].timerRunning) return;
+    ex[ei] = Object.assign({}, ex[ei], { timerTargetMin: Math.max(1, Math.min(120, cur + delta)) });
+    this.setData({ exercises: ex });
+  },
+  incCardioTarget(e) { this.changeCardioTarget(e, 5); },
+  decCardioTarget(e) { this.changeCardioTarget(e, -5); },
+  toggleCardioTimer(e) {
+    const { ei } = e.currentTarget.dataset;
+    const exi = Number(ei);
+    const ex = this.data.exercises[exi];
+    if (!ex) return;
+    if (ex.timerRunning) return this.pauseCardioTimer();
+    // 倒计时起始值 = 目标分钟
+    if (ex.timerMode === 'countdown' && !ex.timerElapsed) {
+      this.setData({ ['exercises[' + exi + '].timerElapsed']: ex.timerTargetMin * 60, ['exercises[' + exi + '].timerText']: fmtSec(ex.timerTargetMin * 60) });
+    }
+    this.setData({ ['exercises[' + exi + '].timerRunning']: true });
+    this._cardioEi = exi;
+    this._cardioTimer = setInterval(() => this.tickCardio(), 1000);
+  },
+  tickCardio() {
+    const exi = this._cardioEi;
+    const ex = this.data.exercises[exi];
+    if (!ex) return this.pauseCardioTimer();
+    if (ex.timerMode === 'countdown') {
+      const left = Math.max(0, (Number(ex.timerElapsed) || 0) - 1);
+      this.setData({ ['exercises[' + exi + '].timerElapsed']: left, ['exercises[' + exi + '].timerText']: fmtSec(left) });
+      if (left === 0) {
+        wx.vibrateLong && wx.vibrateLong();
+        this.recordCardio(exi, (Number(ex.timerTargetMin) || 0) * 60);
+      }
+    } else {
+      const done = (Number(ex.timerElapsed) || 0) + 1;
+      this.setData({ ['exercises[' + exi + '].timerElapsed']: done, ['exercises[' + exi + '].timerText']: fmtSec(done) });
+    }
+  },
+  pauseCardioTimer() {
+    if (this._cardioTimer) { clearInterval(this._cardioTimer); this._cardioTimer = null; }
+    if (this._cardioEi != null && this.data.exercises[this._cardioEi]) {
+      this.setData({ ['exercises[' + this._cardioEi + '].timerRunning']: false });
+    }
+  },
+  resetCardioTimer(e) {
+    const { ei } = e.currentTarget.dataset;
+    this.pauseCardioTimer();
+    const ex = this.data.exercises.slice();
+    ex[ei] = Object.assign({}, ex[ei], { timerElapsed: 0, timerText: '00:00', timerRunning: false });
+    this.setData({ exercises: ex });
+  },
+  finishCardio(e) {
+    const ei = Number(e.currentTarget.dataset.ei);
+    const item = this.data.exercises[ei];
+    if (!item) return;
+    this.recordCardio(ei, Number(item.timerElapsed) || 0);
+  },
+  recordCardio(ei, sec) {
+    this.pauseCardioTimer();
+    const ex = this.data.exercises.slice();
+    const item = ex[ei];
+    if (!item) return;
+    if (sec <= 0) { this.toast('先开始计时再记录'); return; }
+    const set = { durationSec: sec, mode: item.timerMode, text: fmtSec(sec), _key: this.genId() };
+    ex[ei] = Object.assign({}, item, { sets: (item.sets || []).concat([set]), timerElapsed: 0, timerText: '00:00', timerRunning: false });
+    this.setData({ exercises: ex });
+    track.track('cardio_finished', { name: item.name, sec, mode: item.timerMode });
+    this.recalc();
+    this.toast('已记录 ' + fmtSec(sec));
   },
   pickExerciseFromDetail(e) {
     this.setData({ showDetail: false });

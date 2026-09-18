@@ -1,6 +1,20 @@
-// 动作库:name/部位/器械/中英文术语;weighted=true 的动作按"性别+体重倍数"给推荐区间
-// 含拼音检索字段 py(首字母)/pyf(全拼)
+// 动作库:name/部位/器械/中英文术语;weighted=true 按"性别+体重倍数"给推荐区间
+// cardio=true 为计时类动作(倒计时/计时记录);含拼音检索字段 py/pyf
 const exercises = [
+  {"id":"cardio-running","name":"跑步","enName":"Running","bodyPart":"有氧","equipment":"有氧器械","weighted":false,"cardio":true,"py":"pb","pyf":"paobu"},
+  {"id":"cardio-walking","name":"慢走","enName":"Walking","bodyPart":"有氧","equipment":"有氧器械","weighted":false,"cardio":true,"py":"mz","pyf":"manzou"},
+  {"id":"cardio-incline-walk","name":"爬坡走","enName":"Incline Walking","bodyPart":"有氧","equipment":"有氧器械","weighted":false,"cardio":true,"py":"ppz","pyf":"papozou"},
+  {"id":"cardio-stair-climber","name":"爬楼梯机","enName":"Stair Climber","bodyPart":"有氧","equipment":"有氧器械","weighted":false,"cardio":true,"py":"pltj","pyf":"paloutiji"},
+  {"id":"cardio-elliptical","name":"椭圆机","enName":"Elliptical Trainer","bodyPart":"有氧","equipment":"有氧器械","weighted":false,"cardio":true,"py":"tyj","pyf":"tuoyuanji"},
+  {"id":"cardio-rowing","name":"划船机","enName":"Rowing Machine","bodyPart":"有氧","equipment":"有氧器械","weighted":false,"cardio":true,"py":"hcj","pyf":"huachuanji"},
+  {"id":"cardio-cycling","name":"动感单车","enName":"Indoor Cycling","bodyPart":"有氧","equipment":"有氧器械","weighted":false,"cardio":true,"py":"dgdc","pyf":"donggandanche"},
+  {"id":"cardio-air-bike","name":"风阻单车","enName":"Air Bike","bodyPart":"有氧","equipment":"有氧器械","weighted":false,"cardio":true,"py":"fzdc","pyf":"fengzudanche"},
+  {"id":"cardio-skierg","name":"滑雪机","enName":"SkiErg","bodyPart":"有氧","equipment":"有氧器械","weighted":false,"cardio":true,"py":"hxj","pyf":"huaxueji"},
+  {"id":"cardio-jump-rope","name":"跳绳","enName":"Jump Rope","bodyPart":"有氧","equipment":"自重","weighted":false,"cardio":true,"py":"ts","pyf":"tiaosheng"},
+  {"id":"cardio-farmers-walk","name":"农夫行走","enName":"Farmer's Walk","bodyPart":"有氧","equipment":"哑铃","weighted":false,"cardio":true,"py":"nfxz","pyf":"nongfuxingzou"},
+  {"id":"cardio-battle-ropes","name":"战绳","enName":"Battle Ropes","bodyPart":"有氧","equipment":"自重","weighted":false,"cardio":true,"py":"zs","pyf":"zhansheng"},
+  {"id":"cardio-jumping-jack","name":"开合跳","enName":"Jumping Jack","bodyPart":"有氧","equipment":"自重","weighted":false,"cardio":true,"py":"kht","pyf":"kaihetiao"},
+  {"id":"cardio-burpee","name":"波比跳","enName":"Burpee","bodyPart":"有氧","equipment":"自重","weighted":false,"cardio":true,"py":"bbt","pyf":"bobitiao"},
   {"id":"bench","name":"杠铃卧推","enName":"Barbell Bench Press","bodyPart":"胸","equipment":"杠铃","weighted":true,"pcts":{"male":{"novice":[0.4,0.6],"intermediate":[0.6,0.8],"advanced":[0.8,1]},"female":{"novice":[0.2,0.35],"intermediate":[0.35,0.5],"advanced":[0.5,0.65]}},"py":"glwt","pyf":"ganglingwotui"},
   {"id":"incline-bench","name":"上斜杠铃卧推","enName":"Incline Barbell Press","bodyPart":"胸","equipment":"杠铃","weighted":true,"pcts":{"male":{"novice":[0.35,0.55],"intermediate":[0.55,0.75],"advanced":[0.75,0.95]},"female":{"novice":[0.18,0.3],"intermediate":[0.3,0.45],"advanced":[0.45,0.6]}},"py":"sxglwt","pyf":"shangxieganglingwotui"},
   {"id":"decline-bench","name":"下斜杠铃卧推","enName":"Decline Barbell Press","bodyPart":"胸","equipment":"杠铃","weighted":true,"pcts":{"male":{"novice":[0.4,0.6],"intermediate":[0.6,0.8],"advanced":[0.8,1]},"female":{"novice":[0.2,0.35],"intermediate":[0.35,0.5],"advanced":[0.5,0.65]}},"py":"xxglwt","pyf":"xiaxieganglingwotui"},

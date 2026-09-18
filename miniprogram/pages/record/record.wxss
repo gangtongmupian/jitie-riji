@@ -560,3 +560,66 @@
   color: var(--link-blue);
   padding: 12rpx 8rpx;
 }
+/* 有氧：倒计时 / 计时 */
+.cardio-modes {
+  display: flex;
+  gap: 16rpx;
+  margin: 20rpx 0 12rpx;
+}
+.mode-chip {
+  padding: 14rpx 36rpx;
+  border: 1rpx solid var(--hairline);
+  border-radius: var(--r-full);
+  font-size: 26rpx;
+  color: var(--steel);
+  background: var(--canvas);
+}
+.mode-on {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+.cardio-row {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  margin: 8rpx 0 4rpx;
+}
+.cardio-label {
+  font-size: 26rpx;
+  color: var(--slate);
+}
+.cardio-clock {
+  display: block;
+  text-align: center;
+  font-size: 96rpx;
+  font-weight: 800;
+  letter-spacing: -2rpx;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  margin: 16rpx 0 12rpx;
+}
+.cardio-ops {
+  display: flex;
+  gap: 16rpx;
+}
+.cardio-btn {
+  flex: 1;
+  min-height: 80rpx;
+  font-size: 26rpx;
+}
+.cardio-sets {
+  margin-top: 16rpx;
+}
+.cardio-set {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 0;
+  border-top: 1rpx solid var(--hairline-soft);
+}
+.cardio-set-t {
+  font-size: 28rpx;
+  color: var(--charcoal);
+  font-variant-numeric: tabular-nums;
+}

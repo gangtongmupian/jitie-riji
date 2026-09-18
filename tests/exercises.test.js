@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const exercises = require('../miniprogram/data/exercises');
 const templates = require('../miniprogram/data/templates');
 
-const PARTS = ['胸', '背', '腿', '肩', '手臂', '核心', '臀腿'];
+const PARTS = ['有氧', '胸', '背', '腿', '肩', '手臂', '核心', '臀腿'];
 
 test('exercises: id 唯一且字段合法', () => {
   const ids = exercises.map((e) => e.id);
@@ -52,6 +52,21 @@ test('ROSEN 扩充机型完整（型号 + 官图 + 动画映射 + 说明）', ()
     assert.ok(fs.existsSync(path.join(__dirname, '..', 'miniprogram', mm.image.replace(/^\//, ''))), m + ' 缺器械图');
     const d = details.detailsOf(e.id);
     assert.ok(d && d.targets && d.steps, m + ' 缺演示说明');
+  });
+});
+
+test('有氧分类完整（计时类动作，含专业名词）', () => {
+  const cardio = exercises.filter((e) => e.bodyPart === '有氧');
+  assert.ok(cardio.length >= 10, '有氧动作应不少于 10 个');
+  cardio.forEach((e) => {
+    assert.equal(e.cardio, true, e.id + ' 缺少 cardio 标记');
+    assert.equal(e.weighted, false, e.id + ' 有氧动作不应带重量推荐');
+    assert.ok(e.enName, e.id + ' 缺少英文术语');
+    assert.ok(e.py, e.id + ' 缺少拼音检索字段');
+  });
+  const names = cardio.map((e) => e.name);
+  ['跑步', '慢走', '爬坡走', '爬楼梯机', '椭圆机', '农夫行走'].forEach((n) => {
+    assert.ok(names.indexOf(n) >= 0, '缺少有氧动作: ' + n);
   });
 });
 

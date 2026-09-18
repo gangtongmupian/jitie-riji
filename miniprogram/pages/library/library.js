@@ -1,7 +1,7 @@
 const exercises = require('../../data/exercises');
 const searchUtil = require('../../utils/search');
 
-const BODY_ORDER = ['胸', '背', '腿', '臀腿', '肩', '手臂', '核心'];
+const BODY_ORDER = ['有氧', '胸', '背', '腿', '臀腿', '肩', '手臂', '核心'];
 
 Page({
   data: {

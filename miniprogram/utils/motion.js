@@ -527,6 +527,56 @@ Object.assign(GLYPH_BY_ID, {
   'rosen-hm-3022': 'machine-generic'
 });
 
+// 2026-09 有氧动作映射
+Object.assign(ANIM_BY_ID, {
+  'cardio-running': 'running',
+  'cardio-walking': 'walking',
+  'cardio-incline-walk': 'treadmill-incline-walk',
+  'cardio-stair-climber': 'stair-climber',
+  'cardio-elliptical': 'elliptical',
+  'cardio-rowing': 'rowing',
+  'cardio-cycling': 'cycling',
+  'cardio-air-bike': 'assault-bike',
+  'cardio-skierg': 'skierg',
+  'cardio-jump-rope': 'jump-rope',
+  'cardio-farmers-walk': 'farmer-carry',
+  'cardio-battle-ropes': 'battle-ropes',
+  'cardio-jumping-jack': 'jumping-jack',
+  'cardio-burpee': 'burpee'
+});
+Object.assign(MOTION_BY_ID, {
+  'cardio-running': 'mountain-climber',
+  'cardio-walking': 'mountain-climber',
+  'cardio-incline-walk': 'mountain-climber',
+  'cardio-stair-climber': 'mountain-climber',
+  'cardio-elliptical': 'mountain-climber',
+  'cardio-rowing': 'row',
+  'cardio-cycling': 'mountain-climber',
+  'cardio-air-bike': 'mountain-climber',
+  'cardio-skierg': 'lat-pulldown',
+  'cardio-jump-rope': 'mountain-climber',
+  'cardio-farmers-walk': 'shrug',
+  'cardio-battle-ropes': 'triceps-pushdown',
+  'cardio-jumping-jack': 'mountain-climber',
+  'cardio-burpee': 'mountain-climber'
+});
+Object.assign(GLYPH_BY_ID, {
+  'cardio-running': 'machine-generic',
+  'cardio-walking': 'machine-generic',
+  'cardio-incline-walk': 'machine-generic',
+  'cardio-stair-climber': 'machine-generic',
+  'cardio-elliptical': 'machine-generic',
+  'cardio-rowing': 'machine-generic',
+  'cardio-cycling': 'machine-generic',
+  'cardio-air-bike': 'machine-generic',
+  'cardio-skierg': 'machine-generic',
+  'cardio-jump-rope': 'bodyweight',
+  'cardio-farmers-walk': 'dumbbell-pair',
+  'cardio-battle-ropes': 'cable',
+  'cardio-jumping-jack': 'bodyweight',
+  'cardio-burpee': 'bodyweight'
+});
+
 module.exports = {
   MOTIONS,
   ANIM_BY_ID,

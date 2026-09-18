@@ -4,6 +4,14 @@ const cloud = require('../../utils/cloud');
 const track = require('../../utils/track');
 const storage = require('../../utils/storage');
 
+function mmss(sec) {
+  const s = Math.max(0, Math.floor(Number(sec) || 0));
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const ss = String(s % 60).padStart(2, '0');
+  return (h > 0 ? (h + ':' + String(m).padStart(2, '0')) : String(m).padStart(2, '0')) + ':' + ss;
+}
+
 Page({
   data: {
     workout: null,
@@ -39,9 +47,12 @@ Page({
       const sets = ex.sets || [];
       const best = sets.reduce((a, b) => ((Number(b.weight) > Number(a.weight)) ? b : a), sets[0]);
       const weighted = ex.weighted || sets.some((s) => Number(s.weight) > 0);
-      const label = weighted
-        ? `${best ? best.weight : 0}kg×${best ? best.reps : 0}`
-        : `自重×${best ? best.reps : 0}`;
+      const dur = sets.find((s) => s.durationSec);
+      const label = dur
+        ? ((dur.mode === 'countdown' ? '倒计时 ' : '计时 ') + mmss(dur.durationSec))
+        : (weighted
+          ? `${best ? best.weight : 0}kg×${best ? best.reps : 0}`
+          : `自重×${best ? best.reps : 0}`);
       return { name: ex.name, count: sets.length, label };
     });
     const calories = Number(workout.calories) || 0;

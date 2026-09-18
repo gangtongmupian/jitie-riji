@@ -1,6 +1,7 @@
 .superpowers/
 work/
 deploy/node_modules/
+cloudfunctions/*/node_modules/
 project.private.config.json
 ~$*
 preview-qr.png

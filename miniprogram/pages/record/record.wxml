@@ -30,32 +30,60 @@
             </view>
             <text class="ex-del" data-ei="{{ei}}" bindtap="removeExercise">删除</text>
           </view>
-          <view class="set-labels">
-            <text class="set-label">重量 (kg)</text>
-            <text class="set-label">次数</text>
-            <text class="set-label set-label-op"></text>
-          </view>
-          <view class="set-row" wx:for="{{ex.sets}}" wx:for-item="s" wx:for-index="si" wx:key="_key">
-            <input wx:if="{{ex.weighted}}" class="input set-input" type="digit" data-ei="{{ei}}" data-si="{{si}}" data-field="weight" value="{{s.weight}}" bindinput="onSetInput" placeholder="重量" />
-            <view wx:else class="set-bw">自重</view>
-            <input class="input set-input" type="number" data-ei="{{ei}}" data-si="{{si}}" data-field="reps" value="{{s.reps}}" bindinput="onSetInput" placeholder="次数" />
-            <text class="set-op" data-ei="{{ei}}" data-si="{{si}}" bindtap="removeSet">−</text>
-          </view>
-          <view class="rest-row">
-            <text class="rest-label">间歇</text>
-            <view class="rest-stepper">
-              <text class="rest-btn" data-ei="{{ei}}" bindtap="decRest">−</text>
-              <text class="rest-val">{{ex.restMinutes}}分</text>
-              <text class="rest-btn" data-ei="{{ei}}" bindtap="incRest">＋</text>
+          <block wx:if="{{ex.cardio}}">
+            <view class="cardio-modes">
+              <view class="mode-chip {{ex.timerMode === 'countdown' ? 'mode-on' : ''}}" data-ei="{{ei}}" data-mode="countdown" bindtap="setCardioMode">倒计时</view>
+              <view class="mode-chip {{ex.timerMode === 'stopwatch' ? 'mode-on' : ''}}" data-ei="{{ei}}" data-mode="stopwatch" bindtap="setCardioMode">计时</view>
             </view>
-            <view class="rest-stepper">
-              <text class="rest-btn" data-ei="{{ei}}" bindtap="decRestSec">−</text>
-              <text class="rest-val">{{ex.restSeconds}}秒</text>
-              <text class="rest-btn" data-ei="{{ei}}" bindtap="incRestSec">＋</text>
+            <view class="cardio-row">
+              <text class="cardio-label">{{ex.timerMode === 'countdown' ? '目标时长' : '已用时间'}}</text>
+              <view wx:if="{{ex.timerMode === 'countdown'}}" class="rest-stepper">
+                <text class="rest-btn" data-ei="{{ei}}" bindtap="decCardioTarget">−</text>
+                <text class="rest-val">{{ex.timerTargetMin}}分</text>
+                <text class="rest-btn" data-ei="{{ei}}" bindtap="incCardioTarget">＋</text>
+              </view>
             </view>
-            <view class="rest-go {{ex.restRunning ? 'rest-going' : ''}}" data-ei="{{ei}}" bindtap="toggleRest">{{ex.restRunning ? ex.restText : '开始休息'}}</view>
-          </view>
-          <view class="add-set" data-ei="{{ei}}" bindtap="addSet">+ 加一组</view>
+            <view class="cardio-clock">{{ex.timerText}}</view>
+            <view class="cardio-ops">
+              <view class="btn {{ex.timerRunning ? 'btn-ghost' : 'btn-primary'}} cardio-btn" data-ei="{{ei}}" bindtap="toggleCardioTimer">{{ex.timerRunning ? '暂停' : '开始'}}</view>
+              <view class="btn btn-ghost cardio-btn" data-ei="{{ei}}" bindtap="resetCardioTimer">重置</view>
+              <view class="btn btn-primary cardio-btn" data-ei="{{ei}}" bindtap="finishCardio">完成记录</view>
+            </view>
+            <view wx:if="{{ex.sets.length}}" class="cardio-sets">
+              <view class="cardio-set" wx:for="{{ex.sets}}" wx:for-item="s" wx:for-index="si" wx:key="_key">
+                <text class="cardio-set-t">{{s.mode === 'countdown' ? '倒计时' : '计时'}} {{s.text || ''}}</text>
+                <text class="set-op" data-ei="{{ei}}" data-si="{{si}}" bindtap="removeSet">−</text>
+              </view>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="set-labels">
+              <text class="set-label">重量 (kg)</text>
+              <text class="set-label">次数</text>
+              <text class="set-label set-label-op"></text>
+            </view>
+            <view class="set-row" wx:for="{{ex.sets}}" wx:for-item="s" wx:for-index="si" wx:key="_key">
+              <input wx:if="{{ex.weighted}}" class="input set-input" type="digit" data-ei="{{ei}}" data-si="{{si}}" data-field="weight" value="{{s.weight}}" bindinput="onSetInput" placeholder="重量" />
+              <view wx:else class="set-bw">自重</view>
+              <input class="input set-input" type="number" data-ei="{{ei}}" data-si="{{si}}" data-field="reps" value="{{s.reps}}" bindinput="onSetInput" placeholder="次数" />
+              <text class="set-op" data-ei="{{ei}}" data-si="{{si}}" bindtap="removeSet">−</text>
+            </view>
+            <view class="rest-row">
+              <text class="rest-label">间歇</text>
+              <view class="rest-stepper">
+                <text class="rest-btn" data-ei="{{ei}}" bindtap="decRest">−</text>
+                <text class="rest-val">{{ex.restMinutes}}分</text>
+                <text class="rest-btn" data-ei="{{ei}}" bindtap="incRest">＋</text>
+              </view>
+              <view class="rest-stepper">
+                <text class="rest-btn" data-ei="{{ei}}" bindtap="decRestSec">−</text>
+                <text class="rest-val">{{ex.restSeconds}}秒</text>
+                <text class="rest-btn" data-ei="{{ei}}" bindtap="incRestSec">＋</text>
+              </view>
+              <view class="rest-go {{ex.restRunning ? 'rest-going' : ''}}" data-ei="{{ei}}" bindtap="toggleRest">{{ex.restRunning ? ex.restText : '开始休息'}}</view>
+            </view>
+            <view class="add-set" data-ei="{{ei}}" bindtap="addSet">+ 加一组</view>
+          </block>
         </view>
 
         <view class="add-more" bindtap="openExercises">+ 添加动作</view>

@@ -2,6 +2,14 @@ const cloud = require('../../utils/cloud');
 const share = require('../../utils/share');
 const track = require('../../utils/track');
 
+function mmss(sec) {
+  const s = Math.max(0, Math.floor(Number(sec) || 0));
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const ss = String(s % 60).padStart(2, '0');
+  return (h > 0 ? (h + ':' + String(m).padStart(2, '0')) : String(m).padStart(2, '0')) + ':' + ss;
+}
+
 Page({
   data: {
     loading: true,
@@ -94,7 +102,10 @@ Page({
         timeText: this.timeText(w.startedAt, w.endedAt),
         exercises: (w.exercises || []).map((ex) => ({
           name: ex.name,
-          sets: (ex.sets || []).map((s) => (Number(s.weight) > 0 ? (s.weight + 'kg×' + s.reps) : (s.reps + ' 次')))
+          sets: (ex.sets || []).map((s) => {
+            if (s.durationSec) return (s.mode === 'countdown' ? '倒计时 ' : '计时 ') + mmss(s.durationSec);
+            return Number(s.weight) > 0 ? (s.weight + 'kg×' + s.reps) : (s.reps + ' 次');
+          })
         }))
       }));
       this.setData({ dayLoading: false, dayDetail: { date, items } });
